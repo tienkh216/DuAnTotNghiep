@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkouts</title>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/product.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/shoppingcart.css">
+    <link rel="stylesheet" href="css/checkout.css">
+
+
+    <link rel="stylesheet" href="css/banner.css">
+    <link rel="stylesheet" href="css/slidebar.css">
+    <link rel="stylesheet" href="css/stickslider.css">
+    <!-- BootStrap -->
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.css">
+    <script src="js/bootstrap/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="css/slick.css">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous"> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/bootstrap/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/4.5.6/css/ionicons.min.css">
+    <link rel="stylesheet" href="css/bootstrap/animate.css">
+    <link rel="stylesheet" href="css/bootstrap/style.css">
+</head>
+
+<body>
+    <!--Loading-->
+
+
+
+    <!--Modal: Login / Register Form Demo-->
+    <div class="modal fade" id="modalLRFormDemo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog cascading-modal" role="document">
+            <!--Content-->
+            <div class="modal-content">
+
+                <!--Modal cascading tabs-->
+                <div class="modal-c-tabs">
+
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs tabs-2 light-blue darken-3" role="tablist">
+                        <li class="nav-item waves-effect waves-light">
+                            <a class="nav-link active" data-toggle="tab" href="#panel17" role="tab"><i class="fa fa-user mr-1"></i> Login</a>
+                        </li>
+                        <li class="nav-item waves-effect waves-light">
+                            <a class="nav-link" data-toggle="tab" href="#panel18" role="tab"><i class="fa fa-user-plus mr-1"></i> Register</a>
+                        </li>
+                    </ul>
+
+                    <!-- Tab panels -->
+                    <div class="tab-content">
+                        <!--Panel 17-->
+                        <div class="tab-pane fade in show active" id="panel17" role="tabpanel">
+
+                            <!--Body-->
+                            <div class="modal-body mb-1">
+                                <div class="md-form form-sm">
+                                    <i class="fa fa-envelope prefix"></i>
+                                    <input type="text" id="form2" class="form-control">
+                                    <label for="form2">Your email</label>
+                                </div>
+
+                                <div class="md-form form-sm">
+                                    <i class="fa fa-lock prefix"></i>
+                                    <input type="password" id="form3" class="form-control">
+                                    <label for="form3">Your password</label>
+                                </div>
+                                <div class="text-center mt-2">
+                                    <button class="btn btn-info waves-effect waves-light">Log in <i class="fa fa-sign-in ml-1"></i></button>
+                                </div>
+                            </div>
+                            <!--Footer-->
+                            <div class="modal-footer">
+                                <div class="options text-center text-md-right mt-1">
+                                    <p>Not a member? <a href="#" class="blue-text">Sign Up</a></p>
+                                    <p>Forgot <a href="#" class="blue-text">Password?</a></p>
+                                </div>
+                                <button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Close <i class="fa fa-times-circle ml-1"></i></button>
+                            </div>
+
+                        </div>
+                        <!--/.Panel 7-->
+
+                        <!--Panel 18-->
+                        <div class="tab-pane fade" id="panel18" role="tabpanel">
+
+                            <!--Body-->
+                            <div class="modal-body">
+                                <div class="md-form form-sm">
+                                    <i class="fa fa-envelope prefix"></i>
+                                    <input type="text" id="form14" class="form-control">
+                                    <label for="form14">Your email</label>
+                                </div>
+
+                                <div class="md-form form-sm">
+                                    <i class="fa fa-lock prefix"></i>
+                                    <input type="password" id="form5" class="form-control">
+                                    <label for="form5">Your password</label>
+                                </div>
+
+                                <div class="md-form form-sm">
+                                    <i class="fa fa-lock prefix"></i>
+                                    <input type="password" id="form6" class="form-control">
+                                    <label for="form6">Repeat password</label>
+                                </div>
+
+                                <div class="text-center form-sm mt-2">
+                                    <button class="btn btn-info waves-effect waves-light">Sign up <i class="fa fa-sign-in ml-1"></i></button>
+                                </div>
+
+                                <fieldset class="additional-option">
+                                    <input type="checkbox" id="checkbox1">
+                                    <label for="checkbox1">Subscribe me to the newsletter</label>
+                                </fieldset>
+
+                            </div>
+                            <!--Footer-->
+                            <div class="modal-footer">
+                                <div class="options text-right">
+                                    <p class="pt-1">Already have an account? <a href="#" class="blue-text">Log In</a></p>
+                                </div>
+                                <button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Close <i class="fa fa-times-circle ml-1"></i></button>
+                            </div>
+                        </div>
+                        <!--/.Panel 8-->
+                    </div>
+
+                </div>
+            </div>
+            <!--/.Content-->
+        </div>
+    </div>
+    <!--Modal: Login / Register Form Demo-->
+
+    <div id="wrapper">
+        <div class="overlay"></div>
+
+        <!-- Sidebar -->
+        <nav class="navbar navbar-inverse fixed-top p-0" id="sidebar-wrapper" role="navigation">
+            <ul class="nav sidebar-nav">
+                <div class="sidebar-header">
+                    <div class="sidebar-brand">
+                        <a href="#">LOGO</a></div>
+                </div>
+                <li class="dropdown">
+                    <a href="#works" class="dropdown-toggle" data-toggle="dropdown">  PRODUCTS <span class="caret"></span></a>
+                    <ul class="dropdown-menu animated fadeInLeft" role="menu">
+                        <div class="dropdown-header">Dropdown heading</div>
+                        <li><a href="#pictures">Pictures</a></li>
+                        <li><a href="#videos">Videeos</a></li>
+                        <li><a href="#books">Books</a></li>
+                        <li><a href="#art">Art</a></li>
+                        <li><a href="#awards">Awards</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+        </nav>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <nav class="scoll">
+                <header class="header default ">
+                    <div class="container">
+                        <div class="row ">
+                            <div class="col-3 d-none d-xl-block d-md-none d-lg-none d-sm-none header-left-bg ">
+                                <a href="" class="logo-header">
+                                    <h1>LOGO</h1>
+                                </a>
+                            </div>
+                            <div class="header-right-bg col-xl-9 col-md-12 col=sm-12 col-xs-12 ">
+                                <div class="top-bar">
+                                    <div class="d-block d-md-flex align-items-center text-center">
+                                        <div class="mr-3 d-inline-block">
+                                            <ion-icon class="mail text-secondary pr-1" name="mail"></ion-icon>minhphuc-frontend@gmail.com</div>
+                                        <div class="mr-auto d-inline-block">
+                                            <ion-icon class="call pr-1 text-secondary" name="call"></ion-icon>01234567898</div>
+                                        <div class="login mr-4 d-inline-block">
+                                            <a href="" data-toggle="modal" data-target="#modalLRFormDemo">
+                                              Login</a>
+
+
+                                        </div>
+                                        <div class="social d-inline-block">
+                                            <ul class="list-unstyled">
+                                                <li>
+                                                    <ion-icon name="logo-facebook"></ion-icon>
+                                                </li>
+                                                <li>
+                                                    <ion-icon name="logo-twitter"></ion-icon>
+                                                </li>
+                                                <li>
+                                                    <ion-icon name="logo-instagram"></ion-icon>
+                                                </li>
+
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <nav class="navbar navbar-expand-lg navbar-light ">
+                                    <button type="button" class="navbar-toggler hamburger animated fadeInLeft is-closed" data-toggle="offcanvas">
+                                        <span class="hamb-top"></span>
+                                        <span class="hamb-middle"></span>
+                                        <span class="hamb-bottom"></span>
+                                    </button>
+                                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                                        <ul class="navbar-nav">
+
+                                            <li class="nav-item dropdown">
+                                                <a class="nav-link dropdown-toggle " href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    Products
+                                          </a>
+                                                <div class=" navdrop dropdown-menu dropdown2 dropdown-menu2" aria-labelledby="navbarDropdownMenuLink">
+                                                    <a class="dropdown-item" href="#">Action</a>
+                                                    <a class="dropdown-item" href="#">Another action</a>
+                                                    <a class="dropdown-item" href="#">Something else here</a>
+                                                </div>
+                                            </li>
+                                            <li class="nav-item dropdown">
+                                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    Best seller
+                                          </a>
+                                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                                    <a class="dropdown-item" href="#">Action</a>
+                                                    <a class="dropdown-item" href="#">Another action</a>
+                                                    <a class="dropdown-item" href="#">Something else here</a>
+                                                </div>
+                                            </li>
+                                            <li class="nav-item dropdown">
+                                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    Hot Combo
+                                          </a>
+                                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                                    <a class="dropdown-item" href="#">Action</a>
+                                                    <a class="dropdown-item" href="#">Another action</a>
+                                                    <a class="dropdown-item" href="#">Something else here</a>
+                                                </div>
+                                            </li>
+                                            <li class="nav-item dropdown">
+                                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    Fitness news
+                                          </a>
+                                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                                    <a class="dropdown-item" href="#">Action</a>
+                                                    <a class="dropdown-item" href="#">Another action</a>
+                                                    <a class="dropdown-item" href="#">Something else here</a>
+                                                </div>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+
+                                    <a href="" class="logo-header d-xl-none d-lg-none d-md-block d-sm-block">
+                                        <h1>LOGO</h1>
+                                    </a>
+
+                                    <div class="button btn-skew btn-md shape-svg">
+                                        <span> <ion-icon name="cart" style="font-size: 30px;"></ion-icon>My Cart</span>
+                                        <svg>
+                                      <polyline class="o1" points="0 0, 150 0, 150 55, 0 55, 0 0"></polyline>
+                                      <polyline class="o2" points="0 0, 150 0, 150 55, 0 55, 0 0"></polyline>
+                                    </svg>
+
+
+                                    </div>
+
+                                    <!-- <a class="cart btn btn-primary btn-skew btn-md shape-svg" href="#">
+                                    <span>   <ion-icon name="cart" style="font-size: 30px;"></ion-icon>My Cart</span></a> -->
+
+                                </nav>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </header>
+            </nav>
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+        <section class="space-ptb">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="checkout-info mb-4 mb-md-5">
+                            <p class="mb-0">
+                                <strong>Returning customer?</strong> <a class="text-secondary" href="login.html">Click here to login</a></p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="checkout-info-coupon mb-4 mb-md-5">
+                            <p class="checkout-info"><strong>Have a coupon?</strong>
+                                <a class="text-secondary" data-bs-toggle="collapse" href="#collapse" role="button" aria-expanded="false" aria-controls="collapse">
+                                Click here to enter your code
+                              </a>
+                            </p>
+                            <div class="collapse" id="collapse">
+                                <div class="checkout-coupon">
+                                    <p>If you have a coupon code, please apply it below.</p>
+                                    <form class="row">
+                                        <div class="mb-3 col-sm-12">
+                                            <input type="text" class="form-control" id="coupon_code" placeholder="Coupon code">
+                                        </div>
+                                    </form>
+                                    <a href="#" class="btn btn-primary"> <span> Apply coupon</span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="checkout">
+                            <div class="section-title">
+                                <h3 class="title">Billing details</h3>
+                            </div>
+                            <form class="row mt-4">
+                                <div class="mb-3 col-sm-12">
+                                    <label class="form-label">First name</label>
+                                    <input type="text" class="form-control" placeholder="">
+                                </div>
+                                <div class="mb-3 col-sm-12">
+                                    <label class="form-label">Last name</label>
+                                    <input type="text" class="form-control" placeholder="">
+                                </div>
+                                <div class="mb-3 col-sm-12">
+                                    <label class="form-label">Street Address</label>
+                                    <input type="text" class="form-control" placeholder="">
+                                </div>
+                                <div class="mb-3 col-sm-12">
+
+
+                                </div>
+
+
+
+
+
+
+
+
+
+                                <div class="mb-3 col-sm-12">
+                                    <label class="form-label">Phone</label>
+                                    <input type="text" class="form-control" placeholder="">
+                                </div>
+                                <div class="mb-3 col-sm-12 mb-0">
+                                    <label class="form-label">Email Address:</label>
+                                    <input type="email" class="form-control" placeholder="">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mt-5 mt-md-0">
+                        <div class="section-title">
+                            <h3 class="title">Your order</h3>
+                        </div>
+                        <div class="checkout-review">
+                            <div class="table-responsive">
+                                <table class="table cart">
+                                    <tbody>
+                                        <tr>
+                                            <th class="border-top-0 product-name" scope="row">Product</th>
+                                            <th class="border-top-0 product-total" scope="row">Subtotal</th>
+                                        </tr>
+                                        <tr>
+                                            <td> Extra Fine Wool Jumpers × 9 </td>
+                                            <td> $360.00 </td>
+                                        </tr>
+                                        <tr>
+                                            <td> Girls' Cold Shoulder Bling Dress - Black × 3 </td>
+                                            <td> $348.00 </td>
+                                        </tr>
+                                        <tr>
+                                            <th class="product-name" scope="row">Subtotal</th>
+                                            <td class="product-total amount"><strong> $708.00 </strong></td>
+                                        </tr>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <th class="shipping">Shipping</th>
+                                            <td>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
+                                                    <label class="form-check-label" for="exampleRadios1">
+                                      Flat rate
+                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                                                    <label class="form-check-label" for="exampleRadios2">
+                                      Local pickup
+                                    </label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th class="product-total" scope="row">Total</th>
+                                            <td class="product-total amount text-primary"><strong> $708.00 </strong></td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+
+                            <!-- Accordion -->
+                            <div id="accordion" class="myaccordion">
+                                <div class="card">
+                                    <div class="card-header" id="headingOne">
+                                        <h2 class="mb-0">
+                                            <button class="d-flex align-items-center justify-content-between btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    <span class="fa-stack fa-2x">
+                                      <i class="fa fa-circle fa-stack-2x"></i>
+                                      <i class="fa fa-plus fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                    DIRECT BANK TRANSFER
+                                  </button>
+                                        </h2>
+                                    </div>
+                                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                                        <div class="card-body">
+                                            <p>
+                                                Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order will not be shipped until the funds have cleared in our account.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-header" id="headingTwo">
+                                        <h2 class="mb-0">
+                                            <button class="d-flex align-items-center justify-content-between btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    <span class="fa-stack fa-2x">
+                                      <i class="fa fa-circle fa-stack-2x"></i>
+                                      <i class="fa fa-plus fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                    CHECK PAYMENTS
+                                </h2>
+                              </div>
+                              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                                <div class="card-body">
+                                  <p>
+                                  Please send a check to Store Name, Store Street, Store Town, Store State / County, Store Postcode.
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="card">
+                              <div class="card-header" id="headingThree">
+                                <h2 class="mb-0">
+                                  <button class="d-flex align-items-center justify-content-between btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    <span class="fa-stack fa-2x">
+                                      <i class="fa fa-circle fa-stack-2x"></i>
+                                      <i class="fa fa-plus fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                    CASH ON DELIVERY
+                                  </button>
+                                        </h2>
+                                    </div>
+                                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                                        <div class="card-body">
+                                            <p>
+                                                Pay with cash upon delivery
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <p>Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our<a href="privacy-policy.html" class="policy"> privacy policy.</a></p>
+                            <div class="form-check my-4">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                              I have read and agree to the website <a href="terms-and-conditions.html" class="terms">terms and conditions</a>
+                            </label>
+                            </div>
+                            <div class="d-grid">
+                                <button type="button" class=" btn__place-order">
+                              <span> Place Order </span>
+                            </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+
+
+
+        <section class="slick-slider bg-holder bg-overlay-black-50 ">
+            <!-- Create your own class for the containing div -->
+            <div class="container">
+                <div class="slick-sliderbox">
+                    <div class="slick-tittle">
+                        <span class="sub-title text-secondary">
+                        <span class="title-shape me-2">seemore?</span> </span>
+                        <h2>related products</h2>
+                        <div class="about-box-border-yellow">
+
+                        </div>
+                        <div class="about-box-border-blue">
+
+                        </div>
+                    </div>
+
+                    <div class="slick-carousel" style="margin-top: 50px;">
+                        <!-- Inside the containing div, add one div for each slide -->
+                        <div class="product">
+                            <!-- You can put an image or text inside each slide div -->
+                            <a href=""> <img style="width: 240px; height: 240px;" src="https://wheytot.com/images/pro/sua-tang-co-critical-whey-227g-75-lan-dung_6729.jpg"></a>
+                            <div class="tittle">tittle</div>
+                            <div class="price">50k</div>
+                        </div>
+                        <div class="product">
+                            <!-- You can put an image or text inside each slide div -->
+                            <a href=""> <img style="width: 240px; height: 240px;" src="https://wheytot.com/images/pro/sua-tang-co-critical-whey-227g-75-lan-dung_6729.jpg"></a>
+                            <div class="tittle">tittle</div>
+                            <div class="price">50k</div>
+                        </div>
+                        <div class="product">
+                            <!-- You can put an image or text inside each slide div -->
+                            <a href=""> <img style="width: 240px; height: 240px;" src="https://wheytot.com/images/pro/sua-tang-co-critical-whey-227g-75-lan-dung_6729.jpg"></a>
+                            <div class="tittle">tittle</div>
+                            <div class="price">50k</div>
+                        </div>
+                        <div class="product">
+                            <!-- You can put an image or text inside each slide div -->
+                            <a href=""> <img style="width: 240px; height: 240px;" src="https://wheytot.com/images/pro/sua-tang-co-critical-whey-227g-75-lan-dung_6729.jpg"></a>
+                            <div class="tittle">tittle</div>
+                            <div class="price">50k</div>
+                        </div>
+                        <div class="product">
+                            <!-- You can put an image or text inside each slide div -->
+                            <a href=""> <img style="width: 240px; height: 240px;" src="https://wheytot.com/images/pro/sua-tang-co-critical-whey-227g-75-lan-dung_6729.jpg"></a>
+                            <div class="tittle">tittle</div>
+                            <div class="price">50k</div>
+                        </div>
+                        <div class="product">
+                            <!-- You can put an image or text inside each slide div -->
+                            <a href=""> <img style="width: 240px; height: 240px;" src="https://wheytot.com/images/pro/sua-tang-co-critical-whey-227g-75-lan-dung_6729.jpg"></a>
+                            <div class="tittle">tittle</div>
+                            <div class="price">50k</div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <footer class="footer bg-holder bg-overlay-black-50  mt-5 bg-dark">
+            <div class="container">
+                <div class="footer-cta pt-5 pb-5">
+                    <div class="row">
+                        <div class="col-xl-4 col-md-4 mb-30">
+                            <div class="single-cta">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div class="cta-text">
+                                    <h4>Find us</h4>
+                                    <span>binh dinh</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-md-4 mb-30">
+                            <div class="single-cta">
+                                <i class="fas fa-phone"></i>
+                                <div class="cta-text">
+                                    <h4>Call us</h4>
+                                    <span>1234566</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-md-4 mb-30">
+                            <div class="single-cta">
+                                <i class="far fa-envelope-open"></i>
+                                <div class="cta-text">
+                                    <h4>Mail us</h4>
+                                    <span>minhphuc-frontend@gmail.com</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-content pt-5 pb-5">
+                    <div class="row">
+                        <div class="col-xl-4 col-lg-4 mb-50">
+                            <div class="footer-widget">
+                                <div class="footer-logo">
+                                    <a href="index.html">
+                                        <h2>LOGO</h2>
+                                    </a>
+                                </div>
+                                <div class="footer-text">
+                                    <p>Lorem ipsum dolor sit amet, consec tetur adipisicing elit, sed do eiusmod tempor incididuntut consec tetur adipisicing elit,Lorem ipsum dolor sit amet.</p>
+                                </div>
+                                <div class="footer-social-icon">
+                                    <span>Follow us</span>
+                                    <a href="#"><i class="fab fa-facebook-f facebook-bg"></i></a>
+                                    <a href="#"><i class="fab fa-twitter twitter-bg"></i></a>
+                                    <a href="#"><i class="fab fa-google-plus-g google-bg"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-6 mb-30">
+                            <div class="footer-widget">
+                                <div class="footer-widget-heading">
+                                    <h3>Useful Links</h3>
+                                </div>
+                                <ul>
+                                    <li><a href="#">Products</a></li>
+                                    <li><a href="#">Best Sellers</a></li>
+                                    <li><a href="#">Hot Combo</a></li>
+                                    <li><a href="#">Fitness New</a></li>
+
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-6 mb-50">
+                            <div class="footer-widget">
+                                <div class="footer-widget-heading">
+                                    <h3>Subscribe</h3>
+                                </div>
+                                <div class="footer-text mb-25">
+                                    <p>Don’t miss to subscribe to our new feeds, kindly fill the form below.</p>
+                                </div>
+                                <div class="subscribe-form">
+                                    <form action="#">
+                                        <input type="text" placeholder="Email Address">
+                                        <button><i class="fab fa-telegram-plane"></i></button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright-area">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6 text-center text-lg-left">
+                            <div class="copyright-text">
+                                <p>nhom 2 du an tot nghiep </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+        </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="js/slick.js"></script>
+
+</body>
+<script src="js/sliderbar.js"></script>
+<script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+<script src="js/bootstrap/popper.js"></script>
+<script src="js/bootstrap/bootstrap.min.js"></script>
+<script src="js/bootstrap/owl.carousel.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/stickslider.js"></script>
+
+
+</html>

@@ -1,0 +1,117 @@
+.home-product {
+    margin-top: 75px;
+}
+
+.home-product-box {
+    padding-top: 50px;
+    background-color: rgb(249 249 249 / 23%);
+}
+
+.heading {
+    color: red;
+    position: relative;
+    text-align: center;
+    font-size: 25px;
+    margin: 0 30%;
+    /*     left:40%; */
+    font-family: 'Lato', sans-serif;
+    font-style: underline;
+}
+
+.search-box {
+    position: relative;
+    top: -50px;
+}
+
+.search {
+    z-index: 2;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 40px;
+    border-radius: 40px;
+    border: 1px solid black;
+}
+
+.search:hover>.search-txt {
+    width: 250px;
+    padding: 0 10px;
+    color: rgb(0, 0, 0);
+}
+
+.search:hover>.search-btn {
+    background: white;
+}
+
+.search-btn {
+    color: red;
+    float: right;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #ABB2B9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-txt {
+    margin-left: 10px;
+    border: none;
+    background: none;
+    outline: none;
+    float: left;
+    padding: 0;
+    color: wheat;
+    font-size: 16px;
+    transition: ease-in 0.4s;
+    line-height: 40px;
+    width: 200px;
+    font-family: 'Pangolin', cursive;
+}
+
+.fas fa-search {
+    font-weight: 200;
+    font-size: 40px;
+}
+
+.category-box {
+    padding: 0px 10px 0px 10px;
+    width: 100%;
+    position: relative;
+    top: -50px;
+}
+
+.category-box .box {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.192);
+    width: 100%;
+    height: 55px;
+    border-radius: 20px;
+    position: relative;
+}
+
+.category-box .box a {
+    color: black;
+    font-size: 24px;
+    margin: 10px;
+}
+
+.category-box .box a:hover {
+    color: rgb(219, 204, 143);
+    font-size: 24px;
+}
+
+.category-box .box .tittle {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.scrolled {
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    z-index: 100;
+    transition: all 2s ease-in-out;
+}

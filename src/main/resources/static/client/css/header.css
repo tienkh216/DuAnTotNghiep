@@ -1,0 +1,406 @@
+* ::after,
+ ::before {
+    box-sizing: border-box;
+}
+
+* {
+    font-family: 'Montserrat', sans-serif;
+}
+
+::-moz-selection {
+    background-color: rgb(0, 17, 255);
+    color: white;
+    text-shadow: none;
+}
+
+::selection {
+    background-color: rgb(0, 17, 255);
+    color: white;
+    text-shadow: none;
+}
+
+.header {
+    z-index: 9;
+    position: relative;
+}
+
+.header.default {
+    padding-bottom: 20px;
+    height: 120px;
+}
+
+.header-left-bg:before {
+    position: absolute;
+    content: "";
+    top: 0;
+    right: 6px;
+    background: #f3f526;
+    width: calc(1100% - -100%);
+    height: 125px;
+    -webkit-transform: skew( -20deg);
+    transform: skew( -20deg);
+}
+
+@media only screen and (max-width: 768px) {
+    .top-bar {
+        font-size: 12px;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .top-bar {
+        font-size: 12px;
+    }
+}
+
+.logo-header {
+    position: relative;
+    z-index: 8;
+    display: block;
+    padding: 27px 0;
+}
+
+.logo-header .logo {
+    height: 50px;
+}
+
+.header-right-bg::before {
+    position: absolute;
+    top: 0px;
+    left: -25%;
+    background: rgb(255, 255, 255);
+    width: 200%;
+    transform: skew( -20deg);
+    content: "";
+    z-index: -1;
+    height: calc(100% - 7px);
+}
+
+.header .top-bar {
+    background: #ffffff;
+    padding: 10px 0;
+    padding-left: 20px;
+    border-bottom: 1px solid #ebebeb;
+    margin-bottom: 18px;
+}
+
+.header .top-bar .social ul {
+    margin: 0px;
+    margin-top: 5px;
+}
+
+.header .top-bar .login a:hover {
+    color: #f3f526;
+    text-decoration: none;
+}
+
+.header .top-bar .login a {
+    color: #333333;
+}
+
+.list-unstyled {
+    padding-left: 0;
+    list-style: none;
+    display: flex;
+}
+
+.list-unstyled li {
+    margin-left: 2px;
+}
+
+.call,
+.mail {
+    transform: translateY(2px);
+}
+
+.navbar .navbar-nav .nav-link {
+    font-weight: 600;
+    font-size: 16px;
+    padding: 10px 20px;
+    color: #333333;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+}
+
+.btn {
+    font-weight: 700;
+    font-size: 16px;
+    padding: 12px 40px;
+    border-radius: 0;
+}
+
+.btn:not(:disabled):not(.disabled) {
+    cursor: pointer;
+}
+
+.btn.btn-md {
+    padding: 9px 26px;
+}
+
+@media only screen and (max-width: 768px) {
+    .btn.btn-md {
+        padding: 0px 10px;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .btn.btn-md {
+        padding: 0px 10px;
+    }
+}
+
+.btn-skew {
+    -webkit-transform: skew( -20deg);
+    transform: skew( -20deg);
+}
+
+a.cart {
+    border-color: #f3f526;
+    color: black;
+    display: flex;
+    background-color: #f3f526;
+    border-radius: 0;
+    height: 60px;
+    margin-bottom: 20px;
+}
+
+a.cart>span {
+    transform: skew( 20deg, 0deg);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-weight: 600;
+    font-size: 22px;
+    padding: 10px 20px;
+    color: #333333;
+    text-transform: uppercase;
+}
+
+@media only screen and (max-width: 768px) {
+    a.cart {
+        height: 45px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    a.cart {
+        height: 45px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    a.cart>span {
+        font-size: 12px;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    a.cart>span {
+        font-size: 12px;
+    }
+}
+
+.btn {
+    font-weight: 700;
+    font-size: 16px;
+    padding: 12px 40px;
+    border-radius: 0;
+}
+
+.btn {
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    text-transform: uppercase;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #f3f526;
+    border-color: #f3f526;
+}
+
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    color: #212529;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.dropdown:hover>.dropdown-menu {
+    display: block;
+}
+
+.dropdown>.dropdown-toggle:active {
+    /*Without this, clicking will make it sticky*/
+    pointer-events: none;
+}
+
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.button svg {
+    height: 55px;
+    width: 150px;
+    fill: none;
+    stroke-width: 5;
+}
+
+.button svg .o1 {
+    stroke: rgba(0, 0, 0, 0.11);
+    fill: yellow;
+    transition: all 1s ease-in-out;
+}
+
+.button svg .o2 {
+    stroke: white;
+    stroke-dasharray: 20 420;
+    stroke-dashoffset: 20;
+    transition: all 1s ease-in-out;
+}
+
+.button span {
+    position: absolute;
+    margin: auto 0;
+    letter-spacing: 3px;
+    transform: skew( 20deg);
+    display: flex;
+    align-items: center;
+}
+
+.button:hover .o1 {
+    fill: rgba(255, 255, 255, 0.3);
+}
+
+.button:hover .o2 {
+    stroke-dashoffset: -420;
+}
+
+
+/*******************************
+* MODAL AS LEFT/RIGHT SIDEBAR
+* Add "left" or "right" in modal parent div, after class="modal".
+* Get free snippets on bootpen.com
+*******************************/
+
+.modal.left .modal-dialog,
+.modal.right .modal-dialog {
+    position: fixed;
+    margin: auto;
+    width: 320px;
+    height: 100%;
+    -webkit-transform: translate3d(0%, 0, 0);
+    -ms-transform: translate3d(0%, 0, 0);
+    -o-transform: translate3d(0%, 0, 0);
+    transform: translate3d(0%, 0, 0);
+}
+
+.modal.left .modal-content,
+.modal.right .modal-content {
+    height: 100%;
+    overflow-y: auto;
+}
+
+.modal.left .modal-body,
+.modal.right .modal-body {
+    padding: 15px 15px 80px;
+}
+
+
+/*Left*/
+
+.modal.left.fade .modal-dialog {
+    left: -320px;
+    -webkit-transition: opacity 0.3s linear, left 0.3s ease-out;
+    -moz-transition: opacity 0.3s linear, left 0.3s ease-out;
+    -o-transition: opacity 0.3s linear, left 0.3s ease-out;
+    transition: opacity 0.3s linear, left 0.3s ease-out;
+}
+
+.modal.left.fade.in .modal-dialog {
+    left: 0;
+}
+
+
+/*Right*/
+
+.modal.right.fade .modal-dialog {
+    right: -320px;
+    -webkit-transition: opacity 0.3s linear, right 0.3s ease-out;
+    -moz-transition: opacity 0.3s linear, right 0.3s ease-out;
+    -o-transition: opacity 0.3s linear, right 0.3s ease-out;
+    transition: opacity 0.3s linear, right 0.3s ease-out;
+}
+
+.modal.right.fade.in .modal-dialog {
+    right: 0;
+}
+
+
+/* ----- MODAL STYLE ----- */
+
+.modal-content {
+    border-radius: 0;
+    border: none;
+}
+
+.modal-header {
+    border-bottom-color: #EEEEEE;
+    background-color: #FAFAFA;
+}
+
+
+/* ----- v CAN BE DELETED v ----- */
+
+body {
+    background-color: #78909C;
+}
+
+.demo {
+    padding-top: 60px;
+    padding-bottom: 110px;
+}
+
+.btn-demo {
+    margin: 15px;
+    padding: 10px 15px;
+    border-radius: 0;
+    font-size: 16px;
+    background-color: #FFFFFF;
+}
+
+.btn-demo:focus {
+    outline: 0;
+}
+
+.demo-footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 15px;
+    background-color: #212121;
+    text-align: center;
+}
+
+.demo-footer>a {
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    color: #fff;
+}
