@@ -11,4 +11,8 @@ public class HomeController {
 	public String homePage(Model model) {
 		return ("/admin/index");
 	}
+	@RequestMapping("/products")
+	public String products(Model model) {
+		return ("/admin/products");
+	}
 }
