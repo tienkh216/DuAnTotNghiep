@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="https://www.thymeleaf.org" th:fragment = "dynamic(main)">
 
 <head>
   <meta charset="utf-8">
@@ -36,7 +36,7 @@
         Quản Lý
       </div>
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap"
+        <a class="nav-link collapsed" href="@{/admin/product}" data-toggle="collapse" data-target="#collapseBootstrap"
           aria-expanded="true" aria-controls="collapseBootstrap">
           <i class="far fa-fw fa-window-maximize"></i>
           <span>Product</span>
@@ -44,8 +44,8 @@
         <div id="collapseBootstrap" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Product</h6>
-            <a class="collapse-item" href="alerts.html">Edit</a>
-            <a class="collapse-item" href="buttons.html">Order</a>
+            <a class="collapse-item" th:href="@{/admin/product}">Edit</a>
+            <a class="collapse-item" th:href="@{/admin/order}">Order</a>
             <a class="collapse-item" href="dropdowns.html">Dropdowns</a>
             <a class="collapse-item" href="modals.html">Modals</a>
             <a class="collapse-item" href="popovers.html">Popovers</a>
@@ -62,7 +62,7 @@
         <div id="collapseForm" class="collapse" aria-labelledby="headingForm" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Categories</h6>
-            <a class="collapse-item" href="form_basics.html">Form Basics</a>
+            <a class="collapse-item" th:href="@{/admin/category}">Form Basics</a>
             <a class="collapse-item" href="form_advanceds.html">Form Advanceds</a>
           </div>
         </div>

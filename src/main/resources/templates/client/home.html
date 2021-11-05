@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="https://www.thymeleaf.org" th:fragment = "dynamic(main)">
 
 <head>
     <meta charset="UTF-8">
@@ -226,7 +226,7 @@
                                                     Products
                                           </a>
                                                 <div class=" navdrop dropdown-menu dropdown2 dropdown-menu2" aria-labelledby="navbarDropdownMenuLink">
-                                                    <a class="dropdown-item" href="#">Action</a>
+                                                    <a class="dropdown-item" th:href="@{/client/product}">Action</a>
                                                     <a class="dropdown-item" href="#">Another action</a>
                                                     <a class="dropdown-item" href="#">Something else here</a>
                                                 </div>
@@ -270,7 +270,8 @@
                                     </a>
 
                                     <div class="button btn-skew btn-md shape-svg">
-                                        <span> <ion-icon name="cart" style="font-size: 30px;"></ion-icon>My Cart</span>
+                                        <span> <ion-icon name="cart" style="font-size: 30px;"></ion-icon>
+                                        <a th:href="@{/client/cart}">My Cart</a></span>
                                         <svg>
                                       <polyline class="o1" points="0 0, 150 0, 150 55, 0 55, 0 0"></polyline>
                                       <polyline class="o2" points="0 0, 150 0, 150 55, 0 55, 0 0"></polyline>
