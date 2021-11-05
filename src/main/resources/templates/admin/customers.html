@@ -8,10 +8,11 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link href="img/logo/logo.png" rel="icon">
-    <title>RuangAdmin - Categories</title>
+    <title>RuangAdmin - Customer</title>
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="css/ruang-admin.min.css" rel="stylesheet">
+    <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 </head>
 
 <body id="page-top">
@@ -317,79 +318,60 @@
             <!-- Container Fluid-->
             <div class="container-fluid" id="container-wrapper">
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                    <h1 class="h3 mb-0 text-gray-800">Categories</h1>
+                    <h1 class="h3 mb-0 text-gray-800">DataTables</h1>
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="./">Home</a></li>
-                        <li class="breadcrumb-item">Categories</li>
-                        <li class="breadcrumb-item active" aria-current="page">Category List</li>
+                        <li class="breadcrumb-item">Customer</li>
+                        <li class="breadcrumb-item active" aria-current="page">Customer List</li>
                     </ol>
                 </div>
 
+                <!-- Row -->
                 <div class="row">
-                    <div class="col-lg-12 mb-4">
-                        <!-- Simple Tables -->
-                        <div class="card">
+                    <!-- Datatables -->
+                    <!-- DataTable with Hover -->
+                    <div class="col-lg-12">
+                        <div class="card mb-4">
                             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                <h6 class="m-0 font-weight-bold text-primary">Categories</h6>
+                                <h6 class="m-0 font-weight-bold text-primary">Customer</h6>
                             </div>
-                            <div class="table-responsive">
-                                <table class="table align-items-center table-flush">
+                            <div class="table-responsive p-3">
+                                <table class="table align-items-center table-flush table-hover" id="dataTableHover">
                                     <thead class="thead-light">
                                     <tr>
-                                        <th>Category ID</th>
+                                        <th>Customer ID</th>
                                         <th>Name</th>
-                                        <th>Action</th>
+                                        <th>Phone</th>
+                                        <th>Address</th>
+                                        <th>Image</th>
+                                        <th>Active</th>
                                     </tr>
                                     </thead>
+
                                     <tbody>
                                     <tr>
-                                        <td><a href="#">RA0449</a></td>
-                                        <td>Udin Wayang</td>
+                                        <td>123</td>
+                                        <td>Phuc</td>
+                                        <td>038238856</td>
+                                        <td>HCM</td>
+                                        <td>Image</td>
                                         <td>
                                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" id="#modalCenter">Edit</button>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td><a href="#">RA5324</a></td>
-                                        <td>Jaenab Bajigur</td>
-                                        <td>
-                                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" id="#modalCenter">Edit</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="#">RA8568</a></td>
-                                        <td>Rivat Mahesa</td>
-                                        <td>
-                                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" id="#modalCenter">Edit</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="#">RA1453</a></td>
-                                        <td>Indri Junanda</td>
-                                        <td>
-                                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" id="#modalCenter">Edit</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="#">RA1998</a></td>
-                                        <td>Udin Cilok</td>
-                                        <td>
-                                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" id="#modalCenter">Edit</button>
-                                        </td>
-                                    </tr>
+
                                     </tbody>
                                 </table>
                             </div>
-                            <div class="card-footer"></div>
                         </div>
                     </div>
                 </div>
-                <!--Edit Categori-->
+                <!--Customer Edit-->
                 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalCenterTitle">Edit Product</h5>
+                                <h5 class="modal-title" id="exampleModalCenterTitle">Edit User</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -398,18 +380,27 @@
                                 <div class="card-body">
                                     <form>
                                         <div class="form-group">
-                                            <label for="exampleInputEmail1">Category ID</label>
-                                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Product ID">
+                                            <label for="exampleInputEmail1">Customer ID</label>
+                                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Customer ID">
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Name</label>
                                             <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Name">
                                         </div>
                                         <div class="form-group">
-                                            <label for="exampleInputEmail1">Status</label>
-                                            <select class="form-control mb-3">
-                                                <option>Default select</option>
-                                            </select>
+                                            <label for="exampleInputEmail1">Phone</label>
+                                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Pone">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Address</label>
+                                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Address">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input" id="customFile">
+                                                <label class="custom-file-label" for="customFile">Image</label>
+                                            </div>
                                         </div>
                                         <button type="submit" class="btn btn-success">Update</button>
                                         <button type="submit" class="btn btn-danger">Delete</button>
@@ -422,6 +413,8 @@
                         </div>
                     </div>
                 </div>
+
+
 
                 <!-- Modal Logout -->
                 <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabelLogout"
@@ -448,6 +441,7 @@
             </div>
             <!---Container Fluid-->
         </div>
+
         <!-- Footer -->
         <footer class="sticky-footer bg-white">
             <div class="container my-auto">
@@ -471,6 +465,17 @@
 <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 <script src="js/ruang-admin.min.js"></script>
+<!-- Page level plugins -->
+<script src="vendor/datatables/jquery.dataTables.min.js"></script>
+<script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+<!-- Page level custom scripts -->
+<script>
+    $(document).ready(function () {
+        $('#dataTable').DataTable(); // ID From dataTable
+        $('#dataTableHover').DataTable(); // ID From dataTable with Hover
+    });
+</script>
 
 </body>
 
