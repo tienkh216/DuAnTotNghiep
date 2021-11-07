@@ -84,3 +84,7 @@ INSERT into Accounts VALUES ( N'tien01', N'123', N'Hoang Kim Tien', N'Quang Trun
  ( N'minh01', N'123', N'Pham Trieu Duy Minh', N'Quang Trung', N'0399215588', N'cuongbag@gmail.com', 1, 0),
  ( N'thong01', N'123', N'Ho Huynh Thong', N'quang trung111', N'0399215788', N'cuongbag@gmail.com', 1, 0),
  ( N'phuc01', N'123', N'Tran Minh Phuc', N'Quang Trung', N'0399215588', N'cuongbag@gmail.com', 1, 0)
+
+ insert into Categories values 
+ ('Whey protein'), (N'Năng lượng trong tập'),(N'Mass gainer-Tăng cân'),(N'Giảm mỡ'),(N'Hỗ trợ sức khỏe Vitamin'),
+ (N'Phụ kiện thể hình'),(N'Trang phục gymer'),('BCAA')
