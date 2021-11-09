@@ -101,3 +101,4 @@ INSERT INTO Size VALUES ( N'S', N'SIZE S', N'LOẠI NHỎ'),
  ( N'XL', N'SIZE XL', N'LOẠI  RẤT LỚN'),
 ( N'XXL', N'SIZE XX', N'LOẠI RẤT RẤT LỚN'),
 ( N'NO', N'SIZE 0', N'KHÔNG SIZE')
+
