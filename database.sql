@@ -1,4 +1,4 @@
-create database DuAn2
+﻿create database DuAn2
 use DuAn2
 drop database DuAn2
 
@@ -85,6 +85,20 @@ INSERT into Accounts VALUES ( N'tien01', N'123', N'Hoang Kim Tien', N'Quang Trun
  ( N'thong01', N'123', N'Ho Huynh Thong', N'quang trung111', N'0399215788', N'cuongbag@gmail.com', 1, 0),
  ( N'phuc01', N'123', N'Tran Minh Phuc', N'Quang Trung', N'0399215588', N'cuongbag@gmail.com', 1, 0)
 
+
  insert into Categories values 
- ('Whey protein'), (N'Năng lượng trong tập'),(N'Mass gainer-Tăng cân'),(N'Giảm mỡ'),(N'Hỗ trợ sức khỏe Vitamin'),
- (N'Phụ kiện thể hình'),(N'Trang phục gymer'),('BCAA')
+ ('Whey protein'), (N'Năng lượng trong tập'),
+ (N'Mass gainer-Tăng cân'),
+ (N'Giảm mỡ'),
+ (N'Hỗ trợ sức khỏe Vitamin'),
+ (N'Phụ kiện thể hình'),
+ (N'Trang phục gymer'),
+ ('BCAA')
+
+INSERT INTO Size VALUES ( N'S', N'SIZE S', N'LOẠI NHỎ'),
+ ( N'M', N'SIZE M', N'LOẠI TRUNG BÌNH'),
+ ( N'L', N'SIZE L', N'LOẠI LỚN'),
+ ( N'XL', N'SIZE XL', N'LOẠI  RẤT LỚN'),
+( N'XXL', N'SIZE XX', N'LOẠI RẤT RẤT LỚN'),
+( N'NO', N'SIZE 0', N'KHÔNG SIZE')
+
