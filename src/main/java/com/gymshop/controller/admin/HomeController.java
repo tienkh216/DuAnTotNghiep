@@ -9,6 +9,13 @@ public class HomeController {
 	public String admin() {
 		return "redirect:/admin/index.html";
 	}
+<<<<<<< HEAD
+	@RequestMapping("/products")
+	public String products(Model model) {
+		return ("/admin/products");
+	}
+=======
 	
 	
+>>>>>>> master
 }
