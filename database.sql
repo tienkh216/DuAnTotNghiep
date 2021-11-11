@@ -1,3 +1,4 @@
+
 ﻿create database DuAn2
 use DuAn2
 drop database DuAn2
