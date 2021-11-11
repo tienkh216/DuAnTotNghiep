@@ -6,6 +6,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class HomeController {
+	@RequestMapping({"/","/admin/home/index"})
+	public String admin() {
+		return "redirect:/admin/index.html";
+	}
+	
 	@RequestMapping("/admin/home")
 	public String homePage(Model model) {
 		return ("/admin/index");
