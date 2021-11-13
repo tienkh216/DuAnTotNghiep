@@ -29,9 +29,7 @@ public class Size {
 	@Column(name="description")
 	String description;
 	
-	@JsonIgnore
-	@OneToMany(mappedBy = "size")
-	List<ProductSize> productSizes;
+	
 	
 	public Long getId() {
 		return id;
@@ -57,12 +55,7 @@ public class Size {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public List<ProductSize> getProductSizes() {
-		return productSizes;
-	}
-	public void setProductSizes(List<ProductSize> productSizes) {
-		this.productSizes = productSizes;
-	}
+	
 
 	
 }

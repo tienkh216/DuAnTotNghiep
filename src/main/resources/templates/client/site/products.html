@@ -28,7 +28,7 @@
                             <div class="price-filter">
                                 <div class="price_label">
                                     "Price :"
-                                    <span class="from">$10 — $382</span>
+                                    <span class="from">$10 遯ｶ�ｿｽ $382</span>
                                 </div>
                                 <a href="#"><i class="fa fa-filter"></i>Filter</a>
                             </div>
@@ -213,7 +213,7 @@
                     </div>
                     <div class="row mt-3">
                         <div class="col-lg-4 col-md-4 col-sm-4 mt-3">
-                            <input type="search" class="search-field mb-3" placeholder="Search products…" value="" name="s">
+                            <input type="search" class="search-field mb-3" placeholder="Search products遯ｶ�ｽｦ" value="" name="s">
                         </div>
                         <div class="col-lg-4 col-md-4  col-sm-4 mt-3">
                             <div class="select-accessories">
@@ -353,11 +353,12 @@
                     </div>
 
 
-                    <div class="row mt-4">
-                        <div class="col-md-6 col-lg-4 col-sm-6 mb-5">
+                    <div class="row mt-4" >
+                        
+                        <div class="col-md-6 col-lg-4 col-sm-6 mb-5" th:each="p:${items}" >
                             <div class="product">
                                 <div class="product-image">
-                                    <img src="css/image/05.jpg" alt="" class="img-fluid mx-auto">
+                                    <img th:src="@{|/client/images/${p.image}|}" alt="" class="img-fluid mx-auto">
                                     <div class="product-overlay">
                                         <div class="add-to-cart">
                                             <a href="#">
@@ -368,199 +369,18 @@
                                 </div>
                                 <div class="product-description">
                                     <div class="product-title">
-                                        <a href="#" class="product-title__link">Women running on stairs</a>
+                                        <a href="#" class="product-title__link"><p  th:utext=" ${p.name}"></p></a>
                                     </div>
                                     <div class="product-price">
-                                        <del>$24.99</del>
-                                        <ins>$12.49</ins>
+                                        <del>[[${p.price}]]</del>
+                                        <ins>[[${p.price}]]</ins>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6 col-lg-4 col-sm-6 mb-5">
-                            <div class="product">
-                                <div class="product-image">
-                                    <img src="css/image/05.jpg" alt="" class="img-fluid mx-auto">
-                                    <div class="product-overlay">
-                                        <div class="add-to-cart">
-                                            <a href="#">
-                                                <span>Add To Card</span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="product-description">
-                                    <div class="product-title">
-                                        <a href="#" class="product-title__link">Women running on stairs</a>
-                                    </div>
-                                    <div class="product-price">
-                                        <del>$24.99</del>
-                                        <ins>$12.49</ins>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-4 col-sm-6 mb-5">
-                            <div class="product">
-                                <div class="product-image">
-                                    <img src="css/image/05.jpg" alt="" class="img-fluid mx-auto">
-                                    <div class="product-overlay">
-                                        <div class="add-to-cart">
-                                            <a href="#">
-                                                <span>Add To Card</span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="product-description">
-                                    <div class="product-title">
-                                        <a href="#" class="product-title__link">Women running on stairs</a>
-                                    </div>
-                                    <div class="product-price">
-                                        <del>$24.99</del>
-                                        <ins>$12.49</ins>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-4 col-sm-6 mb-5">
-                            <div class="product">
-                                <div class="product-image">
-                                    <img src="css/image/05.jpg" alt="" class="img-fluid mx-auto">
-                                    <div class="product-overlay">
-                                        <div class="add-to-cart">
-                                            <a href="#">
-                                                <span>Add To Card</span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="product-description">
-                                    <div class="product-title">
-                                        <a href="#" class="product-title__link">Women running on stairs</a>
-                                    </div>
-                                    <div class="product-price">
-                                        <del>$24.99</del>
-                                        <ins>$12.49</ins>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-4 col-sm-6 mb-5">
-                            <div class="product">
-                                <div class="product-image">
-                                    <img src="css/image/05.jpg" alt="" class="img-fluid mx-auto">
-                                    <div class="product-overlay">
-                                        <div class="add-to-cart">
-                                            <a href="#">
-                                                <span>Add To Card</span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="product-description">
-                                    <div class="product-title">
-                                        <a href="#" class="product-title__link">Women running on stairs</a>
-                                    </div>
-                                    <div class="product-price">
-                                        <del>$24.99</del>
-                                        <ins>$12.49</ins>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-4 col-sm-6 mb-5">
-                            <div class="product">
-                                <div class="product-image">
-                                    <img src="css/image/05.jpg" alt="" class="img-fluid mx-auto">
-                                    <div class="product-overlay">
-                                        <div class="add-to-cart">
-                                            <a href="#">
-                                                <span>Add To Card</span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="product-description">
-                                    <div class="product-title">
-                                        <a href="#" class="product-title__link">Women running on stairs</a>
-                                    </div>
-                                    <div class="product-price">
-                                        <del>$24.99</del>
-                                        <ins>$12.49</ins>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-4 col-sm-6 mb-5">
-                            <div class="product">
-                                <div class="product-image">
-                                    <img src="css/image/05.jpg" alt="" class="img-fluid mx-auto">
-                                    <div class="product-overlay">
-                                        <div class="add-to-cart">
-                                            <a href="#">
-                                                <span>Add To Card</span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="product-description">
-                                    <div class="product-title">
-                                        <a href="#" class="product-title__link">Women running on stairs</a>
-                                    </div>
-                                    <div class="product-price">
-                                        <del>$24.99</del>
-                                        <ins>$12.49</ins>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-4 col-sm-6 mb-5">
-                            <div class="product">
-                                <div class="product-image">
-                                    <img src="css/image/05.jpg" alt="" class="img-fluid mx-auto">
-                                    <div class="product-overlay">
-                                        <div class="add-to-cart">
-                                            <a href="#">
-                                                <span>Add To Card</span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="product-description">
-                                    <div class="product-title">
-                                        <a href="#" class="product-title__link">Women running on stairs</a>
-                                    </div>
-                                    <div class="product-price">
-                                        <del>$24.99</del>
-                                        <ins>$12.49</ins>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-4 col-sm-6 mb-5">
-                            <div class="product">
-                                <div class="product-image">
-                                    <img src="css/image/05.jpg" alt="" class="img-fluid mx-auto">
-                                    <div class="product-overlay">
-                                        <div class="add-to-cart">
-                                            <a href="#">
-                                                <span>Add To Card</span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="product-description">
-                                    <div class="product-title">
-                                        <a href="#" class="product-title__link">Women running on stairs</a>
-                                    </div>
-                                    <div class="product-price">
-                                        <del>$24.99</del>
-                                        <ins>$12.49</ins>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                      
+                       
+                       
 
                     </div>
 
@@ -571,14 +391,14 @@
             </div>
             <div class="pag row">
                 <div class="pagination">
-                    <a href="#">«</a>
+                    <a href="#">�ｾゑｽｫ</a>
                     <a class="active" href="#">1</a>
                     <a href="#">2</a>
                     <a href="#">3</a>
                     <a href="#">4</a>
                     <a href="#">5</a>
                     <a href="#">6</a>
-                    <a href="#">»</a>
+                    <a href="#">�ｾゑｽｻ</a>
                 </div>
             </div>
         </div>
