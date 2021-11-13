@@ -74,7 +74,7 @@ CREATE TABLE [dbo].[Size](
 drop table account
 
 select * from accounts
-
+delete from Products
 drop table order
 select * from Accounts
 INSERT into Accounts VALUES ( N'tien01', N'123', N'Hoang Kim Tien', N'Quang Trung', N'0399215588', N'cuongbag@gmail.com', 1, 0),
