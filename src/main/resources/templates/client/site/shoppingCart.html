@@ -27,53 +27,23 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td class="product-remove"><a href="#"><i class="fa fa-trash-o"></i></a></td>
+                 
+                                <tr ng-repeat="item in cart.items">
+                                    <td class="product-remove"><a href="#" ng-click="cart.remove(item.id)"><i class="fa fa-trash" aria-hidden="true"></i>
+                                    </a></td>
                                     <td class="product-thumbnail">
-                                        <a href="#"><img src="css/image/01.jpg" alt=""></a>
+                                        <a href="#"><img src="" ng-src="{{item.image}}" alt=""></a>
                                     </td>
-                                    <td class="product-name"><a href="#">Women Style Dumbbell</a></td>
-                                    <td class="product-price"><span class="amount">$9.82</span></td>
+                                    <td class="product-name"><a href="#">{{item.name}}</a></td>
+                                    <td class="product-price"><span class="amount">${{item.price|number:2}} </span></td>
                                     <td class="product-quantity">
                                         <form>
                                             <div>
-                                                <input type="number" class="form-control" id="number" value="1">
+                                                <input type="number"ng-model="item.qty" ng-change="cart. saveToLocalStorage()" class="form-control" id="number3" value="3">
                                             </div>
                                         </form>
                                     </td>
-                                    <td class="product-subtotal"><span class="subtotal">$9.82</span></td>
-                                </tr>
-                                <tr>
-                                    <td class="product-remove"><a href="#"><i class="fa fa-trash-o"></i></a></td>
-                                    <td class="product-thumbnail">
-                                        <a href="#"><img src="css/image/02.jpg" alt=""></a>
-                                    </td>
-                                    <td class="product-name"><a href="#">Jukebox Single Gym Towel</a></td>
-                                    <td class="product-price"><span class="amount">$9.82</span></td>
-                                    <td class="product-quantity">
-                                        <form>
-                                            <div>
-                                                <input type="number" class="form-control" id="number2" value="2">
-                                            </div>
-                                        </form>
-                                    </td>
-                                    <td class="product-subtotal"><span class="subtotal">$9.82</span></td>
-                                </tr>
-                                <tr>
-                                    <td class="product-remove"><a href="#"><i class="fa fa-trash-o"></i></a></td>
-                                    <td class="product-thumbnail">
-                                        <a href="#"><img src="css/image/03.jpg" alt=""></a>
-                                    </td>
-                                    <td class="product-name"><a href="#">5 feet straight Rodr</a></td>
-                                    <td class="product-price"><span class="amount">$9.82</span></td>
-                                    <td class="product-quantity">
-                                        <form>
-                                            <div>
-                                                <input type="number" class="form-control" id="number3" value="3">
-                                            </div>
-                                        </form>
-                                    </td>
-                                    <td class="product-subtotal"><span class="subtotal">$9.82</span></td>
+                                    <td class="product-subtotal"><span class="subtotal">${{item.qty*item.price|number:2}}</span></td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -85,7 +55,7 @@
                                     <a class="btn btn-primary" href="#"> Apply coupon</a>
                                 </form>
                             </div>
-                            <div class="update-cart mt-3 mt-sm-0"> <a class="btn btn-primary" href="#"> Update cart</a></div>
+                            <div class="update-cart mt-3 mt-sm-0"> <a class="btn btn-primary" href="#" ng-click="cart.clear()"> Clear cart</a></div>
                         </div>
                     </div>
 
@@ -98,7 +68,7 @@
                                 <tbody>
                                 <tr class="cart-subtotal">
                                     <th>Subtotal</th>
-                                    <td><span class="subtotal">$9.82</span></td>
+                                    <td><span class="subtotal">{{tinhTongtien()}}</span></td>
                                 </tr>
                                 <tr class="shipping">
                                     <th>Shipping</th>
