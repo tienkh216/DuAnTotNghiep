@@ -30,5 +30,7 @@ public class OrderDetail implements Serializable{
 	
 	@Column(name="quantity")
 	Integer quantity;
-	
+	@ManyToOne
+	@JoinColumn(name = "Productid")
+	Product product;
 }

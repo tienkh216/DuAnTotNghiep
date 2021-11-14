@@ -50,8 +50,8 @@ public class Product implements Serializable{
 	@Column(name = "create_date")
 	@JsonFormat(pattern = "yyyy/MM/dd")
 	 Date createdate;
-//	@JsonIgnore
-//	@OneToMany(mappedBy = "product")
-//	List<OrderDetail> orderDetails;
+@JsonIgnore
+	@OneToMany(mappedBy = "product")
+	List<OrderDetail> orderDetails;
 
 }

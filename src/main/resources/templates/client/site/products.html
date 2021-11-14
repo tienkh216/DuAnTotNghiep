@@ -361,7 +361,7 @@
                                     <img th:src="@{|/client/images/${p.image}|}" alt="" class="img-fluid mx-auto">
                                     <div class="product-overlay">
                                         <div class="add-to-cart">
-                                            <a href="#">
+                                            <a href="#" th:attr="ng-click=@{|cart.add(${p.id})|}">
                                                 <span>Add To Card</span>
                                             </a>
                                         </div>
