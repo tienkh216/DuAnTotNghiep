@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class UserControler {
 
-	/*
-	 * @GetMapping("/userIndex") public String index() {
-	 * 
-	 * return "client/site/home"; }
-	 */
+
+ @GetMapping("/loginForm") public String index() {
+
+ return "client/site/loginForm"; }
+
 
 }
