@@ -61,9 +61,8 @@ CREATE TABLE [dbo].[Products](
 	[category_id] [int] NOT NULL,
 	[create_date] [date] NOT NULL
 	)
-
-	
-
+drop table Products
+drop table Product_Size
 CREATE TABLE [dbo].[Size](
 	[id] [int] IDENTITY(1,1) primary key,
 	[type] [varchar](10) NOT NULL,

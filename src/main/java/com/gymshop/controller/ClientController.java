@@ -15,8 +15,10 @@ import com.gymshop.service.productService;
 
 @Controller
 public class ClientController {
+	
 	@Autowired
 	productService productService;
+	
 	@RequestMapping(value = { "/", "/client/home" }, method = RequestMethod.GET)
 	public String homePage(Model model) {
 		 List<Product>list=productService.findAll(); 
