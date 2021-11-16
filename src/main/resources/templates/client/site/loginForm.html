@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" th:href="@{/client/css/footer.css}">
+    <link rel="stylesheet" th:href="@{/client/css/loginForm.css}">
+    <!-- BootStrap -->
+    <link rel="stylesheet" th:href="@{/client/css/bootstrap/bootstrap.css}">
+    <script th:src="@{/client/js/bootstrap/jquery.min.js}"></script>
+    <link rel="stylesheet" th:href="@{/client/css/slick.css}">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous"> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" th:href="@{/client/css/bootstrap/owl.carousel.min.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/4.5.6/css/ionicons.min.css">
+    <link rel="stylesheet" th:href="@{/client/css/bootstrap/animate.css}">
+    <link rel="stylesheet" th:href="@{/client/css/bootstrap/style.css}">
+    <script type="text/javascript" th:src="@{~/client/js/angular.min.js}"></script>
+</head>
+
+<body ng-app="app" ng-controller="ctrl">
+
+</div>
+
+
+
+
+<script src="https://use.fontawesome.com/f59bcd8580.js"></script>
+<div class="login-form">
+    <div class="container margin">
+        <div class="row  no-gutters shadow-lg">
+            <div class="col-md-6 d-none d-md-block">
+                <img th:src="@{/client/css/image/login2.jpg}"  class="img-fluid" style="min-height:100%;" />
+            </div>
+            <div class="col-md-6 bg-white p-5">
+                <h3 class="pb-3">Login Form</h3>
+                <div class="form-style">
+                    <form>
+                        <div class="form-group pb-3">
+                            <input type="email" placeholder="Email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        </div>
+                        <div class="form-group pb-3">
+                            <input type="password" placeholder="Password" class="form-control" id="exampleInputPassword1">
+                        </div>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <div class="d-flex align-items-center"><input name="" type="checkbox" value="" /> <span class="pl-2 font-weight-bold">Remember Me</span></div>
+                            <div><a href="#">Forget Password?</a></div>
+                        </div>
+                        <div class="pb-2">
+                            <button type="submit" class="btn btn-dark w-100 font-weight-bold mt-2">Submit</button>
+                        </div>
+                    </form>
+                    <div class="sideline">OR</div>
+                    <div>
+                        <button type="submit" class="btn btn-primary w-100 font-weight-bold mt-2"><i class="fa fa-facebook" aria-hidden="true"></i> Login With Facebook</button>
+                    </div>
+                    <div class="pt-4 text-center">
+                        Back To <a href="#">Home</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<footer class="footer bg-holder bg-overlay-black-50  mt-5 bg-dark">
+    <div class="container">
+        <div class="footer-cta pt-5 pb-5">
+            <div class="row">
+                <div class="col-xl-4 col-md-4 mb-30">
+                    <div class="single-cta">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div class="cta-text">
+                            <h4>Find us</h4>
+                            <span>binh dinh</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-md-4 mb-30">
+                    <div class="single-cta">
+                        <i class="fas fa-phone"></i>
+                        <div class="cta-text">
+                            <h4>Call us</h4>
+                            <span>1234566</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-md-4 mb-30">
+                    <div class="single-cta">
+                        <i class="far fa-envelope-open"></i>
+                        <div class="cta-text">
+                            <h4>Mail us</h4>
+                            <span>minhphuc-frontend@gmail.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-content pt-5 pb-5">
+            <div class="row">
+                <div class="col-xl-4 col-lg-4 mb-50">
+                    <div class="footer-widget">
+                        <div class="footer-logo">
+                            <a href="index.html">
+                                <h2>LOGO</h2>
+                            </a>
+                        </div>
+                        <div class="footer-text">
+                            <p>Lorem ipsum dolor sit amet, consec tetur adipisicing elit, sed do eiusmod tempor incididuntut consec tetur adipisicing elit,Lorem ipsum dolor sit amet.</p>
+                        </div>
+                        <div class="footer-social-icon">
+                            <span>Follow us</span>
+                            <a href="#"><i class="fab fa-facebook-f facebook-bg"></i></a>
+                            <a href="#"><i class="fab fa-twitter twitter-bg"></i></a>
+                            <a href="#"><i class="fab fa-google-plus-g google-bg"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-6 mb-30">
+                    <div class="footer-widget">
+                        <div class="footer-widget-heading">
+                            <h3>Useful Links</h3>
+                        </div>
+                        <ul>
+                            <li><a href="#">Products</a></li>
+                            <li><a href="#">Best Sellers</a></li>
+                            <li><a href="#">Hot Combo</a></li>
+                            <li><a href="#">Fitness New</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-6 mb-50">
+                    <div class="footer-widget">
+                        <div class="footer-widget-heading">
+                            <h3>Subscribe</h3>
+                        </div>
+                        <div class="footer-text mb-25">
+                            <p>Don’t miss to subscribe to our new feeds, kindly fill the form below.</p>
+                        </div>
+                        <div class="subscribe-form">
+                            <form action="#">
+                                <input type="text" placeholder="Email Address">
+                                <button><i class="fab fa-telegram-plane"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="copyright-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-6 col-lg-6 text-center text-lg-left">
+                    <div class="copyright-text">
+                        <p>nhom 2 du an tot nghiep </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+
+</script>
+
+</body>
+
+<script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+<script th:src="@{/client/js/bootstrap/popper.js}"></script>
+<script th:src="@{/client/js/bootstrap/bootstrap.min.js}"></script>
+<script th:src="@{/client/js/bootstrap/owl.carousel.min.js}"></script>
+
+</html>
