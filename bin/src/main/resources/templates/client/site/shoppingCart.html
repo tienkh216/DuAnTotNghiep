@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{client/dashboardLayout.html}">
+
+<head>
+
+</head>
+
+<body>
+
+
+<section class="row" layout:fragment="content">
+    <section class="page-title mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mb-5 mb-lg-0">
+                    <div class="cart-table">
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <thead>
+                                <tr>
+                                    <th class="product-remove">&nbsp;</th>
+                                    <th class="product-thumbnail">&nbsp;</th>
+                                    <th class="product-name">Product</th>
+                                    <th class="product-price">Price</th>
+                                    <th class="product-quantity">Quantity</th>
+                                    <th class="product-subtotal">Subtotal</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                 
+                                <tr ng-repeat="item in cart.items">
+                                    <td class="product-remove"><a href="#" ng-click="cart.remove(item.id)"><i class="fa fa-trash" aria-hidden="true"></i>
+                                    </a></td>
+                                    <td class="product-thumbnail">
+                                        <a href="#"><img src="" ng-src="{{item.image}}" alt=""></a>
+                                    </td>
+                                    <td class="product-name"><a href="#">{{item.name}}</a></td>
+                                    <td class="product-price"><span class="amount">${{item.price|number:2}} </span></td>
+                                    <td class="product-quantity">
+                                        <form>
+                                            <div>
+                                                <input type="number"ng-model="item.qty" ng-change="cart. saveToLocalStorage()" class="form-control" id="number3" value="3">
+                                            </div>
+                                        </form>
+                                    </td>
+                                    <td class="product-subtotal"><span class="subtotal">${{item.qty*item.price|number:2}}</span></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="actions">
+                            <div class="coupon mt-3 mt-lg-0 mt-md-0 mt-sm-0 ">
+                                <form>
+                                    <input type="text" name="coupon_code" class="input-text" id="coupon_code" value="" placeholder="Coupon code">
+                                    <a class="btn btn-primary" href="#"> Apply coupon</a>
+                                </form>
+                            </div>
+                            <div class="update-cart mt-3 mt-sm-0"> <a class="btn btn-primary" href="#" ng-click="cart.clear()"> Clear cart</a></div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-lg-4">
+                    <div class="cart-totals">
+                        <h4 class="cart-totals-title">Cart totals</h4>
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <tbody>
+                                <tr class="cart-subtotal">
+                                    <th>Subtotal</th>
+                                    <td><span class="subtotal">{{tinhTongtien()}}</span></td>
+                                </tr>
+                                <tr class="shipping">
+                                    <th>Shipping</th>
+                                    <td>
+                                        <form>
+                                            <div class="mb-3">
+                                                <div class="form-check">
+                                                    <input class="form-check-input float-none" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
+                                                    <label class="form-check-label" for="exampleRadios1">
+                                                        Flat rate
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input float-none" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                                                    <label class="form-check-label" for="exampleRadios2">
+                                                        Local pickup
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </form>
+                                        <p>Shipping to <strong>CA.</strong></p>
+                                        <a href="#">Change address <i class="fa fa-shopping-cart"></i></a>
+                                    </td>
+                                </tr>
+                                <tr class="order-total">
+                                    <th>Total</th>
+                                    <td>
+                                        <span class="amount">$9.82</span>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="text-center">
+                            <a href="shop-checkout.html" class="btn btn-dark checkout-button">Proceed to checkout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+    <section class="slick-slider bg-holder bg-overlay-black-50 ">
+        <!-- Create your own class for the containing div -->
+        <div class="container">
+            <div class="slick-sliderbox">
+                <div class="slick-tittle">
+                        <span class="sub-title text-secondary">
+                        <span class="title-shape me-2">seemore?</span> </span>
+                    <h2>related products</h2>
+                    <div class="about-box-border-yellow">
+
+                    </div>
+                    <div class="about-box-border-blue">
+
+                    </div>
+                </div>
+
+                <div class="slick-carousel" style="margin-top: 50px;">
+                    <!-- Inside the containing div, add one div for each slide -->
+                    <div class="product">
+                        <!-- You can put an image or text inside each slide div -->
+                        <a href=""> <img style="width: 240px; height: 240px;" src="https://wheytot.com/images/pro/sua-tang-co-critical-whey-227g-75-lan-dung_6729.jpg"></a>
+                        <div class="tittle">tittle</div>
+                        <div class="price">50k</div>
+                    </div>
+                    <div class="product">
+                        <!-- You can put an image or text inside each slide div -->
+                        <a href=""> <img style="width: 240px; height: 240px;" src="https://wheytot.com/images/pro/sua-tang-co-critical-whey-227g-75-lan-dung_6729.jpg"></a>
+                        <div class="tittle">tittle</div>
+                        <div class="price">50k</div>
+                    </div>
+                    <div class="product">
+                        <!-- You can put an image or text inside each slide div -->
+                        <a href=""> <img style="width: 240px; height: 240px;" src="https://wheytot.com/images/pro/sua-tang-co-critical-whey-227g-75-lan-dung_6729.jpg"></a>
+                        <div class="tittle">tittle</div>
+                        <div class="price">50k</div>
+                    </div>
+                    <div class="product">
+                        <!-- You can put an image or text inside each slide div -->
+                        <a href=""> <img style="width: 240px; height: 240px;" src="https://wheytot.com/images/pro/sua-tang-co-critical-whey-227g-75-lan-dung_6729.jpg"></a>
+                        <div class="tittle">tittle</div>
+                        <div class="price">50k</div>
+                    </div>
+                    <div class="product">
+                        <!-- You can put an image or text inside each slide div -->
+                        <a href=""> <img style="width: 240px; height: 240px;" src="https://wheytot.com/images/pro/sua-tang-co-critical-whey-227g-75-lan-dung_6729.jpg"></a>
+                        <div class="tittle">tittle</div>
+                        <div class="price">50k</div>
+                    </div>
+                    <div class="product">
+                        <!-- You can put an image or text inside each slide div -->
+                        <a href=""> <img style="width: 240px; height: 240px;" src="https://wheytot.com/images/pro/sua-tang-co-critical-whey-227g-75-lan-dung_6729.jpg"></a>
+                        <div class="tittle">tittle</div>
+                        <div class="price">50k</div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+</section>
+
+
+
+</body>
+
+</html>

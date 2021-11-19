@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{client/dashboardLayout.html}">
+
+<head>
+
+</head>
+
+<body class="container" >
+
+
+<section class="row" layout:fragment="content">
+
+    <section class="slick-slider bg-holder bg-overlay-black-50 ">
+        <!-- Create your own class for the containing div -->
+        <div class="container">
+            <div class="slick-sliderbox">
+                <div class="slick-tittle">
+                        <span class="sub-title text-secondary">
+                        <span class="title-shape me-2">welcome?</span> </span>
+                    <h2>SUPER SALE</h2>
+                    <div class="about-box-border-yellow">
+
+                    </div>
+                    <div class="about-box-border-blue">
+
+                    </div>
+                </div>
+
+                <div class="slick-carousel" style="margin-top: 50px;">
+                    <!-- Inside the containing div, add one div for each slide -->
+                    <div class="product">
+                        <!-- You can put an image or text inside each slide div -->
+                        <a href=""> <img style="width: 240px; height: 240px;" th:src="@{/client/images/sua-tang-co-critical-whey-227g-75-lan-dung_6729.jpg}"></a>
+                        <div class="tittle">tittle</div>
+                        <div class="price">50k</div>
+                    </div>
+                    <div class="product">
+                        <!-- You can put an image or text inside each slide div -->
+                        <a href=""> <img style="width: 240px; height: 240px;" th:src="@{/client/images/sua-tang-co-critical-whey-227g-75-lan-dung_6729.jpg}"></a>
+                        <div class="tittle">tittle</div>
+                        <div class="price">50k</div>
+                    </div>
+                    <div class="product">
+                        <!-- You can put an image or text inside each slide div -->
+                        <a href=""> <img style="width: 240px; height: 240px;" th:src="@{/client/images/sua-tang-co-critical-whey-227g-75-lan-dung_6729.jpg}"></a>
+                        <div class="tittle">tittle</div>
+                        <div class="price">50k</div>
+                    </div>
+                    <div class="product">
+                        <!-- You can put an image or text inside each slide div -->
+                        <a href=""> <img style="width: 240px; height: 240px;" th:src="@{/client/images/sua-tang-co-critical-whey-227g-75-lan-dung_6729.jpg}"></a>
+                        <div class="tittle">tittle</div>
+                        <div class="price">50k</div>
+                    </div>
+                    <div class="product">
+                        <!-- You can put an image or text inside each slide div -->
+                        <a href=""> <img style="width: 240px; height: 240px;" th:src="@{/client/images/sua-tang-co-critical-whey-227g-75-lan-dung_6729.jpg}"></a>
+                        <div class="tittle">tittle</div>
+                        <div class="price">50k</div>
+                    </div>
+                    <div class="product">
+                        <!-- You can put an image or text inside each slide div -->
+                        <a href=""> <img style="width: 240px; height: 240px;" th:src="@{/client/images/sua-tang-co-critical-whey-227g-75-lan-dung_6729.jpg}"></a>
+                        <div class="tittle">tittle</div>
+                        <div class="price">50k</div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+    <section class="home-product bg-holder bg-overlay-black-50  ">
+        <div class="container">
+            <div class="home-product-box">
+                <div class="search-box">
+                    <div class="search">
+                        <input class="search-txt" type="text" name="" placeholder="Search Product">
+                        <a class="search-btn" href="#">
+                            <i class="fas fa-search"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="category-box">
+                    <div class="box">
+                        <div class="tittle">
+                            <a href="">abc abc </a>
+                            <a href="">abc abc </a>
+                            <a href="">abc abc </a>
+                            <a href="">abc abc </a>
+                            <a href="">abc abc </a></div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 col-lg-4 col-sm-6 mb-5" th:each="p:${items}" >
+                            <div class="product">
+                                <div class="product-image">
+                                    <img th:src="@{|/client/images/${p.image}|}" alt="" class="img-fluid mx-auto">
+                                    <div class="product-overlay">
+                                        <div class="add-to-cart">
+                                            <a href="#" th:attr="ng-click=@{|cart.add(${p.id})|}">
+                                                <span>Add To Card</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product-description">
+                                    <div class="product-title">
+                                        <a href="#" class="product-title__link"><p  th:utext=" ${p.name}"></p></a>
+                                    </div>
+                                    <div class="product-price">
+                                        <del>[[${p.price}]]</del>
+                                        <ins>[[${p.price}]]</ins>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+</section>
+
+
+</body>
+
+</html>

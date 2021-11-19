@@ -46,10 +46,9 @@ public class Product implements Serializable{
 	String description;
 	@ManyToOne
 	@JoinColumn(name = "category_id", referencedColumnName = "id")
-	 Category categoryId;
+	Category categoryId;
 	@Column(name = "create_date")
-	@JsonFormat(pattern = "yyyy/MM/dd")
-	 Date createdate;
+	Date createdate = new Date();
 @JsonIgnore
 	@OneToMany(mappedBy = "product")
 	List<OrderDetail> orderDetails;

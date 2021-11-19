@@ -1,0 +1,132 @@
+.space-ptb{
+    padding: 90px 0;
+}
+.checkout-info {
+    padding: 25px 25px 25px 120px;
+    background: #f8f8f8;
+    position: relative;
+}
+.checkout-info p  a {
+    text-decoration: none ;
+    color: #1947c1 !important;
+}
+
+.checkout-info:before {
+    position: absolute;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    top: 50%;
+    left: 25px;
+    content: "\f2f6";
+    font-size: 60px;
+    font-family: "Font Awesome 5 Free";
+    z-index: 8;
+    color: #dfdfdf;
+    font-weight: 600;
+}
+.checkout-info-coupon .checkout-info:before {
+    content: "\f3ff";
+}
+.checkout-info-coupon .checkout-info  a {
+    text-decoration: none ;
+    color: #1947c1 !important;
+}
+
+/* Form Infomation */
+.section-title {
+    margin-bottom: 50px;
+}
+
+.form-control {
+    border: 1px solid #ebebeb;
+    border-radius: 0px;
+    height: 50px;
+    padding: 10px 20px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    font-size: 14px;
+    font-weight: 500;
+    color: #666666;
+    background-clip: inherit !important;
+}
+
+
+/* Check Out review */
+.checkout-review {
+    padding: 15px 30px 30px;
+    border: 1px solid #ebebeb;
+}
+
+.checkout-review .table tr td.amount {
+    font-size: 18px;
+}
+.checkout-review .table tr td {
+    padding: 15px 0;
+    font-size: 14px;
+}
+
+/* Accordion */
+
+.myaccordion {
+    max-width: 500px;
+    margin: 50px auto;
+    box-shadow: 0 0 1px rgba(0,0,0,0.1);
+  }
+  
+  .myaccordion .card,
+  .myaccordion .card:last-child .card-header {
+    border: none;
+  }
+  
+  .myaccordion .card-header {
+    border-bottom-color: #EDEFF0;
+    background: transparent;
+  }
+  
+  .myaccordion .fa-stack {
+    font-size: 10px;
+  }
+  
+  .myaccordion .btn {
+    width: 100%;
+    font-weight: bold;
+    color: black;
+    padding: 0;
+  }
+  
+  .myaccordion .btn-link:hover,
+  .myaccordion .btn-link:focus {
+    color: #f3f526 !important;
+    text-decoration: none;
+  }
+  
+.myaccordion li + li {
+    margin-top: 10px;
+}
+
+
+.policy{
+    color: #f3f526 !important;
+    text-decoration: none !important;
+    font-weight: bold;
+}
+.terms{
+    color: #f3f526 !important;
+    text-decoration: none !important;
+    font-weight: bold;
+}
+
+.btn__place-order{
+    outline: medium none !important;
+    width: 100%;
+    border: 1px solid #eff10b;
+    background: #eff10b;
+    height: 52px;
+}
+.btn__place-order:hover{
+    cursor: pointer;
+}
+.btn__place-order span{
+    color: #1947c1;
+    font-weight: bold;
+}

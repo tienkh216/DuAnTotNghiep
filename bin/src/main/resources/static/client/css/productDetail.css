@@ -1,0 +1,130 @@
+h3 {
+    background: #fff;
+    color: #3498db;
+    font-size: 36px;
+    line-height: 100px;
+    margin: 10px;
+    position: relative;
+    text-align: center;
+}
+
+.slick-arrow {
+    opacity: 0;
+    top: 50%;
+}
+
+.slick-dots {
+    display: none !important;
+}
+
+.slick:hover .slick-arrow {
+    opacity: 100;
+}
+
+.slider {
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+    -khtml-user-select: none;
+    -ms-touch-action: pan-y;
+    touch-action: pan-y;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.space-ptb {
+    padding: 0px 0;
+}
+
+.slider-nav {
+    margin-top: -100px;
+}
+
+.product-detail .input-group {
+    width: 90px;
+    float: left;
+    margin-right: 20px;
+}
+
+.input-group {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    width: 100%;
+}
+
+.form-control {
+    border: 1px solid #ebebeb;
+    border-radius: 0px;
+    height: 50px;
+    padding: 10px 20px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    font-size: 14px;
+    font-weight: 500;
+    color: #666666;
+    background-clip: inherit !important;
+}
+
+.btt-primary {
+    background: #f3f526;
+    border-color: #f3f526;
+    color: #1947c1;
+    position: relative;
+}
+
+.shop-single .product-detail .product-summary a {
+    color: #333333;
+    margin-right: 10px;
+}
+
+.shop-single .product-detail .product-summary {
+    margin-top: 30px;
+}
+
+.btt {
+    font-weight: 700;
+    font-size: 16px;
+    padding: 12px 40px;
+    border-radius: 0;
+}
+
+.shop-single .product-detail .product-summary a i {
+    color: #f3f526;
+    margin-right: 10px;
+}
+
+.shop-single .product-detail hr {
+    margin: 30px 0;
+}
+
+.shop-single .product-detail .product-detail-meta {
+    margin-bottom: 20px;
+}
+
+.shop-single .product-detail .product-detail-social {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    border-top: 1px solid #ebebeb;
+    border-bottom: 1px solid #ebebeb;
+    padding: 10px 0;
+}
+
+.shop-single .product-detail .product-detail-social ul {
+    padding-left: 15px;
+    margin-bottom: 0;
+}
+
+.shop-single .product-detail .product-detail-social ul li {
+    display: inline-block;
+    list-style-type: none;
+    float: left;
+    margin-right: 20px;
+    font-size: 16px;
+}

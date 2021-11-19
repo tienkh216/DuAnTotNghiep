@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{client/dashboardLayout.html}">
+
+<head>
+
+</head>
+
+<body>
+
+
+<section class="row" layout:fragment="content">
+
+    <section class="space-ptb">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="checkout-info mb-4 mb-md-5">
+                        <p class="mb-0">
+                            <strong>Returning customer?</strong> <a class="text-secondary" href="login.html">Click here to login</a></p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="checkout-info-coupon mb-4 mb-md-5">
+                        <p class="checkout-info"><strong>Have a coupon?</strong>
+                            <a class="text-secondary" data-bs-toggle="collapse" href="#collapse" role="button" aria-expanded="false" aria-controls="collapse">
+                                Click here to enter your code
+                            </a>
+                        </p>
+                        <div class="collapse" id="collapse">
+                            <div class="checkout-coupon">
+                                <p>If you have a coupon code, please apply it below.</p>
+                                <form class="row">
+                                    <div class="mb-3 col-sm-12">
+                                        <input type="text" class="form-control" id="coupon_code" placeholder="Coupon code">
+                                    </div>
+                                </form>
+                                <a href="#" class="btn btn-primary"> <span> Apply coupon</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="checkout">
+                        <div class="section-title">
+                            <h3 class="title">Billing details</h3>
+                        </div>
+                        <form class="row mt-4">
+                            <div class="mb-3 col-sm-12">
+                                <label class="form-label">First name</label>
+                                <input type="text" class="form-control" placeholder="">
+                            </div>
+                            <div class="mb-3 col-sm-12">
+                                <label class="form-label">Last name</label>
+                                <input type="text" class="form-control" placeholder="">
+                            </div>
+                            <div class="mb-3 col-sm-12">
+                                <label class="form-label">Street Address</label>
+                                <input type="text" class="form-control" placeholder="">
+                            </div>
+                            <div class="mb-3 col-sm-12">
+
+
+                            </div>
+
+
+
+
+
+
+
+
+
+                            <div class="mb-3 col-sm-12">
+                                <label class="form-label">Phone</label>
+                                <input type="text" class="form-control" placeholder="">
+                            </div>
+                            <div class="mb-3 col-sm-12 mb-0">
+                                <label class="form-label">Email Address:</label>
+                                <input type="email" class="form-control" placeholder="">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-6 mt-5 mt-md-0">
+                    <div class="section-title">
+                        <h3 class="title">Your order</h3>
+                    </div>
+                    <div class="checkout-review">
+                        <div class="table-responsive">
+                            <table class="table cart">
+                                <tbody>
+                                <tr>
+                                    <th class="border-top-0 product-name" scope="row">Product</th>
+                                    <th class="border-top-0 product-total" scope="row">Subtotal</th>
+                                </tr>
+                                <tr>
+                                    <td> Extra Fine Wool Jumpers × 9 </td>
+                                    <td> $360.00 </td>
+                                </tr>
+                                <tr>
+                                    <td> Girls' Cold Shoulder Bling Dress - Black × 3 </td>
+                                    <td> $348.00 </td>
+                                </tr>
+                                <tr>
+                                    <th class="product-name" scope="row">Subtotal</th>
+                                    <td class="product-total amount"><strong> $708.00 </strong></td>
+                                </tr>
+                                </tbody>
+                                <tfoot>
+                                <tr>
+                                    <th class="shipping">Shipping</th>
+                                    <td>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
+                                            <label class="form-check-label" for="exampleRadios1">
+                                                Flat rate
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                                            <label class="form-check-label" for="exampleRadios2">
+                                                Local pickup
+                                            </label>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th class="product-total" scope="row">Total</th>
+                                    <td class="product-total amount text-primary"><strong> $708.00 </strong></td>
+                                </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+
+                        <!-- Accordion -->
+                        <div id="accordion" class="myaccordion">
+                            <div class="card">
+                                <div class="card-header" id="headingOne">
+                                    <h2 class="mb-0">
+                                        <button class="d-flex align-items-center justify-content-between btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    <span class="fa-stack fa-2x">
+                                      <i class="fa fa-circle fa-stack-2x"></i>
+                                      <i class="fa fa-plus fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                            DIRECT BANK TRANSFER
+                                        </button>
+                                    </h2>
+                                </div>
+                                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                                    <div class="card-body">
+                                        <p>
+                                            Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order will not be shipped until the funds have cleared in our account.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="headingTwo">
+                                    <h2 class="mb-0">
+                                        <button class="d-flex align-items-center justify-content-between btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"></button>
+                                    <span class="fa-stack fa-2x">
+                                      <i class="fa fa-circle fa-stack-2x"></i>
+                                      <i class="fa fa-plus fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                            CHECK PAYMENTS
+                                    </h2>
+                                </div>
+                                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                                    <div class="card-body">
+                                        <p>
+                                            Please send a check to Store Name, Store Street, Store Town, Store State / County, Store Postcode.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="headingThree">
+                                    <h2 class="mb-0">
+                                        <button class="d-flex align-items-center justify-content-between btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    <span class="fa-stack fa-2x">
+                                      <i class="fa fa-circle fa-stack-2x"></i>
+                                      <i class="fa fa-plus fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                            CASH ON DELIVERY
+                                        </button>
+                                    </h2>
+                                </div>
+                                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                                    <div class="card-body">
+                                        <p>
+                                            Pay with cash upon delivery
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p>Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our<a href="privacy-policy.html" class="policy"> privacy policy.</a></p>
+                        <div class="form-check my-4">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                I have read and agree to the website <a href="terms-and-conditions.html" class="terms">terms and conditions</a>
+                            </label>
+                        </div>
+                        <div class="d-grid">
+                            <button type="button" class=" btn__place-order">
+                                <span> Place Order </span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+
+
+
+    <section class="slick-slider bg-holder bg-overlay-black-50 ">
+        <!-- Create your own class for the containing div -->
+        <div class="container">
+            <div class="slick-sliderbox">
+                <div class="slick-tittle">
+                        <span class="sub-title text-secondary">
+                        <span class="title-shape me-2">seemore?</span> </span>
+                    <h2>related products</h2>
+                    <div class="about-box-border-yellow">
+
+                    </div>
+                    <div class="about-box-border-blue">
+
+                    </div>
+                </div>
+
+                <div class="slick-carousel" style="margin-top: 50px;">
+                    <!-- Inside the containing div, add one div for each slide -->
+                    <div class="product">
+                        <!-- You can put an image or text inside each slide div -->
+                        <a href=""> <img style="width: 240px; height: 240px;" src="https://wheytot.com/images/pro/sua-tang-co-critical-whey-227g-75-lan-dung_6729.jpg"></a>
+                        <div class="tittle">tittle</div>
+                        <div class="price">50k</div>
+                    </div>
+                    <div class="product">
+                        <!-- You can put an image or text inside each slide div -->
+                        <a href=""> <img style="width: 240px; height: 240px;" src="https://wheytot.com/images/pro/sua-tang-co-critical-whey-227g-75-lan-dung_6729.jpg"></a>
+                        <div class="tittle">tittle</div>
+                        <div class="price">50k</div>
+                    </div>
+                    <div class="product">
+                        <!-- You can put an image or text inside each slide div -->
+                        <a href=""> <img style="width: 240px; height: 240px;" src="https://wheytot.com/images/pro/sua-tang-co-critical-whey-227g-75-lan-dung_6729.jpg"></a>
+                        <div class="tittle">tittle</div>
+                        <div class="price">50k</div>
+                    </div>
+                    <div class="product">
+                        <!-- You can put an image or text inside each slide div -->
+                        <a href=""> <img style="width: 240px; height: 240px;" src="https://wheytot.com/images/pro/sua-tang-co-critical-whey-227g-75-lan-dung_6729.jpg"></a>
+                        <div class="tittle">tittle</div>
+                        <div class="price">50k</div>
+                    </div>
+                    <div class="product">
+                        <!-- You can put an image or text inside each slide div -->
+                        <a href=""> <img style="width: 240px; height: 240px;" src="https://wheytot.com/images/pro/sua-tang-co-critical-whey-227g-75-lan-dung_6729.jpg"></a>
+                        <div class="tittle">tittle</div>
+                        <div class="price">50k</div>
+                    </div>
+                    <div class="product">
+                        <!-- You can put an image or text inside each slide div -->
+                        <a href=""> <img style="width: 240px; height: 240px;" src="https://wheytot.com/images/pro/sua-tang-co-critical-whey-227g-75-lan-dung_6729.jpg"></a>
+                        <div class="tittle">tittle</div>
+                        <div class="price">50k</div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+</section>
+
+
+
+</body>
+
+</html>
