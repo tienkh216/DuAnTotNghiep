@@ -43,7 +43,7 @@ public class ClientController {
 	
 	@RequestMapping("/client/checkout")
 	public String clientCheckout(Model model) {
-		return ("client/site/checkout");
+		return ("MAU");
 	}
 	
 	@RequestMapping("/client/productDetail")

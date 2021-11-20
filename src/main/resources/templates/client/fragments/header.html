@@ -86,7 +86,7 @@
                                                 Products
                                             </a>
                                             <div class=" navdrop dropdown-menu dropdown2 dropdown-menu2" aria-labelledby="navbarDropdownMenuLink">
-                                                <a class="dropdown-item" th:href="@{/client/product}">Action</a>
+                                                <a class="dropdown-item" href="#">Action</a>
                                                 <a class="dropdown-item" href="#">Another action</a>
                                                 <a class="dropdown-item" href="#">Something else here</a>
                                             </div>
@@ -130,8 +130,7 @@
                                 </a>
 
                                 <div class="button btn-skew btn-md shape-svg">
-                                        <span> <ion-icon name="cart" style="font-size: 30px;"></ion-icon>
-                                        <a th:href="@{/client/cart}">My Cart</a></span>
+                                    <span> <ion-icon name="cart" style="font-size: 30px;"></ion-icon>My Cart</span>
                                     <svg>
                                         <polyline class="o1" points="0 0, 150 0, 150 55, 0 55, 0 0"></polyline>
                                         <polyline class="o2" points="0 0, 150 0, 150 55, 0 55, 0 0"></polyline>
@@ -153,7 +152,7 @@
             </header>
         </nav>
 
-        <section class="page-title bg-holder bg-overlay-black-50" th:style="'background: url(client/images/young-fitness-man-studio.jpg);'" >
+        <section class="page-title bg-holder bg-overlay-black-50" th:style="'background: url(/client/images/young-fitness-man-studio.jpg);    background-size: 100%;' " >
             <section class="ftco-section">
                 <div class="container">
                     <div class="row">
@@ -164,7 +163,7 @@
 
                                     </div>
                                     <div class="circle-2"> <img th:src="@{/client/images/cicle1.jpg}"
-                                                                alt=""></div>
+                                  alt=""></div>
 
 
                                 </div>
@@ -178,7 +177,7 @@
                                     <div class="row justify-content-center">
                                         <div class="col-md-11">
                                             <div class="testimony-wrap d-md-flex">
-                                                <div class="img" th:style="'background-image: url(client/images/wst_1595492515_nguoi_cao_tuoi_co_nen_su_dung_sua_whey_protein_khong__image_1595492516_2.jpg);'" ></div>
+                                                <div class="img"  th:style="'background-image: url(/client/images/image.jpg);'" ></div>
                                                 <div class="text text-center p-4 py-xl-5 px-xl-5 d-flex align-items-center">
                                                     <div class="desc w-100">
                                                         <p class="h3 mb-5">"Incredible services and amazing customer support</p>
@@ -196,7 +195,7 @@
                                     <div class="row justify-content-center">
                                         <div class="col-md-11">
                                             <div class="testimony-wrap d-md-flex">
-                                                <div class="img" th:style="'background-image: url(client/images/whey-protein-concentrate-gia-re-cho-sinh-vien-tot-nhat.jpg);'"></div>
+                                                <div class="img"  th:style="'background-image: url(/client/images/image.jpg);'" ></div>
                                                 <div class="text text-center p-4 py-xl-5 px-xl-5 d-flex align-items-center">
                                                     <div class="desc w-100">
                                                         <p class="h3 mb-5">"Incredible services and amazing customer support</p>
@@ -214,7 +213,7 @@
                                     <div class="row justify-content-center">
                                         <div class="col-md-11">
                                             <div class="testimony-wrap d-md-flex">
-                                                <div class="img" th:style="'background-image: url(client/images/3_13032020113859.png);'"></div>
+                                                <div class="img" th:style="'background-image: url(/client/images/3_13032020113859.png);'"></div>
                                                 <div class="text text-center p-4 py-xl-5 px-xl-5 d-flex align-items-center">
                                                     <div class="desc w-100">
                                                         <p class="h3 mb-5">"Incredible services and amazing customer support</p>
@@ -236,6 +235,7 @@
         </section>
 
     </div>
+
 
 </div>
 </body>
