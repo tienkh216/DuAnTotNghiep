@@ -4,17 +4,25 @@
 use DuAn2
 drop database DuAn2
 
+drop table Accounts
 CREATE TABLE Accounts(
-	id int primary key IDENTITY  ,
-	username nvarchar(50) NOT NULL,
+	username nvarchar(50) primary key ,
 	password nvarchar(50) NOT NULL,
 	fullname nvarchar(50) NOT NULL,
-	address nvarchar(100) NOT NULL,
-	phone nvarchar(50) NOT NULL,
 	email nvarchar(50) NOT NULL,
-	activated bit NOT NULL,
-	admin bit NOT NULL
+	photo nvarchar(500) NOT NULL
 	)
+
+Create table Authorities(
+	id int IDENTITY primary key ,
+	username nvarchar(50) NOT NULL,
+	RoleId nvarchar(10) NOT NULL
+)
+
+CREATE TABLE [dbo].[Roles](
+	[Id] [nvarchar](10) NOT NULL,
+	[Name] [nvarchar](50) NOT NULL
+)
 
 CREATE TABLE [dbo].[Categories](
 	[id] [int] IDENTITY(1,1) primary key ,
@@ -144,3 +152,15 @@ INSERT INTO Size VALUES ( N'S', N'SIZE S', N'LOẠI NHỎ'),
  ( N'XL', N'SIZE XL', N'LOẠI  RẤT LỚN'),
 ( N'XXL', N'SIZE XX', N'LOẠI RẤT RẤT LỚN'),
 ( N'NO', N'SIZE 0', N'KHÔNG SIZE')
+
+INSERT [dbo].[Roles] ([Id], [Name]) VALUES (N'CUST', N'Customers')
+INSERT [dbo].[Roles] ([Id], [Name]) VALUES (N'DIRE', N'Directors')
+INSERT [dbo].[Roles] ([Id], [Name]) VALUES (N'STAF', N'Staffs')
+
+INSERT [dbo].[Accounts] ([Username], [Password], [Fullname], [Email], [Photo]) VALUES (N'customer', N'123', N'Nguyễn Khach Hang', N'teonv@gmail.com', N'user.png')
+INSERT [dbo].[Accounts] ([Username], [Password], [Fullname], [Email], [Photo]) VALUES (N'director', N'123', N'Nguyễn Chí Phèo', N'pheonc@fpt.edu.vn', N'-1407968806.jpg')
+INSERT [dbo].[Accounts] ([Username], [Password], [Fullname], [Email], [Photo]) VALUES (N'staff', N'123', N'Nguyễn Chí Minh', N'pheonc@fpt.edu.vn', N'1234.jpg')
+
+INSERT [dbo].[Authorities] ([Username], [RoleId]) VALUES ( N'director', N'DIRE')
+INSERT [dbo].[Authorities] ( [Username], [RoleId]) VALUES ( N'staff', N'STAF')
+INSERT [dbo].[Authorities] ([Username], [RoleId]) VALUES ( N'customer', N'CUST')
