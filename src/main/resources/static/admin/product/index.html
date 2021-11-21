@@ -44,12 +44,14 @@
                                         <td>{{item.special}}</td>
                                         <td>
                                             <button type="button" ng-click = "edit(item)" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" id="#modalCenter">Edit</button>
+                                        	<button  ng-click = "delete(item.id)" class="btn btn-danger">Delete</button>
                                         </td>
                                     </tr>
                                     </tbody>
                                 </table>
                                 
                             </div>
+                            
                             
                         </div>
                     </div>
@@ -112,7 +114,6 @@
                                         </div>
                                         <button ng-click = "create()"   class="btn btn-info ">Create</button>
                                         <button  ng-click = "update()"  class="btn btn-success">Update</button>
-                                        <button  ng-click = "delete(form)" class="btn btn-danger">Delete</button>
                                         <button ng-click = "reset()"   class="btn btn-warning ">Reset</button>
                                     </form>
                                 </div>
@@ -123,4 +124,4 @@
                         </div>
                     </div>
                 </div>
-             
+          
