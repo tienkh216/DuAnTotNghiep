@@ -30,21 +30,23 @@ CREATE TABLE [dbo].[Categories](
 	)
 
 CREATE TABLE [dbo].[Orders](
-	[Id] [bigint] IDENTITY(1,1) NOT NULL,
-	[Username] [nvarchar](50) NOT NULL,
-	[CreateDate] [datetime] NOT NULL,
-	[Address] [nvarchar](100) NOT NULL,
-)
-drop table Orders
-drop table Order_Details
+	[id] [int] IDENTITY(1,1) primary key ,
+	[order_date] [date] NOT NULL,
+	[amount] [float] NOT NULL,
+	[notes] [nvarchar](max) NOT NULL,
+	[shipping_address] [nvarchar](50) NOT NULL,
+	[payment_method_id] [int] NOT NULL,
+	[order_status_id] [int] NOT NULL,
+	[account_id] [int] NOT NULL
+	)
 
-CREATE TABLE [dbo].[OrderDetails](
-	[Id] [bigint] IDENTITY(1,1) NOT NULL,
-	[OrderId] [bigint] NOT NULL,
-	[ProductId] [int] NOT NULL,
-	[Price] [float] NOT NULL,
-	[Quantity] [int] NOT NULL,
-)
+CREATE TABLE [dbo].[Order_Details](
+	[id] [int] IDENTITY(1,1) primary key,
+	[order_id] [int] NOT NULL,
+	[product_size_id] [int] NOT NULL,
+	[price] [float] NOT NULL,
+	[quantity] [int] NOT NULL
+	)
 
 CREATE TABLE [dbo].[Order_Status](
 	[id] [int] IDENTITY(1,1) primary key ,
