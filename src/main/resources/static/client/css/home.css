@@ -115,3 +115,38 @@
     z-index: 100;
     transition: all 2s ease-in-out;
 }
+
+body {
+    font-family:'Lato',sans-serif;
+    font-size:12px;
+}
+
+#breadcrumbs {
+    list-style:none;
+    display:flex;
+    padding:4px 8px;
+}
+
+#breadcrumbs li {
+    margin:8px;
+}
+
+#breadcrumbs li a {
+    color:#4b7bec;
+    text-decoration:none;
+}
+#breadcrumbs li a:hover {
+    transition-delay:50ms;
+    transition:50ms;
+    color:#3867d6;
+    text-decoration:underline;
+}
+
+
+#breadcrumbs li+li:before  {
+    padding:8px;
+    color:#000;
+    content: "/\00a0";
+}
+
+
