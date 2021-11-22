@@ -4,6 +4,9 @@ app.controller("product-ctrl", function($scope, $http, $rootScope) {
       $scope.cates = [];
       $scope.query = {}
       $scope.queryBy = '$'
+      $scope.currentPage = 1;
+      $scope.numPerPage = 12;
+      $scope.maxSize = 5;
       
       $scope.initialize = function(){
          $http.get("/rest/products").then(resp=>{
@@ -60,8 +63,10 @@ app.controller("product-ctrl", function($scope, $http, $rootScope) {
         })
       }
       $scope.delete =  function(item){
-        $http.delete(`/rest/products/${item.id}`).then(resp=>{
-            var index = $scope.items.findIndex(p => p.id == item.id);
+      var r = confirm("Do you want delete product");
+      if(r==true){
+       $http.delete(`/rest/products/${item}`).then(resp=>{
+            var index = $scope.items.findIndex(p => p.id == item);
             $scope.items.splice(index,1);
             $scope.reset();
             alert('Xóa thành công')
@@ -70,6 +75,8 @@ app.controller("product-ctrl", function($scope, $http, $rootScope) {
             alert("Xóa thất bại");
             console.log("erro",erro);
         })
+      }
+      
    	 }
    	 $scope.reset = function(){
         $scope.form = {

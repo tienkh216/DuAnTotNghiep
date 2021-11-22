@@ -6,6 +6,8 @@
 }
 
 .page-title {
+    padding-top: 100px;
+    min-height: 60vh;
     background-size: 100%;
 }
 
