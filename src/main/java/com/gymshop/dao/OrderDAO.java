@@ -1,16 +1,16 @@
 package com.gymshop.dao;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
-import org.springframework.stereotype.Repository;
 
-import com.gymshop.entities.*;
+import com.gymshop.entities.Order;
 
-@Repository
 public interface OrderDAO extends JpaRepository<Order, Long> {
 	
-	@Query(value= "select * from [order] where account_id = :a_id and order_status_id = 2", nativeQuery =true)
-	Order getoderbyId(@Param("a_id") Long account_id );
+	
+	@Query("SELECT o FROM Order o WHERE o.account.username = ?1")
+	List<Order> findByUsername(String username);
 
 }
