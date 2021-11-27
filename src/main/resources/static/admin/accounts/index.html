@@ -12,24 +12,26 @@
                                 <table class="table align-items-center table-flush table-hover" id="dataTableHover">
                                     <thead class="thead-light">
                                     <tr>
-                                        <th>Customer ID</th>
-                                        <th>Name</th>
-                                        <th>Phone</th>
-                                        <th>Address</th>
-                                        <th>Image</th>
+                                        <th>Username</th>
+                                        <th>Password</th>
+                                        <th>Fullname</th>
+                                        <th>Email</th>
+                                        <th>Photo</th>
                                         <th>Active</th>
                                     </tr>
                                     </thead>
 
                                     <tbody>
-                                    <tr>
-                                        <td>123</td>
-                                        <td>Phuc</td>
-                                        <td>038238856</td>
-                                        <td>HCM</td>
-                                        <td>Image</td>
+                                    <tr ng-repeat = "item in items">
+                                        <td>{{item.username}}</td>
+                                        <td>{{item.password}}</td>
+                                        <td>{{item.fullname}}</td>
+                                        <td>{{item.email}}</td>
+                                        <td>{{item.photo}}</td>
                                         <td>
-                                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" id="#modalCenter">Edit</button>
+                                            <button ng-click = "edit(item)"  class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" id="#modalCenter">Edit</button>
+                                            <button  ng-click = "delete(item.username)" class="btn btn-danger">Delete</button>
+
                                         </td>
                                     </tr>
 
@@ -53,30 +55,34 @@
                                 <div class="card-body">
                                     <form>
                                         <div class="form-group">
-                                            <label for="exampleInputEmail1">Customer ID</label>
-                                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Customer ID">
+                                            <label for="exampleInputEmail1">Username</label>
+                                            <input ng-model = "form.username" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                                         </div>
                                         <div class="form-group">
-                                            <label for="exampleInputEmail1">Name</label>
-                                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Name">
+                                            <label for="exampleInputEmail1">Password</label>
+                                            <input ng-model = "form.password" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
                                         </div>
                                         <div class="form-group">
-                                            <label for="exampleInputEmail1">Phone</label>
-                                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Pone">
+                                            <label for="exampleInputEmail1">Fullname</label>
+                                            <input ng-model = "form.fullname" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
                                         </div>
                                         <div class="form-group">
-                                            <label for="exampleInputEmail1">Address</label>
-                                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Address">
+                                            <label for="exampleInputEmail1">Email</label>
+                                            <input ng-model = "form.email" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
                                         </div>
-
                                         <div class="form-group">
-                                            <div class="custom-file">
-                                                <input type="file" class="custom-file-input" id="customFile">
-                                                <label class="custom-file-label" for="customFile">Image</label>
-                                            </div>
+                                            <img ng-src="{{'/assets/images/'+ form.image}}" alt="" style="max-height: 50%;max-width: 50%">
                                         </div>
-                                        <button type="submit" class="btn btn-success">Update</button>
-                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                        <div class="form-group">
+                                        <div class="custom-file">
+                                            <input onchange = "angular.element(this).scope().imageChanged(this.files)"  type="file" class="custom-file-input " id="customFile">
+                                            <label class="custom-file-label" for="customFile">Image</label>
+                                        </div>
+                                        
+                                        </div>
+                                        <button ng-click = "create()"   class="btn btn-info ">Create</button>
+                                        <button  ng-click = "update()"  class="btn btn-success">Update</button>
+                                        <button ng-click = "reset()"   class="btn btn-warning ">Reset</button>
                                     </form>
                                 </div>
                             </div>

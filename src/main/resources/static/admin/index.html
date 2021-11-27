@@ -10,6 +10,7 @@
   <link href="/admin/img/logo/logo.png" rel="icon">
   <link href="/admin/img/logo/logo.png" rel="icon">
   <title>Admin</title>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js">  </script>
   <link href="/admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="/admin/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
   <link href="/admin/css/ruang-admin.min.css" rel="stylesheet">
@@ -109,15 +110,13 @@
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePage" aria-expanded="true"
            aria-controls="collapsePage">
           <i class="fas fa-fw fa-columns"></i>
-          <span>Pages</span>
+          <span>Chart</span>
         </a>
         <div id="collapsePage" class="collapse" aria-labelledby="headingPage" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Example Pages</h6>
-            <a class="collapse-item" href="login.html">Login</a>
-            <a class="collapse-item" href="register.html">Register</a>
-            <a class="collapse-item" href="404.html">404 Page</a>
-            <a class="collapse-item" href="blank.html">Blank Page</a>
+            <h6 class="collapse-header">Chart</h6>
+            <a class="collapse-item" href="#!chart">Chart</a>
+           
           </div>
         </div>
       </li>
@@ -378,8 +377,8 @@
   <script src="/admin/admin-app.js"></script>
   <script src="/admin/product/product-ctrl.js"></script>
   <script src="/admin/category/category-ctrl.js"></script>
-  
-  
+  <script src="/admin/accounts/accounts-ctrl.js"></script>
+  <script src="/admin/chart/chart-ctrl.js"></script>
   
   
   <script src="/admin/vendor/jquery/jquery.min.js"></script>
