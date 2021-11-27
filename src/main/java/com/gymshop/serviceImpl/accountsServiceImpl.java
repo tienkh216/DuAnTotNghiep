@@ -20,7 +20,7 @@ public class accountsServiceImpl implements accountService{
 
 	@Override
 	public List<Account> getAdministrators() {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 

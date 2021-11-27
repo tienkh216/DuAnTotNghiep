@@ -1,3 +1,4 @@
+
 				<div class="d-sm-flex align-items-center justify-content-between mb-4">
                     <h1 class="h3 mb-0 text-gray-800">DataTables</h1>
                     <ol class="breadcrumb">
@@ -35,7 +36,7 @@
                                     </thead>
 
                                     <tbody >
-                                    <tr ng-repeat = "item in items | filter:query" >
+                                    <tr ng-repeat = "item in pager.items | filter:query" >
                                         <td>{{item.id}}</td>
                                         <td>{{item.name}}</td>
                                         <td>{{item.price}}</td>
@@ -51,11 +52,25 @@
                                 </table>
                                 
                             </div>
-                            
-                            
+	                            <div class="card-footer text-muted">
+						            <button type="button" class="btn btn-primary" ng-click="pager.first()">
+						              <i class="fas fa-fast-backward"></i>
+						  
+						            </button>
+						            <button type="button" class="btn btn-secondary"  ng-click="pager.prev()">
+						              <i class="fas fa-backward"></i>
+						                        </button>
+						            <button class="btn btn-danger">{{pager.page + 1}} of {{pager.count}}</button>
+						            <button type="button" class="btn btn-success"  ng-click="pager.next()">
+						              <i class="fas fa-forward"></i>
+						                              </button>
+						            <button type="button" class="btn btn-danger"  ng-click="pager.last()">
+						              <i class="fas fa-fast-forward"></i>  
+						            </button>
+	        					</div>
                         </div>
                     </div>
-                </div>
+                
                 <!--Product Edit-->
                 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
