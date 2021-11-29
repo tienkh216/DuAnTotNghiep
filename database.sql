@@ -1,9 +1,8 @@
-<<<<<<< HEAD
 
-﻿create database DuAn2
+create database DuAn2;
 
-use DuAn2
-drop database DuAn2
+use DuAn2;
+drop database DuAn2;
 
 drop table Accounts
 CREATE TABLE Accounts(
