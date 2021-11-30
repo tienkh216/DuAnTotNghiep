@@ -41,11 +41,22 @@
                                         My Account
                                         <i class="fa fa-angle-down"></i>
                                     </a>
-                                    <ul class="account_selection">
-                                        <li><a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i>Sign In</a>
+                                    <ul class="account_selection" style="width:200px;">
+                                    <th:block th:if = "${#request.remoteUser}"> 
+                                    	<li><a><i class="fa fa-sign-in" aria-hidden="true"></i>Profile</a>
                                         </li>
-                                        <li><a href="#"><i class="fa fa-user-plus"
+                                        <li class="nav-item" th:if = "${#request.isUserInRole('DIRE') or #request.isUserInRole('STAF')}">
+												<a class="nav-link" th:href = "@{/admin/home}">Adminstration</a>
+										  </li>
+                                        <li><a th:href="@{/login/logoff}"><i class="fa fa-sign-in" aria-hidden="true"></i>Logout</a>
+                                        </li>
+                                    </th:block>
+                                     <th:block th:unless = "${#request.remoteUser}"> 
+                                        <li><a th:href="@{/login/form}"><i class="fa fa-sign-in" aria-hidden="true"></i>Sign In</a>
+                                        </li>
+                                        <li><a th:href="@{/login/form}"><i class="fa fa-user-plus"
                                                            aria-hidden="true"></i>Register</a></li>
+                                        </th:block>
                                     </ul>
                                 </li>
                             </ul>

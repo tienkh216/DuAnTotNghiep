@@ -5,7 +5,7 @@ import java.util.List;
 import com.gymshop.entities.Account;
 
 public interface accountService {
-	Account findById(String id);
+	Account findById(String username);
 
 	List<Account> getAdministrators();
 
@@ -13,6 +13,6 @@ public interface accountService {
 
 	Account create(Account account);
 	Account update(Account account);
-	void delete (String id);
+	void delete (String username);
 	
 }
