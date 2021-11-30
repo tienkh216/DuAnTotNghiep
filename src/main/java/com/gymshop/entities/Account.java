@@ -3,6 +3,7 @@ package com.gymshop.entities;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
@@ -23,7 +24,8 @@ public class Account implements Serializable {
 	String password;
 	String fullname;
 	String email;
-	String photo;
+	@Column(name = "image")
+	String image;
 	@JsonIgnore
 	@OneToMany(mappedBy = "account")
 	List<Order> orders;

@@ -1,90 +1,137 @@
 app.controller("product-ctrl", function($scope, $http, $rootScope) {
-	  $scope.items = [];
-	  $scope.form = {};
-      $scope.cates = [];
-      $scope.query = {}
-      $scope.queryBy = '$'
-      $scope.currentPage = 1;
-      $scope.numPerPage = 12;
-      $scope.maxSize = 5;
-      
-      $scope.initialize = function(){
-         $http.get("/rest/products").then(resp=>{
-            $scope.items = resp.data;
-            $scope.items.forEach(item =>{
-               item.createdate = new Date(item.createdate)
-            });
-         });
-      $http.get("/rest/categories").then(resp=>{
-         $scope.cates = resp.data;
-      })
-         
-      }
+    $scope.items = [];
+    $scope.form = {};
+    $scope.cates = [];
+    $scope.query = {}
+    $scope.queryBy = '$'
+    
+    $scope.close = function(){
+        $('#exampleModalCenter').modal('hide');
+    }
+    $scope.initialize = function(){
+       $http.get("/rest/products").then(resp=>{
+          $scope.items = resp.data;
+          $scope.items.forEach(item =>{
+             item.createdate = new Date(item.createdate)
+          });
+       });
+    $http.get("/rest/categories").then(resp=>{
+       $scope.cates = resp.data;
+    })
+       
+    }
 
-      $scope.edit = function(item){
-         $scope.form = angular.copy(item);
+    $scope.edit = function(item){
+       $scope.form = angular.copy(item);
+    }
+    $scope.imageChanged = function(files){
+      var data  = new FormData();
+      data.append('file',files[0]);
+      $http.post('/rest/upload/images',data,{
+          transformRequest : angular.identity,
+          headers:{'Content-Type' : undefined}
+      }).then(resp =>{
+          $scope.form.image = resp.data.name;
+      }).catch(erro =>{
+          alert("Loi upload hinh anh");
+          console.log("Erro","erro");
+      })
+    }
+    $scope.create =  function(){
+      var item = angular.copy($scope.form);
+      $http.post(`/rest/products`,item).then(resp=>{
+          resp.data.createDate =  new Date(resp.data.createDate);
+          $scope.items.push(resp.data);
+          $scope.reset();
+          $scope.close();
+          swal("Ok", "Successful Create", "success");
+
+      })
+      .catch(erro =>{
+          swal("Erro", "Create Failed", "error");
+          console.log(erro);
+      })
+   }
+    $scope.update =  function(){
+      var item = angular.copy($scope.form);
+      $http.put(`/rest/products/${item.id}`,item).then(resp=>{
+          var index = $scope.items.findIndex(p => p.id == item.id);
+          $scope.items[index] = item;
+          $scope.close();
+          swal("Ok", "Successful Update", "success");
+      })
+      .catch(erro =>{
+          swal("Erro", "Update Failed", "error");
+          console.log("erro",erro);
+      })
+    }
+
+    $scope.delete =  function(item){
+      swal({
+          title: "Are you sure?",
+          text: "Once deleted, you will not be able to recover this imaginary file!",
+          icon: "warning",
+          buttons: true,
+          dangerMode: true,
+        })
+        .then((willDelete) => {
+          if (willDelete) {
+            swal("Do you want to delete your account?", {
+              icon: "success",
+            });
+            $http.delete(`/rest/products/${item}`).then(resp=>{
+                  var index = $scope.items.findIndex(p => p.id == item);
+                  $scope.items.splice(index,1);
+                  $scope.reset();
+                  swal("Ok", "Successful Delete", "success");
+              })
+              .catch(erro =>{
+                  swal("Erro", "Delete Failed", "error");
+                  console.log("erro",erro);
+              })
+          } else {
+            swal("cancel");
+          }
+      });
+    
       }
-      $scope.imageChanged = function(files){
-        var data  = new FormData();
-        data.append('file',files[0]);
-        $http.post('/rest/upload/images',data,{
-            transformRequest : angular.identity,
-            headers:{'Content-Type' : undefined}
-        }).then(resp =>{
-            $scope.form.image = resp.data.name;
-        }).catch(erro =>{
-            alert("Loi upload hinh anh");
-            console.log("Erro","erro");
-        })
+      $scope.reset = function(){
+      $scope.form = {
+          createDate : new Date (),
+          image : '',
+          available : true
       }
-      $scope.create =  function(){
-        var item = angular.copy($scope.form);
-        $http.post(`/rest/products`,item).then(resp=>{
-            resp.data.createDate =  new Date(resp.data.createDate);
-            $scope.items.push(resp.data);
-            $scope.reset();
-            alert('Thêm mới thành công')
-        })
-        .catch(erro =>{
-            alert("Thêm mới thất bại");
-            console.log(erro);
-        })
-     }
-      $scope.update =  function(){
-        var item = angular.copy($scope.form);
-        $http.put(`/rest/products/${item.id}`,item).then(resp=>{
-            var index = $scope.items.findIndex(p => p.id == item.id);
-            $scope.items[index] = item;
-            alert('Cập nhật thành công')
-        })
-        .catch(erro =>{
-            alert("Cập nhật thất bại");
-            console.log("erro",erro);
-        })
-      }
-      $scope.delete =  function(item){
-      var r = confirm("Do you want delete product");
-      if(r==true){
-       $http.delete(`/rest/products/${item}`).then(resp=>{
-            var index = $scope.items.findIndex(p => p.id == item);
-            $scope.items.splice(index,1);
-            $scope.reset();
-            alert('Xóa thành công')
-        })
-        .catch(erro =>{
-            alert("Xóa thất bại");
-            console.log("erro",erro);
-        })
-      }
-      
-   	 }
-   	 $scope.reset = function(){
-        $scope.form = {
-            createDate : new Date (),
-            image : '',
-            available : true
-        };
-    }  
-   $scope.initialize();
+  }
+  $scope.pager={
+          page:0,
+          size: 5,
+          get items(){
+              var start =this.page * this.size;
+              return $scope.items.slice(start, start + this.size);
+          },
+          get count(){
+                  return Math.ceil(1.0 * $scope.items.length/this.size);
+          },
+          first(){
+                  this.page=0
+          },
+          prev(){
+              this.page--;
+              if(this.page<0){
+                  this.last();
+              }
+          }, 
+              next(){
+              this.page++;
+              if(this.page>=this.count){
+                  this.first();
+              }
+          },
+          last(){
+              this.page=this.count-1;
+          }
+  }  
   
+ $scope.initialize();
 });
+
