@@ -1,0 +1,26 @@
+.slide-v {
+    width: 50%;
+    margin: 0 auto;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  .slide {
+    padding: 100px 0;
+    color: white;
+    background-color: rgb(101, 192, 149);
+    text-align: center;
+    font-size: 6rem;
+  }
+  
+  .slide:nth-child(2n) {
+    background: rgb(244, 144, 137);
+  }
+  
+  .button-container {
+    padding-top: 10px; 
+    width: 50%;
+    margin: 0 auto;
+  }

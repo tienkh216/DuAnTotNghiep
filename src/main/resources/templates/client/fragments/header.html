@@ -8,235 +8,142 @@
 <body>
 <div th:fragment="header">
 
-    <!-- Sidebar -->
-    <nav class="navbar navbar-inverse fixed-top p-0" id="sidebar-wrapper" role="navigation">
-        <ul class="nav sidebar-nav">
-            <div class="sidebar-header">
-                <div class="sidebar-brand">
-                    <a href="#">LOGO</a></div>
-            </div>
-            <li class="dropdown">
-                <a href="#works" class="dropdown-toggle" data-toggle="dropdown">  PRODUCTS <span class="caret"></span></a>
-                <ul class="dropdown-menu animated fadeInLeft" role="menu">
-                    <div class="dropdown-header">Dropdown heading</div>
-                    <li><a href="#pictures">Pictures</a></li>
-                    <li><a href="#videos">Videeos</a></li>
-                    <li><a href="#books">Books</a></li>
-                    <li><a href="#art">Art</a></li>
-                    <li><a href="#awards">Awards</a></li>
-                </ul>
-            </li>
+    <header class="header trans_300">
 
-        </ul>
-    </nav>
-    <!-- /#sidebar-wrapper -->
+        <!-- Top Navigation -->
 
-    <!-- Page Content -->
-    <div id="page-content-wrapper">
-        <nav class="scoll">
-            <header class="header default ">
-                <div class="container">
-                    <div class="row ">
-                        <div class="col-3 d-none d-xl-block d-md-none d-lg-none d-sm-none header-left-bg ">
-                            <a href="" class="logo-header">
-                                <h1>LOGO</h1>
-                            </a>
-                        </div>
-                        <div class="header-right-bg col-xl-9 col-md-12 col=sm-12 col-xs-12 ">
-                            <div class="top-bar">
-                                <div class="d-block d-md-flex align-items-center text-center">
-                                    <div class="mr-3 d-inline-block">
-                                        <ion-icon class="mail text-secondary pr-1" name="mail"></ion-icon>minhphuc-frontend@gmail.com</div>
-                                    <div class="mr-auto d-inline-block">
-                                        <ion-icon class="call pr-1 text-secondary" name="call"></ion-icon>01234567898</div>
-                                    <div class="login mr-4 d-inline-block">
+        <div class="top_nav">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="top_nav_left">free shipping on all u.s orders over $50</div>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <div class="top_nav_right">
+                            <ul class="top_nav_menu">
+
+                                <!-- Currency / Language / My Account -->
 
 
-                                        // thêm link login form vô dưới đây nha th lolll
-                                        <a href="" >
-                                            Login</a>
-
-
-                                    </div>
-                                    <div class="social d-inline-block">
-                                        <ul class="list-unstyled">
-                                            <li>
-                                                <ion-icon name="logo-facebook"></ion-icon>
-                                            </li>
-                                            <li>
-                                                <ion-icon name="logo-twitter"></ion-icon>
-                                            </li>
-                                            <li>
-                                                <ion-icon name="logo-instagram"></ion-icon>
-                                            </li>
-
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <nav class="navbar navbar-expand-lg navbar-light ">
-                                <button type="button" class="navbar-toggler hamburger animated fadeInLeft is-closed" data-toggle="offcanvas">
-                                    <span class="hamb-top"></span>
-                                    <span class="hamb-middle"></span>
-                                    <span class="hamb-bottom"></span>
-                                </button>
-                                <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                                    <ul class="navbar-nav">
-
-                                        <li class="nav-item dropdown">
-                                            <a class="nav-link dropdown-toggle " href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                Products
-                                            </a>
-                                            <div class=" navdrop dropdown-menu dropdown2 dropdown-menu2" aria-labelledby="navbarDropdownMenuLink">
-                                                <a class="dropdown-item" href="#">Action</a>
-                                                <a class="dropdown-item" href="#">Another action</a>
-                                                <a class="dropdown-item" href="#">Something else here</a>
-                                            </div>
-                                        </li>
-                                        <li class="nav-item dropdown">
-                                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                Best seller
-                                            </a>
-                                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                                <a class="dropdown-item" href="#">Action</a>
-                                                <a class="dropdown-item" href="#">Another action</a>
-                                                <a class="dropdown-item" href="#">Something else here</a>
-                                            </div>
-                                        </li>
-                                        <li class="nav-item dropdown">
-                                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                Hot Combo
-                                            </a>
-                                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                                <a class="dropdown-item" href="#">Action</a>
-                                                <a class="dropdown-item" href="#">Another action</a>
-                                                <a class="dropdown-item" href="#">Something else here</a>
-                                            </div>
-                                        </li>
-                                        <li class="nav-item dropdown">
-                                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                Fitness news
-                                            </a>
-                                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                                <a class="dropdown-item" href="#">Action</a>
-                                                <a class="dropdown-item" href="#">Another action</a>
-                                                <a class="dropdown-item" href="#">Something else here</a>
-                                            </div>
-                                        </li>
+                                <li class="language">
+                                    <a href="#">
+                                        English
+                                        <i class="fa fa-angle-down"></i>
+                                    </a>
+                                    <ul class="language_selection">
+                                        <li><a href="#">English</a></li>
+                                        <li><a href="#">Việt Nam</a></li>
 
                                     </ul>
-                                </div>
-
-                                <a href="" class="logo-header d-xl-none d-lg-none d-md-block d-sm-block">
-                                    <h1>LOGO</h1>
-                                </a>
-
-                                <div class="button btn-skew btn-md shape-svg">
-                                    <span> <ion-icon name="cart" style="font-size: 30px;"></ion-icon>My Cart</span>
-                                    <svg>
-                                        <polyline class="o1" points="0 0, 150 0, 150 55, 0 55, 0 0"></polyline>
-                                        <polyline class="o2" points="0 0, 150 0, 150 55, 0 55, 0 0"></polyline>
-                                    </svg>
-
-
-                                </div>
-
-                                <!-- <a class="cart btn btn-primary btn-skew btn-md shape-svg" href="#">
-                                <span>   <ion-icon name="cart" style="font-size: 30px;"></ion-icon>My Cart</span></a> -->
-
-                            </nav>
-
-
-
+                                </li>
+                                <li class="account">
+                                    <a href="#">
+                                        My Account
+                                        <i class="fa fa-angle-down"></i>
+                                    </a>
+                                    <ul class="account_selection">
+                                        <li><a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i>Sign In</a>
+                                        </li>
+                                        <li><a href="#"><i class="fa fa-user-plus"
+                                                           aria-hidden="true"></i>Register</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
-            </header>
-        </nav>
+            </div>
+        </div>
 
-        <section class="page-title bg-holder bg-overlay-black-50" th:style="'background: url(/client/images/young-fitness-man-studio.jpg);    background-size: 100%;' " >
-            <section class="ftco-section">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="banner-left">
-                                <div class="circle">
-                                    <div class="circle-1">
+        <!-- Main Navigation -->
 
-                                    </div>
-                                    <div class="circle-2"> <img th:src="@{/client/images/cicle1.jpg}"
-                                  alt=""></div>
-
-
-                                </div>
-                            </div>
-
-
+        <div class="main_nav_container">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-right">
+                        <div class="logo_container">
+                            <a href="#">Gym<span>Master</span></a>
                         </div>
-                        <div class="col-md-8">
-                            <div class="featured-carousel owl-carousel">
-                                <div class="item">
-                                    <div class="row justify-content-center">
-                                        <div class="col-md-11">
-                                            <div class="testimony-wrap d-md-flex">
-                                                <div class="img"  th:style="'background-image: url(/client/images/image.jpg);'" ></div>
-                                                <div class="text text-center p-4 py-xl-5 px-xl-5 d-flex align-items-center">
-                                                    <div class="desc w-100">
-                                                        <p class="h3 mb-5">"Incredible services and amazing customer support</p>
-                                                        <div class="pt-4">
-                                                            <p class="name mb-0">&mdash; Joy Smith</p>
-                                                            <span class="position">Project Manager</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="row justify-content-center">
-                                        <div class="col-md-11">
-                                            <div class="testimony-wrap d-md-flex">
-                                                <div class="img"  th:style="'background-image: url(/client/images/image.jpg);'" ></div>
-                                                <div class="text text-center p-4 py-xl-5 px-xl-5 d-flex align-items-center">
-                                                    <div class="desc w-100">
-                                                        <p class="h3 mb-5">"Incredible services and amazing customer support</p>
-                                                        <div class="pt-4">
-                                                            <p class="name mb-0">&mdash; Rony Smith</p>
-                                                            <span class="position">Project Manager</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="row justify-content-center">
-                                        <div class="col-md-11">
-                                            <div class="testimony-wrap d-md-flex">
-                                                <div class="img" th:style="'background-image: url(/client/images/3_13032020113859.png);'"></div>
-                                                <div class="text text-center p-4 py-xl-5 px-xl-5 d-flex align-items-center">
-                                                    <div class="desc w-100">
-                                                        <p class="h3 mb-5">"Incredible services and amazing customer support</p>
-                                                        <div class="pt-4">
-                                                            <p class="name mb-0">&mdash; John Doe</p>
-                                                            <span class="position">Project Manager</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                        <nav class="navbar">
+                            <ul class="navbar_menu">
+                                <li><a href="#">home</a></li>
+                                <li><a href="#">shop</a></li>
+                                <li><a href="#">promotion</a></li>
+                                <li><a href="#">pages</a></li>
+                                <li><a href="#">blog</a></li>
+                                <li><a href="contact.html">contact</a></li>
+                            </ul>
+                            <ul class="navbar_user">
+                                <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a></li>
+                                <li class="checkout" id="cart">
+                                    <a href="#">
+                                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                        <span id="checkout_items" class="checkout_items">2</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="hamburger_container">
+                                <i class="fa fa-bars" aria-hidden="true"></i>
                             </div>
-                        </div>
+                        </nav>
                     </div>
                 </div>
-            </section>
-        </section>
 
+            </div>
+        </div>
+
+    </header>
+
+    <div class="fs_menu_overlay"></div>
+
+    <!-- reposive menu -->
+
+    <div class="hamburger_menu">
+        <div class="hamburger_close"><i class="fa fa-times" aria-hidden="true"></i></div>
+        <div class="hamburger_menu_content text-right">
+            <ul class="menu_top_nav">
+                <li class="menu_item has-children">
+                    <a href="#">
+                        usd
+                        <i class="fa fa-angle-down"></i>
+                    </a>
+                    <ul class="menu_selection">
+                        <li><a href="#">cad</a></li>
+                        <li><a href="#">aud</a></li>
+                        <li><a href="#">eur</a></li>
+                        <li><a href="#">gbp</a></li>
+                    </ul>
+                </li>
+                <li class="menu_item has-children">
+                    <a href="#">
+                        English
+                        <i class="fa fa-angle-down"></i>
+                    </a>
+                    <ul class="menu_selection">
+                        <li><a href="#">French</a></li>
+                        <li><a href="#">Italian</a></li>
+                        <li><a href="#">German</a></li>
+                        <li><a href="#">Spanish</a></li>
+                    </ul>
+                </li>
+                <li class="menu_item has-children">
+                    <a href="#">
+                        My Account
+                        <i class="fa fa-angle-down"></i>
+                    </a>
+                    <ul class="menu_selection">
+                        <li><a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i>Sign In</a></li>
+                        <li><a href="#"><i class="fa fa-user-plus" aria-hidden="true"></i>Register</a></li>
+                    </ul>
+                </li>
+                <li class="menu_item"><a href="#">home</a></li>
+                <li class="menu_item"><a href="#">shop</a></li>
+                <li class="menu_item"><a href="#">promotion</a></li>
+
+                <li class="menu_item"><a href="#">contact</a></li>
+            </ul>
+        </div>
     </div>
 
 
