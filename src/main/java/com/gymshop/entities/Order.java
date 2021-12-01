@@ -16,6 +16,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.gymshop.entities.OrderStatus;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Data;
@@ -35,6 +36,10 @@ public class Order implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "Username")
 	Account account;
+	
+	@ManyToOne
+	@JoinColumn(name = "OrderStatusId")
+	OrderStatus orderStatus;
 	
 	@JsonIgnore
 	@OneToMany(mappedBy = "order")
