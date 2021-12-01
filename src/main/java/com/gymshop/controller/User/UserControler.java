@@ -7,8 +7,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class UserControler {
-	
-	
+
+	@GetMapping("/eeeeee")
+	public String home(Model model) {
+		model.addAttribute("message","Vui long dang nhap");
+		return "client/site/home";
+	}
 	  @GetMapping("/login/form") 
 	  public String index(Model model) {
 	  model.addAttribute("message","Vui long dang nhap"); 
@@ -31,11 +35,7 @@ public class UserControler {
 				  return("client/Login"); 
 	 }
 				 
-	 @RequestMapping("/login/logoff/sucess") 
-	 public String logoffsuccess(Model model) { 
-		 model.addAttribute("message","Dang Xuat Thanh Cong");
-	  return("client/Login"); 
-	  }
-	 
+
+
 
 }

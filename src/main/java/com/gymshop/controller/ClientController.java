@@ -3,6 +3,9 @@ package com.gymshop.controller;
 import java.util.List;
 import java.util.Optional;
 
+import com.gymshop.dao.CategoryDAO;
+import com.gymshop.entities.Category;
+import com.gymshop.service.categoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,10 +20,16 @@ import com.gymshop.service.productService;
 public class ClientController {
 	@Autowired
 	productService productService;
+	@Autowired
+	categoryService categoryService;
+
+
 	@RequestMapping(value = { "/", "/client/home" }, method = RequestMethod.GET)
 	public String homePage(Model model) {
 		 List<Product>list=productService.findAll(); 
 		 model.addAttribute("items",list);
+		List<Category> category=categoryService.findAll();
+		model.addAttribute("categories",category);
 		return "client/site/home";
 	}
 	
@@ -29,9 +38,13 @@ public class ClientController {
 		if (cid.isPresent()) {
 			 List<Product>list=productService.findByCategoryId(cid.get()); 
 			 model.addAttribute("items",list);
+			 List<Category> category=categoryService.findAll();
+			 model.addAttribute("categories",category);
 		}else {
 		 List<Product>list=productService.findAll(); 
 		 model.addAttribute("items",list);
+		 List<Category> category=categoryService.findAll();
+		 model.addAttribute("categories",category);
 		}
 		return ("client/site/products");
 	}
