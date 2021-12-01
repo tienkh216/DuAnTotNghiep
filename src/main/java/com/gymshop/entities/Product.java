@@ -17,12 +17,11 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import org.springframework.format.annotation.DateTimeFormat;
 
+
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 
 @SuppressWarnings("serial")
 @Data
@@ -49,6 +48,10 @@ public class Product implements Serializable{
 	Category categoryId;
 	@Column(name = "create_date")
 	Date createdate = new Date();
+	@ManyToOne
+	@JoinColumn(name = "product_status_id")
+	ProductStatus productStatus;
+	
 	@JsonIgnore
 	@OneToMany(mappedBy = "product")
 	List<OrderDetail> orderDetails;
