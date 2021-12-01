@@ -8,7 +8,8 @@
 
 <div layout:fragment="content">
 
-
+  <link rel="stylesheet" type="text/css" th:href="@{/client/styles/main_styles.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{/client/styles/responsive.css}">
   <!-- Slider -->
 
   <div class="main_slider">
@@ -71,9 +72,8 @@
           <div class="new_arrivals_sorting">
             <ul class="arrivals_grid_sorting clearfix button-group filters-button-group">
               <li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center active is-checked" data-filter="*">all</li>
-              <li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center" data-filter=".accessories">gym accessories</li>
-              <li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center" data-filter=".supplement">food supplement</li>
-              <li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center" data-filter=".equipment">gym equipment</li>
+              <li th:each="c:${categories}" class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center" th:data-filter="@{'.'+${c.id}}">[[${c.name}]]</li>
+
             </ul>
           </div>
         </div>
@@ -84,166 +84,33 @@
 
             <!-- Product 1 -->
 
-            <div class="product-item accessories">
+            <div th:each="p:${items}" class="product-item"  th:classappend="${p.categoryId.id}">
               <div class="product discount product_filter">
                 <div class="product_image">
-                  <img th:src="@{../client/images/energy4.jpg}" alt="">
+                  <img th:src="@{|/client/images/${p.image}|}" alt="">
                 </div>
                 <div class="favorite favorite_left"></div>
-                <div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center">
-                  <span>-$20</span></div>
+                <div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>-$20</span></div>
                 <div class="product_info">
-                  <h6 class="product_name"><a href="single.html">Masss</a></h6>
-                  <div class="product_price">$520.00<span>$590.00</span></div>
+                  <h6 class="product_name"><a href="single.html" th:utext=" ${p.name}"></a></h6>
+                  <div class="product_price" >[[${p.price}]] VNĐ <span> [[${p.price}]] VNĐ</span></div>
                 </div>
               </div>
-              <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+              <div class="red_button add_to_cart_button"><a href="#" th:attr="ng-click=@{|cart.add(${p.id})|}">add to cart</a></div>
             </div>
 
 
-            <div class="product-item supplement">
-              <div class="product discount product_filter">
-                <div class="product_image">
-                  <img th:src="@{../clientimages/energy4.jpg}" alt="">
-                </div>
-                <div class="favorite favorite_left"></div>
-                <div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center">
-                  <span>-$20</span></div>
-                <div class="product_info">
-                  <h6 class="product_name"><a href="single.html">Masss</a></h6>
-                  <div class="product_price">$520.00<span>$590.00</span></div>
-                </div>
-              </div>
-              <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
-            </div>
 
-            <div class="product-item equipment">
-              <div class="product discount product_filter">
-                <div class="product_image">
-                  <img th:src="@{../clientimages/energy4.jpg}" alt="">
-                </div>
-                <div class="favorite favorite_left"></div>
-                <div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center">
-                  <span>-$20</span></div>
-                <div class="product_info">
-                  <h6 class="product_name"><a href="single.html">Masss</a></h6>
-                  <div class="product_price">$520.00<span>$590.00</span></div>
-                </div>
-              </div>
-              <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
-            </div>
 
-            <div class="product-item accessories">
-              <div class="product discount product_filter">
-                <div class="product_image">
-                  <img th:src="@{../clientimages/energy4.jpg}" alt="">
-                </div>
-                <div class="favorite favorite_left"></div>
-                <div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center">
-                  <span>-$20</span></div>
-                <div class="product_info">
-                  <h6 class="product_name"><a href="single.html">Masss</a></h6>
-                  <div class="product_price">$520.00<span>$590.00</span></div>
-                </div>
-              </div>
-              <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
-            </div>
 
-            <div class="product-item equipment">
-              <div class="product discount product_filter">
-                <div class="product_image">
-                  <img th:src="@{../client/images/energy4.jpg}" alt="">
-                </div>
-                <div class="favorite favorite_left"></div>
-                <div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center">
-                  <span>-$20</span></div>
-                <div class="product_info">
-                  <h6 class="product_name"><a href="single.html">Masss</a></h6>
-                  <div class="product_price">$520.00<span>$590.00</span></div>
-                </div>
-              </div>
-              <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
-            </div>
 
-            <div class="product-item accessories">
-              <div class="product discount product_filter">
-                <div class="product_image">
-                  <img th:src="@{../client/images/energy4.jpg}" alt="">
-                </div>
-                <div class="favorite favorite_left"></div>
-                <div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center">
-                  <span>-$20</span></div>
-                <div class="product_info">
-                  <h6 class="product_name"><a href="single.html">Masss</a></h6>
-                  <div class="product_price">$520.00<span>$590.00</span></div>
-                </div>
-              </div>
-              <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
-            </div>
 
-            <div class="product-item equipment">
-              <div class="product discount product_filter">
-                <div class="product_image">
-                  <img th:src="@{../client/images/energy4.jpg}" alt="">
-                </div>
-                <div class="favorite favorite_left"></div>
-                <div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center">
-                  <span>-$20</span></div>
-                <div class="product_info">
-                  <h6 class="product_name"><a href="single.html">Masss</a></h6>
-                  <div class="product_price">$520.00<span>$590.00</span></div>
-                </div>
-              </div>
-              <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
-            </div>
 
-            <div class="product-item accessories">
-              <div class="product discount product_filter">
-                <div class="product_image">
-                  <img th:src="@{../client/images/energy4.jpg}" alt="">
-                </div>
-                <div class="favorite favorite_left"></div>
-                <div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center">
-                  <span>-$20</span></div>
-                <div class="product_info">
-                  <h6 class="product_name"><a href="single.html">Masss</a></h6>
-                  <div class="product_price">$520.00<span>$590.00</span></div>
-                </div>
-              </div>
-              <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
-            </div>
 
-            <div class="product-item equipment">
-              <div class="product discount product_filter">
-                <div class="product_image">
-                  <img th:src="@{../client/images/energy4.jpg}" alt="">
-                </div>
-                <div class="favorite favorite_left"></div>
-                <div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center">
-                  <span>-$20</span></div>
-                <div class="product_info">
-                  <h6 class="product_name"><a href="single.html">Masss</a></h6>
-                  <div class="product_price">$520.00<span>$590.00</span></div>
-                </div>
-              </div>
-              <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
-            </div>
 
-            <div class="product-item accessories">
-              <div class="product discount product_filter">
-                <div class="product_image">
-                  <img th:src="@{../client/images/energy4.jpg}" alt="">
-                </div>
-                <div class="favorite favorite_left"></div>
-                <div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center">
-                  <span>-$20</span></div>
-                <div class="product_info">
-                  <h6 class="product_name"><a href="single.html">Masss</a></h6>
-                  <div class="product_price">$520.00<span>$590.00</span></div>
-                </div>
-              </div>
-              <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
-            </div>
+
+
+
 
 
 
