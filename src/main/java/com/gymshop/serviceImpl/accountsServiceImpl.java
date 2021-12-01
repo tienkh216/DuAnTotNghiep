@@ -13,9 +13,9 @@ public class accountsServiceImpl implements accountService{
 	@Autowired
 	AccountDAO aDao;
 	@Override
-	public Account findById(String id) {
+	public Account findById(String username) {
 		// TODO Auto-generated method stub
-		return aDao.findById(id).get();
+		return aDao.findById(username).get();
 	}
 
 	@Override
@@ -43,9 +43,9 @@ public class accountsServiceImpl implements accountService{
 	}
 
 	@Override
-	public void delete(String id) {
+	public void delete(String username) {
 		// TODO Auto-generated method stub
-		aDao.deleteById(id);
+		aDao.deleteById(username);
 	}
 
 }
