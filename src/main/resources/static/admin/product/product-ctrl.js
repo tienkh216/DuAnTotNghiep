@@ -94,44 +94,44 @@ app.controller("product-ctrl", function($scope, $http, $rootScope) {
           }
       });
     
-      }
-      $scope.reset = function(){
+    }
+    $scope.reset = function(){
       $scope.form = {
           createDate : new Date (),
           image : '',
           available : true
       }
-  }
-  $scope.pager={
+    }
+    $scope.pager={
           page:0,
           size: 5,
           get items(){
-              var start =this.page * this.size;
-              return $scope.items.slice(start, start + this.size);
+            var start =this.page * this.size;
+            return $scope.items.slice(start, start + this.size);
           },
-          get count(){
-                  return Math.ceil(1.0 * $scope.items.length/this.size);
+          count(){
+            return Math.ceil(1.0 * $scope.items.length/this.size);
           },
           first(){
-                  this.page=0
+            this.page=0
           },
           prev(){
-              this.page--;
-              if(this.page<0){
-                  this.last();
-              }
+            this.page--;
+            if(this.page<0){
+                this.last();
+            }
           }, 
-              next(){
-              this.page++;
-              if(this.page>=this.count){
-                  this.first();
-              }
+            next(){
+            this.page++;
+            if(this.page>=count()){
+                this.first();
+            }
           },
           last(){
-              this.page=this.count-1;
+              this.page=this.count()-1;
           }
-  }  
+          
+    }  
   
  $scope.initialize();
 });
-
