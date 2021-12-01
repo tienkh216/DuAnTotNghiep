@@ -1198,7 +1198,7 @@ section
 	margin-top: 8px;
 	color: #1e1e27 !important;
 	font-size: 16px !important;
-	font-weight: 500 !important;
+	font-weight: 600 !important;
 }
 .filter_button
 {
@@ -1715,4 +1715,8 @@ section
 .footer_social ul li a:hover
 {
 	color: #fe4c50;
+}
+
+.dis{
+	opacity: 0;
 }
