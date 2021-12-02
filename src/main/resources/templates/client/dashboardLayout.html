@@ -13,6 +13,7 @@
     <link rel="stylesheet" type="text/css" th:href="@{/client/plugins/OwlCarousel2-2.2.1/owl.theme.default.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/client/plugins/OwlCarousel2-2.2.1/animate.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/client/plugins/jquery-ui-1.12.1.custom/jquery-ui.css}">
+    <script th:src="@{/client/js/lib/angular.js}"></script>
 
 
 
@@ -22,8 +23,8 @@
 
 </head>
 
-<body  >
-    <div id="super_container">
+<body ng-app="app" >
+    <div id="super_container"  ng-controller="ctrl">
 
                 <div th:replace="client/fragments/header:: header"></div>
 
@@ -46,12 +47,13 @@
 
 
 
-
+    <script th:src="@{/client/js/gymshopCart.js}"></script>
 </body>
 
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 <script th:src="@{/client/js/jquery-3.2.1.min.js}"></script>
+
 <script th:src="@{/client/styles/bootstrap4/popper.js}"></script>
 <script th:src="@{/client/styles/bootstrap4/bootstrap.min.js}"></script>
 <script th:src="@{/client/plugins/Isotope/isotope.pkgd.min.js}"></script>
