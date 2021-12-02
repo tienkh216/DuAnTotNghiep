@@ -25,4 +25,17 @@ public class orderServiceImpl implements orderService {
 		return orderDao.findById(id).get();
 	}
 
+	@Override
+	public Order update(Order order) {
+		// TODO Auto-generated method stub
+		return orderDao.save(order);
+	}
+
+	@Override
+	public void delete(Long id) {
+		orderDao.deleteById(id);
+		
+	}
+
+
 }

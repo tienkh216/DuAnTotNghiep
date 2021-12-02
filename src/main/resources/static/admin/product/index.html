@@ -31,6 +31,7 @@
                                         <th>Categories</th>
                                          <th>Date</th>
                                         <th>Status</th>
+                                        <th>Product Status</th>
                                         <th>Active</th>
                                     </tr>
                                     </thead>
@@ -43,6 +44,7 @@
                                         <td>{{item.categoryId.name}}</td>
                                         <td>{{item.createdate|date :'dd-MM-yyyy'}}</td>
                                         <td>{{item.special}}</td>
+                                        <td>{{item.productStatus.description}}</td>
                                         <td>
                                             <button type="button" ng-click = "edit(item)" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" id="#modalCenter">Edit</button>
                                         	<button  ng-click = "delete(item.id)" class="btn btn-danger">Delete</button>
@@ -105,6 +107,13 @@
                                                 <option ng-repeat = "c in cates" ng-value = "c.id">{{c.name}}</option>
                                             </select>
                                         </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Sattus</label>
+                                            <select class="form-control mb-3" ng-model = "form.productStatus.id"  >
+                                                <option ng-repeat = "s in status" ng-value = "s.id">{{s.description}}</option>
+                                            </select>
+                                        </div>
+                                        
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Special</label>
                                                 <div class="form-check form-check-inline">

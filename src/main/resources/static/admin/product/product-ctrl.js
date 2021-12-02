@@ -4,6 +4,9 @@ app.controller("product-ctrl", function($scope, $http, $rootScope) {
     $scope.cates = [];
     $scope.query = {}
     $scope.queryBy = '$'
+    $scope.status = [];
+
+    
     
     $scope.close = function(){
         $('#exampleModalCenter').modal('hide');
@@ -17,6 +20,9 @@ app.controller("product-ctrl", function($scope, $http, $rootScope) {
        });
     $http.get("/rest/categories").then(resp=>{
        $scope.cates = resp.data;
+    })
+    $http.get("/rest/products/status").then(resp=>{
+      $scope.status = resp.data;
     })
        
     }
@@ -59,6 +65,7 @@ app.controller("product-ctrl", function($scope, $http, $rootScope) {
           $scope.items[index] = item;
           $scope.close();
           swal("Ok", "Successful Update", "success");
+          $scope.initialize();
       })
       .catch(erro =>{
           swal("Erro", "Update Failed", "error");

@@ -14,8 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.gymshop.entities.Product;
-
+import com.gymshop.entities.ProductStatus;
 import com.gymshop.service.productService;
+import com.gymshop.service.productStatusService;
 
 @CrossOrigin("*")
 @RestController
@@ -23,6 +24,13 @@ import com.gymshop.service.productService;
 public class productControllerRest {
 	@Autowired
 	productService productService;
+	@Autowired
+	productStatusService productStatusService;
+	
+	@GetMapping("status")
+	public  List<ProductStatus>getStatus() {
+			return productStatusService.findAll();
+	}
 	
 	@GetMapping()
 	public  List<Product>getAll() {
