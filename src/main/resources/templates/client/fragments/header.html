@@ -37,7 +37,10 @@
                                     </ul>
                                 </li>
                                 <li class="account">
-                                    <a href="#">
+                                	
+		  							<a href="#" th:if ="${#request.remoteUser}">[[${#request.remoteUser}]]</a>
+									
+                                    <a href="#" th:unless = "${#request.remoteUser}">
                                         My Account
                                         <i class="fa fa-angle-down"></i>
                                     </a>
