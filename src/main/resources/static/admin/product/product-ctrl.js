@@ -4,6 +4,9 @@ app.controller("product-ctrl", function($scope, $http, $rootScope) {
     $scope.cates = [];
     $scope.query = {}
     $scope.queryBy = '$'
+    $scope.status = [];
+
+    
     
     $scope.close = function(){
         $('#exampleModalCenter').modal('hide');
@@ -17,6 +20,9 @@ app.controller("product-ctrl", function($scope, $http, $rootScope) {
        });
     $http.get("/rest/categories").then(resp=>{
        $scope.cates = resp.data;
+    })
+    $http.get("/rest/products/status").then(resp=>{
+      $scope.status = resp.data;
     })
        
     }
@@ -59,6 +65,7 @@ app.controller("product-ctrl", function($scope, $http, $rootScope) {
           $scope.items[index] = item;
           $scope.close();
           swal("Ok", "Successful Update", "success");
+          $scope.initialize();
       })
       .catch(erro =>{
           swal("Erro", "Update Failed", "error");
@@ -94,44 +101,44 @@ app.controller("product-ctrl", function($scope, $http, $rootScope) {
           }
       });
     
-      }
-      $scope.reset = function(){
+    }
+    $scope.reset = function(){
       $scope.form = {
           createDate : new Date (),
           image : '',
           available : true
       }
-  }
-  $scope.pager={
+    }
+    $scope.pager={
           page:0,
           size: 5,
           get items(){
-              var start =this.page * this.size;
-              return $scope.items.slice(start, start + this.size);
+            var start =this.page * this.size;
+            return $scope.items.slice(start, start + this.size);
           },
-          get count(){
-                  return Math.ceil(1.0 * $scope.items.length/this.size);
+          count(){
+            return Math.ceil(1.0 * $scope.items.length/this.size);
           },
           first(){
-                  this.page=0
+            this.page=0
           },
           prev(){
-              this.page--;
-              if(this.page<0){
-                  this.last();
-              }
+            this.page--;
+            if(this.page<0){
+                this.last();
+            }
           }, 
-              next(){
-              this.page++;
-              if(this.page>=this.count){
-                  this.first();
-              }
+            next(){
+            this.page++;
+            if(this.page>=count()){
+                this.first();
+            }
           },
           last(){
-              this.page=this.count-1;
+              this.page=this.count()-1;
           }
-  }  
+          
+    }  
   
  $scope.initialize();
 });
-

@@ -22,9 +22,5 @@ public interface ProductDAO extends JpaRepository<Product, Long> {
 			+ "from product join category on product.category_id ="
 			+ "category.id where category.name = :name", nativeQuery =true)
 	List<Product> findProductByCategory(@Param("name") String name);
-	
-	
-	
-	
-	
+		
 }
