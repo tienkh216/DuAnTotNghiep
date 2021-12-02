@@ -45,7 +45,7 @@
         <span class="text t4 nConfirm4">Complete</span>
       </div>
     </div>
-    <div class="content">
+    <div class="content shadow p-3 mb-5 bg-white rounded">
       <div class="information hidden ml-5">
         <div class="row mt-5">
           <div class="col-12 m-2">
@@ -75,15 +75,17 @@
       </div>
       <div class="address ml-5">
         <div class="row mt-5">
-          <div class="province col-12 m-2"><select name="ls_province"></select></div>
+          <div class="province col-6 p-2"><select name="ls_province" autofocus></select></div>
         </div>
         <div class="row mt-5">
-          <div class="col-12 m-2"> <select name="ls_district"></select></div>
-        </div>
-        <div class="row mt-5">
-          <div class="col-12 m-2"><select name="ls_ward"></select></select></div>
+          <div class="col-6 p-2"> <select name="ls_district"></select></div>
+          <div class="col-6 p-2"><select name="ls_ward"></select></select></div>
         </div>
 
+        <div class="row mt-5">
+          <label class="ml-2"> Note</label>
+          <div  class="col-12"><textarea class='autoExpand' rows='3' data-min-rows='3' placeholder='Do you want to take notes?' ></textarea></div>
+        </div>
       </div>
       <div class="review ml-5"><div class="cart">
         <!-- <ul class="tableHead">
@@ -115,77 +117,8 @@
               </div>
             </div>
           </li>
-          <li class="items even">
-
-            <div class="infoWrap">
-              <div class="cartSection">
-
-                <img th:src="@{/client/images/energy3.jpg}" alt="" class="itemImg" />
-                <p class="itemNumber">#QUE-007544-002</p>
-                <h3>Item Name 1</h3>
-
-                <p> <input type="text"  class="qty" placeholder="3"/> x $5.00</p>
-
-                <p class="stockStatus"> In Stock</p>
-              </div>
 
 
-              <div class="prodTotal cartSection">
-                <p>$15.00</p>
-              </div>
-              <div class="cartSection removeWrap">
-                <a href="#" class="remove">x</a>
-              </div>
-            </div>
-          </li>
-
-          <li class="items odd">
-            <div class="infoWrap">
-              <div class="cartSection">
-
-                <img th:src="@{/client/images/energy3.jpg}" alt="" class="itemImg" />
-                <p class="itemNumber">#QUE-007544-002</p>
-                <h3>Item Name 1</h3>
-
-                <p> <input type="text"  class="qty" placeholder="3"/> x $5.00</p>
-
-                <p class="stockStatus out"> Out of Stock</p>
-              </div>
-
-
-              <div class="prodTotal cartSection">
-                <p>$15.00</p>
-              </div>
-              <div class="cartSection removeWrap">
-                <a href="#" class="remove">x</a>
-              </div>
-            </div>
-          </li>
-          <li class="items even">
-            <div class="infoWrap">
-              <div class="cartSection info">
-
-                <img th:src="@{/client/images/energy3.jpg}" alt="" class="itemImg" />
-                <p class="itemNumber">#QUE-007544-002</p>
-                <h3>Item Name 1</h3>
-
-                <p> <input type="text"  class="qty" placeholder="3"/> x $5.00</p>
-
-                <p class="stockStatus"> In Stock</p>
-
-              </div>
-
-
-              <div class="prodTotal cartSection">
-                <p>$15.00</p>
-              </div>
-
-              <div class="cartSection removeWrap">
-                <a href="#" class="remove">x</a>
-              </div>
-            </div>
-
-          </li>
 
 
           <!--<li class="items even">Item 2</li>-->
