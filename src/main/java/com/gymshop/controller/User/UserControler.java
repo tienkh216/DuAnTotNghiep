@@ -34,7 +34,12 @@ public class UserControler {
 				  model) { model.addAttribute("message","Khong co quyen truy xuat");
 				  return("client/Login"); 
 	 }
-				 
+	
+	  @RequestMapping("/login/logoff/sucess")
+		public String logoffsuccess(Model model) {
+			model.addAttribute("message","Dang Xuat Thanh Cong");
+			return("client/Login");
+		}
 
 
 

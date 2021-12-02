@@ -18,8 +18,8 @@ import lombok.Data;
 @SuppressWarnings("serial")
 @Data
 @Entity
-@Table(name="Order_Status")
-public class OrderStatus {
+@Table(name="Payment_Method")
+public class PaymentMethod {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Long id;
@@ -28,7 +28,9 @@ public class OrderStatus {
 	String description;
 	
 	@JsonIgnore
-	@OneToMany(mappedBy = "orderStatus")
+	@OneToMany(mappedBy = "paymentMethod")
 	List<Order> orders;
+
+	
 
 }
