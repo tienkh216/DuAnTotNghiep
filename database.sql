@@ -84,7 +84,8 @@ CREATE TABLE [dbo].[Orders](
 	[Username] [nvarchar](50) NOT NULL,
 	[CreateDate] [datetime] NOT NULL,
 	[Address] [nvarchar](100) NOT NULL,
-	OrderStatusId int not null
+	OrderStatusId int not null,
+	[payment_method_id] [int] NOT NULL,
 ) ON [PRIMARY]
 GO
 /****** Object:  Table [dbo].[Payment_Method]    Script Date: 27/11/2021 10:06:24 ******/
@@ -265,17 +266,17 @@ INSERT [dbo].[Authorities] ( [Username], [RoleId]) VALUES ( N'BOTTM', N'CUST')
 INSERT [dbo].[Authorities] ( [Username], [RoleId]) VALUES ( N'BSBEV', N'CUST')
 
 
-INSERT [dbo].[Orders] ([Username], [CreateDate], [Address],[OrderStatusId]) VALUES ( N'ALFKI', CAST(0x000089B100000000 AS DateTime), N'Tp.Ho Chi Minh',1)
-INSERT [dbo].[Orders] ([Username], [CreateDate], [Address],[OrderStatusId]) VALUES ( N'ANATR', CAST(0x000089B400000000 AS DateTime), N'Tp.Ho Chi Minh',1)
-INSERT [dbo].[Orders] ([Username], [CreateDate], [Address],[OrderStatusId]) VALUES ( N'ANTON', CAST(0x000089B400000000 AS DateTime), N'Tp.Ho Chi Minh',1)
-INSERT [dbo].[Orders] ([Username], [CreateDate], [Address],[OrderStatusId]) VALUES ( N'AROUT', CAST(0x000089B500000000 AS DateTime), N'Tp.Ho Chi Minh',1)
-INSERT [dbo].[Orders] ([Username], [CreateDate], [Address],[OrderStatusId]) VALUES ( N'BERGS', CAST(0x000089B600000000 AS DateTime), N'Tp.Ho Chi Minh',1)
-INSERT [dbo].[Orders] ([Username], [CreateDate], [Address],[OrderStatusId]) VALUES ( N'BLAUS', CAST(0x000089B700000000 AS DateTime), N'Tp.Ho Chi Minh',1)
-INSERT [dbo].[Orders] ([Username], [CreateDate], [Address],[OrderStatusId]) VALUES ( N'BLONP', CAST(0x000089B800000000 AS DateTime), N'Tp.Ho Chi Minh',1)
-INSERT [dbo].[Orders] ([Username], [CreateDate], [Address],[OrderStatusId]) VALUES ( N'BOLID', CAST(0x000089BB00000000 AS DateTime), N'Tp.Ho Chi Minh',1)
-INSERT [dbo].[Orders] ([Username], [CreateDate], [Address],[OrderStatusId]) VALUES ( N'BONAP', CAST(0x000089BC00000000 AS DateTime), N'Tp.Ho Chi Minh',1)
-INSERT [dbo].[Orders] ([Username], [CreateDate], [Address],[OrderStatusId]) VALUES ( N'BOTTM', CAST(0x000089BD00000000 AS DateTime), N'Tp.Ho Chi Minh',1)
-INSERT [dbo].[Orders] ([Username], [CreateDate], [Address],[OrderStatusId]) VALUES ( N'BSBEV', CAST(0x000089BE00000000 AS DateTime), N'Tp.Ho Chi Minh',1)
+INSERT [dbo].[Orders] ([Username], [CreateDate], [Address],[OrderStatusId],[payment_method_id]) VALUES ( N'ALFKI', CAST(0x000089B100000000 AS DateTime), N'Tp.Ho Chi Minh',1,1)
+INSERT [dbo].[Orders] ([Username], [CreateDate], [Address],[OrderStatusId],[payment_method_id]) VALUES ( N'ANATR', CAST(0x000089B400000000 AS DateTime), N'Tp.Ho Chi Minh',1,1)
+INSERT [dbo].[Orders] ([Username], [CreateDate], [Address],[OrderStatusId],[payment_method_id]) VALUES ( N'ANTON', CAST(0x000089B400000000 AS DateTime), N'Tp.Ho Chi Minh',1,1)
+INSERT [dbo].[Orders] ([Username], [CreateDate], [Address],[OrderStatusId],[payment_method_id]) VALUES ( N'AROUT', CAST(0x000089B500000000 AS DateTime), N'Tp.Ho Chi Minh',1,1)
+INSERT [dbo].[Orders] ([Username], [CreateDate], [Address],[OrderStatusId],[payment_method_id]) VALUES ( N'BERGS', CAST(0x000089B600000000 AS DateTime), N'Tp.Ho Chi Minh',1,1)
+INSERT [dbo].[Orders] ([Username], [CreateDate], [Address],[OrderStatusId],[payment_method_id]) VALUES ( N'BLAUS', CAST(0x000089B700000000 AS DateTime), N'Tp.Ho Chi Minh',1,2)
+INSERT [dbo].[Orders] ([Username], [CreateDate], [Address],[OrderStatusId],[payment_method_id]) VALUES ( N'BLONP', CAST(0x000089B800000000 AS DateTime), N'Tp.Ho Chi Minh',1,2)
+INSERT [dbo].[Orders] ([Username], [CreateDate], [Address],[OrderStatusId],[payment_method_id]) VALUES ( N'BOLID', CAST(0x000089BB00000000 AS DateTime), N'Tp.Ho Chi Minh',1,2)
+INSERT [dbo].[Orders] ([Username], [CreateDate], [Address],[OrderStatusId],[payment_method_id]) VALUES ( N'BONAP', CAST(0x000089BC00000000 AS DateTime), N'Tp.Ho Chi Minh',1,2)
+INSERT [dbo].[Orders] ([Username], [CreateDate], [Address],[OrderStatusId],[payment_method_id]) VALUES ( N'BOTTM', CAST(0x000089BD00000000 AS DateTime), N'Tp.Ho Chi Minh',1,2)
+INSERT [dbo].[Orders] ([Username], [CreateDate], [Address],[OrderStatusId],[payment_method_id]) VALUES ( N'BSBEV', CAST(0x000089BE00000000 AS DateTime), N'Tp.Ho Chi Minh',1,2)
 
 INSERT [dbo].[OrderDetails] ( [OrderId], [ProductId], [Price], [Quantity]) VALUES (1, 2, 1000000, 8)
 INSERT [dbo].[OrderDetails] ( [OrderId], [ProductId], [Price], [Quantity]) VALUES (2, 3, 2000000, 3)
@@ -289,7 +290,7 @@ INSERT [dbo].[OrderDetails] ( [OrderId], [ProductId], [Price], [Quantity]) VALUE
 INSERT [dbo].[OrderDetails] ( [OrderId], [ProductId], [Price], [Quantity]) VALUES (10, 12, 1190000, 4)
 INSERT [dbo].[OrderDetails] ( [OrderId], [ProductId], [Price], [Quantity]) VALUES (11, 13, 1000000, 4)
 
-ALTER TABLE [dbo].[order]  WITH CHECK ADD FOREIGN KEY([order_status_id])
-REFERENCES [dbo].[order_status] ([id])
-ON DELETE CASCADE
-GO
+SET IDENTITY_INSERT [dbo].[payment_method] ON 
+INSERT [dbo].[payment_method] ([id], [description]) VALUES (1, N'THANH TOÁN SAU KHI NHẬN HÀNG')
+INSERT [dbo].[payment_method] ([id], [description]) VALUES (2, N'THANH TOÁN TRƯỚC KHI NHẬN HÀNG')
+SET IDENTITY_INSERT [dbo].[payment_method] OFF
