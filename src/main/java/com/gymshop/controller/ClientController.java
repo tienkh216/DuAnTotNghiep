@@ -30,7 +30,7 @@ public class ClientController {
 		 model.addAttribute("items",list);
 		List<Category> category=categoryService.findAll();
 		model.addAttribute("categories",category);
-		return "client/site/home";
+		return "client/site/Home";
 	}
 	
 	@RequestMapping("/client/product")
@@ -46,22 +46,22 @@ public class ClientController {
 		 List<Category> category=categoryService.findAll();
 		 model.addAttribute("categories",category);
 		}
-		return ("client/site/products");
+		return ("client/site/Products");
 	}
 	
 	@RequestMapping("/client/cart")
 	public String shoppingCart(Model model) {
-		return ("client/site/shoppingCart");
+		return ("client/site/ShoppingCart");
 	}
 	
 	@RequestMapping("/client/checkout")
 	public String clientCheckout(Model model) {
-		return ("MAU");
+		return ("client/site/Checkout");
 	}
 	
 	@RequestMapping("/client/productDetail")
 	public String productDetail(Model model) {
-		return ("client/site/productDetail");
+		return ("client/site/ProductDetail");
 	}
 	
 }

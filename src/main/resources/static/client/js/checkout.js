@@ -15,10 +15,12 @@ function back() {
 }
 
 $("#next").click(function () {
+	state += 1;
 	if (state <= stateMax) {
+
+
 		next();
 
-		state += 1;
 
 		// mở khoá nút back
 		$("#back").removeClass("disabled");
@@ -33,7 +35,10 @@ $("#next").click(function () {
 		$(".pBar").css("width", `${pBar}%`);
 
 
-		if (state == 1) {
+		if (state == 0) {
+		
+
+		} if (state == 1) {
 			$(".information").removeClass("hidden");
 			$(".address").addClass("hidden");
 
@@ -41,23 +46,28 @@ $("#next").click(function () {
 			$(".address").removeClass("hidden");
 			$(".review").addClass("hidden");
 
-		} if (state == 3) {
+		}
+		// đổi nút next thành finish
+		if (state == 3) {
 			$(".review").removeClass("hidden");
 			$(".payment").addClass("hidden");
 
+
+
 		}
-		// đổi nút next thành finish
 		if (state == 4) {
 			$(".payment").removeClass("hidden");
 			$(".complete").addClass("hidden");
 			$("#next").html('<b>Finish</b>');
-			
-
 		}
-
 		//// sự kiện gửi form lên servẻ
 		if (state == 5) {
-		
+			$("#back").addClass("disabled");
+			$("#next").addClass("disabled");
+			$("#back").attr('disabled','disabled');
+			$('#next').attr('disabled','disabled');
+			$(".complete").removeClass("hidden");
+			$(".finish").addClass("hidden");
 			alert("gửi form lên server")
 
 		}
@@ -66,8 +76,9 @@ $("#next").click(function () {
 });
 
 $("#back").click(function () {
+	back();
 	if (state >= 0) {
-		back();
+		
 		$("#next").removeClass("disabled");
 		$(".nConfirm" + state).each(function () {
 			$(this).removeClass("done");
@@ -78,25 +89,74 @@ $("#back").click(function () {
 
 		if (state == 0) {
 			$("#back").addClass("disabled");
-			console.log(0)
+			$(".information").addClass("hidden");
+			$(".address").removeClass("hidden");
 		}
 
 		if (state == 1) {
-			console.log(1)
+			$(".address").addClass("hidden");
+			$(".review").removeClass("hidden");
 
 		} if (state == 2) {
-			console.log(2)
+			$(".review").addClass("hidden");
+			$(".payment").removeClass("hidden");
+
+		} if (state == 3) {
+			$(".payment").addClass("hidden");
+			$(".complete").removeClass("hidden");
+			$("#next").html('next');
 
 		} if (state == 4) {
-			console.log(4)
-
+			
+		
 		} if (state == 5) {
 			console.log(5)
 
 		}
-		if (state == 3) {
-			$("#next").html('next');
-			console.log(3)
-		}
+
 	}
 });
+
+
+
+
+var select_card = document.querySelectorAll(".select");
+
+var title = document.getElementById("title");
+var price = document.getElementById("price");
+
+var selected=2;
+
+
+
+var reset = ()=>{
+  
+select_card.forEach((k)=>{
+  
+ k.setAttribute("data-selected", "false");
+})
+}
+
+select_card.forEach((a,i)=>{
+  
+  a.addEventListener("click",(e)=>{
+     reset();
+   a.setAttribute("data-selected", "true")
+    selected=i+1;
+    
+    
+    
+    
+  })
+})
+
+
+
+var select_btn = document.querySelector(".select-btn");
+
+var container = document.querySelector(".container");
+
+
+var exit_btn = document.querySelector(".exit-btn");
+
+

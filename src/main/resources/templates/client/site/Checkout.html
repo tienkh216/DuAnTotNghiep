@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{client/dashboardLayout.html}">
+
+
+
+<body>
+
+
+<div layout:fragment="content">
+
+  <link rel="stylesheet" type="text/css" th:href="@{/client/styles/main_styles.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{/client/styles/responsive.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{/client/styles/cart.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{/client/styles/checkout.css}">
+
+
+
+
+  <!-- contnet -->
+
+
+  <div class="mainWrapper">
+    <div class="statusBar">
+      <span class="pBar"></span>
+      <div class="node n0 done nConfirm0">
+        <div class="main done m0 done nConfirm0"></div>
+        <span class="text t0 done nConfirm0">Information</span>
+      </div>
+      <div class="node n1 nConfirm1">
+        <div class="main m1 nConfirm1"></div>
+        <span class="text t1 nConfirm1">Address</span>
+      </div>
+      <div class="node n2 nConfirm2">
+        <div class="main m2 nConfirm2"></div>
+        <span class="text t2 nConfirm2">Review</span>
+      </div>
+      <div class="node n3 nConfirm3">
+        <div class="main m3 nConfirm3"></div>
+        <span class="text t3 nConfirm3">Payment</span>
+      </div>
+      <div class="node n4 nConfirm4">
+        <div class="main m4 nConfirm4"></div>
+        <span class="text t4 nConfirm4">Complete</span>
+      </div>
+    </div>
+    <div class="content">
+      <div class="information hidden ml-5">
+        <div class="row mt-5">
+          <div class="col-12 m-2">
+            <div class="first-name"><label for="">First Name</label><input type="text"></div>
+          </div>
+        </div>
+        <div class="row mt-5">
+          <div class="col-12 m-2">
+            <div class="last-name"><label for="">Last Name</label><input type="text"></div>
+          </div>
+        </div>
+        <div class="row mt-5">
+          <div class="col-12 m-2">
+            <div class="phone-number"><label for="">Phone Number</label><input type="text">
+            </div>
+          </div>
+        </div>
+        <div class="row mt-5">
+          <div class="col-12 m-2">
+            <div class="phone-number"><label for="">Email</label><input type="text">
+            </div>
+          </div>
+        </div>
+
+
+
+      </div>
+      <div class="address ml-5">
+        <div class="row mt-5">
+          <div class="province col-12 m-2"><select name="ls_province"></select></div>
+        </div>
+        <div class="row mt-5">
+          <div class="col-12 m-2"> <select name="ls_district"></select></div>
+        </div>
+        <div class="row mt-5">
+          <div class="col-12 m-2"><select name="ls_ward"></select></select></div>
+        </div>
+
+      </div>
+      <div class="review ml-5"><div class="cart">
+        <!-- <ul class="tableHead">
+           <li class="prodHeader">Product</li>
+           <li>Quantity</li>
+           <li>Total</li>
+            <li>Remove</li>
+         </ul> -->
+        <ul class="cartWrap">
+          <li class="items odd">
+
+            <div class="infoWrap" >
+              <div class="cartSection">
+                <img th:src="@{/client/images/energy3.jpg}"  alt="" class="itemImg" />
+                <p class="itemNumber">#QUE-007544-002</p>
+                <h3>Item Name 1</h3>
+
+                <p> <input type="text"  class="qty" placeholder="3"/> x $5.00</p>
+
+                <p class="stockStatus"> In Stock</p>
+              </div>
+
+
+              <div class="prodTotal cartSection">
+                <p>$15.00</p>
+              </div>
+              <div class="cartSection removeWrap">
+                <a href="#" class="remove">x</a>
+              </div>
+            </div>
+          </li>
+          <li class="items even">
+
+            <div class="infoWrap">
+              <div class="cartSection">
+
+                <img th:src="@{/client/images/energy3.jpg}" alt="" class="itemImg" />
+                <p class="itemNumber">#QUE-007544-002</p>
+                <h3>Item Name 1</h3>
+
+                <p> <input type="text"  class="qty" placeholder="3"/> x $5.00</p>
+
+                <p class="stockStatus"> In Stock</p>
+              </div>
+
+
+              <div class="prodTotal cartSection">
+                <p>$15.00</p>
+              </div>
+              <div class="cartSection removeWrap">
+                <a href="#" class="remove">x</a>
+              </div>
+            </div>
+          </li>
+
+          <li class="items odd">
+            <div class="infoWrap">
+              <div class="cartSection">
+
+                <img th:src="@{/client/images/energy3.jpg}" alt="" class="itemImg" />
+                <p class="itemNumber">#QUE-007544-002</p>
+                <h3>Item Name 1</h3>
+
+                <p> <input type="text"  class="qty" placeholder="3"/> x $5.00</p>
+
+                <p class="stockStatus out"> Out of Stock</p>
+              </div>
+
+
+              <div class="prodTotal cartSection">
+                <p>$15.00</p>
+              </div>
+              <div class="cartSection removeWrap">
+                <a href="#" class="remove">x</a>
+              </div>
+            </div>
+          </li>
+          <li class="items even">
+            <div class="infoWrap">
+              <div class="cartSection info">
+
+                <img th:src="@{/client/images/energy3.jpg}" alt="" class="itemImg" />
+                <p class="itemNumber">#QUE-007544-002</p>
+                <h3>Item Name 1</h3>
+
+                <p> <input type="text"  class="qty" placeholder="3"/> x $5.00</p>
+
+                <p class="stockStatus"> In Stock</p>
+
+              </div>
+
+
+              <div class="prodTotal cartSection">
+                <p>$15.00</p>
+              </div>
+
+              <div class="cartSection removeWrap">
+                <a href="#" class="remove">x</a>
+              </div>
+            </div>
+
+          </li>
+
+
+          <!--<li class="items even">Item 2</li>-->
+
+        </ul>
+      </div></div>
+      <div class="payment ml-5"><div class="main_card">
+        <div class="select-cards">
+
+
+
+
+          <div class="select" data-selected="true">
+            <div class="check-box">
+              <div class="check-dot"></div>
+            </div>
+            <div class="titles">
+              <h4>Payment on delivery</h4>
+              <h5>50000000000</h5>
+
+            </div>
+
+          </div>
+
+          <div class="select">
+            <div class="check-box">
+              <div class="check-dot"></div>
+            </div>
+            <div class="titles">
+
+              <h4>Payment with cart</h4>
+              <h5>50000000000</h5>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+      <div class="complete ml-5">complete</div>
+      <div class="finish ml-5">6</div>
+    </div>
+
+
+
+    <div class="buttonHolder">
+      <button class="button b-back disabled" id="back">Back</button>
+      <button class="button b-next" id="next">Next</button>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- Best Sellers -->
+
+  <div class="best_sellers">
+    <div class="container">
+      <div class="row">
+        <div class="col text-center">
+          <div class="section_title new_arrivals_title">
+            <h2>Best Sellers</h2>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="product_slider_container">
+            <div class="owl-carousel owl-theme product_slider">
+
+              <!-- Slide 1 -->
+
+              <div class="owl-item product_slider_item">
+                <div class="product-item">
+                  <div class="product discount">
+                    <div class="product_image">
+                      <img th:src="@{/client/images/mass1.jpg}" alt="">
+                    </div>
+                    <div class="favorite favorite_left"></div>
+                    <div
+                            class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center">
+                      <span>-$20</span>
+                    </div>
+                    <div class="product_info">
+                      <h6 class="product_name"><a href="single.html">abc</a></h6>
+                      <div class="product_price">$520.00<span>$590.00</span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Slide 1 -->
+
+              <div class="owl-item product_slider_item">
+                <div class="product-item">
+                  <div class="product discount">
+                    <div class="product_image">
+                      <img th:src="@{/client/images/mass1.jpg}"  alt="">
+                    </div>
+                    <div class="favorite favorite_left"></div>
+                    <div
+                            class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center">
+                      <span>-$20</span>
+                    </div>
+                    <div class="product_info">
+                      <h6 class="product_name"><a href="single.html">abc</a></h6>
+                      <div class="product_price">$520.00<span>$590.00</span></div>
+                    </div>
+                  </div>
+                </div>
+              </div><!-- Slide 1 -->
+
+              <div class="owl-item product_slider_item">
+                <div class="product-item">
+                  <div class="product discount">
+                    <div class="product_image">
+                      <img th:src="@{/client/images/mass1.jpg}" alt="">
+                    </div>
+                    <div class="favorite favorite_left"></div>
+                    <div
+                            class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center">
+                      <span>-$20</span>
+                    </div>
+                    <div class="product_info">
+                      <h6 class="product_name"><a href="single.html">abc</a></h6>
+                      <div class="product_price">$520.00<span>$590.00</span></div>
+                    </div>
+                  </div>
+                </div>
+              </div><!-- Slide 1 -->
+
+              <div class="owl-item product_slider_item">
+                <div class="product-item">
+                  <div class="product discount">
+                    <div class="product_image">
+                      <img th:src="@{/client/images/mass1.jpg}" alt="">
+                    </div>
+                    <div class="favorite favorite_left"></div>
+                    <div
+                            class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center">
+                      <span>-$20</span>
+                    </div>
+                    <div class="product_info">
+                      <h6 class="product_name"><a href="single.html">abc</a></h6>
+                      <div class="product_price">$520.00<span>$590.00</span></div>
+                    </div>
+                  </div>
+                </div>
+              </div><!-- Slide 1 -->
+
+              <div class="owl-item product_slider_item">
+                <div class="product-item">
+                  <div class="product discount">
+                    <div class="product_image">
+                      <img th:src="@{/client/images/mass1.jpg}" alt="">
+                    </div>
+                    <div class="favorite favorite_left"></div>
+                    <div
+                            class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center">
+                      <span>-$20</span>
+                    </div>
+                    <div class="product_info">
+                      <h6 class="product_name"><a href="single.html">abc</a></h6>
+                      <div class="product_price">$520.00<span>$590.00</span></div>
+                    </div>
+                  </div>
+                </div>
+              </div><!-- Slide 1 -->
+
+              <div class="owl-item product_slider_item">
+                <div class="product-item">
+                  <div class="product discount">
+                    <div class="product_image">
+                      <img th:src="@{/client/images/mass1.jpg}" alt="">
+                    </div>
+                    <div class="favorite favorite_left"></div>
+                    <div
+                            class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center">
+                      <span>-$20</span>
+                    </div>
+                    <div class="product_info">
+                      <h6 class="product_name"><a href="single.html">abc</a></h6>
+                      <div class="product_price">$520.00<span>$590.00</span></div>
+                    </div>
+                  </div>
+                </div>
+              </div><!-- Slide 1 -->
+
+              <div class="owl-item product_slider_item">
+                <div class="product-item">
+                  <div class="product discount">
+                    <div class="product_image">
+                      <img th:src="@{/client/images/mass1.jpg}" alt="">
+                    </div>
+                    <div class="favorite favorite_left"></div>
+                    <div
+                            class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center">
+                      <span>-$20</span>
+                    </div>
+                    <div class="product_info">
+                      <h6 class="product_name"><a href="single.html">abc</a></h6>
+                      <div class="product_price">$520.00<span>$590.00</span></div>
+                    </div>
+                  </div>
+                </div>
+              </div><!-- Slide 1 -->
+
+              <div class="owl-item product_slider_item">
+                <div class="product-item">
+                  <div class="product discount">
+                    <div class="product_image">
+                      <img th:src="@{/client/images/mass1.jpg}" alt="">
+                    </div>
+                    <div class="favorite favorite_left"></div>
+                    <div
+                            class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center">
+                      <span>-$20</span>
+                    </div>
+                    <div class="product_info">
+                      <h6 class="product_name"><a href="single.html">abc</a></h6>
+                      <div class="product_price">$520.00<span>$590.00</span></div>
+                    </div>
+                  </div>
+                </div>
+              </div><!-- Slide 1 -->
+
+              <div class="owl-item product_slider_item">
+                <div class="product-item">
+                  <div class="product discount">
+                    <div class="product_image">
+                      <img th:src="@{/client/images/mass1.jpg}" alt="">
+                    </div>
+                    <div class="favorite favorite_left"></div>
+                    <div
+                            class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center">
+                      <span>-$20</span>
+                    </div>
+                    <div class="product_info">
+                      <h6 class="product_name"><a href="single.html">abc</a></h6>
+                      <div class="product_price">$520.00<span>$590.00</span></div>
+                    </div>
+                  </div>
+                </div>
+              </div><!-- Slide 1 -->
+
+              <div class="owl-item product_slider_item">
+                <div class="product-item">
+                  <div class="product discount">
+                    <div class="product_image">
+                      <img th:src="@{/client/images/mass1.jpg}" alt="">
+                    </div>
+                    <div class="favorite favorite_left"></div>
+                    <div
+                            class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center">
+                      <span>-$20</span>
+                    </div>
+                    <div class="product_info">
+                      <h6 class="product_name"><a href="single.html">abc</a></h6>
+                      <div class="product_price">$520.00<span>$590.00</span></div>
+                    </div>
+                  </div>
+                </div>
+              </div><!-- Slide 1 -->
+
+              <div class="owl-item product_slider_item">
+                <div class="product-item">
+                  <div class="product discount">
+                    <div class="product_image">
+                      <img th:src="@{/client/images/mass1.jpg}" alt="">
+                    </div>
+                    <div class="favorite favorite_left"></div>
+                    <div
+                            class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center">
+                      <span>-$20</span>
+                    </div>
+                    <div class="product_info">
+                      <h6 class="product_name"><a href="single.html">abc</a></h6>
+                      <div class="product_price">$520.00<span>$590.00</span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slider Navigation -->
+
+            <div
+                    class="product_slider_nav_left product_slider_nav d-flex align-items-center justify-content-center flex-column">
+              <i class="fa fa-chevron-left" aria-hidden="true"></i>
+            </div>
+            <div
+                    class="product_slider_nav_right product_slider_nav d-flex align-items-center justify-content-center flex-column">
+              <i class="fa fa-chevron-right" aria-hidden="true"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+<!--  <script th:src="@{/client/js/custom.js}"></script>-->
+
+<!--  <script th:src="@{/client/js/categories_custom.js}"></script>-->
+<!--  <script th:src="@{/client/js/cartAno.js}"></script>-->
+
+</div>
+
+
+
+</body>
+
+</html>
