@@ -7,53 +7,47 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.gymshop.entities.Order;
+import com.gymshop.entities.OrderStatus;
 import com.gymshop.entities.Product;
-import com.gymshop.entities.ProductStatus;
-import com.gymshop.service.productService;
-import com.gymshop.service.productStatusService;
+import com.gymshop.service.orderService;
+import com.gymshop.service.orderStatusService;
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping("/rest/products")
-public class productControllerRest {
+@RequestMapping("/rest/orders")
+public class orderRestController {
 	@Autowired
-	productService productService;
+	orderService orderService;
 	@Autowired
-	productStatusService productStatusService;
+	orderStatusService orderStatusService;
 	
 	@GetMapping("status")
-	public  List<ProductStatus>getStatus() {
-			return productStatusService.findAll();
+	public List<OrderStatus> getStatus(){
+		return orderStatusService.findAll();
 	}
 	
 	@GetMapping()
-	public  List<Product>getAll() {
-			return productService.findAll();
+	public List<Order> getAll(){
+		return orderService.findAll();
 	}
-	
 	@GetMapping("{id}")
-	public Product getOne(@PathVariable("id") Long id) {
-			return productService.findById(id);
+	public Order getOne(@PathVariable("id") Long id) {
+			return orderService.findById(id);
 	}
-	
-	@PostMapping
-	public Product create(@RequestBody Product product) {
-			return productService.create(product);
-	}
-	
 	@PutMapping("{id}")
-	public Product update(@PathVariable("id") Integer id,@RequestBody Product product) {
-			return productService.update(product);
+	public Order update(@PathVariable("id") Integer id,@RequestBody Order order) {
+			return orderService.update(order);
 	}
-	
 	@DeleteMapping("{id}")
 	public void delete(@PathVariable("id") Long id) {
-			 productService.delete(id);
-	}
+		orderService.delete(id);
+	}	
+	
+	
 }

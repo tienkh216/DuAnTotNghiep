@@ -21,6 +21,10 @@ app.config(function($routeProvider){
         templateUrl:"/admin/chart/index.html",
         controller:"chart-ctrl"
     })
+    .when("/order-detail/:id",{
+        templateUrl:"/admin/order-detail/index.html",
+        controller:"order-detail-ctrl"
+    })
     .otherwise({
         template  : "<h1> FPT POLYTECHNIC </h1>"
     })
