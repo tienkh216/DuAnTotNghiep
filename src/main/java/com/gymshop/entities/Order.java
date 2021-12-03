@@ -50,6 +50,8 @@ public class Order implements Serializable {
 	@JoinColumn(name = "payment_method_id")
 	PaymentMethod paymentMethod;
 
+	@Column(name="notes")
+	String notes;
 	
 	@JsonIgnore
 	@OneToMany(mappedBy = "order")

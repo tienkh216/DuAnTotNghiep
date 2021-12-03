@@ -92,7 +92,7 @@
                 <div class="favorite favorite_left"></div>
                 <div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>-$20</span></div>
                 <div class="product_info">
-                  <h6 class="product_name"><a href="single.html" th:utext=" ${p.name}"></a></h6>
+                  <h6 class="product_name"><a th:href="@{/client/productDetail}" th:utext=" ${p.name}"></a></h6>
                   <div class="product_price" >[[${p.price}]] VNĐ <span> [[${p.price}]] VNĐ</span></div>
                 </div>
               </div>
