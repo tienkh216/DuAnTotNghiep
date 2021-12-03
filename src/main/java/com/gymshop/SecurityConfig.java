@@ -50,13 +50,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.antMatchers("/order/**").authenticated()
 			.antMatchers("/admin/**").hasAnyRole("STAF","DIRE")
 			.antMatchers("/rest/authorities").hasRole("DIRE")
-			
 			.antMatchers("/rest/products").hasAnyRole("STAF","DIRE")
 			.antMatchers("/rest/products/status").hasAnyRole("STAF","DIRE")
 			.antMatchers("/rest/products/{id}").hasAnyRole("DIRE")
-			.antMatchers("/rest/orderdetail").hasAnyRole("STAF","DIRE")
+			
 			.antMatchers("/rest/categories").hasAnyRole("STAF","DIRE")
+			.antMatchers("/rest/categories/{id}").hasAnyRole("DIRE")
+			
+			.antMatchers("/rest/orderdetail").hasAnyRole("STAF","DIRE")
 			.antMatchers("/rest/orders").hasAnyRole("STAF","DIRE")
+			
+			.antMatchers("/rest/orders/status").hasAnyRole("STAF","DIRE")
 			.antMatchers("/rest/accounts").hasAnyRole("DIRE")
 			.anyRequest().permitAll();
 		
