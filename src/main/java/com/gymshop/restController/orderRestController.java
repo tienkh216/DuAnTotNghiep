@@ -32,6 +32,11 @@ public class orderRestController {
 		return orderStatusService.findAll();
 	}
 	
+	@GetMapping("getPending")
+	public Long getOrderPending(){
+		return orderService.getPendingOrder();
+	}
+	
 	@GetMapping()
 	public List<Order> getAll(){
 		return orderService.findAll();

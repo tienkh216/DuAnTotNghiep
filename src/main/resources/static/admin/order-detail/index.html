@@ -10,74 +10,44 @@
 
           <!-- Row -->
           <div class="row" >
-              Họ và tên : {{username}} <br>
-              Địa Chỉ : {{address}} <br>
-              Ngày Đặt 
-              <div class="table-responsive">
-                <table class="table align-items-center table-flush table-hover" id="dataTableHover">
-                    <thead class="thead-light">
-                    <tr>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Price</th>
-                        <th>Quantity</th>
-                        <th>Total</th>
-                      
-                    </tr>
-                    </thead>
-
-                    <tbody >
-                    <tr ng-repeat = "item in items">
-                        <td>{{item.product.id}}</td>
-                        <td>{{item.product.name}}</td>
-                        <td>{{item.product.price}}</td>
-                        <td>{{item.quantity}}</td>
-                        <td>{{item.quantity*item.product.price}}</td>
-                        
-                    </tr>
-                    </tbody>
-                </table>
-                
-              </div> 
-              Tổng Tiền : {{total}}
-          </div>
-          <!--Order Edit-->
-          <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalCenterTitle">Edit Order</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  <div class="card-body">
-                      <form>
-                        <div class="form-group">
-                          <label for="exampleInputEmail1">Order ID</label>
-                          <input type="text" readonly ng-model ="form.id" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Order ID">
-                        </div>
-                        
-                        <div class="form-group">
-                          <label for="exampleInputEmail1">Sattus</label>
-                          <select class="form-control mb-3" ng-model = "form.orderStatus.id"  >
-                              <option ng-repeat = "s in status" ng-value = "s.id">{{s.description}}</option>
-                          </select>
-                      </div>
-                        
-                        <button  ng-click = "update()"class="btn btn-success">Update</button>
-                        <button ng-if = "form.orderStatus.id==5" class="btn btn-danger" ng-click = "delete(form)">Delete</button>
-                      </form>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Close</button>
-                </div>
+              <div class="col-12">
+                <h6>Họ Và Tên Khách Hàng :{{username}}</h6>
+                <h6>Địa Chỉ :{{address}}</h6>
+                <h6>Ngày Đặt Hàng: {{createDate}}</h6>
+                <h6>Phương Thức Thanh Toán: {{paymethod}}</h6>
               </div>
-            </div>
+              <div class="col-12">
+                <div class="table-responsive">
+                  <table class="table align-items-center table-flush table-hover" id="dataTableHover">
+                      <thead class="thead-light">
+                      <tr>
+                          <th>ID</th>
+                          <th>Name</th>
+                          <th>Price</th>
+                          <th>Quantity</th>
+                          <th>Total</th>
+                        
+                      </tr>
+                      </thead>
+  
+                      <tbody >
+                      <tr ng-repeat = "item in items">
+                          <td>{{item.product.id}}</td>
+                          <td>{{item.product.name}}</td>
+                          <td>{{item.product.price}}</td>
+                          <td>{{item.quantity}}</td>
+                          <td>{{item.quantity*item.product.price}}</td>
+                          
+                      </tr>
+                      </tbody>
+                  </table>
+                  
+                </div> 
+              </div>
+              <div class="col-12">
+                <h2 class="float-right">Tổng Tiền : {{total}} </h2>
+              </div>
           </div>
-          
-
+         
       
   

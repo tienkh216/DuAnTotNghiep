@@ -48,4 +48,10 @@ public class accountsServiceImpl implements accountService{
 		aDao.deleteById(username);
 	}
 
+	@Override
+	public Long getCount() {
+		
+		return aDao.count();
+	}
+
 }

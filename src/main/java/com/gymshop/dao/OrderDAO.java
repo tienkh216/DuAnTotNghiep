@@ -12,5 +12,6 @@ public interface OrderDAO extends JpaRepository<Order, Long> {
 	@Query("SELECT o FROM Order o WHERE o.account.username = ?1")
 	List<Order> findByUsername(String username);
 
-
+	@Query(value = "select count(*) from Orders where order_status_id = 1" , nativeQuery =true)
+	Long getPendingOrder();
 }
