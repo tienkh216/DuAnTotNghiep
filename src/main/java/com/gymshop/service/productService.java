@@ -2,6 +2,7 @@ package com.gymshop.service;
 
 import java.util.List;
 
+import com.gymshop.entities.Category;
 import com.gymshop.entities.Product;
 
 public interface productService {
@@ -18,4 +19,10 @@ public interface productService {
 
 	void delete(Long id);
 
+	List<Product> findTopProductWithCreateDate();
+
+	List<Product> findTopProductWithProductStatus(String productStatus);
+
+
+	List<Category> getCategoryId();
 }
