@@ -25,6 +25,7 @@ app.controller("category-ctrl", function($scope, $http, $rootScope) {
         .catch(erro =>{
             if(erro.status = 403 || erro.status == 401){
               swal("Erro", "Không có quyền sửa", "error");
+              $scope.close();
             }
             else{
               swal("Erro", "Update Failed", "error");

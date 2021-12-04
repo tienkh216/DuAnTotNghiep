@@ -6,13 +6,14 @@ app.controller("order-detail-ctrl", function($scope, $http, $rootScope, $routePa
     $scope.address;
     $scope.paymethod;
     $scope.total=0;
+    $scope.createDate;
     $scope.initialize = function(){
         $http.get(`/rest/orderdetail/${id}`).then(resp=>{
             $scope.items = resp.data;
             $scope.username = resp.data[0].order.account.username;
             $scope.address = resp.data[0].order.address;
             $scope.paymethod = resp.data[0].order.paymentMethod.description;
-            console.log( $scope.paymethod);
+            $scope.createDate = resp.data[0].order.createDate;
             for(var i =0; i<$scope.items.length;i++){
                 $scope.total+= (resp.data[i].product.price) * (resp.data[i].quantity);
             }
