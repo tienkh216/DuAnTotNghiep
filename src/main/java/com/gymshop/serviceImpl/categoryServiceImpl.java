@@ -42,4 +42,9 @@ public class categoryServiceImpl implements categoryService{
 		return cdao.findById(id).get();
 	}
 
+	@Override
+	public List<Category> getCategory() {
+		return cdao.getCategory();
+	}
+
 }

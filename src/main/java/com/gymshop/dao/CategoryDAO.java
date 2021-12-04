@@ -23,4 +23,14 @@ public interface CategoryDAO extends JpaRepository<Category, Long> {
 		 		+ " from order_detail db, [order] b where b.id = db.order_id and b.order_status_id = 1 and YEAR(b.order_date) = :year ) a \r\n"
 		 		+ " pivot( sum(tong) for thang in ([1], [2], [3], [4], [5], [6], [7], [8], [9], [10], [11], [12]) ) as pvtMonth", nativeQuery = true)
 		    List<Object> TotalInYear(int year);
+
+
+
+	 @Query(value = "select c.* from Categories c, Products p\n" +
+			 "where c.id = p.category_id \n" +
+			 "and p.category_id in (select top(20)category_id \n" +
+			 "                    from Products\n" +
+			 "                    order by id desc)\n" +
+			 "group by c.id, c.name",nativeQuery = true)
+		List<Category> getCategory();
 }
