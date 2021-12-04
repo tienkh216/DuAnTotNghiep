@@ -72,7 +72,7 @@
           <div class="new_arrivals_sorting">
             <ul class="arrivals_grid_sorting clearfix button-group filters-button-group">
               <li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center active is-checked" data-filter="*">all</li>
-              <li th:each="c:${categories}" class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center" th:data-filter="@{'.'+${c.id}}">[[${c.name}]]</li>
+              <li th:each="c:${categories}" class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center" th:data-filter="@{'.'+${c.categoryId.id}}">[[${c.categoryId.name}]]</li>
 
             </ul>
           </div>
@@ -83,22 +83,22 @@
           <div class="product-grid" data-isotope='{ "itemSelector": ".product-item", "layoutMode": "fitRows" }'>
 
             <!-- Product 1 -->
-
             <div th:each="p:${items}" class="product-item"  th:classappend="${p.categoryId.id}">
               <div class="product discount product_filter">
                 <div class="product_image">
                   <img th:src="@{|/client/images/${p.image}|}" alt="">
                 </div>
                 <div class="favorite favorite_left"></div>
-                <div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>-$20</span></div>
+                <div class="product_bubble product_bubble_left d-flex flex-column align-items-center product_bubble_green"><span th:utext=" ${p.productStatus.id==3}?'New':'New'"></span></div>
                 <div class="product_info">
-                  <h6 class="product_name"><a th:href="@{/client/productDetail}" th:utext=" ${p.name}"></a></h6>
-                  <div class="product_price" >[[${p.price}]] VNĐ <span> [[${p.price}]] VNĐ</span></div>
+
+                  <h6 class="product_name"><a href="single.html" th:utext=" ${p.name}"></a></h6>
+                  <div class="product_price" > {{[[${p.price}]] | currency:"":0 }} VNĐ <span> {{[[${p.price}*120/100]] | currency:"":0 }} VNĐ</span></div>
+
                 </div>
               </div>
-              <div class="red_button add_to_cart_button"><a href="" th:attr="ng-click=@{|cart.add(${p.id})|}">add to cart</a></div>
+              <div class="red_button add_to_cart_button"><a href="#" th:attr="ng-click=@{|cart.add(${p.id})|}">add to cart</a></div>
             </div>
-
 
 
 
@@ -178,210 +178,44 @@
 
               <!-- Slide 1 -->
 
-              <div class="owl-item product_slider_item">
+              <div th:each="p:${items}" class="owl-item product_slider_item">
                 <div class="product-item">
                   <div class="product discount">
                     <div class="product_image">
-                      <img th:src="@{../client/images/mass1.jpg}" alt="">
+                      <img th:src="@{|/client/images/${p.image}|}" alt="">
                     </div>
                     <div class="favorite favorite_left"></div>
-                    <div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center">
-                      <span>-$20</span></div>
+                    <div
+                            class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center">
+                      <span>-Sale</span></div>
                     <div class="product_info">
-                      <h6 class="product_name"><a href="single.html">abc</a></h6>
-                      <div class="product_price">$520.00<span>$590.00</span></div>
+                      <h6 class="product_name"><a href="single.html " th:utext=" ${p.name}">abc</a></h6>
+                      <div class="product_price">{{[[${p.price}]] | currency:"":0 }} VNĐ<span>{{[[${p.price}*120/100]] | currency:"":0 }} VNĐ</span></div>
                     </div>
                   </div>
                 </div>
               </div>
               <!-- Slide 1 -->
 
-              <div class="owl-item product_slider_item">
-                <div class="product-item">
-                  <div class="product discount">
-                    <div class="product_image">
-                      <img th:src="@{../client/images/mass1.jpg}" alt="">
-                    </div>
-                    <div class="favorite favorite_left"></div>
-                    <div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center">
-                      <span>-$20</span></div>
-                    <div class="product_info">
-                      <h6 class="product_name"><a href="single.html">abc</a></h6>
-                      <div class="product_price">$520.00<span>$590.00</span></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- Slide 1 -->
 
-              <div class="owl-item product_slider_item">
-                <div class="product-item">
-                  <div class="product discount">
-                    <div class="product_image">
-                      <img th:src="@{../client/images/mass1.jpg}" alt="">
-                    </div>
-                    <div class="favorite favorite_left"></div>
-                    <div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center">
-                      <span>-$20</span></div>
-                    <div class="product_info">
-                      <h6 class="product_name"><a href="single.html">abc</a></h6>
-                      <div class="product_price">$520.00<span>$590.00</span></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- Slide 1 -->
 
-              <div class="owl-item product_slider_item">
-                <div class="product-item">
-                  <div class="product discount">
-                    <div class="product_image">
-                      <img th:src="@{../client/images/mass1.jpg}" alt="">
-                    </div>
-                    <div class="favorite favorite_left"></div>
-                    <div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center">
-                      <span>-$20</span></div>
-                    <div class="product_info">
-                      <h6 class="product_name"><a href="single.html">abc</a></h6>
-                      <div class="product_price">$520.00<span>$590.00</span></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- Slide 1 -->
 
-              <div class="owl-item product_slider_item">
-                <div class="product-item">
-                  <div class="product discount">
-                    <div class="product_image">
-                      <img th:src="@{../client/images/mass1.jpg}" alt="">
-                    </div>
-                    <div class="favorite favorite_left"></div>
-                    <div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center">
-                      <span>-$20</span></div>
-                    <div class="product_info">
-                      <h6 class="product_name"><a href="single.html">abc</a></h6>
-                      <div class="product_price">$520.00<span>$590.00</span></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- Slide 1 -->
 
-              <div class="owl-item product_slider_item">
-                <div class="product-item">
-                  <div class="product discount">
-                    <div class="product_image">
-                      <img th:src="@{../client/images/mass1.jpg}" alt="">
-                    </div>
-                    <div class="favorite favorite_left"></div>
-                    <div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center">
-                      <span>-$20</span></div>
-                    <div class="product_info">
-                      <h6 class="product_name"><a href="single.html">abc</a></h6>
-                      <div class="product_price">$520.00<span>$590.00</span></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- Slide 1 -->
 
-              <div class="owl-item product_slider_item">
-                <div class="product-item">
-                  <div class="product discount">
-                    <div class="product_image">
-                      <img th:src="@{../client/images/mass1.jpg}" alt="">
-                    </div>
-                    <div class="favorite favorite_left"></div>
-                    <div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center">
-                      <span>-$20</span></div>
-                    <div class="product_info">
-                      <h6 class="product_name"><a href="single.html">abc</a></h6>
-                      <div class="product_price">$520.00<span>$590.00</span></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- Slide 1 -->
 
-              <div class="owl-item product_slider_item">
-                <div class="product-item">
-                  <div class="product discount">
-                    <div class="product_image">
-                      <img th:src="@{../client/images/mass1.jpg}" alt="">
-                    </div>
-                    <div class="favorite favorite_left"></div>
-                    <div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center">
-                      <span>-$20</span></div>
-                    <div class="product_info">
-                      <h6 class="product_name"><a href="single.html">abc</a></h6>
-                      <div class="product_price">$520.00<span>$590.00</span></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- Slide 1 -->
 
-              <div class="owl-item product_slider_item">
-                <div class="product-item">
-                  <div class="product discount">
-                    <div class="product_image">
-                      <img th:src="@{../client/images/mass1.jpg}" alt="">
-                    </div>
-                    <div class="favorite favorite_left"></div>
-                    <div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center">
-                      <span>-$20</span></div>
-                    <div class="product_info">
-                      <h6 class="product_name"><a href="single.html">abc</a></h6>
-                      <div class="product_price">$520.00<span>$590.00</span></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- Slide 1 -->
 
-              <div class="owl-item product_slider_item">
-                <div class="product-item">
-                  <div class="product discount">
-                    <div class="product_image">
-                      <img th:src="@{../client/images/mass1.jpg}" alt="">
-                    </div>
-                    <div class="favorite favorite_left"></div>
-                    <div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center">
-                      <span>-$20</span></div>
-                    <div class="product_info">
-                      <h6 class="product_name"><a href="single.html">abc</a></h6>
-                      <div class="product_price">$520.00<span>$590.00</span></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- Slide 1 -->
 
-              <div class="owl-item product_slider_item">
-                <div class="product-item">
-                  <div class="product discount">
-                    <div class="product_image">
-                      <img th:src="@{../client/images/mass1.jpg}" alt="">
-                    </div>
-                    <div class="favorite favorite_left"></div>
-                    <div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center">
-                      <span>-$20</span></div>
-                    <div class="product_info">
-                      <h6 class="product_name"><a href="single.html">abc</a></h6>
-                      <div class="product_price">$520.00<span>$590.00</span></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
 
             <!-- Slider Navigation -->
 
-            <div class="product_slider_nav_left product_slider_nav d-flex align-items-center justify-content-center flex-column">
+            <div
+                    class="product_slider_nav_left product_slider_nav d-flex align-items-center justify-content-center flex-column">
               <i class="fa fa-chevron-left" aria-hidden="true"></i>
             </div>
-            <div class="product_slider_nav_right product_slider_nav d-flex align-items-center justify-content-center flex-column">
+            <div
+                    class="product_slider_nav_right product_slider_nav d-flex align-items-center justify-content-center flex-column">
               <i class="fa fa-chevron-right" aria-hidden="true"></i>
             </div>
           </div>
@@ -389,6 +223,7 @@
       </div>
     </div>
   </div>
+
 
   <!-- Benefit -->
 
@@ -492,7 +327,7 @@
 </div>
 
 
-<script th:src="@{/client/js/custom.js}"></script>
+
 </body>
 
 </html>

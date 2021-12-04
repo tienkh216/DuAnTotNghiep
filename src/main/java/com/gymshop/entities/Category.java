@@ -1,5 +1,8 @@
 package com.gymshop.entities;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,6 +12,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "Categories")
+
 public class Category {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
