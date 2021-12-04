@@ -28,11 +28,9 @@ public interface ProductDAO extends JpaRepository<Product, Long> {
 
 
 
-	@Query(value = "SELECT TOP(20)\n" +
-			" id,name,image,count,special ,price, description,category_id,product_status_id,create_date\n" +
-			"FROM Products\n" +
-			"ORDER BY create_date;",nativeQuery =true )
-	List<Product> findTopProductWithCreateDate();
+	@Query(value = "select top(20) * from Products\n" +
+			"order by id desc",nativeQuery =true )
+	List<Product> findTopNewProduct();
 
 
 

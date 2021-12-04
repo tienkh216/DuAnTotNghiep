@@ -19,7 +19,7 @@ public interface productService {
 
 	void delete(Long id);
 
-	List<Product> findTopProductWithCreateDate();
+	List<Product> findTopNewProduct();
 
 	List<Product> findTopProductWithProductStatus(String productStatus);
 
