@@ -28,10 +28,6 @@ public class ClientController {
     public String homePage(Model model) {
         List<Product> list = productService.findTopProductWithCreateDate();
         model.addAttribute("items", list);
-
-
-
-
         model.addAttribute("categories", list);
         return "client/site/Home";
     }
