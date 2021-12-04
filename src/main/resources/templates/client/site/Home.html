@@ -91,8 +91,10 @@
                 <div class="favorite favorite_left"></div>
                 <div class="product_bubble product_bubble_left d-flex flex-column align-items-center product_bubble_green"><span th:utext=" ${p.productStatus.id==3}?'New':'New'"></span></div>
                 <div class="product_info">
+
                   <h6 class="product_name"><a href="single.html" th:utext=" ${p.name}"></a></h6>
                   <div class="product_price" > {{[[${p.price}]] | currency:"":0 }} VNĐ <span> {{[[${p.price}*120/100]] | currency:"":0 }} VNĐ</span></div>
+
                 </div>
               </div>
               <div class="red_button add_to_cart_button"><a href="#" th:attr="ng-click=@{|cart.add(${p.id})|}">add to cart</a></div>
