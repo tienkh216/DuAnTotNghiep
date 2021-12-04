@@ -2,6 +2,7 @@ package com.gymshop.serviceImpl;
 
 import java.util.List;
 
+import com.gymshop.entities.Category;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -48,4 +49,22 @@ public class productServiceImpl implements productService{
 	public void delete(Long id) {
 		dao.deleteById(id);
 	}
+
+	@Override
+	public List<Product> findTopProductWithCreateDate() {
+		return dao.findTopProductWithCreateDate();
+	}
+
+
+	@Override
+	public List<Product> findTopProductWithProductStatus(String ProductStatus) {
+		return dao.findTopProductWithProductStatus(ProductStatus);
+	}
+
+	@Override
+	public List<Category> getCategoryId() {
+		return dao.getCategoryId();
+	}
+
+
 }

@@ -22,5 +22,37 @@ public interface ProductDAO extends JpaRepository<Product, Long> {
 			+ "from product join category on product.category_id ="
 			+ "category.id where category.name = :name", nativeQuery =true)
 	List<Product> findProductByCategory(@Param("name") String name);
-		
+
+
+
+
+
+
+	@Query(value = "SELECT TOP(20)\n" +
+			" id,name,image,count,special ,price, description,category_id,product_status_id,create_date\n" +
+			"FROM Products\n" +
+			"ORDER BY create_date;",nativeQuery =true )
+	List<Product> findTopProductWithCreateDate();
+
+
+
+
+
+
+
+
+
+
+
+	@Query(value = "SELECT TOP(20)\n" +
+			" id,name,image,count,special ,price, description,category_id,product_status_id,create_date\n" +
+			"FROM Products\n" +
+			"where product_status_id = productStatus\n" +
+			"ORDER BY create_date;",nativeQuery =true )
+	List<Product> findTopProductWithProductStatus(@Param("productStatus") String productStatus);
+
+	@Query(value = "SELECT DISTINCT category_id\n" +
+			"FROM Products",nativeQuery =true )
+	List<Category> getCategoryId();
+
 }
