@@ -28,8 +28,9 @@ app.controller("order-ctrl", function($scope, $http, $rootScope) {
         var index = $scope.items.findIndex(p => p.id == item.id);
         $scope.items[index] = item;
         $scope.close();
-        swal("Ok", "Successful Update", "success");
         $scope.initialize();
+        swal("Ok", "Successful Update", "success");
+        
     })
     .catch(erro =>{
         swal("Erro", "Update Failed", "error");
@@ -53,6 +54,7 @@ app.controller("order-ctrl", function($scope, $http, $rootScope) {
                 var index = $scope.items.findIndex(p => p.id == item.id);
                 $scope.items.splice(index,1);
                 $scope.close();
+                $scope.initialize();
                 swal("Ok", "Successful Delete", "success");
             })
             .catch(erro =>{
@@ -65,7 +67,36 @@ app.controller("order-ctrl", function($scope, $http, $rootScope) {
     });
   
   }
-
+  $scope.pager={
+    page:0,
+    size: 5,
+    get items(){
+      var start =this.page * this.size;
+      return $scope.items.slice(start, start + this.size);
+    },
+    count(){
+      return Math.ceil(1.0 * $scope.items.length/this.size);
+    },
+    first(){
+      this.page=0
+    },
+    prev(){
+      this.page--;
+      if(this.page<0){
+          this.last();
+      }
+    }, 
+      next(){
+      this.page++;
+      if(this.page>=count()){
+          this.first();
+      }
+    },
+    last(){
+        this.page=this.count()-1;
+    }
+    
+} 
    $scope.initialize();
     
 });

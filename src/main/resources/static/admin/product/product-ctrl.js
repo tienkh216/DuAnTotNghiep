@@ -50,12 +50,18 @@ app.controller("product-ctrl", function($scope, $http, $rootScope) {
           $scope.items.push(resp.data);
           $scope.reset();
           $scope.close();
+          $scope.initialize();
           swal("Ok", "Successful Create", "success");
 
       })
       .catch(erro =>{
+        if(erro.status = 403 || erro.status == 401){
+          swal("Erro", "Không có quyền thêm sp", "error");
+        }
+        else{
           swal("Erro", "Create Failed", "error");
-          console.log(erro);
+        }
+        console.log("erro",erro.status);
       })
    }
     $scope.update =  function(){
@@ -68,8 +74,14 @@ app.controller("product-ctrl", function($scope, $http, $rootScope) {
           $scope.initialize();
       })
       .catch(erro =>{
+        if(erro.status = 403 || erro.status == 401){
+          swal("Erro", "Không có quyền sửa", "error");
+          $scope.close();
+        }
+        else{
           swal("Erro", "Update Failed", "error");
-          console.log("erro",erro);
+        }
+        console.log("erro",erro.status);
       })
     }
 
@@ -93,8 +105,13 @@ app.controller("product-ctrl", function($scope, $http, $rootScope) {
                   swal("Ok", "Successful Delete", "success");
               })
               .catch(erro =>{
-                  swal("Erro", "Delete Failed", "error");
-                  console.log("erro",erro);
+                  if(erro.status = 403 || erro.status == 401){
+                    swal("Erro", "Không có quyền xóa", "error");
+                  }
+                  else{
+                    swal("Erro", "Delete Failed", "error");
+                  }
+                  console.log("erro",erro.status);
               })
           } else {
             swal("cancel");
