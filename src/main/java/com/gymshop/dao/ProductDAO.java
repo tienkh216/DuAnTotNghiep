@@ -24,22 +24,9 @@ public interface ProductDAO extends JpaRepository<Product, Long> {
 	List<Product> findProductByCategory(@Param("name") String name);
 
 
-
-
-
-
 	@Query(value = "select top(20) * from Products\n" +
 			"order by id desc",nativeQuery =true )
 	List<Product> findTopNewProduct();
-
-
-
-
-
-
-
-
-
 
 
 	@Query(value = "SELECT TOP(20)\n" +
