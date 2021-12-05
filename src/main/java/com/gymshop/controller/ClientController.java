@@ -63,8 +63,10 @@ public class ClientController {
         return ("client/site/Checkout");
     }
 
-    @RequestMapping("/client/productDetail")
-    public String productDetail(Model model) {
+    @RequestMapping("/client/productDetail/{id}")
+    public String productDetail(Model model,@PathVariable("id") Long id) {
+    	Product item =productService.findById(id); 
+		 model.addAttribute("items",item);
         return ("client/site/ProductDetail");
     }
 

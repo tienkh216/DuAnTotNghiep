@@ -27,11 +27,6 @@ public class productServiceImpl implements productService{
 		return dao.findAll();
 	}
 
-	@Override
-	public Product findById(Long id) {
-		// TODO Auto-generated method stub
-		return dao.findById(id).get();
-	}
 
 	@Override
 	public Product create(Product product) {
@@ -65,6 +60,13 @@ public class productServiceImpl implements productService{
 	public List<Category> getCategoryId() {
 		return dao.getCategoryId();
 	}
+
+	@Override
+	public Product findById(Long id) {
+		// TODO Auto-generated method stub
+		return dao.findById(id).get();
+	}
+
 
 
 }
