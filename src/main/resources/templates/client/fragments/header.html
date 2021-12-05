@@ -7,6 +7,65 @@
 
 <body>
 <div th:fragment="header">
+    <style>
+
+        .remove ul li {
+            display: none;
+        }
+        .remove{
+            display: none;
+        }
+
+
+
+        .notify {
+            position: absolute;
+            z-index: 2;
+            right: 0px;
+            top: 75px;
+            border-radius: 5px;
+            min-width: 550px;
+            background-color: #eceff6ed;
+            border: 2px solid rgb(30 30 39);
+        }
+
+
+
+        .notify ul {
+            border-bottom: 1px solid #000000a8;
+            display: flex;
+            width: 100%;
+            height: 80%;
+            flex-direction: column;
+        }
+
+        .notify ul li {
+            border-bottom: 1px solid #000000a8;
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+        }
+        .line {
+            text-align: center;
+            margin-top: 5px;
+            margin-left: auto;
+            margin-right: auto;
+            width: 100%;
+            height: 1px;
+            background-color: #0000009c;
+        }
+
+        .right a{
+            width: 150px !important;
+            border: 1px solid white;
+            border-radius: 5px;
+            width: 60px;
+            background-color: #eceff6;
+        }
+
+    </style>
+
+
 
     <header class="header trans_300">
 
@@ -88,14 +147,47 @@
                                 <li><a href="contact.html">contact</a></li>
                             </ul>
                             <ul class="navbar_user">
-                                <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a></li>
-                                <li class="checkout" id="cart">
-                                    <a th:href="@{/client/cart}">
+
+                                <li class="checkout black" id="cart">
+                                    <a href="#">
                                         <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                        <span id="checkout_items" class="checkout_items">2</span>
+                                        <span id="checkout_items" class="checkout_items">1</span>
                                     </a>
+
                                 </li>
+                                <div class="notify shadow-lg p-3 mb-5 bg-white rounded remove">
+                                    <ul>
+
+
+                                        <li class="mt-2" style="" ng-repeat="item in cart.items">
+                                            <div class="left">
+                                                <img ng-src="{{'/client/images/'+item.image}}" style="width: 50px;" alt="">
+                                                <span style="margin-left: 10px;
+														font-weight: 700;">{{item.name}}</span>
+
+                                            </div>
+
+                                            <div class="right" style="display: flex;     justify-content: space-between;">
+                                                <div> <input type="number" style="width: 30px; border: none;" ng-model="item.qty" name="" id="" value="0"></div>
+                                                <span>{{item.qty*item.price|currency:"":0 }}</span></div>
+
+                                        </li>
+                                        <div class="line"></div>
+
+
+                                        <li class="mt-2" style="justify-content: flex-end;">
+                                            <!-- <div class="left">
+                                                <a href=""></a>
+                                            </div> -->
+                                            <div class="right  p-1"><a href=""><span>Cart</span></a></div>
+
+                                        </li>
+
+                                    </ul>
+
+
+
+                                </div>
                             </ul>
                             <div class="hamburger_container">
                                 <i class="fa fa-bars" aria-hidden="true"></i>
