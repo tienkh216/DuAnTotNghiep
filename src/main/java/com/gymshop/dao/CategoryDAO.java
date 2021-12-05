@@ -28,7 +28,7 @@ public interface CategoryDAO extends JpaRepository<Category, Long> {
 
 	 @Query(value = "select c.* from Categories c, Products p\n" +
 			 "where c.id = p.category_id \n" +
-			 "and p.category_id in (select top(20)category_id \n" +
+			 "and p.category_id in (select top(20) category_id \n" +
 			 "                    from Products\n" +
 			 "                    order by id desc)\n" +
 			 "group by c.id, c.name",nativeQuery = true)
