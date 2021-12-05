@@ -28,12 +28,8 @@ public class ClientController {
     public String homePage(Model model) {
         List<Product> list = productService.findTopNewProduct();
         model.addAttribute("items", list);
-
-
         List<Category> categories = categoryService.getCategory();
         model.addAttribute("categories", categories);
-
-        model.addAttribute("categories", list);
 
         return "client/site/Home";
     }
