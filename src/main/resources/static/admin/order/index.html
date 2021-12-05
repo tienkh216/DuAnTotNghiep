@@ -30,7 +30,7 @@
                     </thead>
                    
                     <tbody>
-                      <tr ng-repeat = "item in items">
+                      <tr ng-repeat = "item in pager.items">
                         <td><a href="#!order-detail/{{item.id}}">{{item.id}}</a></td>
                         <td>{{item.account.username}}</td>
                         <td>{{item.address}}</td>
@@ -50,6 +50,21 @@
                     </tbody>
                   </table>
                 </div>
+                <div class="card-footer text-muted">
+                  <button type="button" class="btn btn-primary"  ng-click="pager.first()">
+                    <i class="fas fa-fast-backward"></i>
+                  </button>
+                  <button type="button" class="btn btn-secondary"  ng-disabled="pager.page==0" ng-click="pager.prev()">
+                    <i class="fas fa-backward"></i>
+                  </button>
+                  <button class="btn btn-danger">{{pager.page + 1}} of {{pager.count()}}</button>
+                  <button type="button" class="btn btn-success"  ng-disabled="pager.page >= pager.count() -1"  ng-click="pager.next()">
+                    <i class="fas fa-forward"></i>
+                  </button>
+                  <button type="button" class="btn btn-danger"  ng-click="pager.last()">
+                    <i class="fas fa-fast-forward"></i>  
+                  </button>
+              </div>
               </div>
             </div>
           </div>

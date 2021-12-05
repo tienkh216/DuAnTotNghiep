@@ -37,5 +37,13 @@ public class orderServiceImpl implements orderService {
 		
 	}
 
+	@Override
+	public Long getPendingOrder() {
+		// TODO Auto-generated method stub
+		return orderDao.getPendingOrder();
+	}
+
+	
+
 
 }

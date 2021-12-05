@@ -12,4 +12,7 @@ public interface orderService {
 	Order update(Order order);
 
 	void delete(Long id);
+	
+	Long getPendingOrder();
+	
 }
