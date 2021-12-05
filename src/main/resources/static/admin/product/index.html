@@ -43,7 +43,7 @@
                                         <td>{{item.price}}</td>
                                         <td>{{item.categoryId.name}}</td>
                                         <td>{{item.createdate|date :'dd-MM-yyyy'}}</td>
-                                        <td>{{item.special}}</td>
+                                        <td>{{item.special?'Khích Hoạt':'Chưa Khích Hoạt'}}</td>
                                         <td>{{item.productStatus.description}}</td>
                                         <td>
                                             <button type="button" ng-click = "edit(item)" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" id="#modalCenter">Edit</button>
@@ -74,7 +74,7 @@
                 
                 <!--Product Edit-->
                 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-dialog modal-lg" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="exampleModalCenterTitle">Edit Product</h5>

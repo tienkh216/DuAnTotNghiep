@@ -67,12 +67,23 @@
           </div>
         </div>
       </div>
+      <div class="row mt-5" style="height: 50px;">
+        <div class="col mt-3">
+          <div class="search-wrapper">
+            <div class="input-holder">
+              <input type="text" class="search-input" placeholder="Please enter here" />
+              <button class="search-icon" onclick="searchToggle(this, event);"><span></span></button>
+            </div>
+            <span class="close" onclick="searchToggle(this, event);"></span>
+          </div>
+        </div>
+      </div>
       <div class="row align-items-center">
         <div class="col text-center">
           <div class="new_arrivals_sorting">
             <ul class="arrivals_grid_sorting clearfix button-group filters-button-group">
               <li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center active is-checked" data-filter="*">all</li>
-              <li th:each="c:${categories}" class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center" th:data-filter="@{'.'+${c.categoryId.id}}">[[${c.categoryId.name}]]</li>
+              <li th:each="c:${categories}" class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center" th:data-filter="@{'.'+${c.id}}">[[${c.name}]]</li>
 
             </ul>
           </div>
@@ -89,7 +100,12 @@
                   <img th:src="@{|/client/images/${p.image}|}" alt=""> </a>
                 </div>
                 <div class="favorite favorite_left"></div>
-                <div class="product_bubble product_bubble_left d-flex flex-column align-items-center product_bubble_green"><span th:utext=" ${p.productStatus.id==3}?'New':'New'"></span></div>
+<!--                <div class="product_bubble product_bubble_left d-flex flex-column align-items-center product_bubble_green" th:switch="${p.productStatus.id}">-->
+<!--                  <span th:case="1" >so 1</span>-->
+<!--                  <span  th:case="2">so 2</span>-->
+<!--                  <span  th:case="3">so 3</span>-->
+
+<!--                </div>-->
                 <div class="product_info">
                   <h6 class="product_name"><a href="single.html" th:utext=" ${p.name}"></a></h6>
                   <div class="product_price" > {{[[${p.price}]] | currency:"":0 }} VNﾄ� <span> {{[[${p.price}*120/100]] | currency:"":0 }} VNﾄ�</span></div>

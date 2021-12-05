@@ -46,8 +46,8 @@ public class productServiceImpl implements productService{
 	}
 
 	@Override
-	public List<Product> findTopProductWithCreateDate() {
-		return dao.findTopProductWithCreateDate();
+	public List<Product> findTopNewProduct() {
+		return dao.findTopNewProduct();
 	}
 
 

@@ -14,4 +14,6 @@ public interface orderService {
 
 	void delete(Long id);
 
-}
+	
+	Long getPendingOrder();
+

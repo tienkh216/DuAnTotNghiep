@@ -15,4 +15,6 @@ public interface accountService {
 	Account update(Account account);
 	void delete (String username);
 	
+	Long getCount();
+	
 }
