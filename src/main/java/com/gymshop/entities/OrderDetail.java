@@ -1,6 +1,7 @@
 package com.gymshop.entities;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -27,4 +28,5 @@ public class OrderDetail implements Serializable  {
 	@ManyToOne
 	@JoinColumn(name = "Orderid")
 	Order order;
+	
 }
