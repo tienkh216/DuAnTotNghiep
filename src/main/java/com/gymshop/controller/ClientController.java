@@ -28,10 +28,6 @@ public class ClientController {
     public String homePage(Model model) {
         List<Product> list = productService.findTopProductWithCreateDate();
         model.addAttribute("items", list);
-
-
-
-
         model.addAttribute("categories", list);
         return "client/site/Home";
     }
@@ -65,8 +61,10 @@ public class ClientController {
         return ("client/site/Checkout");
     }
 
-    @RequestMapping("/client/productDetail")
-    public String productDetail(Model model) {
+    @RequestMapping("/client/productDetail/{id}")
+    public String productDetail(Model model,@PathVariable("id") Long id) {
+    	Product item =productService.findById(id); 
+		 model.addAttribute("items",item);
         return ("client/site/ProductDetail");
     }
 

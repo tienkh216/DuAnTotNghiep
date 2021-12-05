@@ -55,4 +55,5 @@ public interface ProductDAO extends JpaRepository<Product, Long> {
 			"FROM Products",nativeQuery =true )
 	List<Category> getCategoryId();
 
+
 }

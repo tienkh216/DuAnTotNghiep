@@ -46,28 +46,35 @@
       </div>
     </div>
     <div class="content shadow p-3 mb-5 bg-white rounded">
+    
       <div class="information hidden ml-5">
         <div class="row mt-5">
-          <div class="col-12 m-2">
-            <div class="first-name"><label >First Name</label><input type="text"></div>
-          </div>
-        </div>
-        <div class="row mt-5">
-          <div class="col-12 m-2">
-            <div class="last-name"><label >Last Name</label><input type="text"></div>
-          </div>
-        </div>
-        <div class="row mt-5">
-          <div class="col-12 m-2">
-            <div class="phone-number"><label >Phone Number</label><input type="text">
+        
+          <div class="col-6 m-2">
+            <div class="first-name"><label >First Name</label> <br>
+            <span type="text">[[${#request.remoteUser}]]</span>
             </div>
           </div>
-        </div>
-        <div class="row mt-5">
-          <div class="col-12 m-2">
-            <div class="phone-number"><label >Email</label><input type="text">
+          
+           <div class="col-6 m-2">
+           
+            <div class="last-name"><label >Last Name</label> <br>
+            <span type="text">{{order.createDate|date:'dd-MM-yyyy'}}</span>
             </div>
           </div>
+        
+        <div class="row mt-5">
+          <div class="col-12 m-2">
+           
+            <div class="last-name"><label>Shipping address</label>
+                    <textarea type="text"ng-model="order.address" >
+                    </textarea>
+          </div>
+          </div>
+         
+        </div>
+        
+      
         </div>
 
 
@@ -95,28 +102,50 @@
             <li>Remove</li>
          </ul> -->
         <ul class="cartWrap">
-          <li class="items odd">
+          <div class="row mt-5">
+         <div class="heading cf">
+      <h1>My Cart</h1>
+    </div>
+        <div class="cart">
+      <!-- <ul class="tableHead">
+         <li class="prodHeader">Product</li>
+         <li>Quantity</li>
+         <li>Total</li>
+          <li>Remove</li>
+       </ul> -->
+      <ul class="cartWrap">
+		
+        <li class="items even" ng-repeat="item in cart.items">
 
-            <div class="infoWrap" >
-              <div class="cartSection">
-                <img th:src="@{/client/images/energy3.jpg}"  alt="" class="itemImg" />
-                <p class="itemNumber">#QUE-007544-002</p>
-                <h3>Item Name 1</h3>
+          <div class="infoWrap">
+            <div class="cartSection">
 
-                <p> <input type="text"  class="qty" placeholder="3"/> x $5.00</p>
-
-                <p class="stockStatus"> In Stock</p>
-              </div>
+              <img  ng-src="{{'/client/images/'+item.image}}"   alt="" class="itemImg" />
+              <h3 >{{item.name}}</h3>
+              <p class="itemNumber">{{item.price|currency:"":0 }}</p>
 
 
-              <div class="prodTotal cartSection">
-                <p>$15.00</p>
-              </div>
-              <div class="cartSection removeWrap">
-                <a href="#" class="remove">x</a>
-              </div>
+              <p> <input type="text" ng-model="item.qty"  class="qty" placeholder="3"/></p>
+
+              <p class="stockStatus"> In Stock</p>
             </div>
-          </li>
+
+
+            <div class="prodTotal cartSection">
+              <p> {{item.qty*item.price|currency:"":0 }}</p>
+            </div>
+           
+          </div>
+        </li>
+		
+
+
+        <!--<li class="items even">Item 2</li>-->
+
+      </ul>
+    </div>
+       
+        </div>
 
 
 

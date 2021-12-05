@@ -11,8 +11,6 @@ public interface productService {
 
 	List<Product> findAll();
 
-	Product findById(Long id);
-
 	Product create(Product product);
 
 	Product update(Product product);
@@ -25,4 +23,8 @@ public interface productService {
 
 
 	List<Category> getCategoryId();
+
+
+	Product findById(Long id);
+
 }
