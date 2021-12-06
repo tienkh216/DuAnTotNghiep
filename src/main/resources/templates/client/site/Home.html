@@ -107,7 +107,10 @@
 
 <!--                </div>-->
                 <div class="product_info">
-                  <h6 class="product_name"><a href="single.html" th:utext=" ${p.name}"></a></h6>
+
+
+                  <h6 class="product_name"><a th:href="@{|/client/productDetail/${p.id}|}" th:utext=" ${p.name}"></a></h6>
+
                   <div class="product_price" > {{[[${p.price}]] | currency:"":0 }} VNĐ <span> {{[[${p.price}*120/100]] | currency:"":0 }} VNĐ</span></div>
                 </div>
               </div>
@@ -203,8 +206,8 @@
                             class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center">
                       <span>-Sale</span></div>
                     <div class="product_info">
-                      <h6 class="product_name"><a href="single.html " th:utext=" ${p.name}">abc</a></h6>
-                      <div class="product_price">{{[[${p.price}]] | currency:"":0 }} VNﾄ�<span>{{[[${p.price}*120/100]] | currency:"":0 }} VNﾄ�</span></div>
+                      <h6 class="product_name"><a th:href="@{|/client/productDetail/${p.id}|}" th:utext=" ${p.name}">abc</a></h6>
+                      <div class="product_price">{{[[${p.price}]] | currency:"":0 }} VNĐ<span>{{[[${p.price}*120/100]] | currency:"":0 }} VNĐ</span></div>
                     </div>
                   </div>
                 </div>
