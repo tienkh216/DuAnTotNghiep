@@ -17,6 +17,10 @@ app.config(function($routeProvider){
         templateUrl:"/admin/accounts/index.html",
         controller:"accounts-ctrl"
     })
+    .when("/authority",{
+        templateUrl:"/admin/authority/index.html",
+        controller:"authority-ctrl"
+    })
     .when("/chart",{
         templateUrl:"/admin/chart/index.html",
         controller:"chart-ctrl"
@@ -26,6 +30,7 @@ app.config(function($routeProvider){
         controller:"order-detail-ctrl"
     })
     .otherwise({
-        template  : "<h1> FPT POLYTECHNIC </h1>"
+         templateUrl:"/admin/home/index.html",
+         controller:"home-ctrl"
     })
 })

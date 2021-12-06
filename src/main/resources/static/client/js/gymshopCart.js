@@ -48,17 +48,20 @@ app.controller("ctrl",function($scope,$http){
             .map(item => item.qty)
             .reduce((total,qty) => total += qty,0);
         },
+
         //Tổng thành tiền các mặt hàng trong giỏ
         get amout(){
             return this.items
             .map(item => item.qty * item.price)
             .reduce((total,qty) => total += qty,0);
         },
+
         //Lưu giỏ hàng vào local storage
         saveToLocalStorage(){
             var json = JSON.stringify(angular.copy(this.items));
             localStorage.setItem("cart",json);
         },
+
         //Đọc giỏ hàng từ local storage
         loadFromLocalStorage(){
             var json = localStorage.getItem("cart");
@@ -71,7 +74,10 @@ app.controller("ctrl",function($scope,$http){
     $scope.order ={
         createDate: new Date(),
         address: "",
-        account:{username: $("#username").text()},
+        account:{
+				username: $("#username").text(),
+				fullname: $("#fullnamename").text()
+				},
         get orderDetails(){
             return $scope.cart.items.map(item =>{
                 return {
