@@ -1083,6 +1083,8 @@ section
 .discount .product_info .product_price
 {
 	font-size: 14px;
+	display: flex;
+	flex-direction: column;
 }
 .product_price
 {
