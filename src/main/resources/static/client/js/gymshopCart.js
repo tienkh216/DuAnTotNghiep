@@ -40,8 +40,12 @@ app.controller("ctrl",function($scope,$http){
             this.items=[];
             this.saveToLocalStorage();
         },
+
+
         //Tính thành tiền của một sản phẩm
         amt_of(item){},
+
+
         //Tính tổng số lượng các mặt hàng trong giỏ
         get count(){
             return this.items
@@ -71,33 +75,33 @@ app.controller("ctrl",function($scope,$http){
 
     $scope.cart.loadFromLocalStorage();
 
-    $scope.order ={
-        createDate: new Date(),
-        address: "",
-        account:{
-				username: $("#username").text(),
-				fullname: $("#fullnamename").text()
-				},
-        get orderDetails(){
-            return $scope.cart.items.map(item =>{
-                return {
-                    product: {id: item.id},
-                    price: item.price,
-                    quantity: item.qty
-                }
-            });
-        },
-        purchase(){
-           var order = angular.copy(this);
-           //Thực hiện đặt hàng
-           $http.post("/rest/orders",order).then(resp =>{
-               alert("Đặt hàng thành công!");
-               $scope.cart.clear();
-               location.href="/order/detail/" + resp.data.id;
-           }).catch(error =>{
-               alert("Đặt hàng lỗi")
-               console.log(error)
-           })
-        }
-    }
+    // $scope.order ={
+    //     createDate: new Date(),
+    //     address: "",
+    //     account:{
+	// 			username: $("#username").text(),
+	// 			fullname: $("#fullnamename").text()
+	// 			},
+    //     get orderDetails(){
+    //         return $scope.cart.items.map(item =>{
+    //             return {
+    //                 product: {id: item.id},
+    //                 price: item.price,
+    //                 quantity: item.qty
+    //             }
+    //         });
+    //     },
+    //     purchase(){
+    //        var order = angular.copy(this);
+    //        //Thực hiện đặt hàng
+    //        $http.post("/rest/orders",order).then(resp =>{
+    //            alert("Đặt hàng thành công!");
+    //            $scope.cart.clear();
+    //            location.href="/order/detail/" + resp.data.id;
+    //        }).catch(error =>{
+    //            alert("Đặt hàng lỗi")
+    //            console.log(error)
+    //        })
+    //     }
+    // }
 })
