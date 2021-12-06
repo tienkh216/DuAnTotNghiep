@@ -54,6 +54,11 @@ public class orderServiceImpl implements orderService {
 		return orderDao.getPendingOrder();
 	}
 
+	@Override
+	public List<Order> findByUsername(String username) {
+		return orderDao.findByUsername(username);
+	}
+
 	
 
 

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{client/dashboardLayout.html}">
+
+
+
+<body>
+
+
+<div layout:fragment="content">
+
+  <link rel="stylesheet" type="text/css" th:href="@{/client/styles/main_styles.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{/client/styles/responsive.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{/client/styles/single_styles.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{/client/styles/single_responsive.css}">
+
+
+  <div class="container single_product_container" >
+    <div class="row">
+      <div class="col">
+        <div class="breadcrumbs d-flex flex-row align-items-center">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="categories.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Order</a></li>
+            <li class="active"><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i>List Order</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+    <div class = "row"> 
+    	 <section>
+       <div class="container mt-5">
+        <table class="table table-bordered table-hover text-center">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Order No.</th>
+                <th scope="col">Order Date</th>
+                <th scope="col">Shipping Address</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              
+            </tbody>
+          </table>
+       </div>
+   </section>
+    </div>
+   
+  </div>
+
+
+
+
+
+
+
+</div>
+
+
+
+</body>
+
+</html>
