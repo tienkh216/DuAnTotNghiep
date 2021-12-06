@@ -17,5 +17,6 @@ public interface orderService {
 	
 	Long getPendingOrder();
 	
+	List<Order> findByUsername(String username);
 }
 
