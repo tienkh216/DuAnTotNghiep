@@ -63,6 +63,24 @@
             background-color: #eceff6;
         }
 
+        .quantity{
+            display: flex;
+            justify-content:  center;
+        }
+
+        .qty{
+            text-align: center;
+            width: 40px;
+
+        }
+        .table td{
+            vertical-align: baseline;
+        }
+
+        .minus,.plus{
+            width: 20px;
+            background-color:#f3f3f3;
+        }
     </style>
 
 
@@ -156,34 +174,76 @@
 
                                 </li>
                                 <div class="notify shadow-lg p-3 mb-5 bg-white rounded remove">
-                                    <ul>
+                                    <table class="table">
+                                        <thead>
+                                        <tr>
+                                            <th scope="col"></th>
+                                            <th scope="col">Tên</th>
+
+                                            <th scope="col">Đơn Giá</th>
+                                            <th scope="col">Số lượng</th>
+                                            <th scope="col">Tổng Tiền</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr ng-repeat="item in cart.items">
+                                            <th scope="row"> <img ng-src="{{'/client/images/'+item.image}}" style="width: 50px;" alt=""></th>
+                                            <td>  <span style="margin-left: 10px;-->
+<!--														font-weight: 700;">{{item.name}}</span></td>
+                                            <td>   <p class="itemNumber">{{item.price|currency:"":0 }}</p></td>
+
+                                        <td >
+                                            <input type="text" style="text-align: center;" ng-model="item.qty" numbers-only class="form-control" />
 
 
-                                        <li class="mt-2" style="" ng-repeat="item in cart.items">
-                                            <div class="left">
-                                                <img ng-src="{{'/client/images/'+item.image}}" style="width: 50px;" alt="">
-                                                <span style="margin-left: 10px;
-														font-weight: 700;">{{item.name}}</span>
-
-                                            </div>
-
-                                            <div class="right" style="display: flex;     justify-content: space-between;">
-                                                <div> <input type="number" style="width: 30px; border: none;" ng-model="item.qty" name="" id="" value="0"></div>
-                                                <span>{{item.qty*item.price|currency:"":0 }}</span></div>
-
-                                        </li>
-                                        <div class="line"></div>
+                                        </td>
+<!--                                            <td><input type="number" style="width: 30px; border: none;" ng-model="item.qty" name="" id="" value="0"></td>-->
+                                            <td>{{item.qty*item.price|currency:"":0 }}</td>
+                                        </tr>
 
 
-                                        <li class="mt-2" style="justify-content: flex-end;">
-                                            <!-- <div class="left">
-                                                <a href=""></a>
-                                            </div> -->
-                                            <div class="right  p-1"><a href=""><span>Cart</span></a></div>
+                                        </tbody>
+                                        <tfoot>
+                                        <tr>
+                                            <th scope="col">Tổng Tiền</th>
+                                            <th scope="col"></th>
+                                            <th scope="col"></th>
+                                            <th scope="col"></th>
+                                            <th scope="col">{{tinhTongtien()|currency:"":0 }}</th>
+                                        </tr>
+                                        </tfoot>
+                                    </table>
 
-                                        </li>
 
-                                    </ul>
+<!--                                    -->
+<!--                                    <ul>-->
+
+
+<!--                                        <li class="mt-2" style="" ng-repeat="item in cart.items">-->
+<!--                                            <div class="left">-->
+<!--                                                <img ng-src="{{'/client/images/'+item.image}}" style="width: 50px;" alt="">-->
+<!--                                                <span style="margin-left: 10px;-->
+<!--														font-weight: 700;">{{item.name}}</span>-->
+
+<!--                                            </div>-->
+
+<!--                                            <div class="right" style="display: flex;     justify-content: space-between;">-->
+<!--                                                <div> <input type="number" style="width: 30px; border: none;" ng-model="item.qty" name="" id="" value="0"></div>-->
+<!--                                                <span>{{item.qty*item.price|currency:"":0 }}</span></div>-->
+
+<!--                                        </li>-->
+<!--                                        <div class="line"></div>-->
+
+
+<!--                                        <li class="mt-2" style="justify-content: flex-end;">-->
+<!--                                            &lt;!&ndash; <div class="left">-->
+<!--                                                <a href=""></a>-->
+<!--                                            </div> &ndash;&gt;-->
+<!--                                            <div class="right  p-1"><a href=""><span>Cart</span></a></div>-->
+
+<!--                                        </li>-->
+
+<!--                                    </ul>-->
 
 
 
