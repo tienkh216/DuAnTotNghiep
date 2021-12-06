@@ -23,6 +23,13 @@ import com.gymshop.service.accountService;
 public class accountRestController {
 	@Autowired
 	accountService accountService;
+	
+	@GetMapping("count")
+	public Long GetCount() {
+		return accountService.getCount();
+	}
+	
+	
 	@GetMapping()
 	public List<Account> getAll(){
 		return accountService.findAll();

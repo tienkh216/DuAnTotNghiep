@@ -19,15 +19,22 @@ app.controller("category-ctrl", function($scope, $http, $rootScope) {
             var index = $scope.items.findIndex(p => p.id == item.id);
             $scope.items[index] = item;
             $scope.close();
+            $scope.initialize();
             swal("Ok", "Successful Update", "success");
         })
         .catch(erro =>{
-            swal("Erro", "Update Failed", "error");
-            console.log("erro",erro);
-        })
-     }
+            if(erro.status = 403 || erro.status == 401){
+              swal("Erro", "Không có quyền sửa", "error");
+              $scope.close();
+            }
+            else{
+              swal("Erro", "Update Failed", "error");
+            }
+            console.log("erro",erro.status);
+          })
+    }
      
-     $scope.delete = function(item){
+    $scope.delete = function(item){
         swal({
             title: "Are you sure?",
             text: "Once deleted, you will not be able to recover this imaginary file!",
@@ -40,39 +47,52 @@ app.controller("category-ctrl", function($scope, $http, $rootScope) {
               swal("Do you want to delete your account?", {
                 icon: "success",
               });
-              $http.delete(`/rest/categories/${item}`,item).then(resp=>{
-                var index = $scope.items.findIndex(p => p.id == item);
-                $scope.items.splice(index,1);
-                swal("Ok", "Successful Delete", "success");
+              $http.delete(`/rest/products/${item}`).then(resp=>{
+                    var index = $scope.items.findIndex(p => p.id == item);
+                    $scope.items.splice(index,1);
+                    $scope.reset();
+                    $scope.initialize();
+                    swal("Ok", "Successful Delete", "success");
                 })
                 .catch(erro =>{
-                    swal("Erro", "Delete Failed", "error");
-                    console.log("erro",erro);
+                    if(erro.status = 403 || erro.status == 401){
+                      swal("Erro", "Không có quyền xóa", "error");
+                    }
+                    else{
+                      swal("Erro", "Delete Failed", "error");
+                    }
+                    console.log("erro",erro.status);
                 })
-                } else {
-                swal("cancel");
-                }
+            } else {
+              swal("cancel");
+            }
         });
-     }
-     $scope.reset = function(){
+    }
+    $scope.reset = function(){
          $scope.form = {
              id : '',
              name: ''
          }
-     }
-     $scope.create = function(){
+    }
+    $scope.create = function(){
         var item = angular.copy($scope.form);
         $http.post(`/rest/categories`,item).then(resp=>{
             resp.data.createDate =  new Date(resp.data.createDate);
             $scope.items.push(resp.data);
             $scope.reset();
             $scope.close();
+            $scope.initialize();
             swal("Ok", "Successful Create", "success");
         })
         .catch(erro =>{
-            swal("Ok", "Successful Create", "success");
-            console.log(erro);
-        })
-     }
+            if(erro.status = 403 || erro.status == 401){
+              swal("Erro", "Không có quyền thêm sp", "error");
+            }
+            else{
+              swal("Erro", "Create Failed", "error");
+            }
+            console.log("erro",erro.status);
+          })
+    }
      
 });

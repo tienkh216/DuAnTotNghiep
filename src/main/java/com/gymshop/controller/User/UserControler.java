@@ -48,7 +48,7 @@ public class UserControler {
 	  @RequestMapping("/login/logoff/sucess")
 		public String logoffsuccess(Model model) {
 			model.addAttribute("message","Dang Xuat Thanh Cong");
-			return("client/Login");
+			return "redirect:/client/home";
 		}
 
 
