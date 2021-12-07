@@ -1,24 +1,4 @@
 const app=angular.module("app",[]);
-app.directive('numbersOnly', function () {
-    return {
-        require: 'ngModel',
-        link: function (scope, element, attr, ngModelCtrl) {
-            function fromUser(text) {
-                if (text) {
-                    var transformedInput = text.replace(/[^0-9]/g, '');
-
-                    if (transformedInput !== text) {
-                        ngModelCtrl.$setViewValue(transformedInput);
-                        ngModelCtrl.$render();
-                    }
-                    return transformedInput;
-                }
-                return undefined;
-            }
-            ngModelCtrl.$parsers.push(fromUser);
-        }
-    };
-});
 
 app.controller("ctrl",function($scope,$http){
     $scope.tinhTongtien = function()
@@ -40,10 +20,13 @@ app.controller("ctrl",function($scope,$http){
         add(id){
             var item = this.items.find(item => item.id ==id);
             if(item){
+                     item.replace(/[^0-9]/g, '');
+                        ngModelCtrl.$setViewValue(item);
+                        ngModelCtrl.$render();
                 item.qty++;
                 this.saveToLocalStorage();
             }else{
-                $http.get(`/rest/products/${id}`).then(resp =>{
+                $http.get(`/client/products/${id}`).then(resp =>{
                     resp.data.qty =1;
                     this.items.push(resp.data);
                     this.saveToLocalStorage();

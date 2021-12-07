@@ -10,15 +10,18 @@
     <style>
 
         .remove ul li {
-            display: none;
+            opacity: 0 !important;
         }
         .remove{
-            display: none;
+            visibility: hidden;
+            opacity: 0 !important;
+            top: 120px !important;
         }
 
 
 
         .notify {
+            opacity: 100;
             position: absolute;
             z-index: 2;
             right: 0px;
@@ -26,7 +29,7 @@
             border-radius: 5px;
             min-width: 550px;
             background-color: #eceff6ed;
-            border: 2px solid rgb(30 30 39);
+            border: 1px solid rgb(30 30 39);
         }
 
 
@@ -45,15 +48,7 @@
             align-items: baseline;
             justify-content: space-between;
         }
-        .line {
-            text-align: center;
-            margin-top: 5px;
-            margin-left: auto;
-            margin-right: auto;
-            width: 100%;
-            height: 1px;
-            background-color: #0000009c;
-        }
+
 
         .right a{
             width: 150px !important;
@@ -63,24 +58,12 @@
             background-color: #eceff6;
         }
 
-        .quantity{
-            display: flex;
-            justify-content:  center;
-        }
 
-        .qty{
-            text-align: center;
-            width: 40px;
-
-        }
         .table td{
             vertical-align: baseline;
         }
 
-        .minus,.plus{
-            width: 20px;
-            background-color:#f3f3f3;
-        }
+
     </style>
 
 
@@ -173,12 +156,13 @@
                                     </a>
 
                                 </li>
+
                                 <div class="notify shadow-lg p-3 mb-5 bg-white rounded remove">
                                     <table class="table">
                                         <thead>
                                         <tr>
                                             <th scope="col"></th>
-                                            <th scope="col">Tên</th>
+                                            <th scope="col" style="text-align: center">Tên</th>
 
                                             <th scope="col">Đơn Giá</th>
                                             <th scope="col">Số lượng</th>
@@ -189,15 +173,15 @@
                                         <tr ng-repeat="item in cart.items">
                                             <th scope="row"> <img ng-src="{{'/client/images/'+item.image}}" style="width: 50px;" alt=""></th>
                                             <td>  <span style="margin-left: 10px;-->
-<!--														font-weight: 700;">{{item.name}}</span></td>
+<!--														font-weight: 700 ;     text-align: center;">{{item.name}}</span></td>
                                             <td>   <p class="itemNumber">{{item.price|currency:"":0 }}</p></td>
 
-                                        <td >
-                                            <input type="text" style="text-align: center;" ng-model="item.qty" numbers-only class="form-control" />
+                                            <td >
+                                                <input type="number" min="1" max="50"  style="text-align: center;" ng-model="item.qty"  class="form-control" />
 
 
-                                        </td>
-<!--                                            <td><input type="number" style="width: 30px; border: none;" ng-model="item.qty" name="" id="" value="0"></td>-->
+                                            </td>
+                                            <!--                                            <td><input type="number" style="width: 30px; border: none;" ng-model="item.qty" name="" id="" value="0"></td>-->
                                             <td>{{item.qty*item.price|currency:"":0 }}</td>
                                         </tr>
 
@@ -215,39 +199,40 @@
                                     </table>
 
 
-<!--                                    -->
-<!--                                    <ul>-->
+                                    <!--                                    -->
+                                    <!--                                    <ul>-->
 
 
-<!--                                        <li class="mt-2" style="" ng-repeat="item in cart.items">-->
-<!--                                            <div class="left">-->
-<!--                                                <img ng-src="{{'/client/images/'+item.image}}" style="width: 50px;" alt="">-->
-<!--                                                <span style="margin-left: 10px;-->
-<!--														font-weight: 700;">{{item.name}}</span>-->
+                                    <!--                                        <li class="mt-2" style="" ng-repeat="item in cart.items">-->
+                                    <!--                                            <div class="left">-->
+                                    <!--                                                <img ng-src="{{'/client/images/'+item.image}}" style="width: 50px;" alt="">-->
+                                    <!--                                                <span style="margin-left: 10px;-->
+                                    <!--														font-weight: 700;">{{item.name}}</span>-->
 
-<!--                                            </div>-->
+                                    <!--                                            </div>-->
 
-<!--                                            <div class="right" style="display: flex;     justify-content: space-between;">-->
-<!--                                                <div> <input type="number" style="width: 30px; border: none;" ng-model="item.qty" name="" id="" value="0"></div>-->
-<!--                                                <span>{{item.qty*item.price|currency:"":0 }}</span></div>-->
+                                    <!--                                            <div class="right" style="display: flex;     justify-content: space-between;">-->
+                                    <!--                                                <div> <input type="number" style="width: 30px; border: none;" ng-model="item.qty" name="" id="" value="0"></div>-->
+                                    <!--                                                <span>{{item.qty*item.price|currency:"":0 }}</span></div>-->
 
-<!--                                        </li>-->
-<!--                                        <div class="line"></div>-->
+                                    <!--                                        </li>-->
+                                    <!--                                        <div class="line"></div>-->
 
 
-<!--                                        <li class="mt-2" style="justify-content: flex-end;">-->
-<!--                                            &lt;!&ndash; <div class="left">-->
-<!--                                                <a href=""></a>-->
-<!--                                            </div> &ndash;&gt;-->
-<!--                                            <div class="right  p-1"><a href=""><span>Cart</span></a></div>-->
+                                    <!--                                        <li class="mt-2" style="justify-content: flex-end;">-->
+                                    <!--                                            &lt;!&ndash; <div class="left">-->
+                                    <!--                                                <a href=""></a>-->
+                                    <!--                                            </div> &ndash;&gt;-->
+                                    <!--                                            <div class="right  p-1"><a href=""><span>Cart</span></a></div>-->
 
-<!--                                        </li>-->
+                                    <!--                                        </li>-->
 
-<!--                                    </ul>-->
+                                    <!--                                    </ul>-->
 
 
 
                                 </div>
+
                             </ul>
                             <div class="hamburger_container">
                                 <i class="fa fa-bars" aria-hidden="true"></i>
