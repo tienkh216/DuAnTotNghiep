@@ -59,6 +59,20 @@ public class orderServiceImpl implements orderService {
 		return orderDao.findByUsername(username);
 	}
 
+	@Override
+	public Order create(JsonNode orderData) {
+  ObjectMapper mapper=new ObjectMapper();
+		  
+		  Order order=mapper.convertValue(orderData, Order.class); 
+		  orderDao.save(order);
+		  
+		  TypeReference<List<OrderDetail>> type=new TypeReference<List<OrderDetail>>(){};
+		  List<OrderDetail> details=mapper.convertValue(orderData.get("orderDetails"), type)
+				  .stream().peek(d -> d.setOrder(order)).collect(Collectors.toList());
+		  orderDtailDao.saveAll(details);
+		  return order;
+	}
+
 	
 
 

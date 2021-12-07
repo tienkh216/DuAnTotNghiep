@@ -46,42 +46,38 @@
       </div>
     </div>
     <div class="content shadow p-3 mb-5 bg-white rounded">
-    
       <div class="information hidden ml-5">
         <div class="row mt-5">
-        
-          <div class="col-6 m-2">
-            <div class="first-name"><label >First Name</label> <br>
+          <div class="col-12 m-2">
+            <div class="first-name"><label >First Name:</label>
             <span type="text">[[${#request.remoteUser}]]</span>
             </div>
+            
           </div>
-          
-           <div class="col-6 m-2">
-           
-            <div class="last-name"><label >Last Name</label> <br>
-            <span type="text">{{order.createDate|date:'dd-MM-yyyy'}}</span>
-            </div>
-          </div>
-        
+        </div>
         <div class="row mt-5">
           <div class="col-12 m-2">
-           
-            <div class="last-name"><label>Shipping address</label>
-                    <textarea type="text"ng-model="order.address" >
-                    </textarea>
+            <div class="last-name"><label >Last Name</label><input type="text"></div>
           </div>
-          </div>
-         
         </div>
-        
-      
+        <div class="row mt-5">
+          <div class="col-12 m-2">
+            <div class="phone-number"><label >Buy day</label>
+	<span type="text">{{order.createDate|date:'dd-MM-yyyy'}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-5">
+          <div class="col-12 m-2">
+            <div class="phone-number"><label >Email</label><input type="text">
+            </div>
+          </div>
         </div>
 
 
 
       </div>
-      <div class="address ml-5">
-
+     <div class="address ml-5">
         <div class="row mt-5">
           <div class="province col-6 p-2"><select name="ls_province" autofocus></select></div>
         </div>
@@ -187,7 +183,35 @@
         </div>
       </div>
       </div>
-      <div class="complete ml-5">complete</div>
+      <div class="complete ml-5">
+      <div class="first-name"><label >First Name:</label>
+            <span type="text">[[${#request.remoteUser}]]</span>
+            <li class="items even" ng-repeat="item in cart.items">
+
+          <div class="infoWrap">
+            <div class="cartSection">
+
+              <img  ng-src="{{'/client/images/'+item.image}}"   alt="" class="itemImg" />
+              <h3 >{{item.name}}</h3>
+              <p class="itemNumber">{{item.price|currency:"":0 }}</p>
+
+
+              <p> <input type="text" ng-model="item.qty"  class="qty" placeholder="3"/></p>
+
+              <p class="stockStatus"> In Stock</p>
+            </div>
+
+
+            <div class="prodTotal cartSection">
+              <p> {{item.qty*item.price|currency:"":0 }}</p>
+            </div>
+           
+          </div>
+        </li>
+        <li class="totalRow final"><span class="label">Total</span><span class="value">{{tinhTongtien()|currency:"":0 }}</span></li>
+      </div>
+      
+      </div>
       <div class="finish ml-5">6</div>
     </div>
 
@@ -196,6 +220,8 @@
     <div class="buttonHolder">
       <button class="button b-back disabled" id="back">Back</button>
       <button class="button b-next" id="next">Next</button>
+      <button class="button b-next" id="finish" ng-click="order.purchase()">finish</button>
+      
     </div>
 
 

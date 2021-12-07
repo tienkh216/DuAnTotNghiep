@@ -25,106 +25,46 @@
                         <th>Username</th>
                         <th>Address</th>
                         <th>Status</th>
-                        <th>Total</th>
                         <th>Active</th>
                       </tr>
                     </thead>
                    
                     <tbody>
-                      <tr>
-                        <td>Tiger Nixon</td>
-                        <td>System Architect</td>
-                        <td>Edinburgh</td>
-                        <td><span class="badge badge-info">Processing</span></td>
-                        <td>200$</td>
+                      <tr ng-repeat = "item in pager.items">
+                        <td><a href="#!order-detail/{{item.id}}">{{item.id}}</a></td>
+                        <td>{{item.account.username}}</td>
+                        <td>{{item.address}}</td>
                         <td>
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" id="#modalCenter">Edit</button>
+                          <span ng-if = "item.orderStatus.id==1" class="badge badge-info">{{item.orderStatus.description}}</span>
+                          <span ng-if = "item.orderStatus.id==2" class="badge badge-primary">{{item.orderStatus.description}}</span>
+                          <span ng-if = "item.orderStatus.id==3" class="badge badge-warning">{{item.orderStatus.description}}</span>
+                          <span ng-if = "item.orderStatus.id==4" class="badge badge-success">{{item.orderStatus.description}}</span>
+                          <span ng-if = "item.orderStatus.id==5" class="badge badge-danger">{{item.orderStatus.description}}</span>
+                        </td>
+                        <td>
+                            <button type="button" ng-click = "edit(item)" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" id="#modalCenter">Edit</button>
                         </td>
                       </tr>
-                      <tr>
-                        <td>Garrett Winters</td>
-                        <td>Accountant</td>
-                        <td>Tokyo</td>
-                        <td><span class="badge badge-info">Processing</span></td>
-                        <td>200$</td>
-                        <td>
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" id="#modalCenter">Edit</button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Ashton Cox</td>
-                        <td>Junior Technical Author</td>
-                        <td>San Francisco</td>
-                        <td><span class="badge badge-info">Processing</span></td>
-                        <td>200$</td>
-                        <td>
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" id="#modalCenter">Edit</button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Cedric Kelly</td>
-                        <td>Senior Javascript Developer</td>
-                        <td>Edinburgh</td>
-                        <td><span class="badge badge-info">Processing</span></td>
-                        <td>200$</td>               
-                        <td>
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" id="#modalCenter">Edit</button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Airi Satou</td>
-                        <td>Accountant</td>
-                        <td>Tokyo</td>
-                        <td><span class="badge badge-info">Processing</span></td>
-                        <td>200$</td>
-                        <td>
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" id="#modalCenter">Edit</button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Brielle Williamson</td>
-                        <td>Integration Specialist</td>
-                        <td>New York</td>
-                        <td><span class="badge badge-danger">Pending</span></td>
-                        <td>200$</td>
-                        <td>
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" id="#modalCenter">Edit</button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Herrod Chandler</td>
-                        <td>Sales Assistant</td>
-                        <td>San Francisco</td>
-                        <td><span class="badge badge-info">Processing</span></td>
-                        <td>200$</td>
-                        <td>
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" id="#modalCenter">Edit</button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Rhona Davidson</td>
-                        <td>Integration Specialist</td>
-                        <td>Tokyo</td>
-                        <td><span class="badge badge-warning">Shipping</span></td>
-                        <td>200$</td>
-                        <td>
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" id="#modalCenter">Edit</button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Colleen Hurst</td>
-                        <td>Javascript Developer</td>
-                        <td>San Francisco</td>
-                        <td><span class="badge badge-success">Delivered</span></td>
-                        <td>200$</td>
-                        <td>
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" id="#modalCenter">Edit</button>
-                        </td>
-                      </tr>
+                     
                      
                     </tbody>
                   </table>
                 </div>
+                <div class="card-footer text-muted">
+                  <button type="button" class="btn btn-primary"  ng-click="pager.first()">
+                    <i class="fas fa-fast-backward"></i>
+                  </button>
+                  <button type="button" class="btn btn-secondary"  ng-disabled="pager.page==0" ng-click="pager.prev()">
+                    <i class="fas fa-backward"></i>
+                  </button>
+                  <button class="btn btn-danger">{{pager.page + 1}} of {{pager.count()}}</button>
+                  <button type="button" class="btn btn-success"  ng-disabled="pager.page >= pager.count() -1"  ng-click="pager.next()">
+                    <i class="fas fa-forward"></i>
+                  </button>
+                  <button type="button" class="btn btn-danger"  ng-click="pager.last()">
+                    <i class="fas fa-fast-forward"></i>  
+                  </button>
+              </div>
               </div>
             </div>
           </div>
@@ -143,11 +83,18 @@
                       <form>
                         <div class="form-group">
                           <label for="exampleInputEmail1">Order ID</label>
-                          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Order ID">
+                          <input type="text" readonly ng-model ="form.id" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Order ID">
                         </div>
                         
-                        <button type="submit" class="btn btn-success">Update</button>
-                        <button type="submit" class="btn btn-danger">Delete</button>
+                        <div class="form-group">
+                          <label for="exampleInputEmail1">Sattus</label>
+                          <select class="form-control mb-3" ng-model = "form.orderStatus.id"  >
+                              <option ng-repeat = "s in status" ng-value = "s.id">{{s.description}}</option>
+                          </select>
+                      </div>
+                        
+                        <button  ng-click = "update()"class="btn btn-success">Update</button>
+                        <button ng-if = "form.orderStatus.id==5" class="btn btn-danger" ng-click = "delete(form)">Delete</button>
                       </form>
                     </div>
                 </div>

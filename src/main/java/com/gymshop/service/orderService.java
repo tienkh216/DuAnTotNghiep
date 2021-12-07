@@ -20,5 +20,7 @@ public interface orderService {
 	
 	List<Order> findByUsername(String username);
 
+	Order create(JsonNode orderData);
+
 }
 

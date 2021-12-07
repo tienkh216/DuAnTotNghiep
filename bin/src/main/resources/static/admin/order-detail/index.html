@@ -1,0 +1,53 @@
+
+          <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">DataTables</h1>
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="./">Home</a></li>
+              <li class="breadcrumb-item">Order</li>
+              <li class="breadcrumb-item active" aria-current="page">Order Detail</li>
+            </ol>
+          </div>
+
+          <!-- Row -->
+          <div class="row" >
+              <div class="col-12">
+                <h6>Họ Và Tên Khách Hàng :{{username}}</h6>
+                <h6>Địa Chỉ :{{address}}</h6>
+                <h6>Ngày Đặt Hàng: {{createDate}}</h6>
+                <h6>Phương Thức Thanh Toán: {{paymethod}}</h6>
+              </div>
+              <div class="col-12">
+                <div class="table-responsive">
+                  <table class="table align-items-center table-flush table-hover" id="dataTableHover">
+                      <thead class="thead-light">
+                      <tr>
+                          <th>ID</th>
+                          <th>Name</th>
+                          <th>Price</th>
+                          <th>Quantity</th>
+                          <th>Total</th>
+                        
+                      </tr>
+                      </thead>
+  
+                      <tbody >
+                      <tr ng-repeat = "item in items">
+                          <td>{{item.product.id}}</td>
+                          <td>{{item.product.name}}</td>
+                          <td>{{item.product.price}}</td>
+                          <td>{{item.quantity}}</td>
+                          <td>{{item.quantity*item.product.price}}</td>
+                          
+                      </tr>
+                      </tbody>
+                  </table>
+                  
+                </div> 
+              </div>
+              <div class="col-12">
+                <h2 class="float-right">Tổng Tiền : {{total}} </h2>
+              </div>
+          </div>
+         
+      
+  
