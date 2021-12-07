@@ -45,6 +45,7 @@ app.controller("accounts-ctrl", function($scope, $http, $rootScope) {
             var index = $scope.items.findIndex(p => p.username == item.username);
             $scope.items[index] = item;
             $scope.close();
+            $scope.initialize();
             swal("Ok", "Successful Update", "success");
         })
         .catch(erro =>{
@@ -75,6 +76,7 @@ app.controller("accounts-ctrl", function($scope, $http, $rootScope) {
                     var index = $scope.items.findIndex(p => p.id == item);
                     $scope.items.splice(index,1);
                     $scope.reset();
+                    $scope.initialize();
                     swal("Ok", "Successful Delete", "success");
                  })
                  .catch(erro =>{

@@ -1,5 +1,6 @@
 package com.gymshop.entities;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -12,10 +13,15 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 
+@SuppressWarnings("serial")
 @Entity
+@AllArgsConstructor 
+@NoArgsConstructor
 @Table(name="Size")
-public class Size {
+public class Size implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Long id;

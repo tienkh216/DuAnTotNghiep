@@ -1,6 +1,7 @@
 package com.gymshop.entities;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,10 +12,14 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @SuppressWarnings("serial")
 @Data
+@AllArgsConstructor 
+@NoArgsConstructor
 @Entity
 @Table(name = "Authorities", uniqueConstraints = {
 		@UniqueConstraint(columnNames = {"Username", "Roleid"})

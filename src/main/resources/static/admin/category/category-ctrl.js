@@ -44,10 +44,10 @@ app.controller("category-ctrl", function($scope, $http, $rootScope) {
           })
           .then((willDelete) => {
             if (willDelete) {
-              swal("Do you want to delete your account?", {
+              swal("Bạn có muốn xoa không", {
                 icon: "success",
               });
-              $http.delete(`/rest/products/${item}`).then(resp=>{
+              $http.delete(`/rest/categories/${item}`).then(resp=>{
                     var index = $scope.items.findIndex(p => p.id == item);
                     $scope.items.splice(index,1);
                     $scope.reset();
@@ -77,19 +77,18 @@ app.controller("category-ctrl", function($scope, $http, $rootScope) {
     $scope.create = function(){
         var item = angular.copy($scope.form);
         $http.post(`/rest/categories`,item).then(resp=>{
-            resp.data.createDate =  new Date(resp.data.createDate);
             $scope.items.push(resp.data);
             $scope.reset();
             $scope.close();
             $scope.initialize();
-            swal("Ok", "Successful Create", "success");
+            swal("Ok", "Tạo mới thành công", "success");
         })
         .catch(erro =>{
             if(erro.status = 403 || erro.status == 401){
               swal("Erro", "Không có quyền thêm sp", "error");
             }
             else{
-              swal("Erro", "Create Failed", "error");
+              swal("Erro", "Tạo mới thất bại", "error");
             }
             console.log("erro",erro.status);
           })

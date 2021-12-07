@@ -21,10 +21,14 @@ import com.gymshop.entities.PaymentMethod;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @SuppressWarnings("serial")
-@Data
+@Data 
+@AllArgsConstructor 
+@NoArgsConstructor
 @Entity 
 @Table(name = "Orders")
 public class Order implements Serializable {
