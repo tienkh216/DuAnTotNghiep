@@ -21,34 +21,35 @@
           <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="categories.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Order</a></li>
-            <li class="active"><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i>List Order</a></li>
+            <li class="active"><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i>Order Detail</a></li>
           </ul>
         </div>
 
       </div>
     </div>
     <div class = "row"> 
-    	 <section>
+    	<section>
        <div class="container mt-5">
         <table class="table table-bordered table-hover text-center">
             <thead>
-              <tr>
+               <tr>
                 <th scope="col">#</th>
-                <th scope="col">Order No.</th>
-                <th scope="col">Order Date</th>
-                <th scope="col">Shipping Address</th>
-                <th scope="col"></th>
+                <th scope="col">Name</th>
+                <th scope="col">Price</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Amount</th>
               </tr>
             </thead>
             <tbody>
-             <tr th:each = "order,state:${orders}">
-                 <th scope="row">[[${state.index}]]</th>
-	             <td>[[${order.id}]]</td>
-	             <td>[[${order.createDate}]]</td>
-	             <td>[[${order.address}]]</td>
-                <td><a th:href = "@{|/order/detail/${order.id}|}"><i class="fa fa-search" aria-hidden="true"></i></a></td>
-              </tr>
-            </tbody>
+              <tr th:each = "detail:*{orderDetails}" th:object ="${detail}">
+	                <th scope="row">[[*{product.id}]]</th>
+	                <td>[[*{product.name}]]</td>
+	                <td>[[*{#numbers.formatDecimal(price,0,'COMMA',2,'POINT')}]]</td>
+	                <td>[[*{quantity}]]</td>
+	                <td>$[[*{#numbers.formatDecimal(price*quantity,0,'COMMA',2,'POINT')}]]</td>
+
+              </tr>            
+             </tbody>
           </table>
        </div>
    </section>

@@ -1,6 +1,7 @@
 package com.gymshop.entities;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -19,6 +20,8 @@ import lombok.ToString;
 
 @SuppressWarnings("serial")
 @Data
+@AllArgsConstructor 
+@NoArgsConstructor
 @Entity
 @Table(name = "Accounts")
 public class Account implements Serializable {

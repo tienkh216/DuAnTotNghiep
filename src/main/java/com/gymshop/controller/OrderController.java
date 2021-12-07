@@ -24,9 +24,11 @@ public class OrderController {
 		 System.out.println(orderService.findByUsername(username));
 	     return "client/site/ListOrder";
 	 }
-	 @RequestMapping("/order/detail/{id}")
+	 @RequestMapping("/client/orderDetail/{id}")
 		public String detail(@PathVariable("id") Long id, Model model) {
+		 	System.out.println(id);
 			model.addAttribute("order",orderService.findById(id));
-			return "";
+			System.out.println(orderService.findById(id));
+			return "client/site/OrderDetail";
 		}
 }
