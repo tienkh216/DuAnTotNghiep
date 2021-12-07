@@ -19,7 +19,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor 
 @NoArgsConstructor
 @Entity 
-@Table(name = "OrderDetails")
+@Table(name = "order_details")
 public class OrderDetail implements Serializable  {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
