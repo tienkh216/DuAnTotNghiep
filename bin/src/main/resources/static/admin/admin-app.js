@@ -14,10 +14,23 @@ app.config(function($routeProvider){
         controller:"order-ctrl"
     })
     .when("/customer",{
-        templateUrl:"/admin/customer/index.html",
-        controller:"customer-ctrl"
+        templateUrl:"/admin/accounts/index.html",
+        controller:"accounts-ctrl"
+    })
+    .when("/authority",{
+        templateUrl:"/admin/authority/index.html",
+        controller:"authority-ctrl"
+    })
+    .when("/chart",{
+        templateUrl:"/admin/chart/index.html",
+        controller:"chart-ctrl"
+    })
+    .when("/order-detail/:id",{
+        templateUrl:"/admin/order-detail/index.html",
+        controller:"order-detail-ctrl"
     })
     .otherwise({
-        template  : "<h1> FPT POLYTECHNIC </h1>"
+         templateUrl:"/admin/home/index.html",
+         controller:"home-ctrl"
     })
 })

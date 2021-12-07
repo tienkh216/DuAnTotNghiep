@@ -1,499 +1,276 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{client/dashboardLayout.html}">
 
-<head>
 
-</head>
 
 <body>
 
 
-<section class="row" layout:fragment="content">
+<div layout:fragment="content">
+  <link rel="stylesheet" type="text/css" th:href="@{../client/styles/categories_styles.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{../client/styles/categories_responsive.css}">
+  <div class="container product_section_container">
+    <div class="row">
+      <div class="col product_section clearfix">
 
+        <!-- Breadcrumbs -->
 
+        <div class="breadcrumbs d-flex flex-row align-items-center">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li class="active"><a href="index.html"><i class="fa fa-angle-right" aria-hidden="true"></i>product</a></li>
+          </ul>
+        </div>
 
-    <section class="page-title mt-5">
-        <div class="container">
+        <!-- Sidebar -->
+
+        <div class="sidebar">
+          <div class="sidebar_section">
+            <div class="sidebar_title">
+              <h5>Product Category</h5>
+            </div>
+            <ul class="sidebar_categories">
+
+              <li  class="grid_sorting_button active" data-filter="*"> <a href="#" class="sort_category"  > <span><i class="fa fa-angle-double-right" aria-hidden="true"></i></span> All </a></li>
+              <li th:each="c:${categories}" class="grid_sorting_button " th:data-filter="@{'.'+${c.id}}"   ><a href="#"><span><i class="fa fa-angle-double-right dis" disable aria-hidden="true"></i></span>[[${c.name}]]</a></li>
+
+            </ul>
+          </div>
+
+          <!-- Price Range Filtering -->
+          <div class="sidebar_section">
+            <div class="sidebar_title">
+              <h5>Filter by Price</h5>
+            </div>
+            <p>
+              <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+            </p>
+            <div id="slider-range"></div>
+            <div class="filter_button"><span>filter</span></div>
+          </div>
+
+          <!-- Sizes -->
+          <div class="sidebar_section">
+            <div class="sidebar_title">
+              <h5>Sizes</h5>
+            </div>
+            <ul class="checkboxes">
+              <li><i class="fa fa-square-o" aria-hidden="true"></i><span>S</span></li>
+              <li class="active"><i class="fa fa-square" aria-hidden="true"></i><span>M</span></li>
+              <li><i class="fa fa-square-o" aria-hidden="true"></i><span>L</span></li>
+              <li><i class="fa fa-square-o" aria-hidden="true"></i><span>XL</span></li>
+              <li><i class="fa fa-square-o" aria-hidden="true"></i><span>XXL</span></li>
+            </ul>
+          </div>
+
+          <!-- Color -->
+          <div class="sidebar_section">
+            <div class="sidebar_title">
+              <h5>Color</h5>
+            </div>
+            <ul class="checkboxes">
+              <li><i class="fa fa-square-o" aria-hidden="true"></i><span>Black</span></li>
+              <li class="active"><i class="fa fa-square" aria-hidden="true"></i><span>Pink</span></li>
+              <li><i class="fa fa-square-o" aria-hidden="true"></i><span>White</span></li>
+              <li><i class="fa fa-square-o" aria-hidden="true"></i><span>Blue</span></li>
+              <li><i class="fa fa-square-o" aria-hidden="true"></i><span>Orange</span></li>
+              <li><i class="fa fa-square-o" aria-hidden="true"></i><span>White</span></li>
+              <li><i class="fa fa-square-o" aria-hidden="true"></i><span>Blue</span></li>
+              <li><i class="fa fa-square-o" aria-hidden="true"></i><span>Orange</span></li>
+              <li><i class="fa fa-square-o" aria-hidden="true"></i><span>White</span></li>
+              <li><i class="fa fa-square-o" aria-hidden="true"></i><span>Blue</span></li>
+              <li><i class="fa fa-square-o" aria-hidden="true"></i><span>Orange</span></li>
+            </ul>
+            <div class="show_more">
+              <span><span>+</span>Show More</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Main Content -->
+
+        <div class="main_content">
+
+          <!-- Products -->
+
+          <div class="products_iso">
             <div class="row">
-                <div class="col-lg-3">
-                    <div class="shop-sidebar">
-                        <div class="widget">
-                            <div class="widget-title">
-                                <h5>Filter by price</h5>
-                            </div>
-                            <div class="mb-3">
-                                <div class="collapse">
-                                </div>
-                            </div>
-                            <div class="price-filter">
-                                <div class="price_label">
-                                    "Price :"
-                                    <span class="from">$10 遯ｶ�ｿｽ $382</span>
-                                </div>
-                                <a href="#"><i class="fa fa-filter"></i>Filter</a>
-                            </div>
-                        </div>
-                        <div class="widget">
-                            <div class="widget-title">
-                                <h5>Filter By Color</h5>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                <label class="form-check-label" for="flexCheckDefault">Black, brow
-                                </label>
-                                <span class="text-secondary">(2)</span>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                <label class="form-check-label" for="flexCheckDefault">Blue
-                                </label>
-                                <span class="text-secondary">(2)</span>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                <label class="form-check-label" for="flexCheckDefault">Dark Grey
-                                </label>
-                                <span class="text-secondary">(2)</span>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                <label class="form-check-label" for="flexCheckDefault">Pink
-                                </label>
-                                <span class="text-secondary">(2)</span>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                <label class="form-check-label" for="flexCheckDefault">Green
-                                </label>
-                                <span class="text-secondary">(2)</span>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                <label class="form-check-label" for="flexCheckDefault">Red
-                                </label>
-                                <span class="text-secondary">(2)</span>
-                            </div>
+              <div class="col">
 
-                        </div>
-                        <div class="widget">
-                            <div class="widget-title">
-                                <h5>Filter By Size</h5>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                <label class="form-check-label" for="flexCheckDefault">XS
-                                </label>
-                                <span class="text-secondary">(2)</span>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                <label class="form-check-label" for="flexCheckDefault"> SM
-                                </label>
-                                <span class="text-secondary">(2)</span>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                <label class="form-check-label" for="flexCheckDefault">LG
-                                </label>
-                                <span class="text-secondary">(2)</span>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                <label class="form-check-label" for="flexCheckDefault">XL
-                                </label>
-                                <span class="text-secondary">(2)</span>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                <label class="form-check-label" for="flexCheckDefault">XXL
-                                </label>
-                                <span class="text-secondary">(2)</span>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                <label class="form-check-label" for="flexCheckDefault">XXXL
-                                </label>
-                                <span class="text-secondary">(2)</span>
-                            </div>
+                <!-- Product Sorting -->
 
-                        </div>
-                        <div class="widget">
-                            <div class="widget-title">
-                                <h5>Categories</h5>
-                            </div>
-                            <div class="widget-categories">
-                                <ul class="list-unstyled list-style mb-0">
-                                    <li><a href="#">Pet health</a></li>
-                                    <li><a href="#">Daycare insurance</a></li>
-                                    <li><a href="#">General surgery</a></li>
-                                    <li><a href="#">24 Hour care</a></li>
-                                    <li><a href="#">In-House pharmacy</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="widget">
-                            <div class="widget-title">
-                                <h5>Fllow On</h5>
-                            </div>
-                            <div class="social">
-                                <ul class="list-unstyled">
-                                    <li>
-                                        <a href="#"> <i class="fa fa-facebook"></i> </a>
-                                    </li>
-                                    <li>
-                                        <a href="#"> <i class="fa fa-instagram"></i> </a>
-                                    </li>
-                                    <li>
-                                        <a href="#"> <i class="fa fa-twitter"></i> </a>
-                                    </li>
-                                    <li>
-                                        <a href="#"> <i class="fa fa-dribbble"></i> </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="widget">
-                            <div class="widget-title">
-                                <h5>Tags</h5>
-                            </div>
-                            <div class="tagcloud">
-                                <ul class="list-unstyled">
-                                    <li>
-                                        <a href="#"> <span> Bodybuilding </span></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"> <span> Class </span></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"> <span> Fitness </span></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"> <span> Coach </span></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"> <span> Fitness </span></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"> <span> Health </span></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"> <span> Workout </span></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"> <span> Training </span></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"> <span> Bootstrap </span></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"> <span> HTML5 </span></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"> <span> CSS3 </span></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="bg-holder px-4 py-5 bg-overlay-theme-70" th:style="'background: url(client/css/image/siderbar-banner.jpg);'" >
-                            <div class="position-relative">
-                                <span class="text-white">Accessories</span>
-                                <h2 class="text-secondary">SALE</h2>
-                                <a href="#" class="btn btn-secondary btn-sm mt-2"> <span> Click Here </span></a>
-                            </div>
-                        </div>
+                <div class="product_sorting_container product_sorting_container_top">
+                  <ul class="product_sorting">
+                    <li>
+                      <span class="type_sorting_text">Default Sorting</span>
+                      <i class="fa fa-angle-down"></i>
+                      <ul class="sorting_type">
+                        <li class="type_sorting_btn" data-isotope-option='{ "sortBy": "original-order" }'><span>Default Sorting</span></li>
+                        <li class="type_sorting_btn" data-isotope-option='{ "sortBy": "price" }'><span>Price</span></li>
+                        <li class="type_sorting_btn" data-isotope-option='{ "sortBy": "name" }'><span>Product Name</span></li>
+                      </ul>
+                    </li>
+                    <li>
+                      <span>Show</span>
+                      <span class="num_sorting_text">12</span>
+                      <i class="fa fa-angle-down"></i>
+                      <ul class="sorting_num">
+                        <li class="num_sorting_btn"><span>6</span></li>
+                        <li class="num_sorting_btn"><span>12</span></li>
+                        <li class="num_sorting_btn"><span>24</span></li>
+                      </ul>
+                    </li>
+                  </ul>
+                  <div class="pages d-flex flex-row align-items-center">
+                    <div class="page_current">
+                      <span>1</span>
+                      <ul class="page_selection">
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                      </ul>
                     </div>
-                </div>
-                <div class="col-lg-9 mt-5 mt-lg-0">
-                    <div class="row">
-                        <div class="col-lg-4">
-                            <div class="product-filter-header">
-                                <p class="product-filter-header__name">Product Filters</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col-lg-4 col-md-4 col-sm-4 mt-3">
-                            <input type="search" class="search-field mb-3" placeholder="Search products遯ｶ�ｽｦ" value="" name="s">
-                        </div>
-                        <div class="col-lg-4 col-md-4  col-sm-4 mt-3">
-                            <div class="select-accessories">
-                                <div class="select-accessories__name">
-                                    <p>Accessories</p>
-                                </div>
-                                <div class="select-accessories__icon">
-                                    <ion-icon name="chevron-down-outline"></ion-icon>
-                                </div>
-
-
-                                <div class="select-accessories__list">
-                                    <div class="select-accessories__search">
-                                        <input type="search" class="select-accessories__search-input">
-                                    </div>
-                                    <ul class="select-accessories__category">
-                                        <li class="select-accessories__category-item"><a href="#">Accessories</a></li>
-                                        <li class="select-accessories__category-item"><a href="#">Belt</a></li>
-                                        <li class="select-accessories__category-item"><a href="#">Chair</a></li>
-                                        <li class="select-accessories__category-item"><a href="#">Stick</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-sm-4 mt-3">
-                            <div class="select-accessories">
-                                <div class="select-accessories__name">
-                                    <p>Any Rating</p>
-                                </div>
-                                <div class="select-accessories__icon">
-                                    <ion-icon name="chevron-down-outline"></ion-icon>
-                                </div>
-
-
-                                <div class="select-accessories__list">
-                                    <div class="select-accessories__search">
-                                        <input type="search" class="select-accessories__search-input">
-                                    </div>
-                                    <ul class="select-accessories__category">
-                                        <li class="select-accessories__category-item"><a href="#">Anyrating</a></li>
-                                        <li class="select-accessories__category-item"><a href="#">5 Star</a></li>
-                                        <li class="select-accessories__category-item"><a href="#">4 Star</a></li>
-                                        <li class="select-accessories__category-item"><a href="#">3 Star</a></li>
-                                        <li class="select-accessories__category-item"><a href="#">2 Star</a></li>
-                                        <li class="select-accessories__category-item"><a href="#">1 Star</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="mt-3 col-lg-6 col-md-6">
-                            <div class="select-accessories">
-                                <div class="select-accessories__name">
-                                    <p>Any Color</p>
-                                </div>
-                                <div class="select-accessories__icon">
-                                    <ion-icon name="chevron-down-outline"></ion-icon>
-                                </div>
-
-
-                                <div class="select-accessories__list list__large">
-                                    <div class="select-accessories__search">
-                                        <input type="search" class="select-accessories__search-input">
-                                    </div>
-                                    <ul class="select-accessories__category">
-                                        <li class="select-accessories__category-item"><a href="#">Any Color</a></li>
-                                        <li class="select-accessories__category-item"><a href="#">Green</a></li>
-                                        <li class="select-accessories__category-item"><a href="#">Black</a></li>
-                                        <li class="select-accessories__category-item"><a href="#">White</a></li>
-                                        <li class="select-accessories__category-item"><a href="#">Red</a></li>
-                                        <li class="select-accessories__category-item"><a href="#">Purple</a></li>
-
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="mt-3 col-lg-6 col-md-6">
-                            <div class="select-accessories">
-                                <div class="select-accessories__name">
-                                    <p>Any Size</p>
-                                </div>
-                                <div class="select-accessories__icon">
-                                    <ion-icon name="chevron-down-outline"></ion-icon>
-                                </div>
-
-
-                                <div class="select-accessories__list list__large">
-                                    <div class="select-accessories__search">
-                                        <input type="search" class="select-accessories__search-input">
-                                    </div>
-                                    <ul class="select-accessories__category">
-                                        <li class="select-accessories__category-item"><a href="#">Any Size</a></li>
-                                        <li class="select-accessories__category-item"><a href="#">S</a></li>
-                                        <li class="select-accessories__category-item"><a href="#">M</a></li>
-                                        <li class="select-accessories__category-item"><a href="#">L</a></li>
-                                        <li class="select-accessories__category-item"><a href="#">XL</a></li>
-
-
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row  mt-3">
-                        <div class="col-lg-8 col-md-8 col-sm-8 col-8">
-                            <div class="search-result">
-                                <p class="search-result__name">Showing All 2 Results</p>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-4 col-sm-8 col-10">
-                            <div class="select-accessories">
-                                <div class="select-accessories__name">
-                                    <p>Default Sorting</p>
-                                </div>
-                                <div class="select-accessories__icon">
-                                    <ion-icon name="chevron-down-outline"></ion-icon>
-                                </div>
-
-
-                                <div class="select-accessories__list">
-                                    <div class="select-accessories__search">
-                                        <input type="search" class="select-accessories__search-input">
-                                    </div>
-                                    <ul class="select-accessories__category">
-                                        <li class="select-accessories__category-item"><a href="#">Default Sorting</a></li>
-                                        <li class="select-accessories__category-item"><a href="#">Sort By Latest</a></li>
-                                        <li class="select-accessories__category-item"><a href="#">Sort By Price</a></li>
-                                        <li class="select-accessories__category-item"><a href="#">Sort By Date</a></li>
-
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="row mt-4" >
-                        
-                        <div class="col-md-6 col-lg-4 col-sm-6 mb-5" th:each="p:${items}" >
-                            <div class="product">
-                                <div class="product-image">
-                                    <img th:src="@{|/client/images/${p.image}|}" alt="" class="img-fluid mx-auto">
-                                    <div class="product-overlay">
-                                        <div class="add-to-cart">
-                                            <a href="#" th:attr="ng-click=@{|cart.add(${p.id})|}">
-                                                <span>Add To Card</span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="product-description">
-                                    <div class="product-title">
-                                        <a href="#" class="product-title__link"><p  th:utext=" ${p.name}"></p></a>
-                                    </div>
-                                    <div class="product-price">
-                                        <del>[[${p.price}]]</del>
-                                        <ins>[[${p.price}]]</ins>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                      
-                       
-                       
-
-                    </div>
+                    <div class="page_total"><span>of</span> 3</div>
+                    <div id="next_page" class="page_next"><a href="#"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></div>
+                  </div>
 
                 </div>
 
+                <!-- Product Grid -->
+
+                <div class="product-grid">
+
+                  <!-- Product -->
+
+                  <div th:each="p:${items}" class="product-item"  th:classappend="${p.categoryId.id}">
+                    <div class="product discount product_filter">
+                      <div class="product_image">
+                        <img th:src="@{|/client/images/${p.image}|}" alt="">
+                      </div>
+                      <div class="favorite favorite_left"></div>
+                      <div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>-$20</span></div>
+                      <div class="product_info">
+                        <h6 class="product_name"><a th:href="@{|/client/productDetail/${p.id}|}" th:utext=" ${p.name}"></a></h6>
+                        <div class="product_price" >[[${p.price}]] VNĐ <span> [[${p.price}]] VNĐ</span></div>
+                      </div>
+                    </div>
+                    <div class="red_button add_to_cart_button"><a href="#" th:attr="ng-click=@{|cart.add(${p.id})|}">add to cart</a></div>
+                  </div>
 
 
+
+                </div>
+
+                <!-- Product Sorting -->
+
+                <div class="product_sorting_container product_sorting_container_bottom clearfix">
+                  <ul class="product_sorting">
+                    <li>
+                      <span>Show:</span>
+                      <span class="num_sorting_text">04</span>
+                      <i class="fa fa-angle-down"></i>
+                      <ul class="sorting_num">
+                        <li class="num_sorting_btn"><span>01</span></li>
+                        <li class="num_sorting_btn"><span>02</span></li>
+                        <li class="num_sorting_btn"><span>03</span></li>
+                        <li class="num_sorting_btn"><span>04</span></li>
+                      </ul>
+                    </li>
+                  </ul>
+                  <span class="showing_results">Showing 1â€“3 of 12 results</span>
+                  <div class="pages d-flex flex-row align-items-center">
+                    <div class="page_current">
+                      <span>1</span>
+                      <ul class="page_selection">
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                      </ul>
+                    </div>
+                    <div class="page_total"><span>of</span> 3</div>
+                    <div id="next_page_1" class="page_next"><a href="#"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></div>
+                  </div>
+
+                </div>
+
+              </div>
             </div>
-            <div class="pag row">
-                <div class="pagination">
-                    <a href="#">�ｾゑｽｫ</a>
-                    <a class="active" href="#">1</a>
-                    <a href="#">2</a>
-                    <a href="#">3</a>
-                    <a href="#">4</a>
-                    <a href="#">5</a>
-                    <a href="#">6</a>
-                    <a href="#">�ｾゑｽｻ</a>
-                </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Benefit -->
+
+  <div class="benefit">
+    <div class="container">
+      <div class="row benefit_row">
+        <div class="col-lg-3 benefit_col">
+          <div class="benefit_item d-flex flex-row align-items-center">
+            <div class="benefit_icon"><i class="fa fa-truck" aria-hidden="true"></i></div>
+            <div class="benefit_content">
+              <h6>free shipping</h6>
+              <p>Suffered Alteration in Some Form</p>
             </div>
+          </div>
         </div>
-
-        </div>
-    </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <section class="slick-slider bg-holder bg-overlay-black-50 ">
-        <!-- Create your own class for the containing div -->
-        <div class="container">
-            <div class="slick-sliderbox">
-                <div class="slick-tittle">
-                    <span class="sub-title text-secondary">
-                        <span class="title-shape me-2">welcome?</span> </span>
-                    <h2>SUPER SALE</h2>
-                    <div class="about-box-border-yellow">
-
-                    </div>
-                    <div class="about-box-border-blue">
-
-                    </div>
-                </div>
-
-                <div class="slick-carousel" style="margin-top: 50px;">
-                    <!-- Inside the containing div, add one div for each slide -->
-                    <div class="product">
-                        <!-- You can put an image or text inside each slide div -->
-                        <a href=""> <img style="width: 240px; height: 240px;" src="https://wheytot.com/images/pro/sua-tang-co-critical-whey-227g-75-lan-dung_6729.jpg"></a>
-                        <div class="tittle">tittle</div>
-                        <div class="price">50k</div>
-                    </div>
-                    <div class="product">
-                        <!-- You can put an image or text inside each slide div -->
-                        <a href=""> <img style="width: 240px; height: 240px;" src="https://wheytot.com/images/pro/sua-tang-co-critical-whey-227g-75-lan-dung_6729.jpg"></a>
-                        <div class="tittle">tittle</div>
-                        <div class="price">50k</div>
-                    </div>
-                    <div class="product">
-                        <!-- You can put an image or text inside each slide div -->
-                        <a href=""> <img style="width: 240px; height: 240px;" src="https://wheytot.com/images/pro/sua-tang-co-critical-whey-227g-75-lan-dung_6729.jpg"></a>
-                        <div class="tittle">tittle</div>
-                        <div class="price">50k</div>
-                    </div>
-                    <div class="product">
-                        <!-- You can put an image or text inside each slide div -->
-                        <a href=""> <img style="width: 240px; height: 240px;" src="https://wheytot.com/images/pro/sua-tang-co-critical-whey-227g-75-lan-dung_6729.jpg"></a>
-                        <div class="tittle">tittle</div>
-                        <div class="price">50k</div>
-                    </div>
-                    <div class="product">
-                        <!-- You can put an image or text inside each slide div -->
-                        <a href=""> <img style="width: 240px; height: 240px;" src="https://wheytot.com/images/pro/sua-tang-co-critical-whey-227g-75-lan-dung_6729.jpg"></a>
-                        <div class="tittle">tittle</div>
-                        <div class="price">50k</div>
-                    </div>
-                    <div class="product">
-                        <!-- You can put an image or text inside each slide div -->
-                        <a href=""> <img style="width: 240px; height: 240px;" src="https://wheytot.com/images/pro/sua-tang-co-critical-whey-227g-75-lan-dung_6729.jpg"></a>
-                        <div class="tittle">tittle</div>
-                        <div class="price">50k</div>
-                    </div>
-
-
-                </div>
+        <div class="col-lg-3 benefit_col">
+          <div class="benefit_item d-flex flex-row align-items-center">
+            <div class="benefit_icon"><i class="fa fa-money" aria-hidden="true"></i></div>
+            <div class="benefit_content">
+              <h6>cach on delivery</h6>
+              <p>The Internet Tend To Repeat</p>
             </div>
+          </div>
         </div>
-    </section>
+        <div class="col-lg-3 benefit_col">
+          <div class="benefit_item d-flex flex-row align-items-center">
+            <div class="benefit_icon"><i class="fa fa-undo" aria-hidden="true"></i></div>
+            <div class="benefit_content">
+              <h6>45 days return</h6>
+              <p>Making it Look Like Readable</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 benefit_col">
+          <div class="benefit_item d-flex flex-row align-items-center">
+            <div class="benefit_icon"><i class="fa fa-clock-o" aria-hidden="true"></i></div>
+            <div class="benefit_content">
+              <h6>opening all week</h6>
+              <p>8AM - 09PM</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Newsletter -->
+
+  <div class="newsletter">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="newsletter_text d-flex flex-column justify-content-center align-items-lg-start align-items-md-center text-center">
+            <h4>Newsletter</h4>
+            <p>Subscribe to our newsletter and get 20% off your first purchase</p>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="newsletter_form d-flex flex-md-row flex-column flex-xs-column align-items-center justify-content-lg-end justify-content-center">
+            <input id="newsletter_email" type="email" placeholder="Your email" required="required" data-error="Valid email is required.">
+            <button id="newsletter_submit" type="submit" class="newsletter_submit_btn trans_300" value="Submit">subscribe</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
 
-
-
-
-
-
-</section>
-
-
+</div>
 
 </body>
 

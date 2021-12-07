@@ -1,139 +1,118 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{client/dashboardLayout.html}">
 
-<head>
-
-</head>
-
-<body class="container" >
 
 
-<section class="row" layout:fragment="content">
-
-    <section class="slick-slider bg-holder bg-overlay-black-50 ">
-        <!-- Create your own class for the containing div -->
-        <div class="container">
-            <div class="slick-sliderbox">
-                <div class="slick-tittle">
-                        <span class="sub-title text-secondary">
-                        <span class="title-shape me-2">welcome?</span> </span>
-                    <h2>SUPER SALE</h2>
-                    <div class="about-box-border-yellow">
-
-                    </div>
-                    <div class="about-box-border-blue">
-
-                    </div>
-                </div>
-
-                <div class="slick-carousel" style="margin-top: 50px;">
-                    <!-- Inside the containing div, add one div for each slide -->
-                    <div class="product">
-                        <!-- You can put an image or text inside each slide div -->
-                        <a href=""> <img style="width: 240px; height: 240px;" th:src="@{/client/images/sua-tang-co-critical-whey-227g-75-lan-dung_6729.jpg}"></a>
-                        <div class="tittle">tittle</div>
-                        <div class="price">50k</div>
-                    </div>
-                    <div class="product">
-                        <!-- You can put an image or text inside each slide div -->
-                        <a href=""> <img style="width: 240px; height: 240px;" th:src="@{/client/images/sua-tang-co-critical-whey-227g-75-lan-dung_6729.jpg}"></a>
-                        <div class="tittle">tittle</div>
-                        <div class="price">50k</div>
-                    </div>
-                    <div class="product">
-                        <!-- You can put an image or text inside each slide div -->
-                        <a href=""> <img style="width: 240px; height: 240px;" th:src="@{/client/images/sua-tang-co-critical-whey-227g-75-lan-dung_6729.jpg}"></a>
-                        <div class="tittle">tittle</div>
-                        <div class="price">50k</div>
-                    </div>
-                    <div class="product">
-                        <!-- You can put an image or text inside each slide div -->
-                        <a href=""> <img style="width: 240px; height: 240px;" th:src="@{/client/images/sua-tang-co-critical-whey-227g-75-lan-dung_6729.jpg}"></a>
-                        <div class="tittle">tittle</div>
-                        <div class="price">50k</div>
-                    </div>
-                    <div class="product">
-                        <!-- You can put an image or text inside each slide div -->
-                        <a href=""> <img style="width: 240px; height: 240px;" th:src="@{/client/images/sua-tang-co-critical-whey-227g-75-lan-dung_6729.jpg}"></a>
-                        <div class="tittle">tittle</div>
-                        <div class="price">50k</div>
-                    </div>
-                    <div class="product">
-                        <!-- You can put an image or text inside each slide div -->
-                        <a href=""> <img style="width: 240px; height: 240px;" th:src="@{/client/images/sua-tang-co-critical-whey-227g-75-lan-dung_6729.jpg}"></a>
-                        <div class="tittle">tittle</div>
-                        <div class="price">50k</div>
-                    </div>
+<body>
 
 
-                </div>
-            </div>
+<div layout:fragment="content">
+
+  <link rel="stylesheet" type="text/css" th:href="@{/client/styles/main_styles.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{/client/styles/responsive.css}">
+  <!-- Slider -->
+
+  <div class="main_slider">
+    <div class="container fill_height">
+      <div class="row align-items-center fill_height">
+        <div class="col">
+          <div class="main_slider_content">
+            <h6>Spring 2022</h6>
+            <h1>Get up to 30% Off New Arrivals</h1>
+            <div class="red_button shop_now_button"><a href="#">shop now</a></div>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </div>
 
+  <!-- Banner -->
 
-
-
-
-
-
-
-    <section class="home-product bg-holder bg-overlay-black-50  ">
-        <div class="container">
-            <div class="home-product-box">
-                <div class="search-box">
-                    <div class="search">
-                        <input class="search-txt" type="text" name="" placeholder="Search Product">
-                        <a class="search-btn" href="#">
-                            <i class="fas fa-search"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="category-box">
-                    <div class="box">
-                        <div class="tittle">
-                            <a href="">abc abc </a>
-                            <a href="">abc abc </a>
-                            <a href="">abc abc </a>
-                            <a href="">abc abc </a>
-                            <a href="">abc abc </a></div>
-                    </div>
-
-                </div>
-
-                <div class="row">
-                    <div class="col-md-6 col-lg-4 col-sm-6 mb-5" th:each="p:${items}" >
-                            <div class="product">
-                                <div class="product-image">
-                                    <img th:src="@{|/client/images/${p.image}|}" alt="" class="img-fluid mx-auto">
-                                    <div class="product-overlay">
-                                        <div class="add-to-cart">
-                                            <a href="#" th:attr="ng-click=@{|cart.add(${p.id})|}">
-                                                <span>Add To Card</span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="product-description">
-                                    <div class="product-title">
-                                        <a href="#" class="product-title__link"><p  th:utext=" ${p.name}"></p></a>
-                                    </div>
-                                    <div class="product-price">
-                                        <del>[[${p.price}]]</del>
-                                        <ins>[[${p.price}]]</ins>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-
-
-
-                </div>
+  <div class="banner">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="banner_item align-items-center " th:style="'background-image: url(../client/images/banner_1.jpg) ;'" >
+            <div class="banner_category">
+              <a href="categories.html">gym accessories's</a>
             </div>
+          </div>
         </div>
-    </section>
+        <div class="col-md-4">
+          <div class="banner_item align-items-center" th:style="'background-image: url(../client/images/banner_2.jpg) ;'" >
+            <div class="banner_category">
+              <a href="categories.html">food supplement's</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="banner_item align-items-center" th:style="'background-image: url(../client/images/banner_3.jpg) ;'" >
+            <div class="banner_category">
+              <a href="categories.html">gym equipment's</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- New Arrivals -->
+
+  <div class="new_arrivals">
+    <div class="container">
+      <div class="row">
+        <div class="col text-center">
+          <div class="section_title new_arrivals_title">
+            <h2>New Arrivals</h2>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-5" style="height: 50px;">
+        <div class="col mt-3">
+          <div class="search-wrapper">
+            <div class="input-holder">
+              <input type="text" class="search-input" placeholder="Please enter here" />
+              <button class="search-icon" onclick="searchToggle(this, event);"><span></span></button>
+            </div>
+            <span class="close" onclick="searchToggle(this, event);"></span>
+          </div>
+        </div>
+      </div>
+      <div class="row align-items-center">
+        <div class="col text-center">
+          <div class="new_arrivals_sorting">
+            <ul class="arrivals_grid_sorting clearfix button-group filters-button-group">
+              <li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center active is-checked" data-filter="*">all</li>
+              <li th:each="c:${categories}" class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center" th:data-filter="@{'.'+${c.id}}">[[${c.name}]]</li>
+
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="product-grid" data-isotope='{ "itemSelector": ".product-item", "layoutMode": "fitRows" }'>
+
+            <!-- Product 1 -->
+            <div th:each="p:${items}" class="product-item"  th:classappend="${p.categoryId.id}">
+              <div class="product discount product_filter">
+                <div class="product_image">   <a th:href="@{|/client/productDetail/${p.id}|}">
+                  <img th:src="@{|/client/images/${p.image}|}" alt=""> </a>
+                </div>
+                <div class="favorite favorite_left"></div>
+<!--                <div class="product_bubble product_bubble_left d-flex flex-column align-items-center product_bubble_green" th:switch="${p.productStatus.id}">-->
+<!--                  <span th:case="1" >so 1</span>-->
+<!--                  <span  th:case="2">so 2</span>-->
+<!--                  <span  th:case="3">so 3</span>-->
+
+<!--                </div>-->
+                <div class="product_info">
+                  <h6 class="product_name"><a th:href="@{|/client/productDetail/${p.id}|}" th:utext=" ${p.name}"></a></h6>
+                  <div class="product_price" > {{[[${p.price}]] | currency:"":0 }} VNĐ <span> {{[[${p.price}*120/100]] | currency:"":0 }} VNĐ</span></div>
+                </div>
+              </div>
+              <div class="red_button add_to_cart_button"><a href="#" th:attr="ng-click=@{|cart.add(${p.id})|}">add to cart</a></div>
+            </div>
 
 
 
@@ -142,7 +121,225 @@
 
 
 
-</section>
+
+
+
+
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Deal of the week -->
+
+  <div class="deal_ofthe_week">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <div class="deal_ofthe_week_img">
+            <img th:src="@{../client/images/deal_ofthe_week.png}" alt="">
+          </div>
+        </div>
+        <div class="col-lg-6 text-right deal_ofthe_week_col">
+          <div class="deal_ofthe_week_content d-flex flex-column align-items-center float-right">
+            <div class="section_title">
+              <h2>Deal Of The Week</h2>
+            </div>
+            <ul class="timer">
+              <li class="d-inline-flex flex-column justify-content-center align-items-center">
+                <div id="day" class="timer_num">03</div>
+                <div class="timer_unit">Day</div>
+              </li>
+              <li class="d-inline-flex flex-column justify-content-center align-items-center">
+                <div id="hour" class="timer_num">15</div>
+                <div class="timer_unit">Hours</div>
+              </li>
+              <li class="d-inline-flex flex-column justify-content-center align-items-center">
+                <div id="minute" class="timer_num">45</div>
+                <div class="timer_unit">Mins</div>
+              </li>
+              <li class="d-inline-flex flex-column justify-content-center align-items-center">
+                <div id="second" class="timer_num">23</div>
+                <div class="timer_unit">Sec</div>
+              </li>
+            </ul>
+            <div class="red_button deal_ofthe_week_button"><a href="#">shop now</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Best Sellers -->
+
+  <div class="best_sellers">
+    <div class="container">
+      <div class="row">
+        <div class="col text-center">
+          <div class="section_title new_arrivals_title">
+            <h2>Best Sellers</h2>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="product_slider_container">
+            <div class="owl-carousel owl-theme product_slider">
+
+              <!-- Slide 1 -->
+
+              <div th:each="p:${items}" class="owl-item product_slider_item">
+                <div class="product-item">
+                  <div class="product discount">
+                    <div class="product_image">
+                      <img th:src="@{|/client/images/${p.image}|}" alt="">
+                    </div>
+                    <div class="favorite favorite_left"></div>
+                    <div
+                            class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center">
+                      <span>-Sale</span></div>
+                    <div class="product_info">
+                      <h6 class="product_name"><a th:href="@{|/client/productDetail/${p.id}|}" th:utext=" ${p.name}">abc</a></h6>
+                      <div class="product_price">{{[[${p.price}]] | currency:"":0 }} VNĐ<span>{{[[${p.price}*120/100]] | currency:"":0 }} VNĐ</span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Slide 1 -->
+
+
+
+
+
+
+
+
+
+
+            </div>
+
+            <!-- Slider Navigation -->
+
+            <div
+                    class="product_slider_nav_left product_slider_nav d-flex align-items-center justify-content-center flex-column">
+              <i class="fa fa-chevron-left" aria-hidden="true"></i>
+            </div>
+            <div
+                    class="product_slider_nav_right product_slider_nav d-flex align-items-center justify-content-center flex-column">
+              <i class="fa fa-chevron-right" aria-hidden="true"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Benefit -->
+
+  <div class="benefit">
+    <div class="container">
+      <div class="row benefit_row">
+        <div class="col-lg-3 benefit_col">
+          <div class="benefit_item d-flex flex-row align-items-center">
+            <div class="benefit_icon"><i class="fa fa-truck" aria-hidden="true"></i></div>
+            <div class="benefit_content">
+              <h6>free shipping</h6>
+              <p>Suffered Alteration in Some Form</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 benefit_col">
+          <div class="benefit_item d-flex flex-row align-items-center">
+            <div class="benefit_icon"><i class="fa fa-money" aria-hidden="true"></i></div>
+            <div class="benefit_content">
+              <h6>cach on delivery</h6>
+              <p>The Internet Tend To Repeat</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 benefit_col">
+          <div class="benefit_item d-flex flex-row align-items-center">
+            <div class="benefit_icon"><i class="fa fa-undo" aria-hidden="true"></i></div>
+            <div class="benefit_content">
+              <h6>45 days return</h6>
+              <p>Making it Look Like Readable</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 benefit_col">
+          <div class="benefit_item d-flex flex-row align-items-center">
+            <div class="benefit_icon"><i class="fa fa-clock-o" aria-hidden="true"></i></div>
+            <div class="benefit_content">
+              <h6>opening all week</h6>
+              <p>8AM - 09PM</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Blogs -->
+
+  <div class="blogs">
+    <div class="container">
+      <div class="row">
+        <div class="col text-center">
+          <div class="section_title">
+            <h2>Latest Blogs</h2>
+          </div>
+        </div>
+      </div>
+      <div class="row blogs_container">
+        <div class="col-lg-4 blog_item_col">
+          <div class="blog_item">
+            <div class="blog_background"  th:style="'background-image: url(../client/images/04.jpg) ;'"></div>
+            <div class="blog_content d-flex flex-column align-items-center justify-content-center text-center">
+              <h4 class="blog_title">Here are the trends I see coming this fall</h4>
+              <span class="blog_meta">by admin | dec 01, 2017</span>
+              <a class="blog_more" href="#">Read more</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 blog_item_col">
+          <div class="blog_item">
+            <div class="blog_background" th:style="'background-image: url(../client/images/06.jpg) ;'"></div>
+            <div class="blog_content d-flex flex-column align-items-center justify-content-center text-center">
+              <h4 class="blog_title">Here are the trends I see coming this fall</h4>
+              <span class="blog_meta">by admin | dec 01, 2017</span>
+              <a class="blog_more" href="#">Read more</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 blog_item_col">
+          <div class="blog_item">
+            <div class="blog_background" th:style="'background-image: url(../client/images/03.jpg) ;'"></div>
+            <div class="blog_content d-flex flex-column align-items-center justify-content-center text-center">
+              <h4 class="blog_title">Here are the trends I see coming this fall</h4>
+              <span class="blog_meta">by admin | dec 01, 2017</span>
+              <a class="blog_more" href="#">Read more</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+</div>
+
 
 
 </body>
