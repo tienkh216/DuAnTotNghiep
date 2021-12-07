@@ -44,7 +44,7 @@ public class orderRestController {
 		return orderService.findAll();
 	}
 	@GetMapping("{id}")
-	public Order getOne(@PathVariable("id") Long id) {
+	public Object getOne(@PathVariable("id") Long id) {
 			return orderService.findById(id);
 	}
 	
