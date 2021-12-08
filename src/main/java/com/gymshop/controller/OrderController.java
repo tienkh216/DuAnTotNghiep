@@ -21,14 +21,12 @@ public class OrderController {
 	 public String list(Model model, HttpServletRequest request) {
 		 String username = request.getRemoteUser();
 		 model.addAttribute("orders",orderService.findByUsername(username));
-		 System.out.println(orderService.findByUsername(username));
 	     return "client/site/ListOrder";
 	 }
 	 @RequestMapping("/client/orderDetail/{id}")
 		public String detail(@PathVariable("id") Long id, Model model) {
-		 	System.out.println(id);
+		 	//System.out.println(id);
 			model.addAttribute("order",orderService.findById(id));
-			System.out.println(orderService.findById(id));
 			return "client/site/OrderDetail";
 		}
 }

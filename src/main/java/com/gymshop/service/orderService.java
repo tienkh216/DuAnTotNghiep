@@ -8,7 +8,7 @@ import com.gymshop.entities.Order;
 public interface orderService {
 	List<Order> findAll();
 
-	Order findById(Long id);
+	Object findById(Long id);
 
 	Order update(Order order);
 

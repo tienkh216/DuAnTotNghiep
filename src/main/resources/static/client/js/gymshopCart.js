@@ -91,8 +91,18 @@ app.controller("ctrl",function($scope,$http){
 		paymentMethod:{id:1},
          account:{
 	 			username: $("#username").text(),
+<<<<<<< HEAD
 	 		
+=======
+>>>>>>> b339a05a2fd47e6595d496800c4819e1d997bfa8
 	 			},
+         orderStatus:{
+                id:1,
+         } ,
+         paymentMethod: {
+             id: 1,
+         },
+         notes:"",
          get orderDetails(){
              return $scope.cart.items.map(item =>{
                  return {
@@ -105,7 +115,7 @@ app.controller("ctrl",function($scope,$http){
          purchase(){
             var order = angular.copy(this);
             //Thực hiện đặt hàng
-            $http.post("/rest/client/orderList",order).then(resp =>{
+            $http.post("/test/checkout",order).then(resp =>{
                 alert("Đặt hàng thành công!");
                 $scope.cart.clear();
                 location.href="/client/orderDetail/" + resp.data.id;

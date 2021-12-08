@@ -13,12 +13,12 @@ import com.gymshop.service.orderService;
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping("/rest/client")
+@RequestMapping("/test/checkout")
 public class OrderListCreate {
 	@Autowired
 	orderService orderService;
 	
-	@PostMapping("/orderList")
+	@PostMapping()
 	public Order create(@RequestBody JsonNode orderData) {
 		return orderService.create(orderData);
 		
