@@ -21,36 +21,39 @@
           <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="categories.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Order</a></li>
-            <li class="active"><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i>Order Detail</a></li>
+            <li class="active"><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i>List Order</a></li>
           </ul>
         </div>
 
       </div>
     </div>
-   
-    
-    <div class = "row" th:object = "${order}">
-    	<section >
+     <div class="row">
+    	<a th:href="@{|/client/orderList|}"> Đơn Hàng</a>
+    </div>
+    <div class = "row"> 
+    	 <section>
        <div class="container mt-5">
         <table class="table table-bordered table-hover text-center">
             <thead>
-               <tr>
-              	 <th scope="col">Image</th>
-                <th scope="col">Name</th>
-                <th scope="col">Price</th>
-                <th scope="col">Quantity</th>
-                <th scope="col">Amount</th>
+              <tr>
+                <th scope="col">STT</th>
+                <th scope="col">Ngày Đặt</th>
+                <th scope="col">Địa Chỉ Giao Hàng</th>
+                <th scope="col">Tình Trạng Đơn Hàng</th>
+                <th scope="col">Notes</th>
+                <th scope="col"></th>
               </tr>
             </thead>
             <tbody>
-              <tr th:each = "detail:*{orderDetails}"  th:object ="${detail}">
-	                <td><img  style="height: 150px; width: 150px;" th:src="@{|/client/images/*{product.image}|}" alt=""></td>
-	                <td>[[*{product.name}]]</td>
-	                <td>[[*{#numbers.formatDecimal(price,0,'COMMA',2,'POINT')}]]</td>
-	                <td>[[*{quantity}]]</td>
-	                <td>$[[*{#numbers.formatDecimal(price*quantity,0,'COMMA',2,'POINT')}]]</td>
-              </tr>            
-             </tbody>
+             <tr th:each = "order,state:${orders}">
+                 <th scope="row">[[${state.index+1}]]</th>
+	             <td>[[${order.createDate}]]</td>
+	             <td>[[${order.address}]]</td>
+	             <td>[[${order.orderStatus.description}]]</td>
+	             <td>[[${order.notes}]]</td>
+                 <td><a th:href="@{|/client/orderDetail/${order.id}|}"><i class="fa fa-search" aria-hidden="true"></i></a></td>
+              </tr>
+            </tbody>
           </table>
        </div>
    </section>

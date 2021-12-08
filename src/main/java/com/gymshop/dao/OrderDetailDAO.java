@@ -12,7 +12,7 @@ import com.gymshop.entities.OrderDetail;
 
 public interface OrderDetailDAO extends JpaRepository<OrderDetail, Long> {
 
-	@Query(value = "select * from OrderDetails where OrderId =:id" , nativeQuery =true)
+	@Query(value = "select * from order_details where OrderId =:id" , nativeQuery =true)
     List<OrderDetail> findByOrderId(@Param("id") Long id);
 
 }
