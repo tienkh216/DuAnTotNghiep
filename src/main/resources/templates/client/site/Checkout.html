@@ -49,13 +49,12 @@
       <div class="information hidden ml-5">
         <div class="row mt-5">
           <div class="col-12 m-2">
-<<<<<<< HEAD
-            <div class="first-name" ><label >First Name:</label>
-            <span type="text"id="username">[[${#request.remoteUser}]]</span>
-=======
+
+          
+
             <div class="first-name"  ><label >First Name:</label>
             <span type="text" id = "username">[[${#request.remoteUser}]]</span>
->>>>>>> b339a05a2fd47e6595d496800c4819e1d997bfa8
+
             </div>
             
           </div>
@@ -84,16 +83,16 @@
       </div>
      <div class="address ml-5">
         <div class="row mt-5">
-          <div class="province col-6 p-2"><select name="ls_province" autofocus></select></div>
+          <div class="province col-6 p-2"><select name="ls_province" autofocus ng-bind="order.address"></select></div>
         </div>
         <div class="row mt-5">
-          <div class="col-6 p-2"> <select name="ls_district"></select></div>
-          <div class="col-6 p-2"><select name="ls_ward"></select></select></div>
+          <div class="col-6 p-2"> <select name="ls_district" ng-bind="order.quan"></select></div>
+          <div class="col-6 p-2"><select name="ls_ward" ng-bind="order.huyen"></select></div>
         </div>
 
         <div class="row mt-5">
           <label class="ml-2"> Note</label>
-          <div  class="col-12"><textarea class='autoExpand' ng-model="order.address" rows='3' data-min-rows='3' placeholder='Do you want to take notes?' ></textarea></div>
+          <div  class="col-12"><textarea class='autoExpand' ng-model="order.notes" rows='3' data-min-rows='3' placeholder='Do you want to take notes?' ></textarea></div>
         </div>
       </div>
       <div class="review ml-5"><div class="cart">
@@ -162,7 +161,7 @@
 
 
 
-          <div class="select" data-selected="true">
+        <button class="select" data-check="0" data-selected="true">
             <div class="check-box">
               <div class="check-dot"></div>
             </div>
@@ -172,9 +171,9 @@
 
             </div>
 
-          </div>
+          </button>
 
-          <div class="select">
+          <button class="select" data-check="1">
             <div class="check-box">
               <div class="check-dot"></div>
             </div>
@@ -184,7 +183,7 @@
               <h5>50000000000</h5>
 
             </div>
-          </div>
+          </button>
         </div>
       </div>
       </div>

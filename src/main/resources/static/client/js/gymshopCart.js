@@ -81,27 +81,22 @@ app.controller("ctrl",function($scope,$http){
 
     $scope.cart.loadFromLocalStorage();
 
+	$(document).on('focus','.select',function(){
+        console.log($(this).data('check'));
 
+    });
 
 
      $scope.order ={
-         createDate: new Date(),
-         address: "HVB",
+        createDate: new Date(),
+        address: "hcm",
+		notes:"",
 		orderStatus:{id:1},
-		paymentMethod:{id:1},
-         account:{
+		paymentMethod:{id:1,id:2},
+        account:{
 	 			username: $("#username").text(),
-<<<<<<< HEAD
-	 		
-=======
->>>>>>> b339a05a2fd47e6595d496800c4819e1d997bfa8
+
 	 			},
-         orderStatus:{
-                id:1,
-         } ,
-         paymentMethod: {
-             id: 1,
-         },
          notes:"",
          get orderDetails(){
              return $scope.cart.items.map(item =>{
