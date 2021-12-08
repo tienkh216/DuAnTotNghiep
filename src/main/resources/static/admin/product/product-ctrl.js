@@ -39,7 +39,7 @@ app.controller("product-ctrl", function($scope, $http, $rootScope) {
       }).then(resp =>{
           $scope.form.image = resp.data.name;
       }).catch(erro =>{
-          alert("Loi upload hinh anh");
+          alert("Lỗi Upload Hình Ảnh");
           console.log("Erro","erro");
       })
     }
@@ -51,15 +51,15 @@ app.controller("product-ctrl", function($scope, $http, $rootScope) {
           $scope.reset();
           $scope.close();
           $scope.initialize();
-          swal("Ok", "Successful Create", "success");
+          swal("Ok", "Tạo Thành Công", "success");
 
       })
       .catch(erro =>{
         if(erro.status = 403 || erro.status == 401){
-          swal("Erro", "Không có quyền thêm sp", "error");
+          swal("Erro", "Không Có Quyền Thêm Sản Phẩm", "error");
         }
         else{
-          swal("Erro", "Create Failed", "error");
+          swal("Erro", "Tạo Thất Bại", "error");
         }
         console.log("erro",erro.status);
       })
@@ -70,16 +70,17 @@ app.controller("product-ctrl", function($scope, $http, $rootScope) {
           var index = $scope.items.findIndex(p => p.id == item.id);
           $scope.items[index] = item;
           $scope.close();
-          swal("Ok", "Successful Update", "success");
           $scope.initialize();
+          swal("Ok", "Cập Nhật Thành Công", "success");
+         
       })
       .catch(erro =>{
         if(erro.status = 403 || erro.status == 401){
-          swal("Erro", "Không có quyền sửa", "error");
+          swal("Erro", "Không Có Quyền Sửa", "error");
           $scope.close();
         }
         else{
-          swal("Erro", "Update Failed", "error");
+          swal("Erro", "Cập Nhật Thất Bại", "error");
         }
         console.log("erro",erro.status);
       })
@@ -87,34 +88,35 @@ app.controller("product-ctrl", function($scope, $http, $rootScope) {
 
     $scope.delete =  function(item){
       swal({
-          title: "Are you sure?",
-          text: "Once deleted, you will not be able to recover this imaginary file!",
+          title: "Bạn Có Chắc",
+          text: "Bạn Có Muốn Xóa Không ?",
           icon: "warning",
           buttons: true,
           dangerMode: true,
         })
         .then((willDelete) => {
           if (willDelete) {
-            swal("Do you want to delete your account?", {
+            swal("Bạn Có Muốn Xóa Không ?", {
               icon: "success",
             });
             $http.delete(`/rest/products/${item}`).then(resp=>{
                   var index = $scope.items.findIndex(p => p.id == item);
                   $scope.items.splice(index,1);
                   $scope.reset();
-                  swal("Ok", "Successful Delete", "success");
+                  $scope.initialize();
+                  swal("Ok", "Xóa Thành Công", "success");
               })
               .catch(erro =>{
                   if(erro.status = 403 || erro.status == 401){
                     swal("Erro", "Không có quyền xóa", "error");
                   }
                   else{
-                    swal("Erro", "Delete Failed", "error");
+                    swal("Erro", "Xóa Thất Bại", "error");
                   }
                   console.log("erro",erro.status);
               })
           } else {
-            swal("cancel");
+            swal("Hủy");
           }
       });
     

@@ -1,9 +1,9 @@
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                    <h1 class="h3 mb-0 text-gray-800">Categories</h1>
+                    <h1 class="h3 mb-0 text-gray-800">Loại Sản Phẩm</h1>
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="./">Home</a></li>
-                        <li class="breadcrumb-item">Categories</li>
-                        <li class="breadcrumb-item active" aria-current="page">Category List</li>
+                        <li class="breadcrumb-item"><a href="./">Trang Chủ</a></li>
+                        <li class="breadcrumb-item">Loại Sản Phẩm</li>
+                        <li class="breadcrumb-item active" aria-current="page">Danh Sách Loại Sản Phẩm</li>
                     </ol>
                 </div>
 
@@ -12,15 +12,15 @@
                         <!-- Simple Tables -->
                         <div class="card">
                             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                <h6 class="m-0 font-weight-bold text-primary">Categories</h6>
+                                <h6 class="m-0 font-weight-bold text-primary">Loại Sản Phẩm</h6>
                             </div>
                             <div class="table-responsive">
                                 <table class="table align-items-center table-flush">
                                     <thead class="thead-light">
                                     <tr>
-                                        <th>Category ID</th>
-                                        <th>Name</th>
-                                        <th>Action</th>
+                                        <th>ID</th>
+                                        <th>Tên</th>
+                                        <th>Chỉnh Sửa Hoặc Xóa</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -28,8 +28,8 @@
                                         <td>{{item.id}}</td>
                                         <td>{{item.name}}</td>
                                         <td>
-                                            <button  ng-click = "edit(item)"  class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" id="#modalCenter">Edit</button>
-                                            <button  ng-click = "delete(item.id)" class="btn btn-danger">Delete</button>
+                                            <button  ng-click = "edit(item)"  class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" id="#modalCenter">Sửa </button>
+                                            <button  ng-click = "delete(item.id)" class="btn btn-danger">Xóa</button>
 
                                         </td>
                                     </tr>
@@ -46,7 +46,7 @@
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalCenterTitle">Edit Product</h5>
+                                <h5 class="modal-title" id="exampleModalCenterTitle">Sửa Loại Sản Phẩm</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -55,22 +55,22 @@
                                 <div class="card-body">
                                     <form>
                                         <div class="form-group">
-                                            <label for="exampleInputEmail1">Category ID</label>
-                                            <input type="text" ng-model ="form.id" readonly class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Product ID">
+                                            <label for="exampleInputEmail1">ID</label>
+                                            <input type="text" ng-model ="form.id" readonly class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="ID">
                                         </div>
                                         <div class="form-group">
-                                            <label for="exampleInputEmail1">Name</label>
-                                            <input type="text" ng-model ="form.name"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Name">
+                                            <label for="exampleInputEmail1">Tên</label>
+                                            <input type="text" ng-model ="form.name"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Tên">
                                         </div>
                                         
-                                        <button ng-click = "create()"   class="btn btn-info ">Create</button>
-                                        <button  ng-click = "update()"  class="btn btn-success">Update</button>
+                                        <button ng-click = "create()"   class="btn btn-info ">Tạo Mới</button>
+                                        <button  ng-click = "update()"  class="btn btn-success">Sửa</button>
                                         <button ng-click = "reset()"   class="btn btn-warning ">Reset</button>
                                     </form>
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Đóng</button>
                             </div>
                         </div>
                     </div>
