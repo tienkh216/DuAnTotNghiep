@@ -38,7 +38,11 @@ public class orderRestController {
 	public Long getOrderPending(){
 		return orderService.getPendingOrder();
 	}
-	
+	@PostMapping
+	public Order create(@RequestBody JsonNode orderData) {
+		return orderService.create(orderData);
+		
+	}
 	@GetMapping()
 	public List<Order> getAll(){
 		return orderService.findAll();

@@ -86,10 +86,12 @@ app.controller("ctrl",function($scope,$http){
 
      $scope.order ={
          createDate: new Date(),
-         address: "",
+         address: "HVB",
+		orderStatus:{id:1},
+		paymentMethod:{id:1},
          account:{
 	 			username: $("#username").text(),
-	 			fullname: $("#fullnamename").text()
+	 		
 	 			},
          get orderDetails(){
              return $scope.cart.items.map(item =>{
