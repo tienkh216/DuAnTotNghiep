@@ -20,7 +20,7 @@ app.controller("category-ctrl", function($scope, $http, $rootScope) {
             $scope.items[index] = item;
             $scope.close();
             $scope.initialize();
-            swal("Ok", "Successful Update", "success");
+            swal("Ok", "Cập Nhật Thành Công", "success");
         })
         .catch(erro =>{
             if(erro.status = 403 || erro.status == 401){
@@ -28,7 +28,7 @@ app.controller("category-ctrl", function($scope, $http, $rootScope) {
               $scope.close();
             }
             else{
-              swal("Erro", "Update Failed", "error");
+              swal("Erro", "Cập Nhật Thất Bại", "error");
             }
             console.log("erro",erro.status);
           })
@@ -36,15 +36,15 @@ app.controller("category-ctrl", function($scope, $http, $rootScope) {
      
     $scope.delete = function(item){
         swal({
-            title: "Are you sure?",
-            text: "Once deleted, you will not be able to recover this imaginary file!",
+            title: "Bạn Có Chắc",
+            text: "Bạn Có Muốn Xóa Không ?",
             icon: "warning",
             buttons: true,
             dangerMode: true,
           })
           .then((willDelete) => {
             if (willDelete) {
-              swal("Bạn có muốn xoa không", {
+              swal("Bạn Có Muốn Xóa Không ?", {
                 icon: "success",
               });
               $http.delete(`/rest/categories/${item}`).then(resp=>{
@@ -52,14 +52,14 @@ app.controller("category-ctrl", function($scope, $http, $rootScope) {
                     $scope.items.splice(index,1);
                     $scope.reset();
                     $scope.initialize();
-                    swal("Ok", "Successful Delete", "success");
-                })
+                    swal("Ok", "Xóa Thành Công", "success");
+                  })
                 .catch(erro =>{
                     if(erro.status = 403 || erro.status == 401){
                       swal("Erro", "Không có quyền xóa", "error");
                     }
                     else{
-                      swal("Erro", "Delete Failed", "error");
+                      swal("Erro", "Xóa Thất Bại", "error");
                     }
                     console.log("erro",erro.status);
                 })

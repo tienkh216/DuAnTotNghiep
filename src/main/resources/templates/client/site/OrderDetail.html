@@ -27,13 +27,19 @@
 
       </div>
     </div>
+   
+    <div class="row">
+    	<a th:href="@{|/client/orderList|}"> Đơn Hàng</a>
+    </div>
+    
+    
     <div class = "row" th:object = "${order}">
     	<section >
        <div class="container mt-5">
         <table class="table table-bordered table-hover text-center">
             <thead>
                <tr>
-                <th scope="col">#</th>
+              	 <th scope="col">Image</th>
                 <th scope="col">Name</th>
                 <th scope="col">Price</th>
                 <th scope="col">Quantity</th>
@@ -42,12 +48,11 @@
             </thead>
             <tbody>
               <tr th:each = "detail:*{orderDetails}"  th:object ="${detail}">
-	                <th scope="row">[[*{product.id}]]</th>
+	                <td><img  style="height: 150px; width: 150px;" th:src="@{|/client/images/*{product.image}|}" alt=""></td>
 	                <td>[[*{product.name}]]</td>
 	                <td>[[*{#numbers.formatDecimal(price,0,'COMMA',2,'POINT')}]]</td>
 	                <td>[[*{quantity}]]</td>
 	                <td>$[[*{#numbers.formatDecimal(price*quantity,0,'COMMA',2,'POINT')}]]</td>
-
               </tr>            
              </tbody>
           </table>

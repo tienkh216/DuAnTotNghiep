@@ -2,11 +2,15 @@ package com.gymshop.controller;
 
 import java.util.*;
 
+import javax.servlet.http.HttpServletRequest;
+
 import com.gymshop.dao.CategoryDAO;
 import com.gymshop.entities.Category;
 import com.gymshop.entities.ProductStatus;
+import com.gymshop.service.accountService;
 import com.gymshop.service.categoryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,6 +27,8 @@ public class ClientController {
     productService productService;
     @Autowired
     categoryService categoryService;
+    @Autowired
+    accountService accountService;
 
     @RequestMapping(value = {"/", "/client/home"}, method = RequestMethod.GET)
     public String homePage(Model model) {
@@ -38,21 +44,25 @@ public class ClientController {
 
 
     @RequestMapping("/client/product")
-    public String clientProduct(Model model, @RequestParam("cid") Optional<String> cid) {
-        if (cid.isPresent()) {
-            List<Product> list = productService.findByCategoryId(cid.get());
-            model.addAttribute("items", list);
-            List<Category> category = categoryService.findAll();
-            model.addAttribute("categories", category);
-        } else {
-            List<Product> list = productService.findAll();
-            model.addAttribute("items", list);
-            List<Category> category = categoryService.findAll();
-            model.addAttribute("categories", category);
+    public String clientProduct(Model model, @RequestParam("cid") Optional<String> cid,@Param("keyword") String keyword) {
+    	 if (cid.isPresent()) {
+             List<Product> list = productService.findByCategoryId(cid.get());
+             model.addAttribute("items", list);
+             List<Category> category = categoryService.findAll();
+             model.addAttribute("categories", category);
+             
+         } else {
+        	 List<Product> listProducts = productService.listAll(keyword);
+             model.addAttribute("items", listProducts);
+             model.addAttribute("keyword", keyword);
+             List<Category> category = categoryService.findAll();
+             model.addAttribute("categories", category);
         }
         return ("client/site/Products");
     }
 
+    
+    
     @RequestMapping("/client/cart")
     public String shoppingCart(Model model) {
         return ("client/site/ShoppingCart");
@@ -68,6 +78,14 @@ public class ClientController {
     	Product item =productService.findById(id); 
 		 model.addAttribute("items",item);
         return ("client/site/ProductDetail");
+    }
+    
+    
+    @RequestMapping("/client/editProfile")
+    public String editProfile(Model model, HttpServletRequest request ) {
+    	String username = request.getRemoteUser();
+    	model.addAttribute("accounts",accountService.findById(username));
+        return ("client/site/Profile");
     }
 
 }

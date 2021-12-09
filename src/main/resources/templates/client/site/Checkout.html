@@ -52,6 +52,7 @@
           <div class="col-12 m-2">
 
             <div class="first-name"  ><label >Họ Và Tên:</label>
+
             <span type="text" id = "username">[[${#request.remoteUser}]]</span>
 
             </div>
@@ -78,6 +79,7 @@
       </div>
      <div class="address ml-5">
         <div class="row mt-5">
+
           <div class="province col-6 p-2"><select name="ls_province" class="ls_province" autofocus></select></div>
         </div>
         <div class="row mt-5">
@@ -88,6 +90,7 @@
         <div class="row mt-5">
           <label class="ml-2"> Specific Address</label>
           <div  class="col-12"><textarea class='autoExpand' id="specific_address" rows='3' data-min-rows='3' placeholder='Nhập địa chỉ cụ thể(Số nhà - Tên Đường)' ></textarea></div>
+
         </div>
        <div class="row mt-5">
          <label class="ml-2"> Note</label>
@@ -155,7 +158,9 @@
 
 
 
+
         <button class="select" data-check="1" data-selected="true">
+
             <div class="check-box">
               <div class="check-dot"></div>
             </div>
@@ -166,6 +171,7 @@
           </button>
 
           <button class="select" data-check="2" data-selected="false">
+
             <div class="check-box">
               <div class="check-dot"></div>
             </div>
@@ -174,7 +180,6 @@
               <h5 > <span>Với số tiền: </span>{{tinhTongtien()|currency:"":0 }}</h5>
             </div>
           </button>
-
 
 
 
