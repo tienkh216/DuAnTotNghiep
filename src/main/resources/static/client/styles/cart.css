@@ -217,7 +217,7 @@
 	 background: #f30;
 }
  .promoCode {
-	 border: 2px solid #efefef;
+
 	 float: left;
 	 width: 35%;
 	 padding: 2%;
@@ -288,7 +288,7 @@
 	 right: -10px;
 }
  .promoCode .btn {
-	 font-size: 0.85em;
+	 font-size: 16px;
 	 paddding: 0.5em 2em;
 }
 /* TOTAL AND CHECKOUT */
