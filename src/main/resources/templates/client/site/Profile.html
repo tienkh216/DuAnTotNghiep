@@ -7,6 +7,8 @@
 
 
 <div layout:fragment="content">
+<link rel="stylesheet" type="text/css" th:href="@{../client/styles/categories_styles.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{../client/styles/categories_responsive.css}">
   <style>
 
 
@@ -51,7 +53,7 @@
     }
 
     .button-two span:after {
-      content: '»';
+      content: 'Â»';
       position: absolute;
       opacity: 0;
       top: 0;
@@ -76,17 +78,15 @@
       <!-- left column -->
       <div class="col-md-3">
         <div class="text-center">
-          <img src="https://bootdey.com/img/Content/avatar/avatar7.png" class="avatar img-circle img-thumbnail" alt="avatar">
-
-
-          <input type="file" class="form-control">
+          <img th:src="@{|/assets/images/${accounts.image}|}"  class="avatar img-circle img-thumbnail" alt="avatar">
+	      <input type="file" class="form-control">
         </div>
       </div>
 
       <!-- edit form column -->
       <div class="col-md-9 personal-info">
         <!-- <div class="alert alert-info alert-dismissable">
-          <a class="panel-close close" data-dismiss="alert">×</a>
+          <a class="panel-close close" data-dismiss="alert">Ã—</a>
           <i class="fa fa-coffee"></i>
           This is an <strong>.alert</strong>. Use this to show important messages to the user.
         </div> -->
@@ -94,19 +94,19 @@
 
         <form class="form-horizontal" role="form">
           <div class="form-group">
-            <label class="col-lg-3 control-label">Họ Và Tên:</label>
+            <label class="col-lg-3 control-label">Họ Và Tên</label>
             <div class="col-lg-8">
-              <input class="form-control text-primary" type="text" value="Tiến Béo">
+              <input th:value="${accounts.fullname}"  class="form-control text-primary" type="text" >
             </div>
           </div>
           <div class="form-group">
             <label class="col-lg-3 control-label">Email:</label>
             <div class="col-lg-8">
-              <input class="form-control text-primary" type="text" value="Tiếnbeo123@gmail.com">
+              <input  th:value="${accounts.email}" class="form-control text-primary" type="text" >
             </div>
           </div>
           <div class="form-group">
-            <label class="col-lg-3 control-label">Phone Numbe:</label>
+            <label class="col-lg-3 control-label">Số Điện Thoại:</label>
             <div class="col-lg-8">
               <input class="form-control text-primary" type="text" value="012412515">
             </div>

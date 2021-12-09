@@ -88,6 +88,10 @@ app.controller("ctrl",function($scope,$http){
 
     $scope.cart.loadFromLocalStorage();
 
+	$(document).on('focus','.select',function(){
+        console.log($(this).data('check'));
+
+    });
 
 
 
@@ -181,6 +185,8 @@ app.controller("ctrl",function($scope,$http){
 
     $scope.order ={
         createDate: new Date(),
+
+
          purchase(){
             var order = angular.copy($scope.listOrder);
             debugger

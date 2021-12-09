@@ -27,26 +27,34 @@
 
       </div>
     </div>
+   <div class="row">
+    	<a th:href="@{|/client/cancelOrderList|}"> Đơn Hàng Đã Hủy</a>
+    </div>
+   
     <div class = "row"> 
     	 <section>
        <div class="container mt-5">
         <table class="table table-bordered table-hover text-center">
             <thead>
               <tr>
-                <th scope="col">#</th>
-                <th scope="col">Order No.</th>
-                <th scope="col">Order Date</th>
-                <th scope="col">Shipping Address</th>
+                <th scope="col">STT</th>
+                <th scope="col">Ngày Đặt</th>
+                <th scope="col">Địa Chỉ Giao Hàng</th>
+                <th scope="col">Tình Trạng Đơn Hàng</th>
+                <th scope="col">Notes</th>
+                <th scope="col">Hủy Đơn Hàng</th>
                 <th scope="col"></th>
               </tr>
             </thead>
             <tbody>
              <tr th:each = "order,state:${orders}">
-                 <th scope="row">[[${state.index}]]</th>
-	             <td>[[${order.id}]]</td>
+                 <th scope="row">[[${state.index+1}]]</th>
 	             <td>[[${order.createDate}]]</td>
 	             <td>[[${order.address}]]</td>
-                <td><a th:href = "@{|/client/orderDetail/${order.id}|}"><i class="fa fa-search" aria-hidden="true"></i></a></td>
+	             <td>[[${order.orderStatus.description}]]</td>
+	             <td>[[${order.notes}]]</td>
+	             <td><a th:href="@{|/client/cancelOrder/${order.id}|}"><i class="fa fa-trash-o" aria-hidden="true"></i></a></td>
+                 <td><a th:href="@{|/client/orderDetail/${order.id}|}"><i class="fa fa-search" aria-hidden="true"></i></a></td>
               </tr>
             </tbody>
           </table>
