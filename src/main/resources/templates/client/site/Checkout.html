@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{client/dashboardLayout.html}">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{client/dashboardLayout.html}" xmlns="http://www.w3.org/1999/html">
 
 
 
@@ -50,30 +51,25 @@
         <div class="row mt-5">
           <div class="col-12 m-2">
 
-          
+            <div class="first-name"  ><label >Họ Và Tên:</label>
 
-            <div class="first-name"  ><label >First Name:</label>
             <span type="text" id = "username">[[${#request.remoteUser}]]</span>
 
             </div>
             
           </div>
         </div>
+
         <div class="row mt-5">
           <div class="col-12 m-2">
-            <div class="last-name"><label >Last Name</label><input type="text"></div>
-          </div>
-        </div>
-        <div class="row mt-5">
-          <div class="col-12 m-2">
-            <div class="phone-number"><label >Buy day</label>
+            <div class="phone-number"><label >Ngày Mua</label>
 	<span type="text">{{order.createDate|date:'dd-MM-yyyy'}}</span>
             </div>
           </div>
         </div>
         <div class="row mt-5">
           <div class="col-12 m-2">
-            <div class="phone-number"><label >Email</label><input type="text">
+            <div class="phone-number"><label >Số Điện Thoại </label><input type="text">
             </div>
           </div>
         </div>
@@ -83,25 +79,27 @@
       </div>
      <div class="address ml-5">
         <div class="row mt-5">
-          <div class="province col-6 p-2"><select name="ls_province" autofocus ng-bind="order.address"></select></div>
+
+          <div class="province col-6 p-2"><select name="ls_province" class="ls_province" autofocus></select></div>
         </div>
         <div class="row mt-5">
-          <div class="col-6 p-2"> <select name="ls_district" ng-bind="order.quan"></select></div>
-          <div class="col-6 p-2"><select name="ls_ward" ng-bind="order.huyen"></select></div>
+          <div class="col-6 p-2"> <select name="ls_district" class="ls_district" ></select></div>
+          <div class="col-6 p-2"><select name="ls_ward" class="ls_ward" ></select></div>
         </div>
 
         <div class="row mt-5">
-          <label class="ml-2"> Note</label>
-          <div  class="col-12"><textarea class='autoExpand' ng-model="order.notes" rows='3' data-min-rows='3' placeholder='Do you want to take notes?' ></textarea></div>
+          <label class="ml-2"> Specific Address</label>
+          <div  class="col-12"><textarea class='autoExpand' id="specific_address" rows='3' data-min-rows='3' placeholder='Nhập địa chỉ cụ thể(Số nhà - Tên Đường)' ></textarea></div>
+
         </div>
+       <div class="row mt-5">
+         <label class="ml-2"> Note</label>
+         <div  class="col-12"><textarea class='autoExpand' id="note" ng-model="order.notes" rows='3' data-min-rows='3' placeholder='Ghi Chú' ></textarea></div>
+       </div>
       </div>
-      <div class="review ml-5"><div class="cart">
-        <!-- <ul class="tableHead">
-           <li class="prodHeader">Product</li>
-           <li>Quantity</li>
-           <li>Total</li>
-            <li>Remove</li>
-         </ul> -->
+      <div class="review ml-5">
+        <div class="cart">
+
         <ul class="cartWrap">
           <div class="row mt-5">
          <div class="heading cf">
@@ -115,7 +113,7 @@
           <li>Remove</li>
        </ul> -->
       <ul class="cartWrap">
-		
+
         <li class="items even" ng-repeat="item in cart.items">
 
           <div class="infoWrap">
@@ -135,17 +133,17 @@
             <div class="prodTotal cartSection">
               <p> {{item.qty*item.price|currency:"":0 }}</p>
             </div>
-           
+
           </div>
         </li>
-		
+
 
 
         <!--<li class="items even">Item 2</li>-->
 
       </ul>
     </div>
-       
+
         </div>
 
 
@@ -161,29 +159,31 @@
 
 
 
-        <button class="select" data-check="0" data-selected="true">
+        <button class="select" data-check="1" data-selected="true">
+
             <div class="check-box">
               <div class="check-dot"></div>
             </div>
             <div class="titles">
-              <h4>Payment on delivery</h4>
-              <h5>50000000000</h5>
-
+              <h4>Thanh Toán Khi Nhận Hàng</h4>
+              <h5 ><span>Với số tiền: </span>{{tinhTongtien()|currency:"":0 }}</h5>
             </div>
-
           </button>
 
-          <button class="select" data-check="1">
+          <button class="select" data-check="2" data-selected="false">
+
             <div class="check-box">
               <div class="check-dot"></div>
             </div>
             <div class="titles">
-
-              <h4>Payment with cart</h4>
-              <h5>50000000000</h5>
-
+              <h4>Thanh Toán Qua Thẻ Tín Dụng</h4>
+              <h5 > <span>Với số tiền: </span>{{tinhTongtien()|currency:"":0 }}</h5>
             </div>
           </button>
+
+
+
+
         </div>
       </div>
       </div>

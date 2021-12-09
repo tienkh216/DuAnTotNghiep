@@ -122,6 +122,12 @@
                       </ul>
                     </li>
                   </ul>
+                  
+             	<div class="mt-3">
+             		<form th:action="@{/client/product}">
+						<input type="text" name="keyword" id="keyword"  th:value="${keyword}" required />&nbsp;<input type="submit" value="Search" /> &nbsp;
+				 </form>
+             	</div>
                   <div class="pages d-flex flex-row align-items-center">
                     <div class="page_current">
                       <span>1</span>
@@ -142,17 +148,19 @@
                 <div class="product-grid">
 
                   <!-- Product -->
+						
+
 
                   <div th:each="p:${items}" class="product-item"  th:classappend="${p.categoryId.id}">
                     <div class="product discount product_filter">
                       <div class="product_image">
-                        <img th:src="@{|/client/images/${p.image}|}" alt="">
+                        <img th:src="@{|/assets/images/${p.image}|}" alt="">
                       </div>
                       <div class="favorite favorite_left"></div>
                       <div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>-$20</span></div>
                       <div class="product_info">
                         <h6 class="product_name"><a th:href="@{|/client/productDetail/${p.id}|}" th:utext=" ${p.name}"></a></h6>
-                        <div class="product_price" >[[${p.price}]] VNĐ <span> [[${p.price}]] VNĐ</span></div>
+                        <div class="product_price" >[[${p.price}]] VNÄ� <span> [[${p.price}]] VNÄ�</span></div>
                       </div>
                     </div>
                     <div class="red_button add_to_cart_button"><a href="#" th:attr="ng-click=@{|cart.add(${p.id})|}">add to cart</a></div>
@@ -178,7 +186,7 @@
                       </ul>
                     </li>
                   </ul>
-                  <span class="showing_results">Showing 1â€“3 of 12 results</span>
+                  <span class="showing_results">Showing 1Ã¢â‚¬â€œ3 of 12 results</span>
                   <div class="pages d-flex flex-row align-items-center">
                     <div class="page_current">
                       <span>1</span>
@@ -271,6 +279,12 @@
 
 
 </div>
+<script type="text/javascript">
+    function clearSearch() {
+        window.location = "[[@{/client/product}]]";
+    }
+</script>
+
 
 </body>
 
