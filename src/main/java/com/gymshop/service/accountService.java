@@ -16,5 +16,7 @@ public interface accountService {
 	void delete (String username);
 	
 	Long getCount();
+
+	void save(Account acc);
 	
 }
