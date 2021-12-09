@@ -63,8 +63,16 @@ public class productServiceImpl implements productService{
 
 	@Override
 	public Product findById(Long id) {
-		// TODO Auto-generated method stub
+		
 		return dao.findById(id).get();
+	}
+
+	@Override
+	public List<Product> listAll(String keyword) {
+		if(keyword !=null) {
+			return dao.searchProduct(keyword);
+		}
+		return dao.findAll();
 	}
 
 
