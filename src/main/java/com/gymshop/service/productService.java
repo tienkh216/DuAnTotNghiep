@@ -6,8 +6,11 @@ import com.gymshop.entities.Category;
 import com.gymshop.entities.Product;
 
 public interface productService {
+	 
 
 	List<Product> findByCategoryId(String string);
+	
+	public List<Product> listAll(String keyword) ;
 
 	List<Product> findAll();
 

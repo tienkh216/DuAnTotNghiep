@@ -18,6 +18,8 @@ public interface ProductDAO extends JpaRepository<Product, Long> {
 			+ "% or category.name like %"+":name"+ "%", nativeQuery =true)
 	List<Product> findByName(@Param("name") String name);
 	
+	
+	
 	@Query(value ="select * "
 			+ "from product join category on product.category_id ="
 			+ "category.id where category.name = :name", nativeQuery =true)
@@ -36,9 +38,11 @@ public interface ProductDAO extends JpaRepository<Product, Long> {
 			"ORDER BY create_date;",nativeQuery =true )
 	List<Product> findTopProductWithProductStatus(@Param("productStatus") String productStatus);
 
-	@Query(value = "SELECT DISTINCT category_id\n" +
-			"FROM Products",nativeQuery =true )
+	@Query(value = "SELECT DISTINCT category_id\n" +"FROM Products",nativeQuery =true )
 	List<Category> getCategoryId();
 
+
+	@Query("SELECT p FROM Product p WHERE p.name LIKE %?1%")
+	public List<Product> searchProduct(String name);
 
 }
