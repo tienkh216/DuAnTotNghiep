@@ -58,7 +58,7 @@
 
 
               <div class="col-md-4 text-center" style="padding: 0px; margin: 0px;">
-                <a href="#" ng-click="cart.remove(item.id)"> <img th:src="@{/client/images/x1.jpg}" style="width: 20px" class="close-button" alt=""></a>
+                <a href="#" ng-click="cart.remove(item.id)"> <img th:src="@{/client/images/Xbutton.jpg}" style="width: 20px" class="close-button" alt=""></a>
               </div>
             </div>
           </div>
@@ -71,7 +71,11 @@
       </ul>
     </div>
 
-    <div class="promoCode"><a  class="btn continue">Xoá tất cả</a></div>
+    <div class="promoCode"><a><button class="btn btn-delete">
+        <span class="mdi mdi-delete mdi-24px"></span>
+        <span class="mdi mdi-delete-empty mdi-24px"></span>
+        <span>Xoá tất cả</span>
+    </button></a></div>
 
     <div class="subtotal cf">
       <ul>
