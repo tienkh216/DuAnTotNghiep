@@ -15,10 +15,10 @@ app.controller("accounts-ctrl", function($scope, $http, $rootScope) {
             $scope.items.push(resp.data);
             $scope.reset();
             $scope.close();
-            swal("Ok", "Successful Create", "success");
+            swal("Ok", "Tạo Thành Công", "success");
         })
         .catch(erro =>{
-            swal("Erro", "Create Failed", "error");
+            swal("Erro", "Cập Nhật Thất Bại", "error");
             console.log(erro);
         })
      }
@@ -35,10 +35,10 @@ app.controller("accounts-ctrl", function($scope, $http, $rootScope) {
         }).then(resp =>{
             $scope.form.image = resp.data.name;
         }).catch(erro =>{
-            alert("Loi upload hinh anh");
+            alert("Lỗi Upload Hình Ảnh");
             console.log("Erro","erro");
         })
-    }
+      }
     $scope.update =  function(){
         var item = angular.copy($scope.form);
         $http.put(`/rest/accounts/${item.username}`,item).then(resp=>{
@@ -46,10 +46,10 @@ app.controller("accounts-ctrl", function($scope, $http, $rootScope) {
             $scope.items[index] = item;
             $scope.close();
             $scope.initialize();
-            swal("Ok", "Successful Update", "success");
+            swal("Ok", "Cập Nhật Thành Công", "success");
         })
         .catch(erro =>{
-            swal("Erro", "Update Failed", "error");
+            swal("Erro", "Cập Nhật Thất Bại", "error");
             console.log("erro",erro);
         })
     }
@@ -61,30 +61,30 @@ app.controller("accounts-ctrl", function($scope, $http, $rootScope) {
     }
     $scope.delete =  function(item){
         swal({
-            title: "Are you sure?",
-            text: "Once deleted, you will not be able to recover this imaginary file!",
+            title: "Bạn Có Chắc",
+            text: "Bạn Có Muốn Xóa Không ?",
             icon: "warning",
             buttons: true,
             dangerMode: true,
           })
           .then((willDelete) => {
             if (willDelete) {
-              swal("Do you want to delete your account?", {
-                icon: "success",
+                swal("Bạn Có Muốn Xóa Không ?", {
+                    icon: "success",
               });
                 $http.delete(`/rest/accounts/${item}`).then(resp=>{
                     var index = $scope.items.findIndex(p => p.id == item);
                     $scope.items.splice(index,1);
                     $scope.reset();
                     $scope.initialize();
-                    swal("Ok", "Successful Delete", "success");
-                 })
+                    swal("Ok", "Xóa Thành Công", "success");
+                })
                  .catch(erro =>{
-                    swal("Erro", "Delete Failed", "error");
+                    swal("Erro", "Xóa Thất Bại", "error");
                     console.log("erro",erro);
                  })
             } else {
-              swal("cancel");
+              swal("Hủy");
             }
         });
     }

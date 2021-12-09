@@ -10,11 +10,11 @@
   <link rel="stylesheet" type="text/css" th:href="@{/client/styles/categories_styles.css}">
   <link rel="stylesheet" type="text/css" th:href="@{/client/styles/categories_responsive.css}">
 
-
+  <link rel="stylesheet" type="text/css" th:href="@{/client/styles/cart.css}">
 
   <!-- content -->
 
-  <link rel="stylesheet" type="text/css" href="styles/cart.css">
+
 
   <div class="wrap cf">
 
@@ -24,6 +24,8 @@
       <h1>My Cart</h1>
       <a href="#" class="continue">Continue Shopping</a>
     </div>
+
+
     <div class="cart">
       <!-- <ul class="tableHead">
          <li class="prodHeader">Product</li>
@@ -53,7 +55,11 @@
               <p> {{item.qty*item.price|currency:"":0 }}</p>
             </div>
             <div class="cartSection removeWrap">
-              <a href="#" ng-click="cart.remove(item.id)" class="remove">x</a>
+
+
+              <div class="col-md-4 text-center" style="padding: 0px; margin: 0px;">
+                <a href="#" ng-click="cart.remove(item.id)"> <img th:src="@{/client/images/x1.jpg}" style="width: 20px" class="close-button" alt=""></a>
+              </div>
             </div>
           </div>
         </li>
@@ -65,16 +71,12 @@
       </ul>
     </div>
 
-    <div class="promoCode"><label >Have A Promo Code?</label><input type="text" name="promo" placholder="Enter Code" />
-      <a href="#" class="btn"></a></div>
+    <div class="promoCode"><a  class="btn continue">Xoá tất cả</a></div>
 
     <div class="subtotal cf">
       <ul>
         <li class="totalRow"><span class="label">Subtotal</span><span class="value"></span></li>
-
         <li class="totalRow"><span class="label">Shipping</span><span class="value">Free ship</span></li>
-
-        <li class="totalRow"><span class="label">Tax</span><span class="value">$4.00</span></li>
         <li class="totalRow final"><span class="label">Total</span><span class="value">{{tinhTongtien()|currency:"":0 }}</span></li>
         <li class="totalRow"><a th:href="@{/client/checkout}" class="btn continue">Checkout</a></li>
       </ul>

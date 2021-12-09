@@ -1,6 +1,10 @@
 const app=angular.module("app",[]);
 
 app.controller("ctrl",function($scope,$http){
+
+
+
+
     $scope.tinhTongtien = function()
     {
         var tongTien = 0;
@@ -13,6 +17,10 @@ app.controller("ctrl",function($scope,$http){
         }
         return tongTien;
     }
+
+
+
+
     //QUẢN LÝ GIỎ HÀNG
     $scope.cart={
         items:[],
@@ -76,7 +84,6 @@ app.controller("ctrl",function($scope,$http){
             this.items = json ? JSON.parse(json) :[];
         }
 
-
     }
 
     $scope.cart.loadFromLocalStorage();
@@ -84,30 +91,99 @@ app.controller("ctrl",function($scope,$http){
 
 
 
-     $scope.order ={
-         createDate: new Date(),
-         address: "",
-         account:{
-	 			username: $("#username").text(),
-	 			},
-         orderStatus:{
-                id:1,
-         } ,
-         paymentMethod: {
-             id: 1,
-         },
-         notes:"",
-         get orderDetails(){
-             return $scope.cart.items.map(item =>{
-                 return {
-                     product: {id: item.id},
-                     price: item.price,
-                     quantity: item.qty
-                 }
-             });
-         },
+
+    // $(".select").on('click', function() {
+    //     //  ret = DetailsView.GetProject($(this).attr("#data-id"), OnComplete, OnTimeOut, OnError);
+    //     alert($(this).attr("data-selected"));
+    // });
+
+
+
+
+
+
+
+
+
+    $(document).ready(function() {
+        $("#next").click(function(){
+
+
+            var countries = [];
+
+            var specific_address = jQuery("textarea#specific_address").val();
+            countries.push(specific_address);
+
+
+            $.each($(".ls_ward option:selected"), function(){
+                countries.push($(this).text());
+            });
+
+            $.each($(".ls_district option:selected"), function(){
+                countries.push($(this).text());
+            });
+            $.each($(".ls_province option:selected"), function(){
+                countries.push($(this).text());
+            });
+            $scope.address = countries.join("  ").toString();
+
+            var notes = jQuery("textarea#note").val();
+
+            $scope.note = notes;
+
+
+
+
+
+            var payment ;
+
+            $.each($(".select"), function(){
+                if($(this).attr('data-selected') === 'true'){
+                    payment =($(this).attr('data-check'));
+                }
+
+            });
+            $scope.pay = parseInt(payment) ;
+
+
+
+            $scope.listOrder = {
+
+                createDate: new Date(),
+                address: $scope.address,
+                notes: $scope.note= jQuery("textarea#note").val(),
+                orderStatus: {id: 1},
+                // fix
+                paymentMethod: {id:$scope.pay},
+                account: {
+                    username: $("#username").text(),
+                },
+
+                get orderDetails() {
+                    return $scope.cart.items.map(item => {
+                        return {
+                            product: {id: item.id},
+                            price: item.price,
+                            quantity: item.qty
+                        }
+                    });
+                }
+            }
+
+
+
+
+        });
+    });
+
+
+
+
+    $scope.order ={
+        createDate: new Date(),
          purchase(){
-            var order = angular.copy(this);
+            var order = angular.copy($scope.listOrder);
+            debugger
             //Thực hiện đặt hàng
             $http.post("/test/checkout",order).then(resp =>{
                 alert("Đặt hàng thành công!");
