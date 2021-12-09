@@ -121,33 +121,20 @@ $("#back").click(function () {
 
 
 var select_card = document.querySelectorAll(".select");
-
 var title = document.getElementById("title");
 var price = document.getElementById("price");
-
 var selected=2;
-
-
-
 var reset = ()=>{
-  
 select_card.forEach((k)=>{
-  
  k.setAttribute("data-selected", "false");
 })
 }
-
 select_card.forEach((a,i)=>{
-  
   a.addEventListener("click",(e)=>{
      reset();
    a.setAttribute("data-selected", "true")
     selected=i+1;
-    
-    
-    
-    
-  })
+ })
 })
 
 
@@ -181,3 +168,4 @@ $(document)
         rows = Math.ceil((this.scrollHeight - this.baseScrollHeight) / 16);
         this.rows = minRows + rows;
     });
+
