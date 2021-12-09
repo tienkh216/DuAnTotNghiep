@@ -92,7 +92,7 @@
                                     </a>
                                     <ul class="language_selection">
                                         <li><a href="#">English</a></li>
-                                        <li><a href="#">Việt Nam</a></li>
+                                        <li><a href="#">Viá»‡t Nam</a></li>
 
                                     </ul>
                                 </li>
@@ -117,7 +117,7 @@
                                      <th:block th:unless = "${#request.remoteUser}"> 
                                         <li><a th:href="@{/login/form}"><i class="fa fa-sign-in" aria-hidden="true"></i>Sign In</a>
                                         </li>
-                                        <li><a th:href="@{/login/form}"><i class="fa fa-user-plus"
+                                        <li><a th:href="@{/sercurity/signup}"><i class="fa fa-user-plus"
                                                            aria-hidden="true"></i>Register</a></li>
                                         </th:block>
                                     </ul>
@@ -162,18 +162,18 @@
                                         <thead>
                                         <tr>
                                             <th scope="col"></th>
-                                            <th scope="col" style="text-align: center">Tên</th>
+                                            <th scope="col" style="text-align: center">TÃªn</th>
 
-                                            <th scope="col">Đơn Giá</th>
-                                            <th scope="col">Số lượng</th>
-                                            <th scope="col">Tổng Tiền</th>
+                                            <th scope="col">Ä�Æ¡n GiÃ¡</th>
+                                            <th scope="col">Sá»‘ lÆ°á»£ng</th>
+                                            <th scope="col">Tá»•ng Tiá»�n</th>
                                         </tr>
                                         </thead>
                                         <tbody>
                                         <tr ng-repeat="item in cart.items">
                                             <th scope="row"> <img ng-src="{{'/client/images/'+item.image}}" style="width: 50px;" alt=""></th>
-                                            <td>  <span style="margin-left: 10px;-->
-<!--														font-weight: 700 ;     text-align: center;">{{item.name}}</span></td>
+                                            <td>  <span style="margin-left: 10px;
+														font-weight: 700 ;     text-align: center;">{{item.name}}</span></td>
                                             <td>   <p class="itemNumber">{{item.price|currency:"":0 }}</p></td>
 
                                             <td >
@@ -191,7 +191,7 @@
                                         </tbody>
                                         <tfoot>
                                         <tr>
-                                            <th scope="col">Tổng Tiền</th>
+                                            <th scope="col">Tá»•ng Tiá»�n</th>
                                             <th scope="col"></th>
                                             <th scope="col"></th>
                                             <th scope="col"></th>

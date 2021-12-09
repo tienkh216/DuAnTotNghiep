@@ -54,4 +54,10 @@ public class accountsServiceImpl implements accountService{
 		return aDao.count();
 	}
 
+	@Override
+	public void save(Account acc) {
+		 aDao.save(acc);
+		
+	}
+
 }

@@ -6,12 +6,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.gymshop.entities.Account;
 import com.gymshop.entities.Category;
 import com.gymshop.entities.Product;
+import com.gymshop.service.accountService;
 import com.gymshop.service.categoryService;
 import com.gymshop.service.productService;
+
+
 
 @Controller
 public class UserControler {
@@ -19,6 +25,8 @@ public class UserControler {
 	productService productService;
 	@Autowired
 	categoryService categoryService;
+	@Autowired
+	accountService accService;
 	
 	
 	  @GetMapping("/login/form") 
@@ -51,6 +59,16 @@ public class UserControler {
 			return "redirect:/client/home";
 		}
 
-
+	  @RequestMapping("/sercurity/signup")
+		public  String signUp(Model model) {
+			model.addAttribute("user",new Account());
+			return "client/signup";
+		}
+	  @RequestMapping(value = "/sercurity/process_signup", method = RequestMethod.POST) 
+		public String pro_signUp(Account acc) {
+			accService.save(acc);
+			return "redirect:/client/home";
+			
+		}
 
 }
