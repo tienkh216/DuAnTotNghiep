@@ -202,3 +202,29 @@ app.controller("ctrl",function($scope,$http){
          }
      }
 })
+app.controller("productCtrl", function($scope, $http, $rootScope) {
+    $scope.items = [];
+    $scope.form = {};
+    $scope.cates = [];
+    $scope.query = {}
+    $scope.queryBy = '$'
+    $scope.status = [];
+
+    
+    
+    $scope.close = function(){
+        $('#exampleModalCenter').modal('hide');
+    }
+    $scope.initialize = function(){
+       $http.get("/client/products").then(resp=>{
+          $scope.items = resp.data;
+          $scope.items.forEach(item =>{
+             item.createdate = new Date(item.createdate)
+          });
+       });
+   
+       
+    }
+  
+ $scope.initialize();
+});
