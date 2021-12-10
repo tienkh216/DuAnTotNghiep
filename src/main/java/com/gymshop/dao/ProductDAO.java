@@ -45,4 +45,7 @@ public interface ProductDAO extends JpaRepository<Product, Long> {
 	@Query("SELECT p FROM Product p WHERE p.name LIKE %?1%")
 	public List<Product> searchProduct(String name);
 
+	@Query(value ="select top(10) p.name , od.ProductId, count(od.ProductId) as SoLuong from Products p, order_details od where p.id = od.ProductId group by p.name, od.ProductId order by count(od.ProductId) desc",nativeQuery =true)
+	public List<Product> top10Product(String name);
+	
 }
