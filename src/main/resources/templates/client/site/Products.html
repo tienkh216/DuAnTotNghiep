@@ -9,7 +9,7 @@
 <div layout:fragment="content">
   <link rel="stylesheet" type="text/css" th:href="@{../client/styles/categories_styles.css}">
   <link rel="stylesheet" type="text/css" th:href="@{../client/styles/categories_responsive.css}">
-  <div class="container product_section_container">
+  <div class="container product_section_container" ng-controller="productCtrl">
     <div class="row">
       <div class="col product_section clearfix">
 
@@ -151,22 +151,20 @@
 						
 
 
-                  <div th:each="p:${items}" class="product-item"  th:classappend="${p.categoryId.id}">
+                 <div  ng-repeat="item in items" class="product-item col-3" >
                     <div class="product discount product_filter">
-                      <div class="product_image">
-                        <img th:src="@{|/assets/images/${p.image}|}" alt="">
+                      <div class="product_image"> 
+                        <img alt="" ng-src="{{'/assets/images/'+ item.image}}">
                       </div>
                       <div class="favorite favorite_left"></div>
                       <div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>-$20</span></div>
                       <div class="product_info">
-                        <h6 class="product_name"><a th:href="@{|/client/productDetail/${p.id}|}" th:utext=" ${p.name}"></a></h6>
-                        <div class="product_price" >[[${p.price}]] VNÄ� <span> [[${p.price}]] VNÄ�</span></div>
+                        <h6 class="product_name"><a>{{item.name}}</a></h6>
+                        <div class="product_price" >{{item.price}}<span>{{item.price}}</span></div>
                       </div>
                     </div>
-                    <div class="red_button add_to_cart_button"><a href="#" th:attr="ng-click=@{|cart.add(${p.id})|}">add to cart</a></div>
+                    <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
                   </div>
-
-
 
                 </div>
 
@@ -186,7 +184,7 @@
                       </ul>
                     </li>
                   </ul>
-                  <span class="showing_results">Showing 1Ã¢â‚¬â€œ3 of 12 results</span>
+                  <span class="showing_results">Showing 1ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“3 of 12 results</span>
                   <div class="pages d-flex flex-row align-items-center">
                     <div class="page_current">
                       <span>1</span>
