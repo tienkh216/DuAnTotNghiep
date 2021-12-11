@@ -88,6 +88,12 @@ public class orderServiceImpl implements orderService {
 		return orderDao.getCancelOrderListByUsername(username);
 	}
 
+	@Override
+	public Long getSuccessOrder() {
+		// TODO Auto-generated method stub
+		return orderDao.getSuccessOrder();
+	}
+
 	
 
 	
