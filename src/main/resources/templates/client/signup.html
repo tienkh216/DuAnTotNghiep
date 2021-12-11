@@ -24,23 +24,23 @@
                 <div class="sign-up-htm">
                     <div class="group">
                         <label for="user" class="label">Username</label>
-                        <input id="user" type="text" class="input"th:field=*{username}>
+                        <input name="username" id="username" type="text" class="input" >
                     </div>
-                    <div class="group">
-                        <label for="user" class="label">fullname</label>
-                        <input id="user" type="text" class="input"th:field=*{fullname}>
+                     <div class="group">
+                        <label for="user" class="label">Username</label>
+                        <input name="fullname" id="username" type="text" class="input">
                     </div>
                     <div class="group">
                         <label for="pass" class="label">Password</label>
-                        <input id="pass" type="password" class="input" data-type="password"th:field=*{password}>
+                        <input id="pass" type="password" class="input" name="password" data-type="password" >
                     </div>
                     <div class="group">
-                        <label for="pass" class="label">Repeat Password</label>
-                        <input id="pass" type="password" class="input" data-type="password">
+                        <label for="pass" class="label">Confirm Password</label>
+                        <input id="cpass" type="password" class="input"  data-type="password" >
                     </div>
                     <div class="group">
                         <label for="pass" class="label">Email Address</label>
-                        <input id="pass" type="text" class="input"th:field=*{email}>
+                        <input id="pass" type="text" class="input" name ="email" >
                     </div>
                    
                     <div class="group">
@@ -66,6 +66,7 @@
 </body>
 <script th:src="@{/client/styles/bootstrap4/popper.js}"></script>
 <script th:src="@{/client/styles/bootstrap4/bootstrap.min.js}"></script>
+<script th:src="@{/client/js/pass.js}"></script>
 
 
 

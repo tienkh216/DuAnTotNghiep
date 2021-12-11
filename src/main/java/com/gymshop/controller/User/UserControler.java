@@ -60,12 +60,12 @@ public class UserControler {
 		}
 
 	  @RequestMapping("/sercurity/signup")
-		public  String signUp(Model model) {
+		public  String signUp(Model model) {	
 			model.addAttribute("user",new Account());
 			return "client/signup";
 		}
-	  @RequestMapping(value = "/sercurity/process_signup", method = RequestMethod.POST) 
-		public String pro_signUp(Account acc) {
+	  @PostMapping("/sercurity/process_signup") 
+		public String pro_signUp(Account acc) {	  	
 			accService.save(acc);
 			return "redirect:/client/home";
 			
