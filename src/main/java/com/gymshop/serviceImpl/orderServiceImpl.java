@@ -46,7 +46,10 @@ public class orderServiceImpl implements orderService {
 		orderDao.deleteById(id);
 		
 	}
-
+	@Override
+	public void cancelOrder(Long id) {
+		orderDao.cancelOrder(id);
+	}
 
 	@Override
 	public Long getPendingOrder() {
@@ -61,7 +64,7 @@ public class orderServiceImpl implements orderService {
 
 	@Override
 	public Order create(JsonNode orderData) {
-  ObjectMapper mapper=new ObjectMapper();
+		ObjectMapper mapper=new ObjectMapper();
 		  
 		  Order order=mapper.convertValue(orderData, Order.class); 
 		  orderDao.save(order);
@@ -73,8 +76,21 @@ public class orderServiceImpl implements orderService {
 		  return order;
 	}
 
+	@Override
+	public List<Order> getOrderListByUsername(String username) {
+		
+		return orderDao.getOrderListByUsername(username);
+	}
+
+	@Override
+	public List<Order> getCancelOrderListByUsername(String username) {
+		
+		return orderDao.getCancelOrderListByUsername(username);
+	}
+
 	
 
-
+	
+	
 
 }

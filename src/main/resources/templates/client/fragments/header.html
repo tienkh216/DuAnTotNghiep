@@ -64,6 +64,11 @@
         }
 
 
+
+
+
+
+
     </style>
 
 
@@ -106,16 +111,19 @@
                                     </a>
                                     <ul class="account_selection" style="width:200px;">
                                     <th:block th:if = "${#request.remoteUser}"> 
-                                    	<li><a><i class="fa fa-sign-in" aria-hidden="true"></i>Profile</a>
+                                    	<li><a th:href="@{/client/editProfile}"><i class="fa fa-user" aria-hidden="true"></i>Profile</a>
                                         </li>
                                         <li class="nav-item" th:if = "${#request.isUserInRole('DIRE') or #request.isUserInRole('STAF')}">
 												<a class="nav-link" th:href = "@{/admin/home}">Adminstration</a>
 										  </li>
-                                        <li><a th:href="@{/login/logoff}"><i class="fa fa-sign-in" aria-hidden="true"></i>Logout</a>
+                                        <li><a th:href="@{/client/orderList}"><i class="fa fa-archive" aria-hidden="true"></i>Lịch sử mua hàng</a>
+
+                                        </li>
+                                        <li><a th:href="@{/login/logoff}"><i class="fa fa-sign-in" aria-hidden="true"></i>Đăng Xuất</a>
                                         </li>
                                     </th:block>
                                      <th:block th:unless = "${#request.remoteUser}"> 
-                                        <li><a th:href="@{/login/form}"><i class="fa fa-sign-in" aria-hidden="true"></i>Sign In</a>
+                                        <li><a th:href="@{/login/form}"><i class="fa fa-sign-in" aria-hidden="true"></i>Đăng Nhập</a>
                                         </li>
                                         <li><a th:href="@{/sercurity/signup}"><i class="fa fa-user-plus"
                                                            aria-hidden="true"></i>Register</a></li>
@@ -162,11 +170,13 @@
                                         <thead>
                                         <tr>
                                             <th scope="col"></th>
-                                            <th scope="col" style="text-align: center">TÃªn</th>
 
-                                            <th scope="col">Ä�Æ¡n GiÃ¡</th>
-                                            <th scope="col">Sá»‘ lÆ°á»£ng</th>
-                                            <th scope="col">Tá»•ng Tiá»�n</th>
+                                            <th scope="col" style="text-align: center">Tên</th>
+                                            <th scope="col">Đơn Giá</th>
+                                            <th scope="col">Số lượng</th>
+                                            <th scope="col">Tổng Tiền</th>
+                                            <th scope="col"></th>
+
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -178,11 +188,10 @@
 
                                             <td >
                                                 <input type="number" min="1" max="50"  style="text-align: center;" ng-model="item.qty"  class="form-control" />
-
-
                                             </td>
-                                            <!--                                            <td><input type="number" style="width: 30px; border: none;" ng-model="item.qty" name="" id="" value="0"></td>-->
+
                                             <td>{{item.qty*item.price|currency:"":0 }}</td>
+                                            <td>  <a href="#" ng-click="cart.remove(item.id)"> <img th:src="@{/client/images/Xbutton.jpg}" style="width: 20px" class="close-button" alt=""></a></td>
                                         </tr>
 
                                     <!--                                    -->
@@ -191,49 +200,26 @@
                                         </tbody>
                                         <tfoot>
                                         <tr>
-                                            <th scope="col">Tá»•ng Tiá»�n</th>
+                                            <th scope="col">Tổng tiền</th>
                                             <th scope="col"></th>
                                             <th scope="col"></th>
                                             <th scope="col"></th>
                                             <th scope="col">{{tinhTongtien()|currency:"":0 }}</th>
+                                            <th></th>
                                         </tr>
                                         </tfoot>
+
                                     </table>
+                                    <div class="row justify-content-md-between">
+                                        <div class=" ml-0 pl-0"><a th:href="@{/client/checkout}" style="text-align: right; height: 100%; width: 100%; "  >
+                                            <button class="buton-line btn">Tiến hành thanh toán</button>
 
+                                        </a></div>
+                                        <div class="col-6 mr-0 pr-0"><a th:href="@{/client/cart} " style="text-align: left;  height: 100%; width: 100%;" >
+                                            <button class="buton-line btn">Giỏ hàng</button></i></button>
 
-                                    <!--                                    -->
-                                    <!--                                    <ul>-->
-
-
-                                    <!--                                        <li class="mt-2" style="" ng-repeat="item in cart.items">-->
-                                    <!--                                            <div class="left">-->
-                                    <!--                                                <img ng-src="{{'/client/images/'+item.image}}" style="width: 50px;" alt="">-->
-                                    <!--                                                <span style="margin-left: 10px;-->
-                                    <!--														font-weight: 700;">{{item.name}}</span>-->
-
-                                    <!--                                            </div>-->
-
-                                    <!--                                            <div class="right" style="display: flex;     justify-content: space-between;">-->
-                                    <!--                                                <div> <input type="number" style="width: 30px; border: none;" ng-model="item.qty" name="" id="" value="0"></div>-->
-                                    <!--                                                <span>{{item.qty*item.price|currency:"":0 }}</span></div>-->
-
-                                    <!--                                        </li>-->
-                                    <!--                                        <div class="line"></div>-->
-
-
-                                    <!--                                        <li class="mt-2" style="justify-content: flex-end;">-->
-                                    <!--                                            &lt;!&ndash; <div class="left">-->
-                                    <!--                                                <a href=""></a>-->
-                                    <!--                                            </div> &ndash;&gt;-->
-                                    <!--                                            <div class="right  p-1"><a href=""><span>Cart</span></a></div>-->
-
-                                    <!--                                        </li>-->
-
-                                    <!--                                    </ul>-->
-
-
-                                    <!--                                        </li>-->
-                                    <!--                                        <div class="line"></div>-->
+                                        </a></div>
+                                    </div>
 
                                 </div>
 
@@ -289,6 +275,7 @@
                     </a>
                     <ul class="menu_selection">
                         <li><a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i>Sign In</a></li>
+
                         <li><a href="#"><i class="fa fa-user-plus" aria-hidden="true"></i>Register</a></li>
                     </ul>
                 </li>

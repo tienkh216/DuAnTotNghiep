@@ -20,13 +20,27 @@ public class OrderController {
 	 @RequestMapping("/client/orderList")
 	 public String list(Model model, HttpServletRequest request) {
 		 String username = request.getRemoteUser();
-		 model.addAttribute("orders",orderService.findByUsername(username));
+		 model.addAttribute("orders",orderService.getOrderListByUsername(username));
 	     return "client/site/ListOrder";
 	 }
+	 
+	 @RequestMapping("/client/cancelOrderList")
+	 public String cancelList(Model model, HttpServletRequest request ) {
+	 String username = request.getRemoteUser();
+	 model.addAttribute("orders",orderService.getCancelOrderListByUsername(username));
+     return "client/site/ListCancelOrder";
+	 }
+	 
+	 
 	 @RequestMapping("/client/orderDetail/{id}")
 		public String detail(@PathVariable("id") Long id, Model model) {
-		 	//System.out.println(id);
 			model.addAttribute("order",orderService.findById(id));
 			return "client/site/OrderDetail";
-		}
+	}
+	@RequestMapping("/client/cancelOrder/{id}")
+	public String cancelOrder(@PathVariable("id") Long id) {
+		orderService.cancelOrder(id);
+		return "redirect:/client/orderList";
+
+	}
 }

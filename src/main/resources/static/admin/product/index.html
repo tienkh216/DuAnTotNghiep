@@ -2,9 +2,9 @@
 				<div class="d-sm-flex align-items-center justify-content-between mb-4">
                     <h1 class="h3 mb-0 text-gray-800">DataTables</h1>
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="./">Home</a></li>
-                        <li class="breadcrumb-item">Product</li>
-                        <li class="breadcrumb-item active" aria-current="page">Product List</li>
+                        <li class="breadcrumb-item"><a href="./">Trang Chủ</a></li>
+                        <li class="breadcrumb-item">Sản Phẩm</li>
+                        <li class="breadcrumb-item active" aria-current="page">Danh Sách Sản Phẩm</li>
                     </ol>
                 </div>
 
@@ -16,8 +16,8 @@
                     <div class="col-lg-12">
                         <div class="card mb-2">
                             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                <h6 class="m-0 font-weight-bold text-primary">Products</h6>
-                                 <div ><label>Search:<input ng-model="query[queryBy]" type="search" class="form-control form-control-sm" placeholder="Search" ></label></div>
+                                <h6 class="m-0 font-weight-bold text-primary">Sản Phẩm</h6>
+                                 <div ><label>Tìm Kiếm:<input ng-model="query[queryBy]" type="search" class="form-control form-control-sm" placeholder="Search" ></label></div>
                             </div>
                             
                        </div>
@@ -26,13 +26,13 @@
                                     <thead class="thead-light">
                                     <tr>
                                         <th>ID</th>
-                                        <th>Name</th>
-                                        <th>Price</th>
-                                        <th>Categories</th>
-                                         <th>Date</th>
-                                        <th>Status</th>
-                                        <th>Product Status</th>
-                                        <th>Active</th>
+                                        <th>Tên</th>
+                                        <th>Giá</th>
+                                        <th>Loại</th>
+                                        <th>Ngày Tạo</th>
+                                        <th>Kích Hoạt</th>
+                                        <th>Trạng Thái Sản Phẩm</th>
+                                        <th>Chỉnh Sửa Hoặc Xóa</th>
                                     </tr>
                                     </thead>
 
@@ -43,11 +43,11 @@
                                         <td>{{item.price}}</td>
                                         <td>{{item.categoryId.name}}</td>
                                         <td>{{item.createdate|date :'dd-MM-yyyy'}}</td>
-                                        <td>{{item.special?'Khích Hoạt':'Chưa Khích Hoạt'}}</td>
+                                        <td>{{item.special?'Kích Hoạt':'Chưa Kích Hoạt'}}</td>
                                         <td>{{item.productStatus.description}}</td>
                                         <td>
-                                            <button type="button" ng-click = "edit(item)" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" id="#modalCenter">Edit</button>
-                                        	<button  ng-click = "delete(item.id)" class="btn btn-danger">Delete</button>
+                                            <button type="button" ng-click = "edit(item)" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" id="#modalCenter">Sửa</button>
+                                        	<button  ng-click = "delete(item.id)" class="btn btn-danger">Xóa</button>
                                         </td>
                                     </tr>
                                     </tbody>
@@ -77,7 +77,7 @@
                     <div class="modal-dialog modal-lg" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalCenterTitle">Edit Product</h5>
+                                <h5 class="modal-title" id="exampleModalCenterTitle">Chỉnh Sửa Sản Phẩm</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -86,43 +86,43 @@
                                 <div class="card-body">
                                     <form>
                                         <div class="form-group">
-                                            <label for="exampleInputEmail1">Name</label>
-                                            <input ng-model ="form.name" type="text" class="form-control"  placeholder="Name">
+                                            <label for="exampleInputEmail1">Tên</label>
+                                            <input ng-model ="form.name" type="text" class="form-control"  >
                                         </div>
                                         <div class="form-group">
-                                            <label for="exampleInputEmail1">Price</label>
-                                            <input ng-model ="form.price" type="text" class="form-control"  placeholder="Price">
+                                            <label for="exampleInputEmail1">Giá</label>
+                                            <input ng-model ="form.price" type="text" class="form-control"  >
                                         </div>
                                         <div class="form-group">
-                                            <label for="exampleInputEmail1">Count</label>
-                                            <input ng-model ="form.count" type="text" class="form-control"  placeholder="Price">
+                                            <label for="exampleInputEmail1">Số Lượng</label>
+                                            <input ng-model ="form.count" type="text" class="form-control"  >
                                         </div>
                                         <div class="form-group">
-				                            <label for="exampleInputEmail1">Create Date</label>
-				                            <input  ng-model = "form.createdate"  type="date"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+				                            <label for="exampleInputEmail1">Ngày Tạo</label>
+				                            <input  ng-model = "form.createdate"  type="date"  class="form-control"  >
 				                        </div>
                                         <div class="form-group">
-                                            <label for="exampleInputEmail1">Category</label>
+                                            <label for="exampleInputEmail1">Loại </label>
                                             <select class="form-control mb-3"  ng-model = "form.categoryId.id">
                                                 <option ng-repeat = "c in cates" ng-value = "c.id">{{c.name}}</option>
                                             </select>
                                         </div>
                                         <div class="form-group">
-                                            <label for="exampleInputEmail1">Sattus</label>
+                                            <label for="exampleInputEmail1">Trạng Thái</label>
                                             <select class="form-control mb-3" ng-model = "form.productStatus.id"  >
                                                 <option ng-repeat = "s in status" ng-value = "s.id">{{s.description}}</option>
                                             </select>
                                         </div>
                                         
                                         <div class="form-group">
-                                            <label for="exampleInputEmail1">Special</label>
+                                            <label for="exampleInputEmail1">Khích Hoạt</label>
                                                 <div class="form-check form-check-inline">
 					                                <input class="form-check-input" type="radio" name= "available"  ng-value="true"   ng-model = "form.special" > Yes
 					                                <input class="form-check-input" type="radio" name= "available"  ng-value="false"  ng-model = "form.special" > No
                   								</div>
                                         </div>
                                         <div class="form-group">
-					                      <label for="exampleFormControlTextarea1">Description</label>
+					                      <label for="exampleFormControlTextarea1">Miêu Tả</label>
 					                      <textarea ng-model = "form.description" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
 					                    </div>
 					                    <div class="form-group">
@@ -131,18 +131,18 @@
                                         <div class="form-group">
                                             <div class="custom-file">
                                                 <input onchange = "angular.element(this).scope().imageChanged(this.files)"  type="file" class="custom-file-input " id="customFile">
-                                                <label class="custom-file-label" for="customFile">Image</label>
+                                                <label class="custom-file-label" for="customFile">Ảnh</label>
                                             </div>
                                             
                                         </div>
-                                        <button ng-click = "create()"   class="btn btn-info ">Create</button>
-                                        <button  ng-click = "update()"  class="btn btn-success">Update</button>
+                                        <button ng-click = "create()"   class="btn btn-info ">Tạo Mới </button>
+                                        <button  ng-click = "update()"  class="btn btn-success">Sửa</button>
                                         <button ng-click = "reset()"   class="btn btn-warning ">Reset</button>
                                     </form>
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Đóng</button>
                             </div>
                         </div>
                     </div>

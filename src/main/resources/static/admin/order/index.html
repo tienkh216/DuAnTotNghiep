@@ -1,10 +1,11 @@
 
+
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">DataTables</h1>
             <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="./">Home</a></li>
-              <li class="breadcrumb-item">Order</li>
-              <li class="breadcrumb-item active" aria-current="page">Order List</li>
+              <li class="breadcrumb-item">Trang Chủ</li>
+              <li class="breadcrumb-item">Đơn Hàng</li>
+              <li class="breadcrumb-item active" aria-current="page">Danh Sách Đơn Hàng</li>
             </ol>
           </div>
 
@@ -15,17 +16,17 @@
             <div class="col-lg-12">
               <div class="card mb-4">
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">Orders</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">Đơn Hàng</h6>
                 </div>
                 <div class="table-responsive p-3">
                   <table class="table align-items-center table-flush table-hover" id="dataTableHover">
                     <thead class="thead-light">
                       <tr>
-                        <th>Order ID</th>
-                        <th>Username</th>
-                        <th>Address</th>
-                        <th>Status</th>
-                        <th>Active</th>
+                        <th>Đơn Hàng ID</th>
+                        <th>Tài Khoản</th>
+                        <th>Địa Chỉ Giao Hàng</th>
+                        <th>Trạng Thái Đơn Hàng</th>
+                        <th>Chỉnh Sủa Hoặc Xóa</th>
                       </tr>
                     </thead>
                    
@@ -42,7 +43,7 @@
                           <span ng-if = "item.orderStatus.id==5" class="badge badge-danger">{{item.orderStatus.description}}</span>
                         </td>
                         <td>
-                            <button type="button" ng-click = "edit(item)" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" id="#modalCenter">Edit</button>
+                            <button type="button" ng-click = "edit(item)" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" id="#modalCenter">Chỉnh Sửa</button>
                         </td>
                       </tr>
                      
@@ -73,7 +74,7 @@
             <div class="modal-dialog modal-dialog-centered" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalCenterTitle">Edit Order</h5>
+                  <h5 class="modal-title" id="exampleModalCenterTitle">Duyệt Đơn Hàng</h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
@@ -82,24 +83,24 @@
                   <div class="card-body">
                       <form>
                         <div class="form-group">
-                          <label for="exampleInputEmail1">Order ID</label>
+                          <label for="exampleInputEmail1">Đơn Hàng ID</label>
                           <input type="text" readonly ng-model ="form.id" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Order ID">
                         </div>
                         
                         <div class="form-group">
-                          <label for="exampleInputEmail1">Sattus</label>
+                          <label for="exampleInputEmail1">Trạng Thái Đơn Hàng</label>
                           <select class="form-control mb-3" ng-model = "form.orderStatus.id"  >
                               <option ng-repeat = "s in status" ng-value = "s.id">{{s.description}}</option>
                           </select>
                       </div>
                         
-                        <button  ng-click = "update()"class="btn btn-success">Update</button>
-                        <button ng-if = "form.orderStatus.id==5" class="btn btn-danger" ng-click = "delete(form)">Delete</button>
+                        <button  ng-click = "update()"class="btn btn-success">Sửa</button>
+                        <button ng-if = "form.orderStatus.id==5" class="btn btn-danger" ng-click = "delete(form)">Xóa</button>
                       </form>
                     </div>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Đóng</button>
                 </div>
               </div>
             </div>
@@ -107,4 +108,4 @@
           
 
       
-  
+
