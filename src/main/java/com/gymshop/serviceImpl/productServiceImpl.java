@@ -7,13 +7,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.gymshop.dao.ProductDAO;
+import com.gymshop.domain.Top10;
 import com.gymshop.entities.Product;
 import com.gymshop.service.productService;
 
 @Service
 public class productServiceImpl implements productService{
 	@Autowired
-	ProductDAO dao;
+	public ProductDAO dao;
 
 	@Override
 	public List<Product> findByCategoryId(String string) {
@@ -75,6 +76,12 @@ public class productServiceImpl implements productService{
 		return dao.findAll();
 	}
 
+	@Override
+	public List<Top10> top10product() {
+		return dao.top10Product();
+	}
+
+	
 
 
 }

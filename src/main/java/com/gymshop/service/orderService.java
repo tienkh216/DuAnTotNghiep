@@ -24,6 +24,7 @@ public interface orderService {
 	
 
 	Long getPendingOrder();
+	Long getSuccessOrder();
 
 	
 	List<Order> findByUsername(String username);

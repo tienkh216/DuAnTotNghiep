@@ -4,8 +4,8 @@
           <div class="card-body">
             <div class="row no-gutters align-items-center">
               <div class="col mr-2">
-                <div class="text-xs font-weight-bold text-uppercase mb-1">Đã Bán</div>
-                <div class="h5 mb-0 font-weight-bold text-gray-800">650</div>
+                <div class="text-xs font-weight-bold text-uppercase mb-1">Tổng Đơn Hàng Đã Giao</div>
+                <div class="h5 mb-0 font-weight-bold text-gray-800">{{countOrderSuccess}}</div>
               </div>
               <div class="col-auto">
                 <i class="fas fa-shopping-cart fa-2x text-success"></i>
@@ -46,6 +46,10 @@
           </div>
         </div>
       </div>
-    
-     
+</div>
+<div class="row">
+  <div class="col-12">
+    <h6 class="page-header">Thống kê sản phẩm  bán chạy nhất</h6>
+    <canvas id="myChart" width="400px" height="200px"></canvas>
+  </div>
 </div>
