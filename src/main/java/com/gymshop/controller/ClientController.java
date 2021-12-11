@@ -5,6 +5,7 @@ import java.util.*;
 import javax.servlet.http.HttpServletRequest;
 
 import com.gymshop.dao.CategoryDAO;
+import com.gymshop.entities.Account;
 import com.gymshop.entities.Category;
 import com.gymshop.entities.ProductStatus;
 import com.gymshop.service.accountService;
@@ -14,6 +15,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -60,8 +62,7 @@ public class ClientController {
         }
         return ("client/site/Products");
     }
-
-    
+   
     
     @RequestMapping("/client/cart")
     public String shoppingCart(Model model) {
@@ -87,5 +88,12 @@ public class ClientController {
     	model.addAttribute("accounts",accountService.findById(username));
         return ("client/site/Profile");
     }
+    
+    @PostMapping("/client/editProfile") 
+	public String pro_signUp(Account acc) {	  	
+		accountService.save(acc);
+		return "redirect:/client/home";
+		
+	}
 
 }

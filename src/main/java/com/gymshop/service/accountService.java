@@ -18,5 +18,6 @@ public interface accountService {
 	Long getCount();
 
 	void save(Account acc);
+
 	
 }

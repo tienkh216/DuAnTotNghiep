@@ -92,32 +92,38 @@
         </div> -->
         <h3 class="text-primary">Personal info</h3>
 
-        <form class="form-horizontal" role="form">
-          <div class="form-group">
-            <label class="col-lg-3 control-label">Họ Và Tên</label>
+        <form th:action="@{/client/editProfile}" class="form-horizontal" role="form" th:object="${accounts}" method="POST">
+          <div class="form-group" hidden>
+            <label class="col-lg-3 control-label">Username</label>
             <div class="col-lg-8">
-              <input th:value="${accounts.fullname}"  class="form-control text-primary" type="text" >
+              <input th:field="*{username}"  class="form-control text-primary" type="text" > 
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Ho va ten</label>
+            <div class="col-lg-8">
+              <input th:field="*{fullname}"  class="form-control text-primary" type="text" >
             </div>
           </div>
           <div class="form-group">
             <label class="col-lg-3 control-label">Email:</label>
             <div class="col-lg-8">
-              <input  th:value="${accounts.email}" class="form-control text-primary" type="text" >
+              <input  th:field="*{email}" class="form-control text-primary" type="text" >
             </div>
           </div>
-          <div class="form-group">
-            <label class="col-lg-3 control-label">Số Điện Thoại:</label>
+          <div class="form-group" hidden>
+            <label class="col-lg-3 control-label">Password</label>
             <div class="col-lg-8">
-              <input class="form-control text-primary" type="text" value="012412515">
+              <input class="form-control text-primary" type="text" th:field="*{password}">
             </div>
           </div>
           <div class="form-group">
             <div class="col-lg-8">
               <div class="row">
-                <div class="col-6">  <button class="button-two"><span>Button1</span></button>
+                <div class="col-6"><button class="btn btn-default">update</button>
+
                 </div>
-                <div class="col-6">  <button class="button-two"><span>Button2</span></button>
-                </div>
+             
               </div>
 
             </div>
