@@ -4,7 +4,11 @@ app.controller("accounts-ctrl", function($scope, $http, $rootScope) {
     $scope.initialize = function(){
         $http.get("/rest/accounts").then(resp =>{
             $scope.items = resp.data;
-        });
+        }).catch(erro =>{
+            if(erro.status = 403 || erro.status == 401){
+                swal("Erro", "Không có quyền ", "error");
+              }
+        })
     };
     $scope.close = function(){
         $('#exampleModalCenter').modal('hide');

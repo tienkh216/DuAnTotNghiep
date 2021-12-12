@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-
+import com.gymshop.domain.DoanhThuThang;
 import com.gymshop.domain.Top10;
 import com.gymshop.entities.*;
 
@@ -53,4 +53,10 @@ public interface ProductDAO extends JpaRepository<Product, Long> {
 				+ " ORDER BY sum(orderdetail.quantity) DESC")
 		List<Top10> top10Product();
 		
+		
+		@Query("SELECT new com.gymshop.domain.DoanhThuThang(MONTH(orderDetail.order.createDate), sum(orderDetail.price*orderDetail.quantity)) "
+				+ "FROM OrderDetail orderDetail "
+				+ "WHERE YEAR(orderDetail.order.createDate) = 2021"
+				+ "GROUP BY MONTH(orderDetail.order.createDate)")
+		List<DoanhThuThang> doanhThuTheoThang();
 	}
