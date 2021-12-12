@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.gymshop.dao.ProductDAO;
+import com.gymshop.domain.DoanhThuThang;
 import com.gymshop.domain.Top10;
 import com.gymshop.entities.Product;
 import com.gymshop.service.productService;
@@ -79,6 +80,12 @@ public class productServiceImpl implements productService{
 	@Override
 	public List<Top10> top10product() {
 		return dao.top10Product();
+	}
+
+	@Override
+	public List<DoanhThuThang> doanhThuThang() {
+		// TODO Auto-generated method stub
+		return dao.doanhThuTheoThang();
 	}
 
 	

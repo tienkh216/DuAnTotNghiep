@@ -2,6 +2,7 @@ package com.gymshop.service;
 
 import java.util.List;
 
+import com.gymshop.domain.DoanhThuThang;
 import com.gymshop.domain.Top10;
 import com.gymshop.entities.Category;
 import com.gymshop.entities.Product;
@@ -32,5 +33,7 @@ public interface productService {
 	Product findById(Long id);
 	
 	List<Top10> top10product();
+	
+	List<DoanhThuThang> doanhThuThang();
 
 }
