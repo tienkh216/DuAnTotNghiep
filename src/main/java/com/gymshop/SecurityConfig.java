@@ -77,6 +77,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.logoutUrl("/login/logoff")
 			.logoutSuccessUrl("/login/logoff/sucess");
 		
+
+		http.oauth2Login()
+			.loginPage("/login/form")
+			.defaultSuccessUrl("/oauth2/login/success",true)
+			.failureUrl("/auth/login/error")
+			.authorizationEndpoint()
+			.baseUri("/oauth2/authorization");
+		
 	}
 	@Bean
 	public BCryptPasswordEncoder getPasswordEncoder() {
