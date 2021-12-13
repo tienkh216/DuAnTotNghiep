@@ -148,23 +148,23 @@
                 <div class="product-grid">
 
                   <!-- Product -->
-						
 
-
-                 <div  ng-repeat="item in items" class="product-item col-3" >
+                  <div  ng-repeat="item in items" class="product-item {{item.categoryId.id}}"  >
                     <div class="product discount product_filter">
-                      <div class="product_image"> 
-                        <img alt="" ng-src="{{'/assets/images/'+ item.image}}">
+                      <div class="product_image">
+                        <img ng-src="{{'/assets/images/'+ item.image}}" alt="">
                       </div>
                       <div class="favorite favorite_left"></div>
-                      <div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>-$20</span></div>
+
                       <div class="product_info">
-                        <h6 class="product_name"><a>{{item.name}}</a></h6>
-                        <div class="product_price" >{{item.price}}<span>{{item.price}}</span></div>
+                        <h6 class="product_name"><a >{{item.name}}</a></h6>
+                        <div class="product_price" >{{item.price}} VNĐ <span> {{item.price}} VNĐ</span></div>
                       </div>
                     </div>
-                    <div class="red_button add_to_cart_button"><a href="#"  >add to cart</a></div>
+                    <div class="red_button add_to_cart_button"><a  ng-click="cart.add(item.id)">add to cart</a></div>
                   </div>
+
+
 
                 </div>
 

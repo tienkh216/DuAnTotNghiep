@@ -842,7 +842,7 @@ section
 .red_button a
 {
 	display: block;
-	color: #FFFFFF;
+	color: #FFFFFF !important;
 	text-transform: uppercase;
 	font-size: 14px;
 	font-weight: 500;
