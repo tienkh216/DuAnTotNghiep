@@ -53,7 +53,7 @@
 
             <div class="first-name"  ><label >Họ Và Tên:</label>
 
-            <span type="text" id = "username">[[${#request.remoteUser}]]</span>
+            <span type="text" id ="username">[[${#request.remoteUser}]]</span>
 
             </div>
             
@@ -69,7 +69,7 @@
         </div>
         <div class="row mt-5">
           <div class="col-12 m-2">
-            <div class="phone-number"><label >Số Điện Thoại </label><input type="text">
+            <div class="phone-number" ><label >Số Điện Thoại </label><input id ="phone" type="text">
             </div>
           </div>
         </div>
@@ -188,7 +188,7 @@
       </div>
       </div>
       <div class="complete ml-5">
-      <div class="first-name"><label id="username">First Name:</label>
+      <div class="first-name"><label id="username"> Họ và tên:</label>
             <span type="text">[[${#request.remoteUser}]]</span>
             <li class="items even" ng-repeat="item in cart.items">
 
@@ -224,7 +224,7 @@
     <div class="buttonHolder">
       <button class="button b-back disabled" id="back">Back</button>
       <button class="button b-next" id="next">Next</button>
-      <button class="button b-next" id="finish" ng-click="order.purchase()">finish</button>
+      <button class="button b-next hidden-s" id="finish" ng-click="order.purchase()">finish</button>
       
     </div>
 

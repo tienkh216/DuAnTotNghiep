@@ -125,7 +125,7 @@
                   
              	<div class="mt-3">
              		<form th:action="@{/client/product}">
-						<input type="text" name="keyword" id="keyword"  th:value="${keyword}" required />&nbsp;<input type="submit" value="Search" /> &nbsp;
+						<input type="text" name="keyword" id="keyword"  ng-model="searchName" required />&nbsp;<input type="submit" value="Search" /> &nbsp;
 				 </form>
              	</div>
                   <div class="pages d-flex flex-row align-items-center">
@@ -149,7 +149,7 @@
 
                   <!-- Product -->
 
-                  <div  ng-repeat="item in items" class="product-item {{item.categoryId.id}}"  >
+                  <div  ng-repeat="item in items | filter:searchName" class="product-item {{item.categoryId.id}}"  >
                     <div class="product discount product_filter">
                       <div class="product_image">
                         <img ng-src="{{'/assets/images/'+ item.image}}" alt="">
