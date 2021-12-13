@@ -28,9 +28,9 @@ app.controller("ctrl",function($scope,$http){
         add(id){
             var item = this.items.find(item => item.id ==id);
             if(item){
-                     item.replace(/[^0-9]/g, '');
-                        ngModelCtrl.$setViewValue(item);
-                        ngModelCtrl.$render();
+                     // item.replace(/[^0-9]/g, '');
+                     //    ngModelCtrl.$setViewValue(item);
+                     //    ngModelCtrl.$render();
                 item.qty++;
                 this.saveToLocalStorage();
             }else{
