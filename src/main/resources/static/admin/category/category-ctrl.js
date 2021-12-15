@@ -64,7 +64,7 @@ app.controller("category-ctrl", function($scope, $http, $rootScope) {
                     console.log("erro",erro.status);
                 })
             } else {
-              swal("cancel");
+              swal("Hủy");
             }
         });
     }
