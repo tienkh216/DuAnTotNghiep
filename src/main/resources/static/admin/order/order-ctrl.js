@@ -39,15 +39,15 @@ app.controller("order-ctrl", function($scope, $http, $rootScope) {
    }
    $scope.delete =  function(item){
     swal({
-        title: "Are you sure?",
-        text: "Once deleted, you will not be able to recover this imaginary file!",
+        title: "Bạn Có muốn Xóa Không?",
+        text: "Bạn Có muốn Xóa Không",
         icon: "warning",
         buttons: true,
         dangerMode: true,
       })
       .then((willDelete) => {
         if (willDelete) {
-          swal("Do you want to delete your account?", {
+          swal("Bạn Có Muốn Xóa Không ?", {
             icon: "success",
           });
           $http.delete(`/rest/orders/${item.id}`).then(resp=>{
@@ -55,14 +55,14 @@ app.controller("order-ctrl", function($scope, $http, $rootScope) {
                 $scope.items.splice(index,1);
                 $scope.close();
                 $scope.initialize();
-                swal("Ok", "Successful Delete", "success");
+                swal("Ok", "Xóa Thành Công", "success");
             })
             .catch(erro =>{
-                swal("Erro", "Delete Failed", "error");
+                swal("Erro", "Xóa Thất Bại", "error");
                 console.log("erro",erro);
             })
         } else {
-          swal("cancel");
+          swal("Hủy");
         }
     });
   

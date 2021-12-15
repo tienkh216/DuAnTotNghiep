@@ -34,6 +34,6 @@ public interface productService {
 	
 	List<Top10> top10product();
 	
-	List<DoanhThuThang> doanhThuThang();
+	List<DoanhThuThang> doanhThuThang(int year);
 
 }

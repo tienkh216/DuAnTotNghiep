@@ -56,7 +56,9 @@ public interface ProductDAO extends JpaRepository<Product, Long> {
 		
 		@Query("SELECT new com.gymshop.domain.DoanhThuThang(MONTH(orderDetail.order.createDate), sum(orderDetail.price*orderDetail.quantity)) "
 				+ "FROM OrderDetail orderDetail "
-				+ "WHERE YEAR(orderDetail.order.createDate) = 2021"
+				+ "WHERE YEAR(orderDetail.order.createDate) =?1 "
 				+ "GROUP BY MONTH(orderDetail.order.createDate)")
-		List<DoanhThuThang> doanhThuTheoThang();
+		List<DoanhThuThang> doanhThuTheoThang(int year);
+		
+		
 	}

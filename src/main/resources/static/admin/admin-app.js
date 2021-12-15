@@ -25,10 +25,6 @@ app.config(function($routeProvider){
         templateUrl:"/admin/chart/index.html",
         controller:"chart-ctrl"
     })
-    .when("/chart/:id",{
-        templateUrl:"/admin/chart/index.html",
-        controller:"chart-ctrl"
-    })
     .when("/order-detail/:id",{
         templateUrl:"/admin/order-detail/index.html",
         controller:"order-detail-ctrl"
