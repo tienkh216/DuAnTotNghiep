@@ -58,9 +58,10 @@ $("#next").click(function () {
 		if (state == 4) {
 			$(".payment").removeClass("hidden");
 			$(".complete").addClass("hidden");
-			$("#next").html('<b>Finish</b>');
+			$("#finish").removeClass("hidden-s");
+			$("#next").addClass("hidden");
 		}
-		//// sự kiện gửi form lên servẻ
+		//// sự kiện gửi form lên server
 		if (state == 5) {
 			$("#back").addClass("disabled");
 			$("#next").addClass("disabled");
@@ -104,7 +105,8 @@ $("#back").click(function () {
 		} if (state == 3) {
 			$(".payment").addClass("hidden");
 			$(".complete").removeClass("hidden");
-			$("#next").html('next');
+			$("#finish").addClass("hidden-s");
+			$("#next").html('Next');
 
 		} if (state == 4) {
 			
