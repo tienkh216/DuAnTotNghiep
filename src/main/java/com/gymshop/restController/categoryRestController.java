@@ -22,6 +22,7 @@ import com.gymshop.service.categoryService;
 public class categoryRestController {
 	@Autowired
 	categoryService categoryService;
+
 	@GetMapping()
 	public List<Category> getAll(){
 		return categoryService.findAll();

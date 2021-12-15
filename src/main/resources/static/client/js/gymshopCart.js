@@ -157,7 +157,7 @@ app.controller("ctrl",function($scope,$http){
                 address: $scope.address,
                 notes: $scope.note= jQuery("textarea#note").val(),
                 orderStatus: {id: 1},
-                // fix
+                phone: $("#phone").val(),
                 paymentMethod: {id:$scope.pay},
                 account: {
                     username: $("#username").text(),
