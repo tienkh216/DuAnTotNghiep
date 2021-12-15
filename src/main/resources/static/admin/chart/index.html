@@ -1,7 +1,7 @@
 
 				<div class="d-sm-flex align-items-center justify-content-between mb-4">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="./">Trang Chủ</a></li>
+                        <li class="breadcrumb-item">Trang Chủ</li>
                         <li class="breadcrumb-item">Thông Kê</li>
                     </ol>
                 </div>
@@ -9,15 +9,16 @@
                 <!-- Row -->
                 <div class="row mb-3">
                     <div class="col-8"></div>
-                    <div class="col-4">
-                        <select class="form-control mb-3">
-                            <option>Năm</option>
+                    <div class="col-4 inline">
+                        <select class="form-control mb-3" ng-model = "year">
+                            <option ng-repeat = "c in years" ng-value = "c" id="" >{{c}}</option>
                         </select>
+                        <button  ng-click = "xem()" class="btn btn-danger">Xem</button>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-12">
-                        <canvas id="peopleChart" width="200px" height="100px"></canvas>
+                        <canvas  id="peopleChart" width="200px" height="100px"></canvas>
                         <h4 style="text-align: center; padding-right: 10%">Biểu đồ doanh thu theo từng tháng</h4>	
                     </div>
                 </div>

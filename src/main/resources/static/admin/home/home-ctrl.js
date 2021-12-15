@@ -16,8 +16,6 @@ app.controller("home-ctrl", function($scope, $http, $rootScope, $routeParams) {
       $scope.items = [];
       $http.get("/rest/chart").then(resp=>{
           $scope.items = resp.data;
-          console.log(resp.data);
-          console.log($scope.items);
           $scope.name1=  resp.data[0].name;
           $scope.name2 = resp.data[1].name;
           $scope.name3 = resp.data[2].name;
