@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{client/dashboardLayout.html}">
+
+
+
+<body>
+
+
+<div layout:fragment="content">
+<link rel="stylesheet" type="text/css" th:href="@{../client/styles/categories_styles.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{../client/styles/categories_responsive.css}">
+  <style>
+
+
+    a:hover{
+      color:#2ecc71;
+    }
+
+    .main{
+      width: 100%;
+    }
+
+    .sub-main{
+      width: 30%;
+      margin:22px;
+      float: left;
+    }
+
+    .button-two{
+      text-align: center;
+      cursor: pointer;
+      font-size:24px;
+    }
+
+
+
+    /*Button Two*/
+    .button-two {
+      border-radius: 4px;
+      background-color:rgb(204, 204, 204);
+      border: none;
+      padding: 20px;
+      width: 200px;
+      transition: all 0.5s;
+    }
+
+
+    .button-two span {
+      cursor: pointer;
+      display: inline-block;
+      position: relative;
+      transition: 0.5s;
+    }
+
+    .button-two span:after {
+      content: 'Ãƒâ€šÃ‚Â»';
+      position: absolute;
+      opacity: 0;
+      top: 0;
+      right: -20px;
+      transition: 0.5s;
+    }
+
+    .button-two:hover span {
+      padding-right: 25px;
+    }
+
+    .button-two:hover span:after {
+      opacity: 1;
+      right: 0;
+    }
+  </style>
+
+  <div class="container bootstrap snippets bootdey" style="margin-top: 200px; margin-bottom: 300px;">
+    <h1 class="text-dark"> <span class="text-danger">forgot</span>  Pasword</h1>
+    <hr>
+    <div class="row">
+      <!-- left column -->
+      <div class="col-md-3">
+        <div class="text-center">
+        
+        </div>
+      </div>
+
+      <!-- edit form column -->
+      <div class="col-md-9 personal-info">
+        <!-- <div class="alert alert-info alert-dismissable">
+          <a class="panel-close close" data-dismiss="alert">ÃƒÆ’Ã¢â‚¬â€�</a>
+          <i class="fa fa-coffee"></i>
+          This is an <strong>.alert</strong>. Use this to show important messages to the user.
+        </div> -->
+        <h3 class="text-primary">Personal info</h3>
+
+       <form action="/account/forgot" method="post">
+			<div class="auth-form__container">
+				<div class="auth-form__header">
+					<h3 class="auth-form__heading">Quên mật khẩu</h3>
+				</div>
+				<div class="auth-form__status">
+					<em class="pull-right"> <span
+						class="glyphicon glyphicon-warning-sign"></span>
+						${message}${param.message}
+					</em>
+				</div>
+				<div class="auth-form__form">
+					<div class="auth-form__group">
+						<input name="username"
+							class="auth-form__input" placeholder="tên đăng nhập">
+					</div>
+
+					<div class="auth-form__group">
+						<input placeholder="Email"
+							name="email" class="auth-form__input" required>
+					</div>
+					<div class="auth-form__controls-send">
+						<button class="btn btn-primary">Gửi</button>
+					</div>
+				</div>
+			</div>
+		</form>
+      </div>
+    </div>
+  </div>
+  <hr>
+
+</div>
+
+</body>
+
+</html>
