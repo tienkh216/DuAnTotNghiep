@@ -17,14 +17,14 @@ public class OrderController {
 	 @Autowired
 	 orderService orderService;
 	 
-	 @RequestMapping("/client/orderList")
+	 @RequestMapping("/client/order/list")
 	 public String list(Model model, HttpServletRequest request) {
 		 String username = request.getRemoteUser();
 		 model.addAttribute("orders",orderService.getOrderListByUsername(username));
 	     return "client/site/ListOrder";
 	 }
 	 
-	 @RequestMapping("/client/cancelOrderList")
+	 @RequestMapping("/client/order/cancelOrderList")
 	 public String cancelList(Model model, HttpServletRequest request ) {
 	 String username = request.getRemoteUser();
 	 model.addAttribute("orders",orderService.getCancelOrderListByUsername(username));
@@ -32,15 +32,15 @@ public class OrderController {
 	 }
 	 
 	 
-	 @RequestMapping("/client/orderDetail/{id}")
+	 @RequestMapping("/client/order/orderDetail/{id}")
 		public String detail(@PathVariable("id") Long id, Model model) {
 			model.addAttribute("order",orderService.findById(id));
 			return "client/site/OrderDetail";
 	}
-	@RequestMapping("/client/cancelOrder/{id}")
+	@RequestMapping("/client/order/cancel/{id}")
 	public String cancelOrder(@PathVariable("id") Long id) {
 		orderService.cancelOrder(id);
-		return "redirect:/client/orderList";
+		return "redirect:/client/order/list";
 
 	}
 }
