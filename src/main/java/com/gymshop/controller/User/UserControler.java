@@ -2,6 +2,8 @@ package com.gymshop.controller.User;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -102,5 +104,19 @@ public class UserControler {
 				model.addAttribute("message", "Sai tên đăng nhập!");
 			}
 			return "/client/site/forgot";
+		}
+		
+		@GetMapping("/account/change")
+		public String change(Model model, HttpServletRequest request) {
+			String username = request.getRemoteUser();
+			model.addAttribute("accounts", accService.findById(username));
+			return "client/site/change";
+		}
+
+		@PostMapping("/account/changes")
+		public String changePass(Model model, Account acc) {
+			accService.save(acc);
+			model.addAttribute("message", "Đổi mật khẩu thành công!");
+			return "redirect:/account/change";
 		}
 }
