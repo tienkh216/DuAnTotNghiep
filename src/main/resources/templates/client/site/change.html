@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{client/dashboardLayout.html}">
+
+
+
+<body>
+
+
+<div layout:fragment="content">
+<link rel="stylesheet" type="text/css" th:href="@{../client/styles/categories_styles.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{../client/styles/categories_responsive.css}">
+  <style>
+
+
+    a:hover{
+      color:#2ecc71;
+    }
+
+    .main{
+      width: 100%;
+    }
+
+    .sub-main{
+      width: 30%;
+      margin:22px;
+      float: left;
+    }
+
+    .button-two{
+      text-align: center;
+      cursor: pointer;
+      font-size:24px;
+    }
+
+
+
+    /*Button Two*/
+    .button-two {
+      border-radius: 4px;
+      background-color:rgb(204, 204, 204);
+      border: none;
+      padding: 20px;
+      width: 200px;
+      transition: all 0.5s;
+    }
+
+
+    .button-two span {
+      cursor: pointer;
+      display: inline-block;
+      position: relative;
+      transition: 0.5s;
+    }
+
+    .button-two span:after {
+      content: 'Ã‚Â»';
+      position: absolute;
+      opacity: 0;
+      top: 0;
+      right: -20px;
+      transition: 0.5s;
+    }
+
+    .button-two:hover span {
+      padding-right: 25px;
+    }
+
+    .button-two:hover span:after {
+      opacity: 1;
+      right: 0;
+    }
+  </style>
+
+  <div class="container bootstrap snippets bootdey" style="margin-top: 200px; margin-bottom: 300px;">
+    <h1 class="text-dark"> <span class="text-danger">Change pass</span>  Pass</h1>
+    <hr>
+    <div class="row">
+      <!-- left column -->
+     
+
+      <!-- edit form column -->
+      <div class="col-md-9 personal-info">
+        <!-- <div class="alert alert-info alert-dismissable">
+          <a class="panel-close close" data-dismiss="alert">Ãƒâ€”</a>
+          <i class="fa fa-coffee"></i>
+          This is an <strong>.alert</strong>. Use this to show important messages to the user.
+        </div> -->
+        <h3 class="text-primary">Personal info</h3>
+
+        <form th:action="@{/account/changes}" class="form-horizontal" role="form" th:object="${accounts}" method="POST">
+          <div class="form-group" hidden>
+            <label class="col-lg-3 control-label">Username</label>
+            <div class="col-lg-8">
+              <input th:field="*{username}"  class="form-control text-primary" type="text" > 
+            </div>
+          </div>
+          <div class="form-group" hidden>
+            <label class="col-lg-3 control-label">Ho va ten</label>
+            <div class="col-lg-8">
+              <input th:field="*{fullname}"  class="form-control text-primary" type="text" >
+            </div>
+          </div>
+          <div class="form-group" hidden>
+            <label class="col-lg-3 control-label">Email:</label>
+            <div class="col-lg-8">
+              <input  th:field="*{email}" class="form-control text-primary" type="text" >
+            </div>
+          </div>
+          <div class="form-group" >
+            <label class="col-lg-3 control-label">Mật khẩu mới</label>
+            <div class="col-lg-8">
+              <input class="form-control text-primary" type="password" id="pass"name="password"required>
+            </div>
+          </div>
+            <div class="form-group" >
+            <label class="col-lg-3 control-label">Xác nhận mật khẩu</label>
+            <div class="col-lg-8">
+              <input class="form-control text-primary" type="password" id ="cpass" required>
+              
+            </div>
+            
+          </div>
+           <div class="form-group">
+            <div class="col-lg-8">
+              <div th:text ="${message}" class="message"> </div>
+            </div>
+                  
+                </div>
+          <div class="form-group">
+            <div class="col-lg-8">
+              <div class="row">
+                <div class="col-6"><button class="btn btn-default">Đổi mật khẩu</button>
+
+                </div>
+             
+              </div>
+
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <hr>
+
+</div>
+
+</body>
+
+</html>
