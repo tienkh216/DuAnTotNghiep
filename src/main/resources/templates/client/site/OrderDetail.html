@@ -19,46 +19,54 @@
       <div class="col">
         <div class="breadcrumbs d-flex flex-row align-items-center">
           <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="categories.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Order</a></li>
-            <li class="active"><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i>Order Detail</a></li>
+            <li><a th:href="@{/client/home}">Home</a></li>
+            <li><a th:href="@{/client/order/list}"><i class="fa fa-angle-right" aria-hidden="true"></i>Đơn hàng của bạn</a></li>
+            <li class="active"><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i>Chi tiết đơn hàng</a></li>
           </ul>
         </div>
 
       </div>
     </div>
-   
-    <div class="row">
-    	<a th:href="@{|/client/orderList|}"> Đơn Hàng</a>
-    </div>
+
+      <div class="card">
+          <div class="card-header">
+              <div class="row">
+                  <div class="col-6">  <label> CHI TIẾT ĐƠN HÀNG </label></div>
+                  <div class="col-6" align="right"> <a th:href="@{|/client/order/list|}"> Đơn Hàng</a></div>
+              </div>
+          </div>
+          <div class="card-body">
+              <div class = "row" th:object = "${order}">
+                  <section >
+                      <div class="container mt-5">
+                          <table class="table table-bordered table-hover text-center">
+                              <thead>
+                              <tr>
+                                  <th scope="col">Image</th>
+                                  <th scope="col">Name</th>
+                                  <th scope="col">Price</th>
+                                  <th scope="col">Quantity</th>
+                                  <th scope="col">Amount</th>
+                              </tr>
+                              </thead>
+                              <tbody>
+                              <tr th:each = "detail:*{orderDetails}"  th:object ="${detail}">
+                                  <td><img  style="height: 150px; width: 150px;" th:src="@{|/client/images/*{product.image}|}" alt=""></td>
+                                  <td>[[*{product.name}]]</td>
+                                  <td>[[*{#numbers.formatDecimal(price,0,'COMMA',2,'POINT')}]]</td>
+                                  <td>[[*{quantity}]]</td>
+                                  <td>$[[*{#numbers.formatDecimal(price*quantity,0,'COMMA',2,'POINT')}]]</td>
+                              </tr>
+                              </tbody>
+                          </table>
+                      </div>
+                  </section>
+              </div>
+          </div>
+      </div>
     
     
-    <div class = "row" th:object = "${order}">
-    	<section >
-       <div class="container mt-5">
-        <table class="table table-bordered table-hover text-center">
-            <thead>
-               <tr>
-              	 <th scope="col">Image</th>
-                <th scope="col">Name</th>
-                <th scope="col">Price</th>
-                <th scope="col">Quantity</th>
-                <th scope="col">Amount</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr th:each = "detail:*{orderDetails}"  th:object ="${detail}">
-	                <td><img  style="height: 150px; width: 150px;" th:src="@{|/client/images/*{product.image}|}" alt=""></td>
-	                <td>[[*{product.name}]]</td>
-	                <td>[[*{#numbers.formatDecimal(price,0,'COMMA',2,'POINT')}]]</td>
-	                <td>[[*{quantity}]]</td>
-	                <td>$[[*{#numbers.formatDecimal(price*quantity,0,'COMMA',2,'POINT')}]]</td>
-              </tr>            
-             </tbody>
-          </table>
-       </div>
-   </section>
-    </div>
+
    
   </div>
 
