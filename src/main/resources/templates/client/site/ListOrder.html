@@ -27,32 +27,30 @@
 
       </div>
     </div>
-      <div class="card">
-          <div class="card-header">
-              <div class="row">
-                  <div class="col-6">  <label> ĐƠN HÀNG CỦA BẠN</label></div>
-                  <div class="col-6" align="right"><a th:href="@{|/client/order/cancelOrderList|}"> Xem đơn hàng đã hủy</a></div>
-
-
-              </div>
+        <div class="row">
+          <div class="col-6">
+            <h3>Đơn Hàng Của Bạn</h3>
           </div>
-          <div class="card-body">
-              <div class = "row">
-                  <section>
-                      <div class="container mt-5">
-                          <table class="table table-bordered table-hover text-center">
+          <div class="col-6 mb-3">
+              <a class="float-right" style="color: black; font-weight: bold;" th:href="@{|/client/order/cancelOrderList|}">&#8594; Xem đơn hàng đã hủy</a>
+          </div>
+        </div>
+        <div class = "row">
+                      <div class="container mt-2">
+                          <table class="table table-bordered table-hover text-center ">
                               <thead>
-                              <tr>
-                                  <th scope="col">STT</th>
-                                  <th scope="col">Ngày Đặt</th>
-                                  <th scope="col">Địa Chỉ Giao Hàng</th>
-                                  <th scope="col">Số điện thoại</th>
-                                  <th scope="col">Tình Trạng Đơn Hàng</th>
-                                  <th scope="col">Ghi chú</th>
-                                  <th scope="col">Hủy Đơn Hàng</th>
-                                  <th scope="col">Xem chi tiết đơn hàng</th>
+                              <tr style="background: #fe4c50; color: #ffffff;">
+                                  <th style="font-weight: 200;" scope="col">STT</th>
+                                  <th   style="font-weight: 200;"scope="col">Ngày Đặt</th>
+                                  <th  style="font-weight: 200;" scope="col">Địa Chỉ Giao Hàng</th>
+                                  <th  style="font-weight: 200;" scope="col">Số điện thoại</th>
+                                  <th  style="font-weight: 200;" scope="col">Tình Trạng Đơn Hàng</th>
+                                  <th  style="font-weight: 200;" scope="col">Ghi chú</th>
+                                  <th   style="font-weight: 200;" scope="col">Hủy Đơn Hàng</th>
+                                  <th  style="font-weight: 200;" scope="col">Xem chi tiết đơn hàng</th>
                               </tr>
                               </thead>
+
                               <tbody>
                               <tr th:each = "order,state:${orders}">
                                   <th scope="row">[[${state.index+1}]]</th>
@@ -61,19 +59,14 @@
                                   <td>[[${order.phone}]]</td>
                                   <td>[[${order.orderStatus.description}]]</td>
                                   <td>[[${order.notes}]]</td>
-                                  <td><a th:href="@{|/client/order/cancel/${order.id}|}"><i class="fa fa-trash-o" aria-hidden="true"></i></a></td>
-                                  <td><a th:href="@{|/client/order/orderDetail/${order.id}|}"><i class="fa fa-search" aria-hidden="true"></i></a></td>
+                                  <td><a style="color:  #fe4c50; " th:href="@{|/client/order/cancel/${order.id}|}"><i class="fa fa-ban"  aria-hidden="true"></i></a></td>
+                                  <td><a style="color:  #fe4c50;" th:href="@{|/client/order/orderDetail/${order.id}|}"><i class="fa fa-info" aria-hidden="true"></i></a></td>
                               </tr>
                               </tbody>
                           </table>
                       </div>
-                  </section>
-              </div>
-
-          </div>
-          </div>
-      </div>
-
+        </div>
+    </div>
 </div>
 
 
