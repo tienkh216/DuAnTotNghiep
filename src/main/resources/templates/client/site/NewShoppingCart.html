@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{client/dashboardLayout.html}">
+
+
+
+<body>
+
+
+<div layout:fragment="content">
+  <link rel="stylesheet" type="text/css" th:href="@{/client/styles/categories_styles.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{/client/styles/categories_responsive.css}">
+
+  <link rel="stylesheet" type="text/css" th:href="@{/client/styles/cart.css}">
+
+  <!-- content -->
+
+
+
+  <div class="wrap cf">
+
+
+
+    <div class="heading cf">
+      <h1>My Cart</h1>
+      <a href="#" class="continue">Continue Shopping</a>
+    </div>
+
+
+    <div class="cart">
+      <!-- <ul class="tableHead">
+         <li class="prodHeader">Product</li>
+         <li>Quantity</li>
+         <li>Total</li>
+          <li>Remove</li>
+       </ul> -->
+      <ul class="cartWrap">
+		
+        <li class="items even" ng-repeat="item in cart.items">
+
+          <div class="infoWrap">
+            <div class="cartSection">
+
+              <img  ng-src="{{'/client/images/'+item.image}}"   alt="" class="itemImg" />
+              <h3 >{{item.name}}</h3>
+              <p class="itemNumber">{{item.price|currency:"":0 }}</p>
+
+
+              <p> <input type="text" ng-model="item.qty"  class="qty" placeholder="3"/></p>
+
+              <p class="stockStatus"> In Stock</p>
+            </div>
+
+
+            <div class="prodTotal cartSection">
+              <p> {{item.qty*item.price|currency:"":0 }}</p>
+            </div>
+            <div class="cartSection removeWrap">
+
+
+              <div class="col-md-4 text-center" style="padding: 0px; margin: 0px;">
+                <a href="#" ng-click="cart.remove(item.id)"> <img th:src="@{/client/images/Xbutton.jpg}" style="width: 20px" class="close-button" alt=""></a>
+              </div>
+            </div>
+          </div>
+        </li>
+		
+
+
+        <!--<li class="items even">Item 2</li>-->
+
+      </ul>
+    </div>
+
+    <div class="promoCode"><a><button class="btn btn-delete">
+        <span class="mdi mdi-delete mdi-24px"></span>
+        <span class="mdi mdi-delete-empty mdi-24px"></span>
+        <span>Xoá tất cả</span>
+    </button></a></div>
+
+    <div class="subtotal cf">
+      <ul>
+        <li class="totalRow"><span class="label">Subtotal</span><span class="value"></span></li>
+        <li class="totalRow"><span class="label">Shipping</span><span class="value">Free ship</span></li>
+        <li class="totalRow final"><span class="label">Total</span><span class="value">{{tinhTongtien()|currency:"":0 }}</span></li>
+        <li class="totalRow"><a th:href="@{/client/checkout}" class="btn continue">Checkout</a></li>
+      </ul>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+</body>
+
+</html>

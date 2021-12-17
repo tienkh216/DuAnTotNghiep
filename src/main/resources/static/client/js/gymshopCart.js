@@ -107,79 +107,84 @@ app.controller("ctrl",function($scope,$http){
 
 
 
+    function initGetData()
+    {
+
+        var countries = [];
+
+        var specific_address = jQuery("#user_address").val();
+        countries.push(specific_address);
 
 
-    $(document).ready(function() {
-        $("#next").click(function(){
-
-
-            var countries = [];
-
-            var specific_address = jQuery("textarea#specific_address").val();
-            countries.push(specific_address);
-
-
-            $.each($(".ls_ward option:selected"), function(){
-                countries.push($(this).text());
-            });
-
-            $.each($(".ls_district option:selected"), function(){
-                countries.push($(this).text());
-            });
-            $.each($(".ls_province option:selected"), function(){
-                countries.push($(this).text());
-            });
-            $scope.address = countries.join("  ").toString();
-
-            var notes = jQuery("textarea#note").val();
-
-            $scope.note = notes;
-
-
-
-
-
-            var payment ;
-
-            $.each($(".select"), function(){
-                if($(this).attr('data-selected') === 'true'){
-                    payment =($(this).attr('data-check'));
-                }
-
-            });
-            $scope.pay = parseInt(payment) ;
-
-
-
-            $scope.listOrder = {
-
-                createDate: new Date(),
-                address: $scope.address,
-                notes: $scope.note= jQuery("textarea#note").val(),
-                orderStatus: {id: 1},
-                phone: $("#phone").val(),
-                paymentMethod: {id:$scope.pay},
-                account: {
-                    username: $("#username").text(),
-                },
-
-                get orderDetails() {
-                    return $scope.cart.items.map(item => {
-                        return {
-                            product: {id: item.id},
-                            price: item.price,
-                            quantity: item.qty
-                        }
-                    });
-                }
-            }
-
-
-
-
+        $.each($(".ls_ward option:selected"), function(){
+            countries.push($(this).text());
         });
-    });
 
+        $.each($(".ls_district option:selected"), function(){
+            countries.push($(this).text());
+        });
+        $.each($(".ls_province option:selected"), function(){
+            countries.push($(this).text());
+        });
+
+        $scope.address = countries.join("  ").toString();
+
+        var notes = jQuery("textarea#note").val();
+
+        $scope.note = notes;
+
+
+        var pay ;
+        $.each($('input[name="content"]:checked'), function(){
+            pay = $(this).val();
+        });
+
+
+
+
+        $scope.payM = parseInt(pay);
+
+
+
+
+        $scope.listOrder = {
+
+
+            createDate: new Date(),
+            address: $scope.address,
+            notes: $scope.note = jQuery("textarea#note").val(),
+            orderStatus: {id: 1},
+            phone: $("#phone").val().toString(),
+            paymentMethod: {id:$scope.payM},
+            account: {
+                username: $("#username").text(),
+            },
+
+
+            get orderDetails() {
+                return $scope.cart.items.map(item => {
+                    return {
+                        product: {id: item.id},
+                        price: item.price,
+                        quantity: item.qty
+                    }
+                });
+            }
+        }
+        console.log("lấy data thành công");
+
+
+
+    }
+
+    // $(document).ready(function() {
+    //     $(".place-order").click(function(){
+    //
+    //
+    //
+    //     });
+    // });
+    //
 
 
 
@@ -188,8 +193,9 @@ app.controller("ctrl",function($scope,$http){
 
 
          purchase(){
+             initGetData();
             var order = angular.copy($scope.listOrder);
-            debugger
+       debugger
             //Thực hiện đặt hàng
             $http.post("/test/checkout",order).then(resp =>{
                 alert("Đặt hàng thành công!");
@@ -223,7 +229,7 @@ app.controller("productCtrl", function($scope, $http, $rootScope) {
           });
        });
    
-       
+
     }
   
  $scope.initialize();

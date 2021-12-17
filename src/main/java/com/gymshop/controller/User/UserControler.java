@@ -105,6 +105,7 @@ public class UserControler {
 			}
 			return "/client/site/forgot";
 		}
+
 		
 		@GetMapping("/account/change")
 		public String change(Model model, HttpServletRequest request) {
@@ -119,4 +120,5 @@ public class UserControler {
 			model.addAttribute("message", "Đổi mật khẩu thành công!");
 			return "redirect:/account/change";
 		}
+
 }

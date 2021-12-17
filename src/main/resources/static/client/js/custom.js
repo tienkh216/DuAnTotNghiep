@@ -111,21 +111,7 @@ setTimeout(()=>{                           // <<<---using ()=> syntax
 		{
 
 
-			$(".checkout").click(
-				function () {
-					if($('.notify').hasClass('remove')){
-						$('.notify').removeClass('remove');
-						$('.checkout i').removeClass('fa fa-shopping-cart');
-						$('.checkout i').addClass('fa fa-times');
 
-					}else {
-						$('.notify').addClass('remove');
-						$('.checkout i').removeClass('fa fa-times');
-						$('.checkout i').addClass('fa fa-shopping-cart');
-
-					}
-				}
-			);
 
 			// $('.checkout').click(function() {
 			//

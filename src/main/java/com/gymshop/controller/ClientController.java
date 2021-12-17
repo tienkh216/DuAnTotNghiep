@@ -62,16 +62,21 @@ public class ClientController {
         }
         return ("client/site/Products");
     }
-   
-    
-    @RequestMapping("/client/cart")
+
+    @RequestMapping("/client/testtttt")
     public String shoppingCart(Model model) {
+        return ("client/Signup2");
+    }
+
+
+    @RequestMapping("/client/cart")
+    public String testttt(Model model) {
         return ("client/site/ShoppingCart");
     }
 
     @RequestMapping("/client/checkout")
     public String clientCheckout(Model model) {
-        return ("client/site/Checkout");
+        return ("client/site/NewCheckout");
     }
 
     @RequestMapping("/client/productDetail/{id}")
