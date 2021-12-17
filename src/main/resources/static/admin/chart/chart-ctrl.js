@@ -1,19 +1,49 @@
 app.controller("chart-ctrl", function($scope, $http, $rootScope) {
-    $scope.charOrder = function(){
-        $scope.items = [];
-        $http.get("/rest/chart/doanhThu").then(resp=>{
-            $scope.doanhThuThang1;
-            $scope.doanhThuThang2;
-            $scope.doanhThuThang3;
-            $scope.doanhThuThang4;
-            $scope.doanhThuThang5;
-            $scope.doanhThuThang6;
-            $scope.doanhThuThang7;
-            $scope.doanhThuThang8;
-            $scope.doanhThuThang9;
-            $scope.doanhThuThang10;
-            $scope.doanhThuThang11;
-            $scope.doanhThuThang12;
+    $scope.doanhThuThang1;
+    $scope.doanhThuThang2;
+    $scope.doanhThuThang3;
+    $scope.doanhThuThang4;
+    $scope.doanhThuThang5;
+    $scope.doanhThuThang6;
+    $scope.doanhThuThang7;
+    $scope.doanhThuThang8;
+    $scope.doanhThuThang9;
+    $scope.doanhThuThang10;
+    $scope.doanhThuThang11;
+    $scope.doanhThuThang12;
+    $scope.year;
+    $scope.years = [];
+    $scope.clear = function(){
+        $scope.doanhThuThang1 = null;
+        $scope.doanhThuThang2 = null;
+        $scope.doanhThuThang3 = null;
+        $scope.doanhThuThang4 = null;
+        $scope.doanhThuThang5 = null;
+        $scope.doanhThuThang6 = null;
+        $scope.doanhThuThang7 = null;
+        $scope.doanhThuThang8 = null;
+        $scope.doanhThuThang9 = null;
+        $scope.doanhThuThang10 = null;
+        $scope.doanhThuThang11 = null;
+        $scope.doanhThuThang12 = null;
+    }
+    $http.get("/rest/orders/getYear").then(resp=>{
+        $scope.years = resp.data;
+    }).catch(erro=>{
+        console.log(erro);
+        if(erro.status = 403 || erro.status == 401){
+            swal("Erro", "Không Có Quyền", "error");
+            $scope.close();
+        }
+    });
+    $scope.xem =function(){
+        var year = $scope.year;
+        $scope.clear();
+        $scope.layDuLieu(year);
+    }
+    $scope.layDuLieu = function(nam){
+        $scope.clear();
+        $http.get(`/rest/chart/doanhThu/${nam}`).then(resp=>{
             $scope.items = resp.data;
             for(var i = 0 ;i<$scope.items.length;i++){
                 if($scope.items[i].thang == 1){
@@ -74,16 +104,19 @@ app.controller("chart-ctrl", function($scope, $http, $rootScope) {
                 }
             }
             });
-        }).catch(erro=>{
-            if(erro.status = 403 || erro.status == 401){
-                swal("Erro", "Không có quyền ", "error");
-            }
-        });
-       
-        
-        
+    }).catch(erro=>{
+        console.log(erro);
+        if(erro.status = 403 || erro.status == 401){
+            swal("Erro", "Không Có Quyền", "error");
+            $scope.close();
+          }
+    });
     }
-    //$scope.chartProduct();
-    $scope.charOrder();
+        
+       
+  
+        
+   
+    
 });
 

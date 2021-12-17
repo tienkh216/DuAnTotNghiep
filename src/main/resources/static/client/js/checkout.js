@@ -1,4 +1,5 @@
 
+
 	const btn = document.querySelector(".place-order");
 
 	btn.addEventListener("click", () => {
@@ -12,7 +13,8 @@
 	btn.classList.remove("place-order--done");
 	btn.classList.add("place-order--default");
 }, 6000);
-})
+
+
 
 
 

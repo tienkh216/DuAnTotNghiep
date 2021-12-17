@@ -353,6 +353,10 @@ h1, h2, h3, h4, h5, h6 {
 	color: #e72828;
 	top: 50%;
 }
+.hidden-s{
+	visibility: hidden;
+	display: none;
+}
 
 img:hover + .remove-checkout{
 	opacity: 80%;

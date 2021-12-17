@@ -1,7 +1,6 @@
 
 
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">DataTables</h1>
             <ol class="breadcrumb">
               <li class="breadcrumb-item">Trang Chủ</li>
               <li class="breadcrumb-item">Đơn Hàng</li>
@@ -31,7 +30,7 @@
                     </thead>
                    
                     <tbody>
-                      <tr ng-repeat = "item in pager.items">
+                      <tr ng-repeat = "item in pager.items ">
                         <td><a href="#!order-detail/{{item.id}}">{{item.id}}</a></td>
                         <td>{{item.account.username}}</td>
                         <td>{{item.address}}</td>

@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{client/dashboardLayout.html}">
+
+
+
+<body>
+
+
+<div layout:fragment="content">
+
+  <link rel="stylesheet" type="text/css" th:href="@{/client/styles/main_styles.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{/client/styles/responsive.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{/client/styles/single_styles.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{/client/styles/single_responsive.css}">
+
+
+  <div class="container single_product_container" >
+    <div class="row">
+      <div class="col">
+        <div class="breadcrumbs d-flex flex-row align-items-center">
+          <ul>
+            <li><a th:href="@{/client/home}">Trang chủ</a></li>
+            <li class="active"><a th:href="@{/client/order/list}"><i class="fa fa-angle-right" aria-hidden="true"></i>Đơn hàng của bạn</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+      <div class="card">
+          <div class="card-header">
+              <div class="row">
+                  <div class="col-6">  <label> ĐƠN HÀNG CỦA BẠN</label></div>
+                  <div class="col-6" align="right"><a th:href="@{|/client/order/cancelOrderList|}"> Xem đơn hàng đã hủy</a></div>
+
+
+              </div>
+          </div>
+          <div class="card-body">
+              <div class = "row">
+                  <section>
+                      <div class="container mt-5">
+                          <table class="table table-bordered table-hover text-center">
+                              <thead>
+                              <tr>
+                                  <th scope="col">STT</th>
+                                  <th scope="col">Ngày Đặt</th>
+                                  <th scope="col">Địa Chỉ Giao Hàng</th>
+                                  <th scope="col">Số điện thoại</th>
+                                  <th scope="col">Tình Trạng Đơn Hàng</th>
+                                  <th scope="col">Ghi chú</th>
+                                  <th scope="col">Hủy Đơn Hàng</th>
+                                  <th scope="col">Xem chi tiết đơn hàng</th>
+                              </tr>
+                              </thead>
+                              <tbody>
+                              <tr th:each = "order,state:${orders}">
+                                  <th scope="row">[[${state.index+1}]]</th>
+                                  <td>[[${order.createDate}]]</td>
+                                  <td>[[${order.address}]]</td>
+                                  <td>[[${order.phone}]]</td>
+                                  <td>[[${order.orderStatus.description}]]</td>
+                                  <td>[[${order.notes}]]</td>
+                                  <td><a th:href="@{|/client/order/cancel/${order.id}|}"><i class="fa fa-trash-o" aria-hidden="true"></i></a></td>
+                                  <td><a th:href="@{|/client/order/orderDetail/${order.id}|}"><i class="fa fa-search" aria-hidden="true"></i></a></td>
+                              </tr>
+                              </tbody>
+                          </table>
+                      </div>
+                  </section>
+              </div>
+
+          </div>
+          </div>
+      </div>
+
+</div>
+
+
+
+</body>
+
+</html>
+

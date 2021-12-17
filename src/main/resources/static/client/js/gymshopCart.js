@@ -149,6 +149,7 @@ app.controller("ctrl",function($scope,$http){
 
         $scope.listOrder = {
 
+
             createDate: new Date(),
             address: $scope.address,
             notes: $scope.note = jQuery("textarea#note").val(),
@@ -158,6 +159,7 @@ app.controller("ctrl",function($scope,$http){
             account: {
                 username: $("#username").text(),
             },
+
 
             get orderDetails() {
                 return $scope.cart.items.map(item => {

@@ -19,45 +19,55 @@
       <div class="col">
         <div class="breadcrumbs d-flex flex-row align-items-center">
           <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="categories.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Order</a></li>
-            <li class="active"><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i>List Order</a></li>
+            <li><a th:href="@{/client/home}">Trang chủ</a></li>
+            <li><a th:href="@{/client/order/list}"><i class="fa fa-angle-right" aria-hidden="true"></i>Đơn hàng của bạn</a></li>
+            <li class="active"><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i>Đơn hàng đã hủy</a></li>
           </ul>
         </div>
 
       </div>
     </div>
-     <div class="row">
-    	<a th:href="@{|/client/orderList|}"> Đơn Hàng</a>
-    </div>
-    <div class = "row"> 
-    	 <section>
-       <div class="container mt-5">
-        <table class="table table-bordered table-hover text-center">
-            <thead>
-              <tr>
-                <th scope="col">STT</th>
-                <th scope="col">Ngày Đặt</th>
-                <th scope="col">Địa Chỉ Giao Hàng</th>
-                <th scope="col">Tình Trạng Đơn Hàng</th>
-                <th scope="col">Notes</th>
-                <th scope="col"></th>
-              </tr>
-            </thead>
-            <tbody>
-             <tr th:each = "order,state:${orders}">
-                 <th scope="row">[[${state.index+1}]]</th>
-	             <td>[[${order.createDate}]]</td>
-	             <td>[[${order.address}]]</td>
-	             <td>[[${order.orderStatus.description}]]</td>
-	             <td>[[${order.notes}]]</td>
-                 <td><a th:href="@{|/client/orderDetail/${order.id}|}"><i class="fa fa-search" aria-hidden="true"></i></a></td>
-              </tr>
-            </tbody>
-          </table>
-       </div>
-   </section>
-    </div>
+      <div class="card">
+          <div class="card-header">
+              <div class="row">
+                  <div class="col-6">  <label> ĐƠN HÀNG ĐÃ HỦY</label></div>
+                  <div class="col-6" align="right"> <a th:href="@{|/client/order/list|}"> Đơn Hàng</a></div>
+              </div>
+          </div>
+          <div class="card-body">
+              <div class = "row">
+                  <section>
+                      <div class="container mt-5">
+                          <table class="table table-bordered table-hover text-center">
+                              <thead>
+                              <tr>
+                                  <th scope="col">STT</th>
+                                  <th scope="col">Ngày Đặt</th>
+                                  <th scope="col">Địa Chỉ Giao Hàng</th>
+                                  <th scope="col">Tình Trạng Đơn Hàng</th>
+                                  <th scope="col">Notes</th>
+                                  <th scope="col"></th>
+                              </tr>
+                              </thead>
+                              <tbody>
+                              <tr th:each = "order,state:${orders}">
+                                  <th scope="row">[[${state.index+1}]]</th>
+                                  <td>[[${order.createDate}]]</td>
+                                  <td>[[${order.address}]]</td>
+                                  <td>[[${order.orderStatus.description}]]</td>
+                                  <td>[[${order.notes}]]</td>
+                                  <td><a th:href="@{|/client/order/orderDetail/${order.id}|}"><i class="fa fa-search" aria-hidden="true"></i></a></td>
+                              </tr>
+                              </tbody>
+                          </table>
+                      </div>
+                  </section>
+              </div>
+          </div>
+
+      </div>
+
+
    
   </div>
 

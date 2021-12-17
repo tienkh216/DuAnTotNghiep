@@ -97,7 +97,7 @@
                                     </a>
                                     <ul class="language_selection">
                                         <li><a href="#">English</a></li>
-                                        <li><a href="#">Viá»‡t Nam</a></li>
+                                        <li><a href="#">Việt Nam</a></li>
 
                                     </ul>
                                 </li>
@@ -111,12 +111,12 @@
                                     </a>
                                     <ul class="account_selection" style="width:200px;">
                                     <th:block th:if = "${#request.remoteUser}"> 
-                                    	<li><a th:href="@{/client/editProfile}"><i class="fa fa-user" aria-hidden="true"></i>Profile</a>
+                                    	<li><a th:href="@{/client/editProfile}"><i class="fa fa-user" aria-hidden="true"></i>Thông tin cá nhân</a>
                                         </li>
                                         <li class="nav-item" th:if = "${#request.isUserInRole('DIRE') or #request.isUserInRole('STAF')}">
 												<a class="nav-link" th:href = "@{/admin/home}">Adminstration</a>
 										  </li>
-                                        <li><a th:href="@{/client/orderList}"><i class="fa fa-archive" aria-hidden="true"></i>Lịch sử mua hàng</a>
+                                        <li><a th:href="@{/client/order/list}"><i class="fa fa-archive" aria-hidden="true"></i>Lịch sử mua hàng</a>
 
                                         </li>
                                         <li><a th:href="@{/login/logoff}"><i class="fa fa-sign-in" aria-hidden="true"></i>Đăng Xuất</a>
@@ -126,7 +126,7 @@
                                         <li><a th:href="@{/login/form}"><i class="fa fa-sign-in" aria-hidden="true"></i>Đăng Nhập</a>
                                         </li>
                                         <li><a th:href="@{/sercurity/signup}"><i class="fa fa-user-plus"
-                                                           aria-hidden="true"></i>Register</a></li>
+                                                           aria-hidden="true"></i>Đăng ký</a></li>
                                         </th:block>
                                     </ul>
                                 </li>
@@ -144,12 +144,12 @@
                 <div class="row">
                     <div class="col-lg-12 text-right">
                         <div class="logo_container">
-                            <a href="#">Gym<span>Master</span></a>
+                            <a th:href="@{/client/home}">Gym<span>Master</span></a>
                         </div>
                         <nav class="navbar">
                             <ul class="navbar_menu">
-                                <li><a th:href="@{/client/home}">home</a></li>
-                                <li><a th:href="@{/client/product}">shop</a></li>
+                                <li><a th:href="@{/client/home}">Trang Chủ</a></li>
+                                <li><a th:href="@{/client/product}">Sản phẩm</a></li>
                                 <li><a href="#">promotion</a></li>
                                 <li><a href="#">pages</a></li>
                                 <li><a href="#">blog</a></li>
