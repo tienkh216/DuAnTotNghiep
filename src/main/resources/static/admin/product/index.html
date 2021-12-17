@@ -54,7 +54,7 @@
                                 </table>
                                 
                             </div>
-	                            <div class="card-footer text-muted">
+	                        <div class="card-footer text-muted">
 						            <button type="button" class="btn btn-primary"  ng-click="pager.first()">
 						              <i class="fas fa-fast-backward"></i>
 						            </button>
@@ -68,7 +68,7 @@
 						            <button type="button" class="btn btn-danger"  ng-click="pager.last()">
 						              <i class="fas fa-fast-forward"></i>  
 						            </button>
-	        					</div>
+	        				</div>
                         </div>
                     </div>
                 
@@ -84,14 +84,15 @@
                             </div>
                             <div class="modal-body">
                                 <div class="card-body">
-                                    <form>
+                                    <form name="frmGopy" class="php-email-form">
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Tên</label>
-                                            <input ng-model ="form.name" type="text" class="form-control"  >
+                                            <input name="name" ng-model ="form.name" type="text" required  class="form-control"  >
+                                           
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Giá</label>
-                                            <input ng-model ="form.price" type="text" class="form-control"  >
+                                            <input ng-model ="form.price" type="text" required class="form-control"  >
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Số Lượng</label>
@@ -99,7 +100,7 @@
                                         </div>
                                         <div class="form-group">
 				                            <label for="exampleInputEmail1">Ngày Tạo</label>
-				                            <input  ng-model = "form.createdate"  type="date"  class="form-control"  >
+				                            <input  ng-model = "form.createdate"  type="date" required  class="form-control"  >
 				                        </div>
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Loại </label>
@@ -123,7 +124,7 @@
                                         </div>
                                         <div class="form-group">
 					                      <label for="exampleFormControlTextarea1">Miêu Tả</label>
-					                      <textarea ng-model = "form.description" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+					                      <textarea required ng-model = "form.description" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
 					                    </div>
 					                    <div class="form-group">
 					                            <img ng-src="{{'/assets/images/'+ form.image}}" alt="" style="max-height: 50%;max-width: 50%">
