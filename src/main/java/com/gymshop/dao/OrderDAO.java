@@ -33,6 +33,9 @@ public interface OrderDAO extends JpaRepository<Order, Long> {
 	@Query(value = "select * from Orders where order_status_id = 5 and Username =:username",nativeQuery =true)
 	List<Order> getCancelOrderListByUsername(String username);
 	
-	
+	@Query(value = "select  Year(od.CreateDate)\r\n"
+			+ "from  Orders od\r\n"
+			+ "group by Year(od.CreateDate)",nativeQuery =true)
+	List<Integer> getYearOrder();
 	
 }

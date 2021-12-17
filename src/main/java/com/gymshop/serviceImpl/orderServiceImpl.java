@@ -94,6 +94,12 @@ public class orderServiceImpl implements orderService {
 		return orderDao.getSuccessOrder();
 	}
 
+	@Override
+	public List<Integer> getYearOrder() {
+		// TODO Auto-generated method stub
+		return orderDao.getYearOrder();
+	}
+
 	
 
 	

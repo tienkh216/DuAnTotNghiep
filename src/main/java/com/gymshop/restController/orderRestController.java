@@ -29,6 +29,11 @@ public class orderRestController {
 	@Autowired
 	orderStatusService orderStatusService;
 	
+	@GetMapping("getYear")
+	public List<Integer> getYear(){
+		return orderService.getYearOrder();
+	}
+	
 	@GetMapping("status")
 	public List<OrderStatus> getStatus(){
 		return orderStatusService.findAll();

@@ -83,9 +83,9 @@ public class productServiceImpl implements productService{
 	}
 
 	@Override
-	public List<DoanhThuThang> doanhThuThang() {
+	public List<DoanhThuThang> doanhThuThang(int Year) {
 		// TODO Auto-generated method stub
-		return dao.doanhThuTheoThang();
+		return dao.doanhThuTheoThang(Year);
 	}
 
 	
