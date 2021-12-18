@@ -155,6 +155,7 @@ app.controller("ctrl",function($scope,$http){
             notes: $scope.note = jQuery("textarea#note").val(),
             orderStatus: {id: 1},
             phone: $("#phone").val().toString(),
+            name: $("#name").val().toString(),
             paymentMethod: {id:$scope.payM},
             account: {
                 username: $("#username").text(),
@@ -200,7 +201,7 @@ app.controller("ctrl",function($scope,$http){
             $http.post("/test/checkout",order).then(resp =>{
                 alert("Đặt hàng thành công!");
                 $scope.cart.clear();
-                location.href="/client/orderDetail/" + resp.data.id;
+                location.href="/client/order/orderDetail/" + resp.data.id;
             }).catch(error =>{
                 alert("Đặt hàng lỗi")
                 console.log(error)
