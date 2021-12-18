@@ -224,3 +224,333 @@
 .btn-delete:focus {
     box-shadow: 0 0 0 4px #fcc;
 }
+
+
+
+.dropdown-slide {
+    position: static;
+}
+
+.dropdown-slide .open > a, .dropdown-slide .open > a:focus, .dropdown-slide .open > a:hover {
+    background: transparent;
+}
+
+.dropdown-slide.full-width .dropdown-menu {
+    left: 0 !important;
+    right: 0 !important;
+}
+
+.dropdown-slide:hover .dropdown-menu {
+    display: none;
+    opacity: 1;
+    display: block;
+    -webkit-transform: translate(0px, 0px);
+    transform: translate(0px, 0px);
+    opacity: 1;
+    visibility: visible;
+    color: #777;
+    -webkit-transform: translateY(0px);
+    transform: translateY(0px);
+}
+
+.dropdown-slide .dropdown-menu {
+    border-radius: 0;
+    opacity: 1;
+    width: 70%;
+    visibility: visible;
+    position: absolute;
+    padding: 15px;
+    border: 1px solid #ebebeb;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: .3s all;
+    position: absolute;
+    display: block;
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transform: translateY(30px);
+    transform: translateY(30px);
+    transition: visibility 0.2s, opacity 0.2s, -webkit-transform 500ms cubic-bezier(0.43, 0.26, 0.11, 0.99);
+    transition: visibility 0.2s, opacity 0.2s, transform 500ms cubic-bezier(0.43, 0.26, 0.11, 0.99);
+    transition: visibility 0.2s, opacity 0.2s, transform 500ms cubic-bezier(0.43, 0.26, 0.11, 0.99), -webkit-transform 500ms cubic-bezier(0.43, 0.26, 0.11, 0.99);
+}
+
+@media (max-width: 480px) {
+    .dropdown-slide .dropdown-menu {
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+
+
+.commonSelect select:focus {
+    box-shadow: none;
+    border: none;
+}
+
+.tabCommon .nav-tabs {
+    border-bottom: 0;
+    margin-bottom: 10px;
+}
+
+.tabCommon .nav-tabs li {
+    margin-right: 5px;
+}
+
+.tabCommon .nav-tabs li.active a {
+    background-color: #000;
+    border: 1px solid #000;
+    color: #ffffff;
+}
+
+.tabCommon .nav-tabs a {
+    border-radius: 0;
+    background: #f9f9f9;
+}
+
+.tabCommon .nav-tabs a:hover {
+    border: 1px solid transparent;
+    background: #000;
+    color: #fff;
+}
+
+.tabCommon .tab-content {
+    padding: 20px;
+    border: 1px solid #dedede;
+}
+
+.commonAccordion .panel, .commonAccordion-2 .panel {
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.commonAccordion .panel .panel-heading, .commonAccordion-2 .panel .panel-heading {
+    background: transparent;
+    padding: 0;
+}
+
+.commonAccordion .panel .panel-title, .commonAccordion-2 .panel .panel-title {
+    position: relative;
+}
+
+.commonAccordion .panel .panel-title a, .commonAccordion-2 .panel .panel-title a {
+    display: block;
+    font-size: 14px;
+    text-transform: uppercase;
+    padding: 10px 10px;
+}
+
+.commonAccordion .panel .panel-title a:before, .commonAccordion-2 .panel .panel-title a:before {
+    color: #555;
+    content: "\f209";
+    position: absolute;
+    right: 25px;
+    font-family: "themefisher-font";
+}
+
+.commonAccordion .panel .panel-title a.collapsed:before, .commonAccordion-2 .panel .panel-title a.collapsed:before {
+    content: "\f217";
+}
+
+.list-circle {
+    padding-left: 20px;
+}
+
+.list-circle li {
+    list-style-type: circle;
+}
+
+.play-icon {
+    border: 1px solid #dedede;
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    border-radius: 50px;
+    font-size: 30px;
+}
+
+.play-icon i {
+    line-height: 60px;
+}
+
+.alert-common {
+    border-radius: 0;
+    border-width: 2px;
+}
+
+.alert-common i {
+    margin: 0 5px;
+    font-size: 16px;
+}
+
+.alert-solid {
+    background: transparent;
+    color: #000;
+}
+
+@media (max-width: 480px) {
+    .buttonPart li {
+        margin-bottom: 8px;
+    }
+}
+
+@media (max-width: 768px) {
+    .buttonPart li {
+        margin-bottom: 8px;
+    }
+}
+
+.single-page-header {
+    padding: 140px 0 70px;
+    text-align: center;
+    color: #fff;
+    position: relative;
+}
+
+.top-header .container {
+    padding-top: 35px;
+    padding-bottom: 35px;
+
+}
+
+.top-header .dropdown-menu {
+    left: auto;
+    right: 0;
+    max-width: 300px;
+}
+
+@media (max-width: 480px) {
+    .top-header .dropdown-menu {
+        right: 0;
+        left: 0;
+        max-width: 100%;
+    }
+}
+
+.top-header .contact-number {
+    font-size: 12px;
+    color: #333;
+}
+
+@media (max-width: 480px) {
+    .top-header .contact-number {
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .top-header .contact-number {
+        text-align: center;
+        padding: 10px 0;
+    }
+}
+
+.top-header .contact-number i {
+    margin-right: 4px;
+    font-size: 18px;
+    vertical-align: middle;
+}
+
+@media (max-width: 768px) {
+    .top-header .top-menu {
+        text-align: center;
+        padding: 10px 0;
+    }
+}
+
+.top-header .top-menu > li > a {
+    color: #333;
+    font-size: 15px;
+    padding: 0 8px;
+}
+
+.top-header .top-menu > li > a:hover, .top-header .top-menu > li > a:focus {
+    background: transparent;
+}
+
+.top-header .top-menu > li > a i {
+    font-size: 16px;
+    margin-right: 2px;
+    vertical-align: middle;
+}
+
+@media (max-width: 480px) {
+    .top-header .logo {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .top-header .logo {
+        padding: 10px;
+    }
+}
+
+.top-header .logo a {
+    display: inline-block;
+}
+
+.cart-dropdown .media {
+    position: relative;
+    border-bottom: 1px solid #dedede;
+    padding-bottom: 15px;
+}
+
+.cart-dropdown .media .pull-left {
+    margin-right: 30px;
+}
+
+.cart-dropdown img {
+    width: 60px;
+}
+
+.cart-dropdown h4 {
+    color: #000;
+    font-weight: 300;
+    font-size: 14px;
+}
+
+.cart-dropdown .cart-price {
+    color: #7f7f7f;
+    font-size: 12px;
+    font-weight: 200;
+}
+
+.cart-dropdown .remove {
+    padding: 1px 6px;
+
+
+    background-color: #f7f8f9;
+    color: #7f7f7f;
+    font-size: 12px;
+}
+
+.cart-buttons {
+    margin-top: 20px;
+}
+
+.cart-buttons li {
+    display: inline-block;
+    width: 49%;
+}
+
+.cart-buttons li a {
+    display: block;
+}
+
+.cart-summary {
+    margin-top: 10px;
+    font-weight: 500;
+    color: #000;
+    font-size: 14px;
+}
+
+.cart-summary .total-price {
+    float: right;
+}
+
+.media-body{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

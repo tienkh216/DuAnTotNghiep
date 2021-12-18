@@ -2,18 +2,6 @@
 
 /******************************
 
- [Table of Contents]
-
- 1. Vars and Inits
- 2. Set Header
- 3. Init Menu
- 4. Init Favorite
- 5. Init Fix Product Border
- 6. Init Isotope Filtering
- 7. Init Price Slider
- 8. Init Checkboxes
-
-
 
  ******************************/
 setTimeout(()=>{                           // <<<---using ()=> syntax
@@ -57,6 +45,7 @@ setTimeout(()=>{                           // <<<---using ()=> syntax
 		initSearchProduct()
 		initPriceSlider();
 		initCheckboxes();
+		initSearch();
 
 		/*
 
@@ -441,7 +430,7 @@ setTimeout(()=>{                           // <<<---using ()=> syntax
 							var priceRange = $('#amount').val();
 							var priceMin = parseFloat(priceRange.split('-')[0].replace('VNĐ', ''));
 							var priceMax = parseFloat(priceRange.split('-')[1].replace('VNĐ', ''));
-							var itemPrice = $(this).find('.product_price').clone().children().remove().end().text().replace( 'VNĐ', '' );
+							var itemPrice = $(this).find('.product').clone().children().remove().end().text().replace( 'VNĐ', '' );
 
 							return (itemPrice > priceMin) && (itemPrice < priceMax);
 						},
@@ -536,7 +525,43 @@ setTimeout(()=>{                           // <<<---using ()=> syntax
 
 
 
+		function initSearch()
+		{
 
+// quick search regex
+			var qsRegex;
+
+// init Isotope
+			var $grid = $('.product-grid').isotope({
+				itemSelector: '.product-item',
+				layoutMode: 'fitRows',
+				filter: function() {
+					return qsRegex ? $(this).text().match( qsRegex ) : true;
+				}
+			});
+
+// use value of search field to filter
+			var $quicksearch = $('.searchProduct').keyup( debounce( function() {
+				qsRegex = new RegExp( $quicksearch.val(), 'gi' );
+				$grid.isotope();
+			}, 200 ) );
+
+// debounce so filtering doesn't happen every millisecond
+			function debounce( fn, threshold ) {
+				var timeout;
+				threshold = threshold || 100;
+				return function debounced() {
+					clearTimeout( timeout );
+					var args = arguments;
+					var _this = this;
+					function delayed() {
+						fn.apply( _this, args );
+					}
+					timeout = setTimeout( delayed, threshold );
+				};
+			}
+
+		}
 
 
 

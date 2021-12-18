@@ -61,8 +61,8 @@
           <div class="free_delivery d-flex flex-row align-items-center justify-content-center">
             <span class="ti-truck"></span><span>free delivery</span>
           </div>
-          <div class="original_price" th:text="*{price}"></div>
-          <div class="product_price" th:text="*{price}"></div>
+          <div class="original_price" th:text="*{#numbers.formatCurrency(price)}"></div>
+          <div class="product_price" th:text="*{#numbers.formatCurrency(price)}"></div>
           <ul class="star_rating">
             <li><i class="fa fa-star" aria-hidden="true"></i></li>
             <li><i class="fa fa-star" aria-hidden="true"></i></li>
@@ -71,12 +71,7 @@
             <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
           </ul>
           <div class="product_color">
-            <span>Select Color:</span>
-            <ul>
-              <li style="background: #e54e5d"></li>
-              <li style="background: #252525"></li>
-              <li style="background: #60b3f3"></li>
-            </ul>
+            <div class="red_button" style="width: 200px" th:attr="ng-click=@{|cart.add(${id})|}"><a>add to cart</a></div>
           </div>
           <div class="quantity d-flex flex-column flex-sm-row align-items-sm-center">
             <span>Quantity:</span>
@@ -85,7 +80,7 @@
               <span id="quantity_value">1</span>
               <span class="plus"><i class="fa fa-plus" aria-hidden="true"></i></span>
             </div>
-            <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+
             <div class="product_favorite d-flex flex-column align-items-center justify-content-center"></div>
           </div>
         </div>
