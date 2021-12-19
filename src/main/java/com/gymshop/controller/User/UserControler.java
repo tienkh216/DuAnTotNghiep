@@ -124,12 +124,13 @@ public class UserControler {
 			model.addAttribute("accounts", accService.findById(username));
 			return "client/site/change";
 		}
-
+		
+		
 		@PostMapping("/account/changes")
 		public String changePass(Model model, Account acc) {
 			accService.save(acc);
 			model.addAttribute("message", "Đổi mật khẩu thành công!");
-			return "redirect:/account/change";
+			return "redirect:/client/home";
 		}
 
 }
