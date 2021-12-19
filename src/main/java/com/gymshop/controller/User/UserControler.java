@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.gymshop.dao.AccountDAO;
 import com.gymshop.entities.Account;
 import com.gymshop.entities.Category;
 import com.gymshop.entities.Product;
@@ -33,7 +34,8 @@ public class UserControler {
 	accountService accService;
 	@Autowired
 	MailerService mailer;
-	
+	@Autowired
+	AccountDAO dao;
 	  @GetMapping("/login/form") 
 	  public String index(Model model) {
 	  model.addAttribute("message","Vui long dang nhap"); 
@@ -64,17 +66,26 @@ public class UserControler {
 			return "redirect:/client/home";
 		}
 
-	  @RequestMapping("/sercurity/signup")
+	  @GetMapping("/sercurity/signup")
 		public  String signUp(Model model) {	
 			model.addAttribute("user",new Account());
 			return "client/signup";
 		}
+	  
 	  @PostMapping("/sercurity/process_signup") 
-		public String pro_signUp(Account acc) {	  	
+		public String pro_signUp(Account acc,Model model) {
+		  if(dao.countByEmail(acc.getEmail())>=1)
+				model.addAttribute("message", "Email đã có người đăng ký");
+		  else if (dao.existsById(acc.getUsername())) {
+				model.addAttribute("message", "Tài khoản đã có người đăng ký");
+				}
 			accService.save(acc);
-			return "redirect:/client/home";
+			model.addAttribute("message", "Đăng ký thành công.");
+
+			return "client/signup";
 			
 		}
+	  
 	  @GetMapping("/account/forgot")
 		public String forgot() {
 			return "/client/site/forgot";
