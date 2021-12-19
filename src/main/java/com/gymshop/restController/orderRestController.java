@@ -31,8 +31,8 @@ public class orderRestController {
 	
 	@GetMapping("getYear")
 	public List<Integer> getYear(){
-//		return orderService.getYearOrder();
-		return null;
+		return orderService.getYearOrder();
+
 	}
 	
 	@GetMapping("status")
