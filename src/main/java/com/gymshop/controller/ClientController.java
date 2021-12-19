@@ -1,5 +1,6 @@
 package com.gymshop.controller;
 
+import java.io.File;
 import java.util.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -19,9 +20,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.gymshop.entities.Product;
 import com.gymshop.service.productService;
+import com.gymshop.service.uploadService;
 
 @Controller
 public class ClientController {
@@ -31,7 +34,8 @@ public class ClientController {
     categoryService categoryService;
     @Autowired
     accountService accountService;
-
+    @Autowired
+	uploadService upload;
     @RequestMapping(value = {"/", "/client/home"}, method = RequestMethod.GET)
     public String homePage(Model model) {
         List<Product> list = productService.findTopNewProduct();
@@ -95,10 +99,15 @@ public class ClientController {
     }
     
     @PostMapping("/client/editProfile") 
-	public String pro_signUp(Account acc) {	  	
+	public String edit(Account acc,@RequestParam("photo_file") MultipartFile photo) {	  	
+    	File file = upload.save(photo, "/static/client/images/");
+		if (file != null) {
+			acc.setImage(file.getName());
+			}
 		accountService.save(acc);
 		return "redirect:/client/home";
 		
-	}
+	
+		}
 
 }
