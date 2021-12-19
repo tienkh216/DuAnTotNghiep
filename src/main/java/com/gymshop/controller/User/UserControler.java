@@ -66,7 +66,7 @@ public class UserControler {
 			return "redirect:/client/home";
 		}
 
-	  @RequestMapping("/sercurity/signup")
+	  @GetMapping("/sercurity/signup")
 		public  String signUp(Model model) {	
 			model.addAttribute("user",new Account());
 			return "client/signup";
@@ -80,9 +80,9 @@ public class UserControler {
 				model.addAttribute("message", "Tài khoản đã có người đăng ký");
 				}
 			accService.save(acc);
-			model.addAttribute("message", "Đăng ký thành công. Vui lòng kích hoạt qua email!");
+			model.addAttribute("message", "Đăng ký thành công.");
 
-			return "redirect:/client/home";
+			return "client/signup";
 			
 		}
 	  

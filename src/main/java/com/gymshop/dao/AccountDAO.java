@@ -14,6 +14,7 @@ public interface AccountDAO extends JpaRepository<Account, String> {
 			+ "and (au.RoleId like 'DIRE' or au.RoleId like 'STAF')\r\n"
 			+ "" , nativeQuery =true)
 	List<Account> getAdministrators();
-	@Query("SELECT count (c) FROM Accounts c WHERE c.email=?1")
+	
+	@Query("SELECT count (c) FROM Account c WHERE c.email=?1")
 	long countByEmail(String email);
 }
