@@ -1739,3 +1739,9 @@ section
 .showmore{
 	justify-content: space-evenly;
 }
+
+.product{
+	font-size: 16px;
+	color: #fe4c50;
+	font-weight: 600;
+}

@@ -10,9 +10,13 @@
   <link rel="stylesheet" type="text/css" th:href="@{../client/styles/categories_styles.css}">
   <link rel="stylesheet" type="text/css" th:href="@{../client/styles/categories_responsive.css}">
 
+  <style>
+    .visible_item{
+      display:none;
+    }
+  </style>
 
-
-  <div class="container product_section_container" ng-controller="productCtrl">
+  <div class="container product_section_container">
     <div class="row">
       <div class="col product_section clearfix">
 
@@ -21,7 +25,7 @@
         <div class="breadcrumbs d-flex flex-row align-items-center">
           <ul>
             <li><a href="index.html">Home</a></li>
-            <li class="active"><a href="index.html"><i class="fa fa-angle-right" aria-hidden="true"></i>product</a></li>
+            <li class="active"><a href="index.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Men's</a></li>
           </ul>
         </div>
 
@@ -34,8 +38,8 @@
             </div>
             <ul class="sidebar_categories">
 
-              <li  class="grid_sorting_button active" data-filter="*"> <a href="#" class="sort_category"  > <span><i class="fa fa-angle-double-right" aria-hidden="true"></i></span> All </a></li>
-              <li th:each="c:${categories}" class="grid_sorting_button " th:data-filter="@{'.'+${c.id}}"   ><a href="#"><span><i class="fa fa-angle-double-right dis" disable aria-hidden="true"></i></span>[[${c.name}]]</a></li>
+              <li class="grid_sorting_button active" data-filter="*"> <a href="#" class="sort_category"> <span><i class="fa fa-angle-double-right" aria-hidden="true"></i></span> All </a></li>
+              <li th:each="c:${categories}" class="grid_sorting_button " th:data-filter="@{'.'+${c.id}}"><a href="#"><span><i class="fa fa-angle-double-right dis" aria-hidden="true"></i></span>[[${c.name}]]</a></li>
 
             </ul>
           </div>
@@ -46,7 +50,7 @@
               <h5>Filter by Price</h5>
             </div>
             <p>
-              <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+              <input type="text" id="amount" readonly="" style="border:0; color:#f6931f; font-weight:bold;">
             </p>
             <div id="slider-range"></div>
             <div class="filter_button"><span>filter</span></div>
@@ -81,128 +85,146 @@
                         <li class="type_sorting_btn" data-isotope-option='{ "sortBy": "name" }'><span>Product Name</span></li>
                       </ul>
                     </li>
-
+                    <li>
+                      <span>Show</span>
+                      <span class="num_sorting_text">12</span>
+                      <i class="fa fa-angle-down"></i>
+                      <ul class="sorting_num">
+                        <li class="num_sorting_btn"><span>6</span></li>
+                        <li class="num_sorting_btn"><span>12</span></li>
+                        <li class="num_sorting_btn"><span>24</span></li>
+                      </ul>
+                    </li>
                   </ul>
-                  
-
                   <div class="pages d-flex flex-row align-items-center">
-                    <div class="page_current">
-                          <input type="text" name="search" id="search" class="searchProduct"  placeholder="Tìm Kiếm"  />
+                    <div class="input-group col-md-4">
+                      <input class="form-control py-2" id="search" type="search" value="Tìm kiếm" style="width: 200px;
+}" >
+
                     </div>
-
-
                   </div>
 
                 </div>
 
                 <!-- Product Grid -->
 
-                <div class="product-grid">
+                <div class="product-grid" id="grid">
 
-                  <!-- Product -->
+                  <!-- Product 1 -->
 
-                  <div  ng-repeat="item in items" class="product-item {{item.categoryId.id}}"  >
-                    <a th:href="@{|/client/productDetail/{{item.id}}|}">
+                  <div th:each="p:${items}" class="product-item"  th:classappend="${p.categoryId.id}">
                     <div class="product discount product_filter">
-                      <div class="product_image">
-                        <img ng-src="{{'/assets/images/'+ item.image}}" alt="">
+                      <div class="product_image">   <a th:href="@{|/client/productDetail/${p.id}|}">
+                        <img th:src="@{|/client/images/${p.image}|}" alt=""> </a>
                       </div>
                       <div class="favorite favorite_left"></div>
+                      <!--                <div class="product_bubble product_bubble_left d-flex flex-column align-items-center product_bubble_green" th:switch="${p.productStatus.id}">-->
+                      <!--                  <span th:case="1" >so 1</span>-->
+                      <!--                  <span  th:case="2">so 2</span>-->
+                      <!--                  <span  th:case="3">so 3</span>-->
 
+                      <!--                </div>-->
                       <div class="product_info">
-                        <h6 class="product_name"><a >{{item.name}}</a></h6>
-                        <div class="product_price" >{{item.price| currency:"":0 }} VNĐ</div>
-                        <div class="price" style="opacity: 0%" > {{item.price}}  VNĐ</div>
+
+
+                        <h6 class="product_name"><a th:href="@{|/client/productDetail/${p.id}|}" th:utext=" ${p.name}"></a></h6>
+
+
+                        <div class="product_price">{{[[${p.price}]] | currency:"":0 }} VNĐ</div>
+                        <div class="price" style="opacity: 0%"> [[${p.price}]] VNĐ</div>
                       </div>
                     </div>
-                    <div class="red_button add_to_cart_button"><a  ng-click="cart.add(item.id)">add to cart</a></div>
-                    </a>
+                    <div class="red_button add_to_cart_button"><a th:attr="ng-click=@{|cart.add(${p.id})|}">Thêm vào giỏ hàng</a></div>
                   </div>
+
+                  <!-- Product Sorting -->
 
 
 
                 </div>
+                <div class="product_sorting_container product_sorting_container_bottom clearfix text-center">
+                  <button class="buton-gradyan btn btn-hover" id="showMore" style="justify-content: space-evenly !important; color: black;     margin-left: auto;
+    margin-right: auto;">Show more <i class="fa fa-caret-down" aria-hidden="true"></i></button>
 
 
-
-
+                </div>
               </div>
             </div>
-            <div class="showmore row align-items-center"><button id="load-more">show more</button></div>
-
           </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- Benefit -->
+    <!-- Benefit -->
 
-  <div class="benefit">
-    <div class="container">
-      <div class="row benefit_row">
-        <div class="col-lg-3 benefit_col">
-          <div class="benefit_item d-flex flex-row align-items-center">
-            <div class="benefit_icon"><i class="fa fa-truck" aria-hidden="true"></i></div>
-            <div class="benefit_content">
-              <h6>free shipping</h6>
-              <p>Suffered Alteration in Some Form</p>
+    <div class="benefit">
+      <div class="container">
+        <div class="row benefit_row">
+          <div class="col-lg-3 benefit_col">
+            <div class="benefit_item d-flex flex-row align-items-center">
+              <div class="benefit_icon"><i class="fa fa-truck" aria-hidden="true"></i></div>
+              <div class="benefit_content">
+                <h6>free shipping</h6>
+                <p>Suffered Alteration in Some Form</p>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col-lg-3 benefit_col">
-          <div class="benefit_item d-flex flex-row align-items-center">
-            <div class="benefit_icon"><i class="fa fa-money" aria-hidden="true"></i></div>
-            <div class="benefit_content">
-              <h6>cach on delivery</h6>
-              <p>The Internet Tend To Repeat</p>
+          <div class="col-lg-3 benefit_col">
+            <div class="benefit_item d-flex flex-row align-items-center">
+              <div class="benefit_icon"><i class="fa fa-money" aria-hidden="true"></i></div>
+              <div class="benefit_content">
+                <h6>cach on delivery</h6>
+                <p>The Internet Tend To Repeat</p>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col-lg-3 benefit_col">
-          <div class="benefit_item d-flex flex-row align-items-center">
-            <div class="benefit_icon"><i class="fa fa-undo" aria-hidden="true"></i></div>
-            <div class="benefit_content">
-              <h6>45 days return</h6>
-              <p>Making it Look Like Readable</p>
+          <div class="col-lg-3 benefit_col">
+            <div class="benefit_item d-flex flex-row align-items-center">
+              <div class="benefit_icon"><i class="fa fa-undo" aria-hidden="true"></i></div>
+              <div class="benefit_content">
+                <h6>45 days return</h6>
+                <p>Making it Look Like Readable</p>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col-lg-3 benefit_col">
-          <div class="benefit_item d-flex flex-row align-items-center">
-            <div class="benefit_icon"><i class="fa fa-clock-o" aria-hidden="true"></i></div>
-            <div class="benefit_content">
-              <h6>opening all week</h6>
-              <p>8AM - 09PM</p>
+          <div class="col-lg-3 benefit_col">
+            <div class="benefit_item d-flex flex-row align-items-center">
+              <div class="benefit_icon"><i class="fa fa-clock-o" aria-hidden="true"></i></div>
+              <div class="benefit_content">
+                <h6>opening all week</h6>
+                <p>8AM - 09PM</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- Newsletter -->
+    <!-- Newsletter -->
 
-  <div class="newsletter">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6">
-          <div class="newsletter_text d-flex flex-column justify-content-center align-items-lg-start align-items-md-center text-center">
-            <h4>Newsletter</h4>
-            <p>Subscribe to our newsletter and get 20% off your first purchase</p>
+    <div class="newsletter">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="newsletter_text d-flex flex-column justify-content-center align-items-lg-start align-items-md-center text-center">
+              <h4>Newsletter</h4>
+              <p>Subscribe to our newsletter and get 20% off your first purchase</p>
+            </div>
           </div>
-        </div>
-        <div class="col-lg-6">
-          <div class="newsletter_form d-flex flex-md-row flex-column flex-xs-column align-items-center justify-content-lg-end justify-content-center">
-            <input id="newsletter_email" type="email" placeholder="Your email" required="required" data-error="Valid email is required.">
-            <button id="newsletter_submit" type="submit" class="newsletter_submit_btn trans_300" value="Submit">subscribe</button>
+          <div class="col-lg-6">
+            <div class="newsletter_form d-flex flex-md-row flex-column flex-xs-column align-items-center justify-content-lg-end justify-content-center">
+              <input id="newsletter_email" type="email" placeholder="Your email" required="required" data-error="Valid email is required.">
+              <button id="newsletter_submit" type="submit" class="newsletter_submit_btn trans_300" value="Submit">subscribe</button>
+            </div>
           </div>
         </div>
       </div>
     </div>
+
+    <!-- Footer -->
+
+
   </div>
-
-
 
 </div>
 <script type="text/javascript">
