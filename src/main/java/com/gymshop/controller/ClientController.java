@@ -99,11 +99,7 @@ public class ClientController {
     }
     
     @PostMapping("/client/editProfile") 
-	public String edit(Account acc,@RequestParam("photo_file") MultipartFile photo) {	  	
-    	File file = upload.save(photo, "/static/client/images/");
-		if (file != null) {
-			acc.setImage(file.getName());
-			}
+	public String edit(Account acc,Model model) {	  	
 		accountService.save(acc);
 		return "redirect:/client/home";
 		
