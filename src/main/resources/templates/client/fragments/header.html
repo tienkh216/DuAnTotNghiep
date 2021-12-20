@@ -108,6 +108,10 @@
                                                                                        aria-hidden="true"></i>Thông tin
                                                 cá nhân</a>
                                             </li>
+                                             <li><a th:href="@{/account/change}"><i class="fa fa-user"
+                                                                                       aria-hidden="true"></i> Đổi mật khẩu
+                                                </a>
+                                            </li>
                                             <li class="nav-item"
                                                 th:if="${#request.isUserInRole('DIRE') or #request.isUserInRole('STAF')}">
                                                 <a class="nav-link" th:href="@{/admin/home}">Adminstration</a>

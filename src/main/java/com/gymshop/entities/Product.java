@@ -35,8 +35,6 @@ public class Product implements Serializable{
 	String name;
 	@Column(name = "image")
 	String image;
-	@Column(name = "count")
-	Integer count;
 	@Column(name = "special")
 	Boolean special;
 	@Column(name = "price")

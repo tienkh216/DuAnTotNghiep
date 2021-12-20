@@ -43,8 +43,10 @@
                               <thead>
                               <tr style="background: #fe4c50; color: #ffffff;">
                                   <th style="font-weight: 200;" scope="col">STT</th>
+                                  <th style="font-weight: 200;" scope="col">Người nhận</th>
                                   <th style="font-weight: 200;" scope="col">Ngày Đặt</th>
                                   <th style="font-weight: 200;" scope="col">Địa Chỉ Giao Hàng</th>
+                                  <th style="font-weight: 200;" scope="col">Số điện thoại</th>
                                   <th style="font-weight: 200;" scope="col">Tình Trạng Đơn Hàng</th>
                                   <th style="font-weight: 200;" scope="col">Notes</th>
                                   <th style="font-weight: 200;" scope="col"></th>
@@ -53,8 +55,10 @@
                               <tbody>
                               <tr th:each = "order,state:${orders}">
                                   <th scope="row">[[${state.index+1}]]</th>
+                                  <td>[[${order.name}]]</td>
                                   <td>[[${order.createDate}]]</td>
                                   <td>[[${order.address}]]</td>
+                                  <td>[[${order.phone}]]</td>
                                   <td>[[${order.orderStatus.description}]]</td>
                                   <td>[[${order.notes}]]</td>
                                   <td><a style="color:  #fe4c50;" th:href="@{|/client/order/orderDetail/${order.id}|}"><i class="fa fa-info" aria-hidden="true"></i></a></td>

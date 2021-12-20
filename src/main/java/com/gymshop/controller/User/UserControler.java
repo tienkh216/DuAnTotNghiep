@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.gymshop.dao.AccountDAO;
 import com.gymshop.entities.Account;
 import com.gymshop.entities.Category;
 import com.gymshop.entities.Product;
@@ -33,48 +34,58 @@ public class UserControler {
 	accountService accService;
 	@Autowired
 	MailerService mailer;
-	
+	@Autowired
+	AccountDAO dao;
 	  @GetMapping("/login/form") 
 	  public String index(Model model) {
-	  model.addAttribute("message","Vui long dang nhap"); 
+	  model.addAttribute("message","Vui lòng đăng nhập");
 	  return "client/Login"; 
 	  }
 	  
 	  @RequestMapping("/login/success") 
 	  public String loginSuccess(Model model) {
-	  model.addAttribute("message","Dang Nhap Thanh Cong");
+	  model.addAttribute("message","Đăng nhập thành công");
 	  return "redirect:/client/home";
 	   }
 	  
 	  @RequestMapping("/login/error")
 		public String loginFalure(Model model) {
-			model.addAttribute("message","Dang Nhap Khong Thanh Cong");
+			model.addAttribute("message","Đăng nhập không thành công");
 			return("client/Login");
 		}
 	 
 	  @RequestMapping("/login/unauthoried") 
 	  public String unauthoried(Model
-				  model) { model.addAttribute("message","Khong co quyen truy xuat");
+				  model) { model.addAttribute("message","Không có quyền truy xuất");
 				  return("client/Login"); 
 	 }
 	
 	  @RequestMapping("/login/logoff/sucess")
 		public String logoffsuccess(Model model) {
-			model.addAttribute("message","Dang Xuat Thanh Cong");
+			model.addAttribute("message","Đăng xuất thành công");
 			return "redirect:/client/home";
 		}
 
-	  @RequestMapping("/sercurity/signup")
+	  @GetMapping("/sercurity/signup")
 		public  String signUp(Model model) {	
 			model.addAttribute("user",new Account());
 			return "client/NewSignup";
 		}
+	  
 	  @PostMapping("/sercurity/process_signup") 
-		public String pro_signUp(Account acc) {	  	
+		public String pro_signUp(Account acc,Model model) {
+		  if(dao.countByEmail(acc.getEmail())>=1)
+				model.addAttribute("message", "Email đã có người đăng ký");
+		  else if (dao.existsById(acc.getUsername())) {
+				model.addAttribute("message", "Tài khoản đã có người đăng ký");
+				}
 			accService.save(acc);
-			return "redirect:/client/home";
+			model.addAttribute("message", "Đăng ký thành công.");
+
+			return "client/signup";
 			
 		}
+	  
 	  @GetMapping("/account/forgot")
 		public String forgot() {
 			return "/client/site/forgot";
@@ -113,12 +124,13 @@ public class UserControler {
 			model.addAttribute("accounts", accService.findById(username));
 			return "client/site/change";
 		}
-
+		
+		
 		@PostMapping("/account/changes")
 		public String changePass(Model model, Account acc) {
 			accService.save(acc);
 			model.addAttribute("message", "Đổi mật khẩu thành công!");
-			return "redirect:/account/change";
+			return "redirect:/client/home";
 		}
 
 }

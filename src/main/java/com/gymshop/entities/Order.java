@@ -59,6 +59,9 @@ public class Order implements Serializable {
 
 	@Column(name="phone")
 	String phone;
+
+	@Column(name="name")
+	String name;
 	
 	@JsonIgnore
 	@OneToMany(mappedBy = "order")

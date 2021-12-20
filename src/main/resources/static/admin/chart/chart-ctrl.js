@@ -108,7 +108,7 @@ app.controller("chart-ctrl", function($scope, $http, $rootScope) {
         console.log(erro);
         if(erro.status = 403 || erro.status == 401){
             swal("Erro", "Không Có Quyền", "error");
-            $scope.close();
+
           }
     });
     }
