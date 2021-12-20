@@ -5,7 +5,7 @@
 	
 	function validatePassword(){
 	  if(password.value != confirmPassword.value) {
-	    confirmPassword.setCustomValidity("Passwords Don't Match");
+	    confirmPassword.setCustomValidity("Passwords không trùng nhau");
 	  } else {
 	    confirmPassword.setCustomValidity('');
 	  }
