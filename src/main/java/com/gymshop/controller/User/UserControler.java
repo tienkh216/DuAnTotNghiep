@@ -38,31 +38,31 @@ public class UserControler {
 	AccountDAO dao;
 	  @GetMapping("/login/form") 
 	  public String index(Model model) {
-	  model.addAttribute("message","Vui long dang nhap"); 
+	  model.addAttribute("message","Vui lòng đăng nhập");
 	  return "client/Login"; 
 	  }
 	  
 	  @RequestMapping("/login/success") 
 	  public String loginSuccess(Model model) {
-	  model.addAttribute("message","Dang Nhap Thanh Cong");
+	  model.addAttribute("message","Đăng nhập thành công");
 	  return "redirect:/client/home";
 	   }
 	  
 	  @RequestMapping("/login/error")
 		public String loginFalure(Model model) {
-			model.addAttribute("message","Dang Nhap Khong Thanh Cong");
+			model.addAttribute("message","Đăng nhập không thành công");
 			return("client/Login");
 		}
 	 
 	  @RequestMapping("/login/unauthoried") 
 	  public String unauthoried(Model
-				  model) { model.addAttribute("message","Khong co quyen truy xuat");
+				  model) { model.addAttribute("message","Không có quyền truy xuất");
 				  return("client/Login"); 
 	 }
 	
 	  @RequestMapping("/login/logoff/sucess")
 		public String logoffsuccess(Model model) {
-			model.addAttribute("message","Dang Xuat Thanh Cong");
+			model.addAttribute("message","Đăng xuất thành công");
 			return "redirect:/client/home";
 		}
 

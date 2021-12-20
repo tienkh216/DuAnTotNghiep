@@ -72,7 +72,7 @@
   </style>
 
   <div class="container bootstrap snippets bootdey" style="margin-top: 200px; margin-bottom: 300px;">
-    <h1 class="text-dark"> <span class="text-danger">Quên</span>  Mật khẩu</h1>
+    <h3 class="text-dark"> <span class="text-danger">Quên</span>  mật khẩu</h3>
     <hr>
     <div class="row">
       <!-- left column -->
@@ -89,12 +89,12 @@
           <i class="fa fa-coffee"></i>
           This is an <strong>.alert</strong>. Use this to show important messages to the user.
         </div> -->
-        <h3 class="text-primary">Mật khẩu</h3>
+
 
        <form action="/account/forgot" method="post">
 			<div class="auth-form__container">
 				<div class="auth-form__header">
-					<h3 class="auth-form__heading">Quên mật khẩu</h3>
+					<h3 class="auth-form__heading">Xin hãy nhập </h3>
 				</div>
 				<div class="auth-form__status">
 					<em class="pull-right"> <span
@@ -104,11 +104,13 @@
 				</div>
 				<div class="auth-form__form">
 					<div class="auth-form__group">
+						<label>Username: </label>
 						<input name="username"
 							class="auth-form__input" placeholder="tên đăng nhập">
 					</div>
 
 					<div class="auth-form__group">
+						<label>Email: </label>
 						<input placeholder="Email"
 							name="email" class="auth-form__input" type="email" required>
 					</div>

@@ -27,7 +27,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
 	BCryptPasswordEncoder pe;
 	
-	// cung cấp nguồn dữ liệu
+	// quản lý nguồn dữ liệu người dùng
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.userDetailsService(username ->{
@@ -43,12 +43,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			}
 		});
 	}
+	//phân quyền sử dụng
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.csrf().disable();
+		//csrf=cross-site Resoucre Forgery ngăn chặn các request giả lập
+		//cors=cross-site Resoucre Sharing ngăn chặn các request giả lập
+		http.csrf().disable().cors().disable();
 		http.authorizeRequests()
 			.antMatchers("/client/checkout/**").authenticated()
 			.antMatchers("/client/order/**").authenticated()
+			.antMatchers("/client/editProfile").authenticated()
 			.antMatchers("/admin/**").hasAnyRole("STAF","DIRE")
 			.antMatchers("/rest/authorities").hasRole("DIRE")
 			.antMatchers("/rest/products").hasAnyRole("STAF","DIRE")
@@ -73,6 +77,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.failureUrl("/login/error");
 		
 		http.rememberMe()
+			.rememberMeParameter("remember")
 			.tokenValiditySeconds(86400);
 	
 		http.exceptionHandling()
@@ -91,6 +96,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.baseUri("/oauth2/authorization");
 		
 	}
+	// Mã hóa mật khẩu
 	@Bean
 	public BCryptPasswordEncoder getPasswordEncoder() {
 		return new BCryptPasswordEncoder();
