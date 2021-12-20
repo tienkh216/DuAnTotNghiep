@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="https://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <link rel="stylesheet" th:href="@{/client/styles/bootstrap4/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/client/styles/login.css}">
+
+</head>
+
+<body>
+
+    <div class="login-wrap">
+        <div class="login-html" >
+            <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Đăng Kí</label>
+           <input  id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2"  class="tab">Đăng Nhập</label>
+            <div class="login-form" > 
+            <form th:action="@{/sercurity/process_signup}" method="POST" th:object="${user}">
+                <div class="sign-in-htm">
+                    <div class="group">
+                        <label for="user" class="label">Username</label>
+                        <input name="username" id="username" type="text" class="input" required>
+                    </div>
+                    <div class="group">
+                        <label for="name" class="label">Họ và tên</label>
+                        <input name="fullname" id="fullname" type="text" class="input"required>
+                    </div>
+                    <div class="group">
+                        <label for="pass" class="label">Mật khẩu</label>
+                        <input id="pass" type="password" class="input" name="password" data-type="password" required>
+                    </div>
+                    <div class="group">
+                        <label for="pass" class="label">Xác nhận mật khẩu</label>
+                        <input id="cpass" type="password" class="input"  data-type="password" required>
+                    </div>
+                    <div class="group">
+                        <label for="pass" class="label">Địa chỉ mail</label>
+                        <input id="pass" type="email" class="input" name ="email" >
+                    </div>
+                    <i th:text ="${message}"></i>
+                    <div class="group"  style="display: flex;
+    justify-content: space-between;">
+                        <button class="btn btn-default">Đăng ký</button>
+                    <a><button class="btn btn-default">Đăng nhập</button></a>
+                    </div>
+                    <div class="hr"></div>
+                    <div class="foot-lnk">
+                        <label for="tab-1">Already Member?</a>
+                    </div>
+                </div>
+                </form>
+                <form id="contactForm" data-sb-form-api-token="API_TOKEN" th:action = "@{/login}" method="post">
+                    <div class="sign-up-htm">
+                        <div class="group">
+                            <label for="user" class="label">Username</label>
+                            <input name="username" id="username" type="text" class="input" required>
+                        </div>
+                        <div class="group">
+                            <label for="pass" class="label">Password</label>
+                            <input name="password" id="password" type="password" class="input" required>
+                        </div>
+                        <div class="group">
+                            <input id="check" name = "remember" type="checkbox" class="check" checked>
+                            <label for="check"><span class="icon"></span> Keep me Signed in</label>
+                        </div>
+                        <div class="group">
+                            <input type="submit" class="button" value="Sign in">
+                        </div>
+                        <i th:text ="${message}"></i>
+                        <div class="row">
+                            <a href="/oauth2/authorization/facebook" class="social-button" id="facebook-connect"> <span>Connect with Facebook</span></a>
+                            <a href="/oauth2/authorization/google"  class="social-button" id="google-connect"> <span>Connect with Google</span></a>
+
+
+                        </div>
+                        <div class="hr"></div>
+                        <div class="foot-lnk">
+                            <a th:href="@{/account/forgot}">Forgot Password?</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+</body>
+<script th:src="@{/client/styles/bootstrap4/popper.js}"></script>
+<script th:src="@{/client/styles/bootstrap4/bootstrap.min.js}"></script>
+
+
+
+
+</html>

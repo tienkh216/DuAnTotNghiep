@@ -67,7 +67,7 @@ public class UserControler {
 	  @RequestMapping("/sercurity/signup")
 		public  String signUp(Model model) {	
 			model.addAttribute("user",new Account());
-			return "client/signup";
+			return "client/NewSignup";
 		}
 	  @PostMapping("/sercurity/process_signup") 
 		public String pro_signUp(Account acc) {	  	
